@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path=""/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="/home/ricardo/Escritorio/fop-0.94/build/fop.jar"/>
+	<classpathentry kind="lib" path="/home/ricardo/Escritorio/fop-0.94/lib/xalan-2.7.0.jar"/>
+	<classpathentry kind="lib" path="/home/ricardo/Escritorio/fop-0.94/lib/avalon-framework-4.2.0.jar"/>
+	<classpathentry kind="lib" path="/home/ricardo/Escritorio/fop-0.94/lib/batik-all-1.6.jar"/>
+	<classpathentry kind="lib" path="/home/ricardo/Escritorio/fop-0.94/lib/commons-io-1.3.1.jar"/>
+	<classpathentry kind="lib" path="/home/ricardo/Escritorio/fop-0.94/lib/commons-logging-1.0.4.jar"/>
+	<classpathentry kind="lib" path="/home/ricardo/Escritorio/fop-0.94/lib/serializer-2.7.0.jar"/>
+	<classpathentry kind="lib" path="/home/ricardo/Escritorio/fop-0.94/lib/xercesImpl-2.7.1.jar"/>
+	<classpathentry kind="lib" path="/home/ricardo/Escritorio/fop-0.94/lib/xml-apis-1.3.02.jar"/>
+	<classpathentry kind="lib" path="/home/ricardo/Escritorio/fop-0.94/lib/xmlgraphics-commons-1.2.jar"/>
+	<classpathentry kind="output" path=""/>
+</classpath>
