@@ -1,0 +1,115 @@
+<fo:root xmlns:fo="http://www.w3.org/1999/XSL/Format">
+    <fo:layout-master-set>
+        <fo:simple-page-master master-name="simple" page-height="29.7cm" page-width="21cm"
+            margin-top="1cm" margin-bottom="2cm" margin-left="2.5cm" margin-right="2.5cm">
+            <fo:region-body margin-top="3cm"/>
+            <fo:region-before extent="3cm"/>
+            <fo:region-after extent="1.5cm"/>
+        </fo:simple-page-master>
+    </fo:layout-master-set>
+    <fo:page-sequence master-reference="simple">
+        <fo:flow flow-name="xsl-region-body">
+            <fo:block font-size="18pt" font-family="sans-serif" line-height="24pt"
+                space-after.optimum="15pt" text-align="center" padding-top="3pt">FACTURA TAXI
+                Mariano</fo:block>
+            <fo:block font-size="12pt" font-family="sans-serif" line-height="15pt"
+                space-after.optimum="3pt" text-align="justify"> FECHA: 30/04/2008<fo:block/> FACTURA
+                Nº: 557</fo:block>
+            <fo:block font-size="12pt" font-family="sans-serif" line-height="15pt"
+                space-after.optimum="3pt" text-align="justify"><fo:inline font-weight="bold"
+                    >Licencia Municipal 1279</fo:inline><fo:block/>Manuel Prieto Gallego<fo:block/>
+                C/ Sector Triángulo Nº 12 8º A<fo:block/> Dos Hermanas, 41089<fo:block/> Teléfono:
+                954120606<fo:block/> Móvil: 617637215<fo:block/> NIF: 75392444P<fo:block/> CCC:
+                0182-5819-51-0206905579 </fo:block>
+            <fo:block font-size="12pt" font-family="sans-serif" line-height="15pt"
+                space-after.optimum="3pt" text-align="justify"><fo:inline font-weight="bold"
+                    >FACTURAR A:</fo:inline><fo:block/> Nombre: Nombre de la compañia<fo:block/>
+                Dirección: Dirección de la compañía<fo:block/> Ciudad: ciudad<fo:block/> Código
+                Posta: 41089<fo:block/> Teléfono: 954120606<fo:block/>CIF/NIF: cif<fo:block/>
+            </fo:block>
+            <fo:table table-layout="fixed" width="100%">
+                <fo:table-header background-color="rgb(180,180,180)" border="1pt solid black">
+                    <fo:table-row display-align="center" background-color="rgb(180,180,180)">
+                        <fo:table-cell display-align="center" number-columns-spanned="3"
+                            border="1pt solid black" background-color="rgb(180,180,180)">
+                            <fo:block display-align="center" background-color="rgb(180,180,180)"
+                                >Descripción</fo:block>
+                        </fo:table-cell>
+                        <fo:table-cell display-align="center" border="1pt solid black"
+                            background-color="rgb(180,180,180)">
+                            <fo:block display-align="center">KM</fo:block>
+                        </fo:table-cell>
+                        <fo:table-cell display-align="center" border="1pt solid black"
+                            background-color="rgb(180,180,180)">
+                            <fo:block display-align="center">€/KM</fo:block>
+                        </fo:table-cell>
+                        <fo:table-cell display-align="center" border="1pt solid black"
+                            background-color="rgb(180,180,180)">
+                            <fo:block display-align="center">Hoas de espera</fo:block>
+                        </fo:table-cell>
+                        <fo:table-cell display-align="center" border="1pt solid black"
+                            background-color="rgb(180,180,180)">
+                            <fo:block display-align="center">Cantidad</fo:block>
+                        </fo:table-cell>
+                    </fo:table-row>
+                </fo:table-header>
+                <fo:table-body>
+                    <!--  filas añadidas automáticamente -->
+                    <fo:table-row border="1pt solid black">
+                        <fo:table-cell number-columns-spanned="3" border="1pt solid black">
+                            <fo:block>Mi descripciónMi descripciónMi descripciónMi descripciónMi
+                                descripciónMi descripciónMi descripciónMi descripciónMi
+                                descripciónMi descripción</fo:block>
+                        </fo:table-cell>
+                        <fo:table-cell border="1pt solid black">
+                            <fo:block>8</fo:block>
+                        </fo:table-cell>
+                        <fo:table-cell border="1pt solid black">
+                            <fo:block>8.2</fo:block>
+                        </fo:table-cell>
+                        <fo:table-cell border="1pt solid black">
+                            <fo:block>3</fo:block>
+                        </fo:table-cell>
+                        <fo:table-cell border="1pt solid black">
+                            <fo:block>85.40</fo:block>
+                        </fo:table-cell>
+                    </fo:table-row>
+                    <!-- filas referentes a los totales -->
+                    <fo:table-row>
+                        <fo:table-cell number-columns-spanned="4">
+                            <fo:block/>
+                        </fo:table-cell>
+                        <fo:table-cell number-columns-spanned="2" border="1pt solid black">
+                            <fo:block>SUBTOTAL</fo:block>
+                        </fo:table-cell>
+                        <fo:table-cell border="1pt solid black">
+                            <fo:block>85.40</fo:block>
+                        </fo:table-cell>
+                    </fo:table-row>
+                    <fo:table-row>
+                        <fo:table-cell number-columns-spanned="4">
+                            <fo:block/>
+                        </fo:table-cell>
+                        <fo:table-cell number-columns-spanned="2" border="1pt solid black">
+                            <fo:block>IVA</fo:block>
+                        </fo:table-cell>
+                        <fo:table-cell border="1pt solid black">
+                            <fo:block>85.40</fo:block>
+                        </fo:table-cell>
+                    </fo:table-row>
+                    <fo:table-row>
+                        <fo:table-cell number-columns-spanned="4">
+                            <fo:block/>
+                        </fo:table-cell>
+                        <fo:table-cell number-columns-spanned="2" border="1pt solid black">
+                            <fo:block>TOTAL</fo:block>
+                        </fo:table-cell>
+                        <fo:table-cell border="1pt solid black">
+                            <fo:block>85.40</fo:block>
+                        </fo:table-cell>
+                    </fo:table-row>
+                </fo:table-body>
+            </fo:table>
+        </fo:flow>
+    </fo:page-sequence>
+</fo:root>

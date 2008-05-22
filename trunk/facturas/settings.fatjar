@@ -1,0 +1,14 @@
+#Fat Jar Configuration File
+#Mon May 05 19:35:11 GMT+01:00 2008
+onejar.license.required=false
+manifest.classpath=
+manifest.removesigners=true
+onejar.checkbox=false
+jarname=facturas.jar
+manifest.mergeall=true
+manifest.mainclass=facturas.Principal
+manifest.file=<createnew>
+jarname.isextern=false
+onejar.expand=
+excludes=
+includes=
