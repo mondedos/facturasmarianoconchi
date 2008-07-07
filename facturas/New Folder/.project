@@ -22,8 +22,8 @@
 		</buildCommand>
 	</buildSpec>
 	<natures>
-		<nature>org.devzuz.q.maven.jdt.core.mavenNature</nature>
 		<nature>org.maven.ide.eclipse.maven2Nature</nature>
+		<nature>org.devzuz.q.maven.jdt.core.mavenNature</nature>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
 </projectDescription>

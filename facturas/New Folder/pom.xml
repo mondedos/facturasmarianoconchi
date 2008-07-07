@@ -3,7 +3,7 @@
   <groupId>facturas</groupId>
   <artifactId>facturas</artifactId>
   <packaging>war</packaging>
-  <name>facturas Tapestry 5 Application</name>
+  <name>facturas</name>
   <version>1.0-SNAPSHOT</version>
   <build>
     <finalName>facturas</finalName>
@@ -14,22 +14,6 @@
           <source>1.5</source>
           <target>1.5</target>
           <optimize>true</optimize>
-        </configuration>
-      </plugin>
-      <plugin>
-        <groupId>org.mortbay.jetty</groupId>
-        <artifactId>maven-jetty-plugin</artifactId>
-        <version>6.1.9</version>
-        <configuration>
-          <requestLog implementation="org.mortbay.jetty.NCSARequestLog">
-            <append>true</append>
-          </requestLog>
-        </configuration>
-      </plugin>
-      <plugin>
-        <artifactId>maven-war-plugin</artifactId>
-        <configuration>
-          <archiveClasses>true</archiveClasses>
         </configuration>
       </plugin>
     </plugins>
