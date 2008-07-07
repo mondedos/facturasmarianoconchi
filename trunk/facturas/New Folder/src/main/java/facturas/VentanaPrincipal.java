@@ -38,7 +38,7 @@ public class VentanaPrincipal extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 
-	private Object[] columnNames = { "DescripciÃ³n", "KM", "â‚¬/KM",
+	private Object[] columnNames = { "Descripción", "KM", "€/KM",
 			"Horas de espera", "Cantidad" };
 
 	private BorderLayout layoutMain = new BorderLayout();
@@ -176,7 +176,7 @@ public class VentanaPrincipal extends JFrame {
 			}
 		});
 		telefonojTextField.setBounds(new Rectangle(60, 110, 110, 20));
-		jLabel8.setText("TelÃ©fono");
+		jLabel8.setText("Teléfono");
 		jLabel8.setBounds(new Rectangle(5, 110, 60, 15));
 		ciudadjTextField.setBounds(new Rectangle(55, 75, 110, 20));
 		jLabel6.setText("Ciudad");
@@ -184,17 +184,17 @@ public class VentanaPrincipal extends JFrame {
 		jLabel7.setText("CP:");
 		jLabel7.setBounds(new Rectangle(170, 75, 38, 14));
 		codigoPostaljTextField.setBounds(new Rectangle(195, 75, 85, 20));
-		jLabel1.setText("Nombre CompaÃ±ia:");
+		jLabel1.setText("Nombre Compaña:");
 		jLabel1.setBounds(new Rectangle(10, 10, 165, 10));
 		nombreCompanyiajTextField1.setSize(new Dimension(7, 200));
 		nombreCompanyiajTextField1.setBounds(new Rectangle(175, 5, 200, 20));
-		jLabel2.setText("DirecciÃ³n:");
+		jLabel2.setText("Dirección:");
 		jLabel2.setBounds(new Rectangle(10, 30, 155, 15));
 		direccionCompnanyia.setBounds(new Rectangle(175, 30, 350, 40));
-		jLabel3.setText("NÂº Factura");
+		jLabel3.setText("Nº Factura");
 		jLabel3.setBounds(new Rectangle(385, 5, 85, 20));
 		numeroFacturajTextField1.setBounds(new Rectangle(460, 5, 65, 20));
-		jLabel4.setText("Fecha de FacturaciÃ³n:");
+		jLabel4.setText("Fecha de Facturación:");
 		jLabel4.setBounds(new Rectangle(285, 75, 165, 15));
 		fechajTextField.setBounds(new Rectangle(430, 75, 95, 20));
 		jLabel5.setText("CIF/NIF");
