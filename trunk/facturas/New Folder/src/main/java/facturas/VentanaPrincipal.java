@@ -184,7 +184,7 @@ public class VentanaPrincipal extends JFrame {
 		jLabel7.setText("CP:");
 		jLabel7.setBounds(new Rectangle(170, 75, 38, 14));
 		codigoPostaljTextField.setBounds(new Rectangle(195, 75, 85, 20));
-		jLabel1.setText("Nombre Compaña:");
+		jLabel1.setText("Nombre Compañía:");
 		jLabel1.setBounds(new Rectangle(10, 10, 165, 10));
 		nombreCompanyiajTextField1.setSize(new Dimension(7, 200));
 		nombreCompanyiajTextField1.setBounds(new Rectangle(175, 5, 200, 20));
