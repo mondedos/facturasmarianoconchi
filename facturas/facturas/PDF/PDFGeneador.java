@@ -14,7 +14,7 @@ import facturas.bizzRule.ILineaFactura;
 
 public class PDFGeneador {
 
-	private static String ccc = "0182-5819-51-0206905579", lm = "1279",
+	private static String ccc = "0182-2391-32-0206905577", lm = "1279",
 			dni = "28685953P";
 
 	private IFactura _factura;
