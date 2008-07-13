@@ -191,7 +191,7 @@ public class PDFGeneador {
 		sf
 				.append("<fo:block font-size=\"12pt\" font-family=\"sans-serif\" line-height=\"15pt\" space-after.optimum=\"3pt\" text-align=\"justify\"> FECHA: "
 						+ _factura.getFecha() + "<fo:block/> FACTURA ");
-		sf.append("NÂº: ");
+		sf.append("Nº: ");
 		sf.append(_factura.getNumeroFactura());
 		sf.append("</fo:block> ");
 		sf
@@ -200,17 +200,17 @@ public class PDFGeneador {
 		sf.append(lm);
 		sf.append("</fo:inline><fo:block/>Manuel Prieto Gallego<fo:block/> ");
 		sf
-				.append("C/ Sector TriÃ¡ngulo NÂº 12 8Âº A<fo:block/> Dos Hermanas, 41089<fo:block/> TelÃ©fono: 954120606<fo:block/> MÃ³vil: 617637215<fo:block/> NIF: 75392444P<fo:block/> CCC: ");
+				.append("C/ Sector Triángulo Nº 12 8º A<fo:block/> Dos Hermanas, 41089<fo:block/> Teléfono: 954120606<fo:block/> Móvil: 617637215<fo:block/> NIF: 75392444P<fo:block/> CCC: ");
 		sf
 				.append(ccc
 						+ "</fo:block><fo:block font-size=\"12pt\" font-family=\"sans-serif\" line-height=\"15pt\" ");
 		sf
 				.append("space-after.optimum=\"3pt\" text-align=\"justify\"><fo:inline font-weight=\"bold\" >FACTURAR A:</fo:inline><fo:block/> Nombre: "
 						+ _factura.getNombreCompanyia() + "<fo:block/> ");
-		sf.append("DirecciÃ³n: " + _factura.getDireccion());
+		sf.append("Dirección: " + _factura.getDireccion());
 		sf.append("<fo:block/> Ciudad: " + _factura.getCiudad()
-				+ "<fo:block/> CÃ³digo Postal: " + _factura.getCodigoPostal()
-				+ "<fo:block/> TelÃ©fono: " + _factura.getTelefono()
+				+ "<fo:block/> Código Postal: " + _factura.getCodigoPostal()
+				+ "<fo:block/> Teléfono: " + _factura.getTelefono()
 				+ "<fo:block/>CIF/NIF: " + _factura.getCif() + "<fo:block/> ");
 		sf.append(" </fo:block> ");
 		sf.append("<fo:table table-layout=\"fixed\" width=\"100%\"> ");
@@ -224,7 +224,7 @@ public class PDFGeneador {
 				.append("            border=\"1pt solid black\" background-color=\"rgb(180,180,180)\"> ");
 		sf
 				.append("            <fo:block display-align=\"center\" background-color=\"rgb(180,180,180)\" ");
-		sf.append("                >DescripciÃ³n</fo:block> ");
+		sf.append("                >Descripción</fo:block> ");
 		sf.append("        </fo:table-cell> ");
 		sf
 				.append("        <fo:table-cell display-align=\"center\" border=\"1pt solid black\" ");
@@ -236,7 +236,7 @@ public class PDFGeneador {
 				.append("   <fo:table-cell display-align=\"center\" border=\"1pt solid black\" ");
 		sf.append("            background-color=\"rgb(180,180,180)\"> ");
 		sf
-				.append("            <fo:block display-align=\"center\">â‚¬/KM</fo:block> ");
+				.append("            <fo:block display-align=\"center\">€/KM</fo:block> ");
 		sf.append("        </fo:table-cell> ");
 		sf
 				.append("        <fo:table-cell display-align=\"center\" border=\"1pt solid black\" ");
@@ -258,29 +258,29 @@ public class PDFGeneador {
 		sf
 				.append("<fo:block/></fo:table-cell><fo:table-cell number-columns-spanned=\"2\" border=\"1pt solid black\"> ");
 		sf
-				.append("<fo:block>SUBTOTAL</fo:block></fo:table-cell><fo:table-cell border=\"1pt solid black\"> ");
+				.append("<fo:block>SUBTOTAL</fo:block></fo:table-cell><fo:table-cell border=\"1pt solid black\">");
 		sf.append("<fo:block>");
 		sf.append(floattoString(_factura.CalcularIVA()));
-		sf.append("â‚¬</fo:block> ");
+		sf.append("€</fo:block> ");
 		sf
 				.append("</fo:table-cell> </fo:table-row><fo:table-row><fo:table-cell number-columns-spanned=\"4\"> ");
 		sf
 				.append("<fo:block/> </fo:table-cell><fo:table-cell number-columns-spanned=\"2\" border=\"1pt solid black\"> ");
 		sf
 				.append("<fo:block>IVA</fo:block></fo:table-cell><fo:table-cell border=\"1pt solid black\"> ");
-		sf.append("            <fo:block>");
+		sf.append("<fo:block>");
 		sf.append(floattoString(_factura.CalcularPagoIVA()));
-		sf.append("â‚¬</fo:block> ");
+		sf.append("€</fo:block>");
 		sf
-				.append("</fo:table-cell></fo:table-row><fo:table-row><fo:table-cell number-columns-spanned=\"4\"><fo:block/> ");
+				.append("</fo:table-cell></fo:table-row><fo:table-row><fo:table-cell number-columns-spanned=\"4\"><fo:block/>");
 		sf
-				.append("</fo:table-cell><fo:table-cell number-columns-spanned=\"2\" border=\"1pt solid black\"> ");
-		sf.append("<fo:block>TOTAL</fo:block></fo:table-cell> ");
-		sf.append("<fo:table-cell border=\"1pt solid black\"> ");
+				.append("</fo:table-cell><fo:table-cell number-columns-spanned=\"2\" border=\"1pt solid black\">");
+		sf.append("<fo:block>TOTAL</fo:block></fo:table-cell>");
+		sf.append("<fo:table-cell border=\"1pt solid black\">");
 		sf.append("<fo:block>");
 		sf.append(floattoString(_factura.CalcularTotal()));
 		sf
-				.append("â‚¬</fo:block></fo:table-cell></fo:table-row></fo:table-body></fo:table>");
+				.append("€</fo:block></fo:table-cell></fo:table-row></fo:table-body></fo:table>");
 
 		sf.append("</fo:flow>");
 
@@ -303,13 +303,13 @@ public class PDFGeneador {
 			sf.append("</fo:block></fo:table-cell> ");
 			sf.append("<fo:table-cell border=\"1pt solid black\"><fo:block> ");
 			sf.append(floattoString(linea.getPrecioKilometro()));
-			sf.append("â‚¬</fo:block></fo:table-cell> ");
+			sf.append("€</fo:block></fo:table-cell> ");
 			sf.append("<fo:table-cell border=\"1pt solid black\"><fo:block>");
 			sf.append(linea.getHorasEspera());
 			sf.append("</fo:block></fo:table-cell>");
 			sf.append("<fo:table-cell border=\"1pt solid black\"><fo:block>");
 			sf.append(floattoString(linea.getTotal()));
-			sf.append("â‚¬</fo:block></fo:table-cell> ");
+			sf.append("€</fo:block></fo:table-cell> ");
 			sf.append("</fo:table-row> ");
 
 		}
