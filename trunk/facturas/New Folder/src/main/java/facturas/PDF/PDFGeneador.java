@@ -12,8 +12,10 @@ import org.apache.commons.io.IOUtils;
 import org.apache.fop.apps.FOUserAgent;
 import org.apache.fop.apps.MimeConstants;
 
+import facturas.VentanaPrincipal;
 import facturas.bizzRule.IFactura;
 import facturas.bizzRule.ILineaFactura;
+import facturas.swing.estilos.Util;
 
 public class PDFGeneador {
 
@@ -103,11 +105,9 @@ public class PDFGeneador {
 				} else {
 					options.getInputHandler().transformTo(out);
 				}
-			}
-			catch (FileNotFoundException e) {
+			} catch (FileNotFoundException e) {
 				JOptionPane.showMessageDialog(null, e.getMessage());
-			}
-			finally {
+			} finally {
 				IOUtils.closeQuietly(out);
 			}
 
@@ -221,10 +221,16 @@ public class PDFGeneador {
 				.append("space-after.optimum=\"3pt\" text-align=\"justify\"><fo:inline font-weight=\"bold\" >FACTURAR A:</fo:inline><fo:block/> Nombre: "
 						+ _factura.getNombreCompanyia() + "<fo:block/> ");
 		sf.append("Dirección: " + _factura.getDireccion());
-		sf.append("<fo:block/> Ciudad: " + _factura.getCiudad()
-				+ "<fo:block/> Código Postal: " + _factura.getCodigoPostal()
-				+ "<fo:block/> Teléfono: " + _factura.getTelefono()
-				+ "<fo:block/>CIF/NIF: " + _factura.getCif() + "<fo:block/> ");
+		sf.append("<fo:block/> Ciudad: "
+				+ _factura.getCiudad()
+				+ "<fo:block/> Código Postal: "
+				+ _factura.getCodigoPostal()
+				+ "<fo:block/> Teléfono: "
+				+ (_factura.getTelefono().equals(Util.PadLeft('_',
+						VentanaPrincipal.DIGITOS_TELEFONO)) ? Util.PadLeft('*',
+						VentanaPrincipal.DIGITOS_TELEFONO) : _factura
+						.getTelefono()) + "<fo:block/>CIF/NIF: "
+				+ _factura.getCif() + "<fo:block/> ");
 		sf.append(" </fo:block> ");
 		sf.append("<fo:table table-layout=\"fixed\" width=\"100%\"> ");
 		sf
@@ -309,15 +315,15 @@ public class PDFGeneador {
 			sf
 					.append("<fo:table-cell number-columns-spanned=\"3\" border=\"1pt solid black\"> ");
 			sf.append("<fo:block>");
-			
-			String[] lineas=linea.getDescripcion().split("\n");
-			
+
+			String[] lineas = linea.getDescripcion().split("\n");
+
 			for (String string : lineas) {
 				sf.append("<fo:block>");
 				sf.append(string.trim());
 				sf.append("</fo:block>");
-			}			
-			
+			}
+
 			sf.append("</fo:block></fo:table-cell>");
 			sf.append("<fo:table-cell border=\"1pt solid black\"><fo:block>");
 			sf.append(linea.getKilometros());
