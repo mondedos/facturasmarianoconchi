@@ -1,9 +1,12 @@
 package facturas.PDF;
 
+import java.io.FileNotFoundException;
 import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+
+import javax.swing.JOptionPane;
 
 import org.apache.commons.io.IOUtils;
 import org.apache.fop.apps.FOUserAgent;
@@ -16,6 +19,8 @@ public class PDFGeneador {
 
 	private static String ccc = "0182-2391-32-0206905577", lm = "1279",
 			dni = "28685953P";
+
+	private static String formatoFicheroSalida = "c:\\factura-%d.pdf";
 
 	private IFactura _factura;
 
@@ -36,8 +41,10 @@ public class PDFGeneador {
 
 	public void init() {
 		if (_factura != null) {
-			String[] args = { "aaaa.fo",
-					"factura-" + _factura.getNumeroFactura() + ".pdf" };
+			String[] args = {
+					"aaaa.fo",
+					String.format(formatoFicheroSalida, _factura
+							.getNumeroFactura()) };
 
 			startFOP(args);
 		}
@@ -63,7 +70,7 @@ public class PDFGeneador {
 
 	/**
 	 * Executes FOP with the given ClassLoader setup.
-	 *
+	 * 
 	 * @param args
 	 *            command-line arguments
 	 */
@@ -96,7 +103,11 @@ public class PDFGeneador {
 				} else {
 					options.getInputHandler().transformTo(out);
 				}
-			} finally {
+			}
+			catch (FileNotFoundException e) {
+				JOptionPane.showMessageDialog(null, e.getMessage());
+			}
+			finally {
 				IOUtils.closeQuietly(out);
 			}
 
@@ -127,10 +138,12 @@ public class PDFGeneador {
 				.append("<fo:root xmlns:fo=\"http://www.w3.org/1999/XSL/Format\"><fo:layout-master-set><fo:simple-page-master master-name=\"simple\" page-height=\"29.7cm\" page-width=\"21cm\"");
 		sf
 				.append(" margin-top=\"1cm\" margin-bottom=\"2cm\" margin-left=\"2.5cm\" margin-right=\"2.5cm\"><fo:region-body region-name=\"cuerpo\" margin-top=\"3cm\"/><fo:region-before extent=\"3cm\"/>");
-		sf.append("<fo:region-after region-name=\"Footer\" extent=\"0.7in\" padding=\"0\" precedence=\"true\" /></fo:simple-page-master>");
+		sf
+				.append("<fo:region-after region-name=\"Footer\" extent=\"0.7in\" padding=\"0\" precedence=\"true\" /></fo:simple-page-master>");
 		sf
 				.append("</fo:layout-master-set><fo:page-sequence master-reference=\"simple\">");
-		sf.append("<fo:static-content flow-name=\"Footer\"><fo:block-container position=\"absolute\" top=\"10pt\" left=\"30pt\" height=\"14pt\" width=\"100%\" ><fo:block text-align=\"right\" font=\"8pt Arial\">");
+		sf
+				.append("<fo:static-content flow-name=\"Footer\"><fo:block-container position=\"absolute\" top=\"10pt\" left=\"30pt\" height=\"14pt\" width=\"100%\" ><fo:block text-align=\"right\" font=\"8pt Arial\">");
 		sf.append(firmar());
 		sf.append("</fo:block></fo:block-container></fo:static-content>");
 		sf.append("<fo:flow flow-name=\"cuerpo\">");
@@ -138,47 +151,47 @@ public class PDFGeneador {
 		sf
 				.append("<fo:block-container position=\"absolute\" top=\"10pt\" left=\"30pt\" height=\"14pt\" width=\"100%\" >");
 		sf
-		.append("<fo:block font=\"72pt Arial\" color=\"rgb(240,240,240)\">L.M.");
+				.append("<fo:block font=\"72pt Arial\" color=\"rgb(240,240,240)\">L.M.");
 		sf.append(lm);
 		sf.append("</fo:block>");
 		sf
-		.append("<fo:block font=\"72pt Arial\" color=\"rgb(240,240,240)\">L.M.");
+				.append("<fo:block font=\"72pt Arial\" color=\"rgb(240,240,240)\">L.M.");
 		sf.append(lm);
 		sf.append("</fo:block>");
 		sf
-		.append("<fo:block font=\"72pt Arial\" color=\"rgb(240,240,240)\">L.M.");
+				.append("<fo:block font=\"72pt Arial\" color=\"rgb(240,240,240)\">L.M.");
 		sf.append(lm);
 		sf.append("</fo:block>");
 		sf
-		.append("<fo:block font=\"72pt Arial\" color=\"rgb(240,240,240)\">L.M.");
+				.append("<fo:block font=\"72pt Arial\" color=\"rgb(240,240,240)\">L.M.");
 		sf.append(lm);
 		sf.append("</fo:block>");
 		sf
-		.append("<fo:block font=\"72pt Arial\" color=\"rgb(240,240,240)\">L.M.");
+				.append("<fo:block font=\"72pt Arial\" color=\"rgb(240,240,240)\">L.M.");
 		sf.append(lm);
 		sf.append("</fo:block>");
 		sf
-		.append("<fo:block font=\"72pt Arial\" color=\"rgb(240,240,240)\">L.M.");
+				.append("<fo:block font=\"72pt Arial\" color=\"rgb(240,240,240)\">L.M.");
 		sf.append(lm);
 		sf.append("</fo:block>");
 		sf
-		.append("<fo:block font=\"72pt Arial\" color=\"rgb(240,240,240)\">L.M.");
+				.append("<fo:block font=\"72pt Arial\" color=\"rgb(240,240,240)\">L.M.");
 		sf.append(lm);
 		sf.append("</fo:block>");
 		sf
-		.append("<fo:block font=\"72pt Arial\" color=\"rgb(240,240,240)\">L.M.");
+				.append("<fo:block font=\"72pt Arial\" color=\"rgb(240,240,240)\">L.M.");
 		sf.append(lm);
 		sf.append("</fo:block>");
 		sf
-		.append("<fo:block font=\"72pt Arial\" color=\"rgb(240,240,240)\">L.M.");
+				.append("<fo:block font=\"72pt Arial\" color=\"rgb(240,240,240)\">L.M.");
 		sf.append(lm);
 		sf.append("</fo:block>");
 		sf
-		.append("<fo:block font=\"72pt Arial\" color=\"rgb(240,240,240)\">L.M.");
+				.append("<fo:block font=\"72pt Arial\" color=\"rgb(240,240,240)\">L.M.");
 		sf.append(lm);
 		sf.append("</fo:block>");
 		sf
-		.append("<fo:block font=\"72pt Arial\" color=\"rgb(240,240,240)\">L.M.");
+				.append("<fo:block font=\"72pt Arial\" color=\"rgb(240,240,240)\">L.M.");
 		sf.append(lm);
 		sf.append("</fo:block>");
 
@@ -296,7 +309,15 @@ public class PDFGeneador {
 			sf
 					.append("<fo:table-cell number-columns-spanned=\"3\" border=\"1pt solid black\"> ");
 			sf.append("<fo:block>");
-			sf.append(linea.getDescripcion());
+			
+			String[] lineas=linea.getDescripcion().split("\n");
+			
+			for (String string : lineas) {
+				sf.append("<fo:block>");
+				sf.append(string.trim());
+				sf.append("</fo:block>");
+			}			
+			
 			sf.append("</fo:block></fo:table-cell>");
 			sf.append("<fo:table-cell border=\"1pt solid black\"><fo:block>");
 			sf.append(linea.getKilometros());

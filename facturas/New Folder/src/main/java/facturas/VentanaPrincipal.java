@@ -9,6 +9,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+
+import javax.swing.CellEditor;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -31,6 +33,7 @@ import facturas.PDF.PDFGeneador;
 import facturas.bizzRule.FacturaHelperFactory;
 import facturas.bizzRule.IFactura;
 import facturas.bizzRule.ILineaFactura;
+import facturas.swing.estilos.JTexAreaEditor;
 
 public class VentanaPrincipal extends JFrame {
 
@@ -129,6 +132,7 @@ public class VentanaPrincipal extends JFrame {
 	}
 
 	private void jbInit() throws Exception {
+		telefonojTextField.setText("*********");
 
 		this.setJMenuBar(menuBar);
 		this.getContentPane().setLayout(layoutMain);
@@ -176,6 +180,7 @@ public class VentanaPrincipal extends JFrame {
 			}
 		});
 		telefonojTextField.setBounds(new Rectangle(60, 110, 110, 20));
+		// telefonojTextField.setDocument( new VentanaPrincipal(13));
 		jLabel8.setText("Tel�fono");
 		jLabel8.setBounds(new Rectangle(5, 110, 60, 15));
 		ciudadjTextField.setBounds(new Rectangle(55, 75, 110, 20));
@@ -252,13 +257,17 @@ public class VentanaPrincipal extends JFrame {
 
 	/**
 	 * Ajusta los campos de la tabla a la medida del formato pdf
-	 *
+	 * 
 	 * @param table
 	 */
 	void ajustarCamposTable(JTable table) {
+		table.setRowHeight(50);
 		TableColumn column = null;
 		column = table.getColumnModel().getColumn(0);
+		// column.setCellRenderer(new CustomRenderer());
+		column.setCellEditor(new JTexAreaEditor());
 		column.setPreferredWidth(350);
+
 		for (int i = 1; i < 5; i++) {
 			column = table.getColumnModel().getColumn(i);
 			column.setPreferredWidth(50);
@@ -284,7 +293,6 @@ public class VentanaPrincipal extends JFrame {
 	}
 
 	private void imprimirjButton_mouseClicked(MouseEvent e) {
-		// TODO Auto-generated method stub
 		IFactura factura = FacturaHelperFactory.createFactura();
 
 		boolean exito = rellenarFactura(factura);
@@ -330,13 +338,13 @@ public class VentanaPrincipal extends JFrame {
 		} else
 			exito = false;
 		if (exito) {
-			rellenarLíneas(factura);
+			rellenarLineas(factura);
 		}
 
 		return exito;
 	}
 
-	private void rellenarLíneas(IFactura factura) {
+	private void rellenarLineas(IFactura factura) {
 		TableModel modelo = jTable1.getModel();
 		int numFilas = modelo.getRowCount();
 
@@ -348,7 +356,10 @@ public class VentanaPrincipal extends JFrame {
 			String horas = (String) modelo.getValueAt(i, 3);
 			String total = (String) modelo.getValueAt(i, 4);
 
-			linea.setDescripcion(modelo.getValueAt(i, 0).toString());
+			// obtenemos el valor del textArea
+			CellEditor edit = jTable1.getCellEditor(i, 0);
+
+			linea.setDescripcion(edit.getCellEditorValue().toString());
 			linea.setKilometros(toCeroF(km));
 			linea.setPrecioKilometro(toCeroF(precioKm));
 			linea.setHorasEspera(toCero(horas));
@@ -360,6 +371,12 @@ public class VentanaPrincipal extends JFrame {
 
 	}
 
+	/***
+	 * Parsea una cadena en un float que representa kilometros
+	 * 
+	 * @param km
+	 * @return kilometros
+	 */
 	private float toCeroF(String km) {
 		float f;
 		try {
@@ -370,6 +387,12 @@ public class VentanaPrincipal extends JFrame {
 		return f;
 	}
 
+	/***
+	 * Parsea una cadena en un entero que representa kilometros
+	 * 
+	 * @param km
+	 * @return kilometros
+	 */
 	private int toCero(String km) {
 		int f;
 		try {
