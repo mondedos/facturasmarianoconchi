@@ -31,7 +31,6 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 import javax.swing.table.TableModel;
 import javax.swing.text.MaskFormatter;
-import javax.swing.text.NumberFormatter;
 
 import facturas.PDF.PDFGeneador;
 import facturas.bizzRule.FacturaHelperFactory;
@@ -42,8 +41,8 @@ import facturas.swing.estilos.Util;
 
 public class VentanaPrincipal extends JFrame {
 
-	public static int DIGITOS_TELEFONO=13;
-	
+	public static int DIGITOS_TELEFONO = 13;
+
 	private String _valorfila = "";
 
 	private static final long serialVersionUID = 1L;
@@ -96,11 +95,13 @@ public class VentanaPrincipal extends JFrame {
 
 	private JLabel jLabel3 = new JLabel();
 
-	private JFormattedTextField numeroFacturajTextField1 = new JFormattedTextField(NumberFormat.getNumberInstance());
+	private JFormattedTextField numeroFacturajTextField1 = new JFormattedTextField(
+			NumberFormat.getNumberInstance());
 
 	private JLabel jLabel4 = new JLabel();
 
-	private JFormattedTextField fechajTextField = new JFormattedTextField(createFormatter("##/##/####"));
+	private JFormattedTextField fechajTextField = new JFormattedTextField(
+			createFormatter("##/##/####"));
 
 	private JLabel jLabel5 = new JLabel();
 
@@ -124,9 +125,11 @@ public class VentanaPrincipal extends JFrame {
 
 	private JLabel jLabel7 = new JLabel();
 
-	private JTextField codigoPostaljTextField = new JFormattedTextField(createFormatter("#####"));
+	private JTextField codigoPostaljTextField = new JFormattedTextField(
+			createFormatter("#####"));
 
-	private JTextField telefonojTextField = new JFormattedTextField(createFormatter(Util.PadLeft('#', DIGITOS_TELEFONO)));
+	private JTextField telefonojTextField = new JFormattedTextField(
+			createFormatter(Util.PadLeft('#', DIGITOS_TELEFONO)));
 
 	private JLabel jLabel8 = new JLabel();
 
@@ -137,8 +140,9 @@ public class VentanaPrincipal extends JFrame {
 			e.printStackTrace();
 		}
 	}
+
 	private void jbInit() throws Exception {
-		
+
 		this.setJMenuBar(menuBar);
 		this.getContentPane().setLayout(layoutMain);
 		panelCenter.setLayout(null);
@@ -259,23 +263,26 @@ public class VentanaPrincipal extends JFrame {
 		ajustarCamposTable(jTable1);
 
 	}
+
 	/***
 	 * Crea un formateador de mascara a partir de un string
+	 * 
 	 * @param mascara
 	 * @return MaskFormatter
 	 */
 	protected MaskFormatter createFormatter(String s) {
-	    MaskFormatter formatter = null;
-	    try {
-	        formatter = new MaskFormatter(s);
-	       
-	        formatter.setPlaceholderCharacter('_');
-	    } catch (java.text.ParseException exc) {
-	        System.err.println("formatter is bad: " + exc.getMessage());
-	        System.exit(-1);
-	    }
-	    return formatter;
+		MaskFormatter formatter = null;
+		try {
+			formatter = new MaskFormatter(s);
+
+			formatter.setPlaceholderCharacter('_');
+		} catch (java.text.ParseException exc) {
+			System.err.println("formatter is bad: " + exc.getMessage());
+			System.exit(-1);
+		}
+		return formatter;
 	}
+
 	/**
 	 * Ajusta los campos de la tabla a la medida del formato pdf
 	 * 
@@ -328,7 +335,7 @@ public class VentanaPrincipal extends JFrame {
 
 	private boolean rellenarFactura(IFactura factura) {
 		boolean exito = true;
-		
+
 		String cif, direccion, nombre, ciudad, cp, telefono, fecha;
 
 		cif = cifjTextField2.getText();
@@ -340,8 +347,7 @@ public class VentanaPrincipal extends JFrame {
 		fecha = fechajTextField.getText();
 
 		if (!cif.equals("") && !direccion.equals("") && !nombre.equals("")
-				&& !ciudad.equals("") && !cp.equals("") 
-				&& !fecha.equals("")) {
+				&& !ciudad.equals("") && !cp.equals("") && !fecha.equals("")) {
 			factura.setCif(cif);
 			factura.setDireccion(direccion);
 			factura.setNombreCompanyia(nombre);

@@ -22,7 +22,7 @@ public class PDFGeneador {
 	private static String ccc = "0182-2391-32-0206905577", lm = "1279",
 			dni = "28685953P";
 
-	private static String formatoFicheroSalida = "c:\\factura-%d.pdf";
+	private static String formatoFicheroSalida = "factura-%d.pdf";
 
 	private IFactura _factura;
 
