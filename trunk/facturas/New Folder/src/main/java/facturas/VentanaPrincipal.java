@@ -2,14 +2,27 @@ package facturas;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
+import java.awt.FileDialog;
 import java.awt.Rectangle;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.beans.XMLDecoder;
+import java.beans.XMLEncoder;
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.util.List;
+import java.util.Vector;
+
 import javax.swing.CellEditor;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JFileChooser;
 import javax.swing.JFormattedTextField;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -23,6 +36,7 @@ import javax.swing.JTable;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.JToolBar;
+import javax.swing.filechooser.FileFilter;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 import javax.swing.table.TableModel;
@@ -30,6 +44,7 @@ import javax.swing.text.JTextComponent;
 import javax.swing.text.MaskFormatter;
 
 import facturas.PDF.PDFGeneador;
+import facturas.beans.FichaCliente;
 import facturas.bizzRule.FacturaHelperFactory;
 import facturas.bizzRule.IFactura;
 import facturas.bizzRule.ILineaFactura;
@@ -38,9 +53,10 @@ import facturas.swing.estilos.Util;
 
 public class VentanaPrincipal extends JFrame {
 
-	public static int DIGITOS_TELEFONO = 13;
+	public static int DIGITOS_TELEFONO = 9;
 	private static final int SEPARACION_X = 10;
 	private static final int SEPARACION_Y = 10;
+	private static final String TIPOFICHEROEXPEDIENTE = ".xml";
 
 	private static final long serialVersionUID = 1L;
 
@@ -55,8 +71,7 @@ public class VentanaPrincipal extends JFrame {
 	private JTextField cifjTextField2 = new JFormattedTextField(
 			createFormatter("A#######A"));
 
-	private JTextField ciudadjTextField = new JFormattedTextField(
-			createFormatter(Util.PadLeft('?', 25)));
+	private JTextField ciudadjTextField = new JTextField();
 
 	private JTextField codigoPostaljTextField = new JFormattedTextField(
 			createFormatter("#####"));
@@ -121,8 +136,7 @@ public class VentanaPrincipal extends JFrame {
 
 	private JTextField nombreCompanyiajTextField1 = new JTextField();
 
-	private JFormattedTextField numeroFacturajTextField1 = new JFormattedTextField(
-			createFormatter(Util.PadLeft('#', 6)));
+	private JTextField numeroFacturajTextField1 = new JTextField();
 
 	private JPanel panelCenter = new JPanel();
 
@@ -240,10 +254,29 @@ public class VentanaPrincipal extends JFrame {
 			}
 		});
 		statusBar.setText("");
-		buttonOpen.setToolTipText("Open File");
+		buttonOpen.setToolTipText("Abrir Ficha Cliente");
 		buttonOpen.setIcon(imageOpen);
-		buttonClose.setToolTipText("Close File");
+		buttonOpen.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				abrirFicheroExpediente();
+			}
+
+		});
+
+		buttonClose.setToolTipText("Guardar Ficha Cliente");
 		buttonClose.setIcon(imageClose);
+		buttonClose.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+
+				if (validarMinimosRellenos()) {
+					preguntarGuardar();
+				}
+			}
+
+		});
+
 		buttonHelp.setToolTipText("About");
 		buttonHelp.setIcon(imageHelp);
 		jPanel1.setBounds(new Rectangle(-5, 0, 530, 165));
@@ -427,8 +460,7 @@ public class VentanaPrincipal extends JFrame {
 		telefono = telefonojTextField.getText();
 		fecha = fechajTextField.getText();
 
-		if (!cif.equals("") && !direccion.equals("") && !nombre.equals("")
-				&& !ciudad.equals("") && !cp.equals("") && !fecha.equals("")) {
+		if (validarMinimosRellenos() && !fecha.equals("")) {
 			factura.setCif(cif);
 			factura.setDireccion(direccion);
 			factura.setNombreCompanyia(nombre);
@@ -440,7 +472,10 @@ public class VentanaPrincipal extends JFrame {
 						.getText());
 				factura.setNumeroFactura(numero);
 			} catch (NumberFormatException e) {
-				factura.setNumeroFactura(0);
+				JOptionPane
+						.showMessageDialog(null,
+								"El número de factura debe ser un número entero positivo.");
+				exito = false;
 			}
 			factura.setFecha(fecha);
 		} else
@@ -450,6 +485,158 @@ public class VentanaPrincipal extends JFrame {
 		}
 
 		return exito;
+	}
+
+	/***
+	 * Valida si podemos continuar con las operaciones en función de los
+	 * parametros de entrada
+	 * 
+	 * @return
+	 */
+	private boolean validarMinimosRellenos() {
+		String cif, direccion, nombre, ciudad, cp;
+
+		cif = cifjTextField2.getText();
+		direccion = direccionCompnanyia.getText();
+		nombre = nombreCompanyiajTextField1.getText();
+		ciudad = ciudadjTextField.getText();
+		cp = codigoPostaljTextField.getText();
+		return !cif.equals("") && !direccion.equals("") && !nombre.equals("")
+				&& !ciudad.equals("") && !cp.equals("");
+	}
+
+	private void abrirFicheroExpediente() {
+		JFileChooser fc = crearDialogoFichero();
+		fc.showOpenDialog(this);
+
+		if (fc.getSelectedFile() != null) {
+
+			obtenerExpediente(fc.getSelectedFile().getAbsolutePath());
+		}
+
+	}
+
+	private void preguntarGuardar() {
+		JFileChooser fc = crearDialogoFichero();
+		fc.showSaveDialog(this);
+
+		if (fc.getSelectedFile() != null) {
+
+			String fichero = fc.getSelectedFile().getAbsolutePath();
+			if (!fichero.toLowerCase().endsWith(TIPOFICHEROEXPEDIENTE)) {
+				fichero += TIPOFICHEROEXPEDIENTE;
+			}
+
+			guardarFicha(fichero);
+		}
+	}
+
+	private JFileChooser crearDialogoFichero() {
+		JFileChooser fc = new JFileChooser() {
+			/**
+			 * 
+			 */
+			private static final long serialVersionUID = -6962615330830525359L;
+
+			@Override
+			public void approveSelection() {
+				File f = getSelectedFile();
+				if (f.exists() && getDialogType() == SAVE_DIALOG) {
+					int result = JOptionPane
+							.showConfirmDialog(
+									getTopLevelAncestor(),
+									"El archivo seleccionado ya existe. ¿Desea sobreescribirlo?",
+									"El archivo ya existe",
+									JOptionPane.YES_NO_CANCEL_OPTION,
+									JOptionPane.QUESTION_MESSAGE);
+					switch (result) {
+					case JOptionPane.YES_OPTION:
+						super.approveSelection();
+						return;
+					case JOptionPane.NO_OPTION:
+						return;
+					case JOptionPane.CANCEL_OPTION:
+						cancelSelection();
+						return;
+					}
+				}
+				super.approveSelection();
+			}
+		};
+
+		fc.setFileFilter(new FileFilter() {
+
+			@Override
+			public String getDescription() {
+				return "Ficheros de Fichas de cliente";
+			}
+
+			@Override
+			public boolean accept(File f) {
+				return f.isDirectory()
+						|| f.getName().toLowerCase().endsWith(
+								TIPOFICHEROEXPEDIENTE);
+			}
+		});
+		return fc;
+	}
+
+	private void guardarFicha(String fichero) {
+		FichaCliente ficha = new FichaCliente();
+		String cif, direccion, nombre, ciudad, cp;
+
+		cif = cifjTextField2.getText();
+		direccion = direccionCompnanyia.getText();
+		nombre = nombreCompanyiajTextField1.getText();
+		ciudad = ciudadjTextField.getText();
+		cp = codigoPostaljTextField.getText();
+
+		ficha.setCif(cif);
+		ficha.setDireccion(direccion);
+		ficha.setNombre(nombre);
+		ficha.setCiudad(ciudad);
+		ficha.setCodigoPostal(cp);
+
+		if (!telefonojTextField.getText().equals(
+				Util.PadLeft('_', DIGITOS_TELEFONO))) {
+			ficha.setTelefono(telefonojTextField.getText());
+		}
+
+		try {
+			XMLEncoder cofificador = new XMLEncoder(new BufferedOutputStream(
+					new FileOutputStream(fichero)));
+
+			cofificador.writeObject(ficha);
+			cofificador.close();
+		} catch (FileNotFoundException e) {
+			JOptionPane.showMessageDialog(null, e.getMessage());
+		}
+
+	}
+
+	private void obtenerExpediente(String fichero) {
+		try {
+			XMLDecoder dec = new XMLDecoder(new BufferedInputStream(
+					new FileInputStream(fichero)));
+
+			FichaCliente ficha = (FichaCliente) dec.readObject();
+			dec.close();
+
+			cifjTextField2.setText(ficha.getCif());
+			direccionCompnanyia.setText(ficha.getDireccion());
+			nombreCompanyiajTextField1.setText(ficha.getNombre());
+			ciudadjTextField.setText(ficha.getCiudad());
+			codigoPostaljTextField.setText(ficha.getCodigoPostal());
+
+			telefonojTextField.setText(ficha.getTelefono());
+
+		} catch (FileNotFoundException e) {
+			JOptionPane.showMessageDialog(null, e.getMessage());
+		} catch (java.util.NoSuchElementException e) {
+			JOptionPane.showMessageDialog(null, String.format(
+					"El fichero %s no es un fichero de Ficha de cliente",
+					fichero));
+		}
 	}
 
 	/***
