@@ -91,7 +91,7 @@ public class VentanaPrincipal extends JFrame {
 
 	private JLabel jLabelDireccion = new JLabel();
 
-	private JTextArea direccionCompnanyia = new JTextArea(10,10);
+	private JTextArea direccionCompnanyia = new JTextArea(10, 10);
 
 	private JLabel jLabelNumeroFactura = new JLabel();
 
@@ -121,9 +121,9 @@ public class VentanaPrincipal extends JFrame {
 
 	private JTextField ciudadjTextField = new JTextField();
 
-	private JLabel jLabel6 = new JLabel();
+	private JLabel jLabel6Ciudad = new JLabel();
 
-	private JLabel jLabel7 = new JLabel();
+	private JLabel jLabel7CP = new JLabel();
 
 	private JTextField codigoPostaljTextField = new JFormattedTextField(
 			createFormatter("#####"));
@@ -133,8 +133,10 @@ public class VentanaPrincipal extends JFrame {
 
 	private JLabel jLabel8Telefono = new JLabel();
 
-	private JScrollPane scrollPane=new JScrollPane(direccionCompnanyia, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
-	
+	private JScrollPane scrollPane = new JScrollPane(direccionCompnanyia,
+			JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,
+			JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+
 	public VentanaPrincipal() {
 		try {
 			jbInit();
@@ -191,40 +193,46 @@ public class VentanaPrincipal extends JFrame {
 			}
 		});
 		jLabelNombreCompanyia.setText("Nombre Compañía:");
-		jLabelNombreCompanyia.setBounds(new Rectangle(10, 5, 165, 10));
-		
-		nombreCompanyiajTextField1.setBounds(105, 5, 270, 20);
-		
-		
-		jLabelNumeroFactura.setText("Nº Factura:");
-		jLabelNumeroFactura.setBounds(new Rectangle(385, nombreCompanyiajTextField1.getY(), 60, 20));
+		jLabelNombreCompanyia.setBounds(new Rectangle(10, 5, 165, 20));
 
-		numeroFacturajTextField1.setBounds(new Rectangle(jLabelNumeroFactura.getX()+jLabelNumeroFactura.getWidth(), nombreCompanyiajTextField1.getY(), 65, 20));
-		
-		
-		telefonojTextField.setBounds(new Rectangle(60, 110, 110, 20));
+		nombreCompanyiajTextField1.setBounds(105, jLabelNombreCompanyia.getY(),
+				270, jLabelNombreCompanyia.getHeight());
+
+		jLabelNumeroFactura.setText("Nº Factura:");
+		jLabelNumeroFactura.setBounds(new Rectangle(nombreCompanyiajTextField1
+				.getX()
+				+ nombreCompanyiajTextField1.getWidth() + 10,
+				nombreCompanyiajTextField1.getY(), 60, jLabelNombreCompanyia
+						.getHeight()));
+
+		numeroFacturajTextField1.setBounds(new Rectangle(jLabelNumeroFactura
+				.getX()
+				+ jLabelNumeroFactura.getWidth(), nombreCompanyiajTextField1
+				.getY(), 65, jLabelNombreCompanyia.getHeight()));
+
+		telefonojTextField.setBounds(new Rectangle(60, 110, 110, jLabelNombreCompanyia.getHeight()));
 		// telefonojTextField.setDocument( new VentanaPrincipal(13));
 		jLabel8Telefono.setText("Teléfono:");
-		jLabel8Telefono.setBounds(new Rectangle(5, 110, 60, 15));
-		ciudadjTextField.setBounds(new Rectangle(55, 75, 110, 20));
-		jLabel6.setText("Ciudad:");
-		jLabel6.setBounds(new Rectangle(5, 80, 55, 15));
-		jLabel7.setText("CP:");
-		jLabel7.setBounds(new Rectangle(170, 75, 38, 14));
-		codigoPostaljTextField.setBounds(new Rectangle(195, 75, 85, 20));
+		jLabel8Telefono.setBounds(new Rectangle(jLabelNombreCompanyia.getX(), 110, 60, jLabelNombreCompanyia.getHeight()));
+		jLabel6Ciudad.setText("Ciudad:");
+		jLabel6Ciudad.setBounds(new Rectangle(jLabel8Telefono.getX(), 80, 55, jLabelNombreCompanyia.getHeight()));
+		ciudadjTextField.setBounds(new Rectangle(55, jLabel6Ciudad.getY(), 110, jLabelNombreCompanyia.getHeight()));
 
+		jLabel7CP.setText("CP:");
+		jLabel7CP.setBounds(new Rectangle(170, ciudadjTextField.getY(), 38, jLabelNombreCompanyia.getHeight()));
+		codigoPostaljTextField.setBounds(new Rectangle(195, jLabel7CP.getY(), 85, jLabelNombreCompanyia.getHeight()));
 
 		jLabelDireccion.setText("Dirección:");
-		jLabelDireccion.setBounds(new Rectangle(10, 30, 155, 15));
-		direccionCompnanyia.setBounds(new Rectangle(nombreCompanyiajTextField1.getX(), 30, 350, 40));
+		jLabelDireccion.setBounds(new Rectangle(jLabelNombreCompanyia.getX(), 30, 155, jLabelNombreCompanyia.getHeight()));
+		direccionCompnanyia.setBounds(new Rectangle(nombreCompanyiajTextField1
+				.getX(), 30, 350, 40));
 
-		
 		jLabelFecha.setText("Fecha de Facturación:");
-		jLabelFecha.setBounds(new Rectangle(285, 75, 165, 15));
-		fechajTextField.setBounds(new Rectangle(430, 75, 95, 20));
+		jLabelFecha.setBounds(new Rectangle(285, codigoPostaljTextField.getY(), 165, jLabelNombreCompanyia.getHeight()));
+		fechajTextField.setBounds(new Rectangle(430, jLabelFecha.getY(), 95, jLabelNombreCompanyia.getHeight()));
 		jLabelCIF.setText("CIF/NIF:");
-		jLabelCIF.setBounds(new Rectangle(240, 105, 65, 15));
-		cifjTextField2.setBounds(new Rectangle(310, 100, 215, 20));
+		jLabelCIF.setBounds(new Rectangle(240, jLabel8Telefono.getY(), 65, jLabelNombreCompanyia.getHeight()));
+		cifjTextField2.setBounds(new Rectangle(310, jLabelCIF.getY(), 215, jLabelNombreCompanyia.getHeight()));
 		menuFile.add(menuFileExit);
 		menuBar.add(menuFile);
 		menuHelp.add(menuHelpAbout);
@@ -236,11 +244,11 @@ public class VentanaPrincipal extends JFrame {
 		toolBar.add(jButton1, null);
 		this.getContentPane().add(toolBar, BorderLayout.NORTH);
 		this.getContentPane().add(panelCenter, BorderLayout.CENTER);
-		
+
 		jPanel1.add(jLabel8Telefono, null);
 		jPanel1.add(codigoPostaljTextField, null);
-		jPanel1.add(jLabel7, null);
-		jPanel1.add(jLabel6, null);
+		jPanel1.add(jLabel7CP, null);
+		jPanel1.add(jLabel6Ciudad, null);
 		jPanel1.add(ciudadjTextField, null);
 		jPanel1.add(jScrollPane1, null);
 		jPanel1.add(cifjTextField2, null);
@@ -249,16 +257,24 @@ public class VentanaPrincipal extends JFrame {
 		jPanel1.add(jLabelFecha, null);
 		jPanel1.add(numeroFacturajTextField1, null);
 		jPanel1.add(jLabelNumeroFactura, null);
-		jPanel1.add(jLabelNombreCompanyia,null);
-		jPanel1.add(nombreCompanyiajTextField1,null);// new GridBagConstraints(1, 0, 1,				1, 1.0, 0.0, GridBagConstraints.WEST,				GridBagConstraints.HORIZONTAL, new Insets(5, 0, 140, 0), 0, 0));
-		jPanel1.add(jLabelDireccion, new GridBagConstraints(2, 0, 1, 1, 0.0, 0.0,
-				GridBagConstraints.WEST, GridBagConstraints.NONE, new Insets(5,
-						0, 143, 0), 0, 0));
+		jPanel1.add(jLabelNombreCompanyia, null);
+		jPanel1.add(nombreCompanyiajTextField1, null);// new
+		// GridBagConstraints(1,
+		// 0, 1, 1, 1.0, 0.0,
+		// GridBagConstraints.WEST,
+		// GridBagConstraints.HORIZONTAL,
+		// new Insets(5, 0, 140,
+		// 0), 0, 0));
+		jPanel1.add(jLabelDireccion, new GridBagConstraints(2, 0, 1, 1, 0.0,
+				0.0, GridBagConstraints.WEST, GridBagConstraints.NONE,
+				new Insets(5, 0, 143, 0), 0, 0));
 
 		// jTable1
 		// _panelScroll.add(jTable1);
-		
-		//jPanel1.add(scrollPane, new GridBagConstraints(3, 0, 1, 1,				1.0, 1.0, GridBagConstraints.CENTER, GridBagConstraints.BOTH,				new Insets(5, 0, 140, 70), 0, 0));
+
+		// jPanel1.add(scrollPane, new GridBagConstraints(3, 0, 1, 1, 1.0, 1.0,
+		// GridBagConstraints.CENTER, GridBagConstraints.BOTH, new Insets(5, 0,
+		// 140, 70), 0, 0));
 		scrollPane.setBounds(nombreCompanyiajTextField1.getX(), 30, 155, 40);
 		jPanel1.add(scrollPane, null);
 		jPanel1.add(telefonojTextField, null);
