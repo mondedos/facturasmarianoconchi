@@ -2,8 +2,6 @@ package facturas;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
-import java.awt.GridBagConstraints;
-import java.awt.Insets;
 import java.awt.Rectangle;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -46,16 +44,67 @@ public class VentanaPrincipal extends JFrame {
 	private static final int SEPARACION_X = 10;
 	private static final int SEPARACION_Y = 10;
 
+	private static final long serialVersionUID = 1L;
+
 	private String _valorfila = "";
 
-	private static final long serialVersionUID = 1L;
+	private JButton buttonClose = new JButton();
+
+	private JButton buttonHelp = new JButton();
+
+	private JButton buttonOpen = new JButton();
+
+	private JTextField cifjTextField2 = new JTextField();
+
+	private JTextField ciudadjTextField = new JTextField();
+
+	private JTextField codigoPostaljTextField = new JFormattedTextField(
+			createFormatter("#####"));
 
 	private Object[] columnNames = { "Descripción", "KM", "€/KM",
 			"Horas de espera", "Cantidad" };
 
-	private BorderLayout layoutMain = new BorderLayout();
+	private JTextArea direccionCompnanyia = new JTextArea(10, 10);
 
-	private JPanel panelCenter = new JPanel();
+	private JFormattedTextField fechajTextField = new JFormattedTextField(
+			createFormatter("##/##/####"));
+
+	private ImageIcon imageClose = new ImageIcon(VentanaPrincipal.class
+			.getResource("closefile.gif"));
+
+	private ImageIcon imageHelp = new ImageIcon(VentanaPrincipal.class
+			.getResource("help.gif"));
+
+	private ImageIcon imageOpen = new ImageIcon(VentanaPrincipal.class
+			.getResource("openfile.gif"));
+
+	private JButton insertarjButton = new JButton();
+
+	private JButton jButton1 = new JButton();
+
+	private JLabel jLabel6Ciudad = new JLabel();
+
+	private JLabel jLabel7CP = new JLabel();
+
+	private JLabel jLabel8Telefono = new JLabel();
+
+	private JLabel jLabelCIF = new JLabel();
+
+	private JLabel jLabelDireccion = new JLabel();
+
+	private JLabel jLabelFecha = new JLabel();
+
+	private JLabel jLabelNombreCompanyia = new JLabel();
+
+	private JLabel jLabelNumeroFactura = new JLabel();
+
+	private JPanel jPanel1 = new JPanel();
+
+	private JScrollPane jScrollPane1 = new JScrollPane();
+
+	private JScrollPane jScrollPaneTabla = new JScrollPane();
+
+	private BorderLayout layoutMain = new BorderLayout();
 
 	private JMenuBar menuBar = new JMenuBar();
 
@@ -67,78 +116,24 @@ public class VentanaPrincipal extends JFrame {
 
 	private JMenuItem menuHelpAbout = new JMenuItem();
 
-	private JLabel statusBar = new JLabel();
-
-	private JToolBar toolBar = new JToolBar();
-
-	private JButton buttonOpen = new JButton();
-
-	private JButton buttonClose = new JButton();
-
-	private JButton buttonHelp = new JButton();
-
-	private ImageIcon imageOpen = new ImageIcon(VentanaPrincipal.class
-			.getResource("openfile.gif"));
-
-	private ImageIcon imageClose = new ImageIcon(VentanaPrincipal.class
-			.getResource("closefile.gif"));
-
-	private ImageIcon imageHelp = new ImageIcon(VentanaPrincipal.class
-			.getResource("help.gif"));
-
-	private JPanel jPanel1 = new JPanel();
-
-	private JLabel jLabelNombreCompanyia = new JLabel();
+	private DefaultTableModel modelo = new DefaultTableModel(columnNames, 0);
+	private JTable jTable1 = new JTable(modelo);
 
 	private JTextField nombreCompanyiajTextField1 = new JTextField();
-
-	private JLabel jLabelDireccion = new JLabel();
-
-	private JTextArea direccionCompnanyia = new JTextArea(10, 10);
-
-	private JLabel jLabelNumeroFactura = new JLabel();
 
 	private JFormattedTextField numeroFacturajTextField1 = new JFormattedTextField(
 			NumberFormat.getNumberInstance());
 
-	private JLabel jLabelFecha = new JLabel();
+	private JPanel panelCenter = new JPanel();
 
-	private JFormattedTextField fechajTextField = new JFormattedTextField(
-			createFormatter("##/##/####"));
+	private JScrollPane scrollPane = new JScrollPane(direccionCompnanyia);
 
-	private JLabel jLabelCIF = new JLabel();
-
-	private JTextField cifjTextField2 = new JTextField();
-
-	private DefaultTableModel modelo = new DefaultTableModel(columnNames, 0);
-
-	private JTable jTable1 = new JTable(modelo);
-
-	private JScrollPane jScrollPane1 = new JScrollPane();
-
-	private JScrollPane jScrollPaneTabla = new JScrollPane();
-
-	private JButton jButton1 = new JButton();
-
-	private JButton insertarjButton = new JButton();
-
-	private JTextField ciudadjTextField = new JTextField();
-
-	private JLabel jLabel6Ciudad = new JLabel();
-
-	private JLabel jLabel7CP = new JLabel();
-
-	private JTextField codigoPostaljTextField = new JFormattedTextField(
-			createFormatter("#####"));
+	private JLabel statusBar = new JLabel();
 
 	private JTextField telefonojTextField = new JFormattedTextField(
 			createFormatter(Util.PadLeft('#', DIGITOS_TELEFONO)));
 
-	private JLabel jLabel8Telefono = new JLabel();
-
-	private JScrollPane scrollPane = new JScrollPane(direccionCompnanyia,
-			JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,
-			JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+	private JToolBar toolBar = new JToolBar();
 
 	public VentanaPrincipal() {
 		try {
@@ -146,6 +141,75 @@ public class VentanaPrincipal extends JFrame {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+
+	/**
+	 * Ajusta los campos de la tabla a la medida del formato pdf
+	 * 
+	 * @param table
+	 */
+	void ajustarCamposTable(JTable table) {
+		table.setRowHeight(50);
+		TableColumn column = null;
+		column = table.getColumnModel().getColumn(0);
+		// column.setCellRenderer(new CustomRenderer());
+		column.setCellEditor(new JTexAreaEditor());
+		column.setPreferredWidth(350);
+
+		for (int i = 1; i < 5; i++) {
+			column = table.getColumnModel().getColumn(i);
+			column.setPreferredWidth(50);
+		}
+
+	}
+
+	/***
+	 * Crea un formateador de mascara a partir de un string
+	 * 
+	 * @param mascara
+	 * @return MaskFormatter
+	 */
+	protected MaskFormatter createFormatter(String s) {
+		MaskFormatter formatter = null;
+		try {
+			formatter = new MaskFormatter(s);
+
+			formatter.setPlaceholderCharacter('_');
+		} catch (java.text.ParseException exc) {
+			System.err.println("formatter is bad: " + exc.getMessage());
+			System.exit(-1);
+		}
+		return formatter;
+	}
+
+	void fileExit_ActionPerformed(ActionEvent e) {
+		System.exit(0);
+	}
+
+	void helpAbout_ActionPerformed(ActionEvent e) {
+		JOptionPane.showMessageDialog(this,
+				new VentanaPrincipal_AboutBoxPanel1(), "About",
+				JOptionPane.PLAIN_MESSAGE);
+	}
+
+	private void imprimirjButton_mouseClicked(MouseEvent e) {
+		IFactura factura = FacturaHelperFactory.createFactura();
+
+		boolean exito = rellenarFactura(factura);
+
+		PDFGeneador g = new PDFGeneador();
+
+		if (exito && g.checkDependencies()) {
+			g.set_factura(factura);
+			g.init();
+		}
+	}
+
+	private void insertarjButton_mouseClicked(MouseEvent e) {
+		Object[] row = { _valorfila, _valorfila, _valorfila, _valorfila,
+				_valorfila };
+
+		modelo.addRow(row);
 	}
 
 	private void jbInit() throws Exception {
@@ -337,74 +401,12 @@ public class VentanaPrincipal extends JFrame {
 	}
 
 	/***
-	 * Crea un formateador de mascara a partir de un string
+	 * Asigna valores a los miembros de una factura, según los datos recogidos
+	 * del formulario.
 	 * 
-	 * @param mascara
-	 * @return MaskFormatter
+	 * @param factura
+	 * @return
 	 */
-	protected MaskFormatter createFormatter(String s) {
-		MaskFormatter formatter = null;
-		try {
-			formatter = new MaskFormatter(s);
-
-			formatter.setPlaceholderCharacter('_');
-		} catch (java.text.ParseException exc) {
-			System.err.println("formatter is bad: " + exc.getMessage());
-			System.exit(-1);
-		}
-		return formatter;
-	}
-
-	/**
-	 * Ajusta los campos de la tabla a la medida del formato pdf
-	 * 
-	 * @param table
-	 */
-	void ajustarCamposTable(JTable table) {
-		table.setRowHeight(50);
-		TableColumn column = null;
-		column = table.getColumnModel().getColumn(0);
-		// column.setCellRenderer(new CustomRenderer());
-		column.setCellEditor(new JTexAreaEditor());
-		column.setPreferredWidth(350);
-
-		for (int i = 1; i < 5; i++) {
-			column = table.getColumnModel().getColumn(i);
-			column.setPreferredWidth(50);
-		}
-
-	}
-
-	void fileExit_ActionPerformed(ActionEvent e) {
-		System.exit(0);
-	}
-
-	void helpAbout_ActionPerformed(ActionEvent e) {
-		JOptionPane.showMessageDialog(this,
-				new VentanaPrincipal_AboutBoxPanel1(), "About",
-				JOptionPane.PLAIN_MESSAGE);
-	}
-
-	private void insertarjButton_mouseClicked(MouseEvent e) {
-		Object[] row = { _valorfila, _valorfila, _valorfila, _valorfila,
-				_valorfila };
-
-		modelo.addRow(row);
-	}
-
-	private void imprimirjButton_mouseClicked(MouseEvent e) {
-		IFactura factura = FacturaHelperFactory.createFactura();
-
-		boolean exito = rellenarFactura(factura);
-
-		PDFGeneador g = new PDFGeneador();
-
-		if (exito && g.checkDependencies()) {
-			g.set_factura(factura);
-			g.init();
-		}
-	}
-
 	private boolean rellenarFactura(IFactura factura) {
 		boolean exito = true;
 
@@ -443,6 +445,12 @@ public class VentanaPrincipal extends JFrame {
 		return exito;
 	}
 
+	/***
+	 * Crea una instancia de linea de factura, por cada fila que contenga la
+	 * tabla.
+	 * 
+	 * @param factura
+	 */
 	private void rellenarLineas(IFactura factura) {
 		TableModel modelo = jTable1.getModel();
 		int numFilas = modelo.getRowCount();
@@ -471,22 +479,6 @@ public class VentanaPrincipal extends JFrame {
 	}
 
 	/***
-	 * Parsea una cadena en un float que representa kilometros
-	 * 
-	 * @param km
-	 * @return kilometros
-	 */
-	private float toCeroF(String km) {
-		float f;
-		try {
-			f = Float.parseFloat(km);
-		} catch (NumberFormatException e) {
-			f = 0.0F;
-		}
-		return f;
-	}
-
-	/***
 	 * Parsea una cadena en un entero que representa kilometros
 	 * 
 	 * @param km
@@ -501,5 +493,21 @@ public class VentanaPrincipal extends JFrame {
 		}
 		return f;
 
+	}
+
+	/***
+	 * Parsea una cadena en un float que representa kilometros
+	 * 
+	 * @param km
+	 * @return kilometros
+	 */
+	private float toCeroF(String km) {
+		float f;
+		try {
+			f = Float.parseFloat(km);
+		} catch (NumberFormatException e) {
+			f = 0.0F;
+		}
+		return f;
 	}
 }
