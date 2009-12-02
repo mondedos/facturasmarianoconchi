@@ -85,25 +85,25 @@ public class VentanaPrincipal extends JFrame {
 
 	private JPanel jPanel1 = new JPanel();
 
-	private JLabel jLabel1 = new JLabel();
+	private JLabel jLabelNombreCompanyia = new JLabel();
 
 	private JTextField nombreCompanyiajTextField1 = new JTextField();
 
-	private JLabel jLabel2 = new JLabel();
+	private JLabel jLabelDireccion = new JLabel();
 
-	private JTextArea direccionCompnanyia = new JTextArea();
+	private JTextArea direccionCompnanyia = new JTextArea(10,10);
 
-	private JLabel jLabel3 = new JLabel();
+	private JLabel jLabelNumeroFactura = new JLabel();
 
 	private JFormattedTextField numeroFacturajTextField1 = new JFormattedTextField(
 			NumberFormat.getNumberInstance());
 
-	private JLabel jLabel4 = new JLabel();
+	private JLabel jLabelFecha = new JLabel();
 
 	private JFormattedTextField fechajTextField = new JFormattedTextField(
 			createFormatter("##/##/####"));
 
-	private JLabel jLabel5 = new JLabel();
+	private JLabel jLabelCIF = new JLabel();
 
 	private JTextField cifjTextField2 = new JTextField();
 
@@ -113,7 +113,7 @@ public class VentanaPrincipal extends JFrame {
 
 	private JScrollPane jScrollPane1 = new JScrollPane();
 
-	private JScrollPane jScrollPane2 = new JScrollPane();
+	private JScrollPane jScrollPaneTabla = new JScrollPane();
 
 	private JButton jButton1 = new JButton();
 
@@ -131,8 +131,10 @@ public class VentanaPrincipal extends JFrame {
 	private JTextField telefonojTextField = new JFormattedTextField(
 			createFormatter(Util.PadLeft('#', DIGITOS_TELEFONO)));
 
-	private JLabel jLabel8 = new JLabel();
+	private JLabel jLabel8Telefono = new JLabel();
 
+	private JScrollPane scrollPane=new JScrollPane(direccionCompnanyia, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+	
 	public VentanaPrincipal() {
 		try {
 			jbInit();
@@ -174,7 +176,7 @@ public class VentanaPrincipal extends JFrame {
 		jTable1.setShowGrid(true);
 		jScrollPane1.setBounds(new Rectangle(0, 135, 490, 135));
 		jScrollPane1.setBounds(new Rectangle(125, 135, 2, 2));
-		jScrollPane2.setBounds(new Rectangle(5, 140, 515, 175));
+		jScrollPaneTabla.setBounds(new Rectangle(5, 140, 515, 175));
 		jButton1.setText("Imprimir");
 		jButton1.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent e) {
@@ -188,31 +190,40 @@ public class VentanaPrincipal extends JFrame {
 				insertarjButton_mouseClicked(e);
 			}
 		});
+		jLabelNombreCompanyia.setText("Nombre Compañía:");
+		jLabelNombreCompanyia.setBounds(new Rectangle(10, 5, 165, 10));
+		
+		nombreCompanyiajTextField1.setBounds(105, 5, 270, 20);
+		
+		
+		jLabelNumeroFactura.setText("Nº Factura:");
+		jLabelNumeroFactura.setBounds(new Rectangle(385, nombreCompanyiajTextField1.getY(), 60, 20));
+
+		numeroFacturajTextField1.setBounds(new Rectangle(jLabelNumeroFactura.getX()+jLabelNumeroFactura.getWidth(), nombreCompanyiajTextField1.getY(), 65, 20));
+		
+		
 		telefonojTextField.setBounds(new Rectangle(60, 110, 110, 20));
 		// telefonojTextField.setDocument( new VentanaPrincipal(13));
-		jLabel8.setText("Teléfono");
-		jLabel8.setBounds(new Rectangle(5, 110, 60, 15));
+		jLabel8Telefono.setText("Teléfono:");
+		jLabel8Telefono.setBounds(new Rectangle(5, 110, 60, 15));
 		ciudadjTextField.setBounds(new Rectangle(55, 75, 110, 20));
-		jLabel6.setText("Ciudad");
+		jLabel6.setText("Ciudad:");
 		jLabel6.setBounds(new Rectangle(5, 80, 55, 15));
 		jLabel7.setText("CP:");
 		jLabel7.setBounds(new Rectangle(170, 75, 38, 14));
 		codigoPostaljTextField.setBounds(new Rectangle(195, 75, 85, 20));
-		jLabel1.setText("Nombre Compañía:");
-		jLabel1.setBounds(new Rectangle(10, 10, 165, 10));
-		nombreCompanyiajTextField1.setSize(new Dimension(7, 200));
-		nombreCompanyiajTextField1.setBounds(new Rectangle(175, 5, 200, 20));
-		jLabel2.setText("Dirección:");
-		jLabel2.setBounds(new Rectangle(10, 30, 155, 15));
-		direccionCompnanyia.setBounds(new Rectangle(175, 30, 350, 40));
-		jLabel3.setText("Nº Factura");
-		jLabel3.setBounds(new Rectangle(385, 5, 85, 20));
-		numeroFacturajTextField1.setBounds(new Rectangle(460, 5, 65, 20));
-		jLabel4.setText("Fecha de Facturación:");
-		jLabel4.setBounds(new Rectangle(285, 75, 165, 15));
+
+
+		jLabelDireccion.setText("Dirección:");
+		jLabelDireccion.setBounds(new Rectangle(10, 30, 155, 15));
+		direccionCompnanyia.setBounds(new Rectangle(nombreCompanyiajTextField1.getX(), 30, 350, 40));
+
+		
+		jLabelFecha.setText("Fecha de Facturación:");
+		jLabelFecha.setBounds(new Rectangle(285, 75, 165, 15));
 		fechajTextField.setBounds(new Rectangle(430, 75, 95, 20));
-		jLabel5.setText("CIF/NIF");
-		jLabel5.setBounds(new Rectangle(240, 105, 65, 15));
+		jLabelCIF.setText("CIF/NIF:");
+		jLabelCIF.setBounds(new Rectangle(240, 105, 65, 15));
 		cifjTextField2.setBounds(new Rectangle(310, 100, 215, 20));
 		menuFile.add(menuFileExit);
 		menuBar.add(menuFile);
@@ -225,39 +236,36 @@ public class VentanaPrincipal extends JFrame {
 		toolBar.add(jButton1, null);
 		this.getContentPane().add(toolBar, BorderLayout.NORTH);
 		this.getContentPane().add(panelCenter, BorderLayout.CENTER);
-		nombreCompanyiajTextField1.setSize(200, 20);
-		jPanel1.add(jLabel8, null);
+		
+		jPanel1.add(jLabel8Telefono, null);
 		jPanel1.add(codigoPostaljTextField, null);
 		jPanel1.add(jLabel7, null);
 		jPanel1.add(jLabel6, null);
 		jPanel1.add(ciudadjTextField, null);
 		jPanel1.add(jScrollPane1, null);
 		jPanel1.add(cifjTextField2, null);
-		jPanel1.add(jLabel5, null);
+		jPanel1.add(jLabelCIF, null);
 		jPanel1.add(fechajTextField, null);
-		jPanel1.add(jLabel4, null);
+		jPanel1.add(jLabelFecha, null);
 		jPanel1.add(numeroFacturajTextField1, null);
-		jPanel1.add(jLabel3, null);
-		jPanel1.add(jLabel1, new GridBagConstraints(0, 0, 1, 1, 0.0, 0.0,
-				GridBagConstraints.WEST, GridBagConstraints.NONE, new Insets(5,
-						69, 143, 0), 0, 0));
-		jPanel1.add(nombreCompanyiajTextField1, new GridBagConstraints(1, 0, 1,
-				1, 1.0, 0.0, GridBagConstraints.WEST,
-				GridBagConstraints.HORIZONTAL, new Insets(5, 0, 140, 0), 0, 0));
-		jPanel1.add(jLabel2, new GridBagConstraints(2, 0, 1, 1, 0.0, 0.0,
+		jPanel1.add(jLabelNumeroFactura, null);
+		jPanel1.add(jLabelNombreCompanyia,null);
+		jPanel1.add(nombreCompanyiajTextField1,null);// new GridBagConstraints(1, 0, 1,				1, 1.0, 0.0, GridBagConstraints.WEST,				GridBagConstraints.HORIZONTAL, new Insets(5, 0, 140, 0), 0, 0));
+		jPanel1.add(jLabelDireccion, new GridBagConstraints(2, 0, 1, 1, 0.0, 0.0,
 				GridBagConstraints.WEST, GridBagConstraints.NONE, new Insets(5,
 						0, 143, 0), 0, 0));
 
 		// jTable1
 		// _panelScroll.add(jTable1);
-		jPanel1.add(direccionCompnanyia, new GridBagConstraints(3, 0, 1, 1,
-				1.0, 1.0, GridBagConstraints.CENTER, GridBagConstraints.BOTH,
-				new Insets(5, 0, 140, 70), 0, 0));
+		
+		//jPanel1.add(scrollPane, new GridBagConstraints(3, 0, 1, 1,				1.0, 1.0, GridBagConstraints.CENTER, GridBagConstraints.BOTH,				new Insets(5, 0, 140, 70), 0, 0));
+		scrollPane.setBounds(nombreCompanyiajTextField1.getX(), 30, 155, 40);
+		jPanel1.add(scrollPane, null);
 		jPanel1.add(telefonojTextField, null);
 		panelCenter.add(jScrollPane1, null);
-		jScrollPane2.getViewport().add(jTable1, null);
+		jScrollPaneTabla.getViewport().add(jTable1, null);
 		panelCenter.add(insertarjButton, null);
-		panelCenter.add(jScrollPane2, null);
+		panelCenter.add(jScrollPaneTabla, null);
 		panelCenter.add(jPanel1, null);
 
 		ajustarCamposTable(jTable1);
