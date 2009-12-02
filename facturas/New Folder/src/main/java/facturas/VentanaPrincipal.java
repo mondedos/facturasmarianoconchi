@@ -7,8 +7,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.text.NumberFormat;
-
 import javax.swing.CellEditor;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -54,9 +52,11 @@ public class VentanaPrincipal extends JFrame {
 
 	private JButton buttonOpen = new JButton();
 
-	private JTextField cifjTextField2 = new JTextField();
+	private JTextField cifjTextField2 = new JFormattedTextField(
+			createFormatter("A#######A"));
 
-	private JTextField ciudadjTextField = new JTextField();
+	private JTextField ciudadjTextField = new JFormattedTextField(
+			createFormatter(Util.PadLeft('?', 25)));
 
 	private JTextField codigoPostaljTextField = new JFormattedTextField(
 			createFormatter("#####"));
@@ -67,7 +67,7 @@ public class VentanaPrincipal extends JFrame {
 	private JTextArea direccionCompnanyia = new JTextArea(10, 10);
 
 	private JFormattedTextField fechajTextField = new JFormattedTextField(
-			createFormatter("##/##/####"));
+			createFormatter("##/##/####", true));
 
 	private ImageIcon imageClose = new ImageIcon(VentanaPrincipal.class
 			.getResource("closefile.gif"));
@@ -122,7 +122,7 @@ public class VentanaPrincipal extends JFrame {
 	private JTextField nombreCompanyiajTextField1 = new JTextField();
 
 	private JFormattedTextField numeroFacturajTextField1 = new JFormattedTextField(
-			NumberFormat.getNumberInstance());
+			createFormatter(Util.PadLeft('#', 6)));
 
 	private JPanel panelCenter = new JPanel();
 
@@ -170,11 +170,17 @@ public class VentanaPrincipal extends JFrame {
 	 * @return MaskFormatter
 	 */
 	protected MaskFormatter createFormatter(String s) {
+		return createFormatter(s, false);
+	}
+
+	protected MaskFormatter createFormatter(String s, boolean mostrarMascara) {
 		MaskFormatter formatter = null;
 		try {
 			formatter = new MaskFormatter(s);
 
-			formatter.setPlaceholderCharacter('_');
+			if (mostrarMascara) {
+				formatter.setPlaceholderCharacter('_');
+			}
 		} catch (java.text.ParseException exc) {
 			System.err.println("formatter is bad: " + exc.getMessage());
 			System.exit(-1);
@@ -334,8 +340,9 @@ public class VentanaPrincipal extends JFrame {
 				+ telefonojTextField.getWidth() + SEPARACION_X, jLabel8Telefono
 				.getY(), 45, jLabelNombreCompanyia.getHeight()));
 		cifjTextField2.setBounds(new Rectangle(jLabelCIF.getX()
-				+ jLabelCIF.getWidth(), jLabelCIF.getY(), 215,
-				jLabelNombreCompanyia.getHeight()));
+				+ jLabelCIF.getWidth(), jLabelCIF.getY(),
+				codigoPostaljTextField.getWidth(), jLabelNombreCompanyia
+						.getHeight()));
 
 		jScrollPaneTabla.setBounds(new Rectangle(jLabel8Telefono.getX(),
 				jLabelCIF.getY() + jLabelCIF.getHeight() + SEPARACION_Y, 505,
