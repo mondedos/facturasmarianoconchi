@@ -14,27 +14,12 @@ namespace Facturas
         [STAThread]
         static void Main()
         {
-#if !DEBUG
-            string miFichCert = @"c:\CertificadoRicardo.p12";
 
-            Cert myCert = null;
-            try
-            {
-                myCert = new Cert(miFichCert, "hola");
-#endif
-                
-                Application.EnableVisualStyles();
-                Application.SetCompatibleTextRenderingDefault(false);
-                Application.Run(new Form1());
 
-#if !DEBUG
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, Application.ProductName);
-                return;
-            }
-#endif
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new Form1());
+
 
         }
     }
