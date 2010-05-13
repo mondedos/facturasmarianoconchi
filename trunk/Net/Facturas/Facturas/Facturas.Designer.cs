@@ -88,6 +88,13 @@ namespace Facturas {
             }
         }
         
+        internal static System.Drawing.Bitmap lin_agt_wrench {
+            get {
+                object obj = ResourceManager.GetObject("lin_agt_wrench", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap nuevo {
             get {
                 object obj = ResourceManager.GetObject("nuevo", resourceCulture);
