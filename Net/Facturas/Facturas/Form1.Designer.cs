@@ -309,8 +309,8 @@ namespace Facturas
             // bindingNavigatorCountItem
             // 
             this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(38, 22);
-            this.bindingNavigatorCountItem.Text = "de {0}";
+            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(36, 22);
+            this.bindingNavigatorCountItem.Text = "of {0}";
             this.bindingNavigatorCountItem.ToolTipText = "Número total de elementos";
             // 
             // bindingNavigatorDeleteItem
@@ -655,7 +655,7 @@ namespace Facturas
             // 
             // configurarToolStripMenuItem
             // 
-            this.configurarToolStripMenuItem.Image = global::Facturas.Facturas.icon_config;
+            this.configurarToolStripMenuItem.Image = global::Facturas.Facturas.lin_agt_wrench;
             this.configurarToolStripMenuItem.Name = "configurarToolStripMenuItem";
             this.configurarToolStripMenuItem.Size = new System.Drawing.Size(224, 22);
             this.configurarToolStripMenuItem.Text = "Configurar";

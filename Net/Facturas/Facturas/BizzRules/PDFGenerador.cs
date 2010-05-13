@@ -215,15 +215,15 @@ namespace Facturas.BizzRules
             PdfPTable aTable = new PdfPTable(medidasColumnas);    // 2 rows, 2 columns
             aTable.WidthPercentage = 100;
             aTable.SpacingBefore = 20;
-
+            
 
             PdfPRow fila = new PdfPRow(new PdfPCell[6] {
-                new PdfPCell(new Phrase("Concepto",FontFactory.GetFont(FontFactory.HELVETICA_BOLD, textSize))), 
-                new PdfPCell(new Phrase("Km",FontFactory.GetFont(FontFactory.HELVETICA_BOLD, textSize))), 
-                new PdfPCell(new Phrase("€/Km",FontFactory.GetFont(FontFactory.HELVETICA_BOLD, textSize))), 
-                new PdfPCell(new Phrase("Horas de espera",FontFactory.GetFont(FontFactory.HELVETICA_BOLD, textSize))),
-                new PdfPCell(new Phrase("€/Hora de espera",FontFactory.GetFont(FontFactory.HELVETICA_BOLD, textSize))),
-                new PdfPCell(new Phrase("Cantidad",FontFactory.GetFont(FontFactory.HELVETICA_BOLD, textSize))) });
+                FormatearBorde(new PdfPCell(new Phrase("Concepto",FontFactory.GetFont(FontFactory.HELVETICA_BOLD, textSize)))), 
+                FormatearBorde(new PdfPCell(new Phrase("Km",FontFactory.GetFont(FontFactory.HELVETICA_BOLD, textSize)))), 
+                FormatearBorde(new PdfPCell(new Phrase("€/Km",FontFactory.GetFont(FontFactory.HELVETICA_BOLD, textSize)))), 
+                FormatearBorde(new PdfPCell(new Phrase("Horas de espera",FontFactory.GetFont(FontFactory.HELVETICA_BOLD, textSize)))),
+                FormatearBorde(new PdfPCell(new Phrase("€/Hora de espera",FontFactory.GetFont(FontFactory.HELVETICA_BOLD, textSize)))),
+                FormatearBorde(new PdfPCell(new Phrase("Cantidad",FontFactory.GetFont(FontFactory.HELVETICA_BOLD, textSize)))) });
             aTable.Rows.Add(fila);
 
 
@@ -238,21 +238,21 @@ namespace Facturas.BizzRules
                         FormatearCeldaVacia(new PdfPCell()), 
                         FormatearCeldaVacia(new PdfPCell()), 
                         FormatearCeldaVacia(new PdfPCell()),
-                        FormatearPieTabla(new PdfPCell(new Phrase("SUBTOTAL",FontFactory.GetFont(FontFactory.HELVETICA_BOLD, textSize)))), 
+                        FormatearBorde(FormatearPieTabla(new PdfPCell(new Phrase("SUBTOTAL",FontFactory.GetFont(FontFactory.HELVETICA_BOLD, textSize))))), 
                         FormatearCeldaVacia(new PdfPCell()),
-                        FormatearEuros(new PdfPCell(new Phrase(String.Format("{0:C}",Math.Round( totalSinIva,2))))) });
+                        FormatearBorde(FormatearEuros(new PdfPCell(new Phrase(String.Format("{0:C}",Math.Round( totalSinIva,2)))))) });
 
             aTable.Rows.Add(fila);
-
+            
 
 
             fila = new PdfPRow(new PdfPCell[6] {
                         FormatearCeldaVacia(new PdfPCell()),  
                         FormatearCeldaVacia(new PdfPCell()), 
                         FormatearCeldaVacia(new PdfPCell()),
-                        FormatearPieTabla(new PdfPCell(new Phrase(string.Format("IVA {0} %",Settings.Default.iva),FontFactory.GetFont(FontFactory.HELVETICA_BOLD, textSize)))), 
+                        FormatearBorde(FormatearPieTabla(new PdfPCell(new Phrase(string.Format("IVA {0} %",Settings.Default.iva),FontFactory.GetFont(FontFactory.HELVETICA_BOLD, textSize))))), 
                         FormatearCeldaVacia(new PdfPCell()),
-                        FormatearEuros(new PdfPCell(new Phrase(String.Format("{0:C}",Math.Round( total-totalSinIva,2))))) });
+                        FormatearBorde(FormatearEuros(new PdfPCell(new Phrase(String.Format("{0:C}",Math.Round( total-totalSinIva,2)))))) });
 
             aTable.Rows.Add(fila);
 
@@ -260,9 +260,9 @@ namespace Facturas.BizzRules
                         FormatearCeldaVacia(new PdfPCell()), 
                         FormatearCeldaVacia(new PdfPCell()), 
                         FormatearCeldaVacia(new PdfPCell()),
-                        FormatearPieTabla(new PdfPCell(new Phrase("TOTAL",FontFactory.GetFont(FontFactory.HELVETICA_BOLD, textSize)))), 
+                        FormatearBorde(FormatearPieTabla(new PdfPCell(new Phrase("TOTAL",FontFactory.GetFont(FontFactory.HELVETICA_BOLD, textSize))))),
                         FormatearCeldaVacia(new PdfPCell()),
-                        FormatearEuros(new PdfPCell(new Phrase(String.Format("{0:C}", Math.Round(total,2)))))});
+                       FormatearBorde( FormatearEuros(new PdfPCell(new Phrase(String.Format("{0:C}", Math.Round(total,2))))))});
             aTable.Rows.Add(fila);
 
 
@@ -272,7 +272,7 @@ namespace Facturas.BizzRules
 
 
 
-            //iTextSharp.text.HeaderFooter
+            //iTextSharp.text.HeaderFooter)
             //HeaderFooter footer ;//= new PDFHeaderFooter(new Phrase("Antes de imprimir este mensaje, asegúrate de que es necesario. Proteger el medio ambiente está también en tu mano."), true);
 
             //document.SetFooter(footer);
@@ -290,6 +290,12 @@ namespace Facturas.BizzRules
             //EstamparMarcaAgua(nombreFichero);
 
             Process.Start(nombreFichero);
+        }
+        private PdfPCell FormatearBorde(PdfPCell celda)
+        {
+            celda.BorderWidth = Settings.Default.tablaBorde;
+
+            return celda;
         }
         private PdfPCell FormatearCeldaVacia(PdfPCell celda)
         {
@@ -322,12 +328,12 @@ namespace Facturas.BizzRules
             {
                 total += item.Cantidad;
                 PdfPRow fila = new PdfPRow(new PdfPCell[6] {
-                        new PdfPCell(new Phrase(item.Concepto)), 
-                        FormatearEuros(new PdfPCell(new Phrase(Convert.ToString(item.Kilometros)))), 
-                        FormatearEuros(new PdfPCell(new Phrase(String.Format("{0:C}", Settings.Default.eurosXKilometros)))),
-                        FormatearEuros(new PdfPCell(new Phrase(Convert.ToString(item.HorasEspera)))),
-                        FormatearEuros(new PdfPCell(new Phrase(String.Format("{0:C}", Settings.Default.eurosXHora)))),
-                        FormatearEuros(new PdfPCell(new Phrase(String.Format("{0:C}",item.Cantidad)))) });
+                        FormatearBorde(new PdfPCell(new Phrase(item.Concepto))), 
+                        FormatearBorde(FormatearEuros(new PdfPCell(new Phrase(Convert.ToString(item.Kilometros))))), 
+                        FormatearBorde(FormatearEuros(new PdfPCell(new Phrase(String.Format("{0:C}", Settings.Default.eurosXKilometros))))),
+                        FormatearBorde(FormatearEuros(new PdfPCell(new Phrase(Convert.ToString(item.HorasEspera))))),
+                        FormatearBorde(FormatearEuros(new PdfPCell(new Phrase(String.Format("{0:C}", Settings.Default.eurosXHora))))),
+                       FormatearBorde( FormatearEuros(new PdfPCell(new Phrase(String.Format("{0:C}",item.Cantidad))))) });
                 list.Add(fila);
             }
 
