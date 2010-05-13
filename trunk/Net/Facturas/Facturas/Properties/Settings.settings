@@ -41,7 +41,7 @@
     <Setting Name="nivelLMFondo" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">75</Value>
     </Setting>
-    <Setting Name="tablaBorde" Type="System.Single" Scope="User">
+    <Setting Name="tablaBorde" Type="System.Decimal" Scope="User">
       <Value Profile="(Default)">1</Value>
     </Setting>
   </Settings>

@@ -58,12 +58,15 @@
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label13 = new System.Windows.Forms.Label();
             this.numericUpDownNivelFondo = new System.Windows.Forms.NumericUpDown();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.numericUpDownBordeTabla = new System.Windows.Forms.NumericUpDown();
             this.gbDatosPersonales.SuspendLayout();
             this.gbDatosEconomicos.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownNivelFondo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownBordeTabla)).BeginInit();
             this.SuspendLayout();
             // 
             // gbDatosPersonales
@@ -358,6 +361,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.numericUpDownBordeTabla);
+            this.groupBox1.Controls.Add(this.label14);
             this.groupBox1.Controls.Add(this.numericUpDownNivelFondo);
             this.groupBox1.Controls.Add(this.label13);
             this.groupBox1.Location = new System.Drawing.Point(202, 273);
@@ -366,15 +371,6 @@
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Factura";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(6, 19);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(82, 13);
-            this.label13.TabIndex = 22;
-            this.label13.Text = "LM Fondo Nivel";
             // 
             // numericUpDownNivelFondo
             // 
@@ -387,6 +383,36 @@
             this.numericUpDownNivelFondo.Name = "numericUpDownNivelFondo";
             this.numericUpDownNivelFondo.Size = new System.Drawing.Size(44, 20);
             this.numericUpDownNivelFondo.TabIndex = 23;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(6, 19);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(82, 13);
+            this.label13.TabIndex = 22;
+            this.label13.Text = "LM Fondo Nivel";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(23, 45);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(65, 13);
+            this.label14.TabIndex = 24;
+            this.label14.Text = "Borde Tabla";
+            // 
+            // numericUpDownBordeTabla
+            // 
+            this.numericUpDownBordeTabla.Location = new System.Drawing.Point(94, 41);
+            this.numericUpDownBordeTabla.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
+            this.numericUpDownBordeTabla.Name = "numericUpDownBordeTabla";
+            this.numericUpDownBordeTabla.Size = new System.Drawing.Size(44, 20);
+            this.numericUpDownBordeTabla.TabIndex = 25;
             // 
             // Configuracion
             // 
@@ -409,6 +435,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownNivelFondo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownBordeTabla)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -446,5 +473,7 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.NumericUpDown numericUpDownNivelFondo;
         private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.NumericUpDown numericUpDownBordeTabla;
+        private System.Windows.Forms.Label label14;
     }
 }

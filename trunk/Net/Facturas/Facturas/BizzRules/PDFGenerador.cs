@@ -220,9 +220,9 @@ namespace Facturas.BizzRules
             PdfPRow fila = new PdfPRow(new PdfPCell[6] {
                 FormatearBorde(new PdfPCell(new Phrase("Concepto",FontFactory.GetFont(FontFactory.HELVETICA_BOLD, textSize)))), 
                 FormatearBorde(new PdfPCell(new Phrase("Km",FontFactory.GetFont(FontFactory.HELVETICA_BOLD, textSize)))), 
-                FormatearBorde(new PdfPCell(new Phrase("€/Km",FontFactory.GetFont(FontFactory.HELVETICA_BOLD, textSize)))), 
+                FormatearBorde(new PdfPCell(new Phrase(string.Format("{0}/Km",System.Globalization.CultureInfo.CurrentCulture.NumberFormat.CurrencySymbol),FontFactory.GetFont(FontFactory.HELVETICA_BOLD, textSize)))), 
                 FormatearBorde(new PdfPCell(new Phrase("Horas de espera",FontFactory.GetFont(FontFactory.HELVETICA_BOLD, textSize)))),
-                FormatearBorde(new PdfPCell(new Phrase("€/Hora de espera",FontFactory.GetFont(FontFactory.HELVETICA_BOLD, textSize)))),
+                FormatearBorde(new PdfPCell(new Phrase(string.Format("{0}/Hora de espera",System.Globalization.CultureInfo.CurrentCulture.NumberFormat.CurrencySymbol),FontFactory.GetFont(FontFactory.HELVETICA_BOLD, textSize)))),
                 FormatearBorde(new PdfPCell(new Phrase("Cantidad",FontFactory.GetFont(FontFactory.HELVETICA_BOLD, textSize)))) });
             aTable.Rows.Add(fila);
 
@@ -250,7 +250,7 @@ namespace Facturas.BizzRules
                         FormatearCeldaVacia(new PdfPCell()),  
                         FormatearCeldaVacia(new PdfPCell()), 
                         FormatearCeldaVacia(new PdfPCell()),
-                        FormatearBorde(FormatearPieTabla(new PdfPCell(new Phrase(string.Format("IVA {0} %",Settings.Default.iva),FontFactory.GetFont(FontFactory.HELVETICA_BOLD, textSize))))), 
+                        FormatearBorde(FormatearPieTabla(new PdfPCell(new Phrase(string.Format("IVA {0} {1}",Settings.Default.iva,System.Globalization.CultureInfo.CurrentCulture.NumberFormat.PercentSymbol),FontFactory.GetFont(FontFactory.HELVETICA_BOLD, textSize))))), 
                         FormatearCeldaVacia(new PdfPCell()),
                         FormatearBorde(FormatearEuros(new PdfPCell(new Phrase(String.Format("{0:C}",Math.Round( total-totalSinIva,2)))))) });
 
@@ -293,7 +293,7 @@ namespace Facturas.BizzRules
         }
         private PdfPCell FormatearBorde(PdfPCell celda)
         {
-            celda.BorderWidth = Settings.Default.tablaBorde;
+            celda.BorderWidth =(float)Convert.ToDouble( Settings.Default.tablaBorde);
 
             return celda;
         }
@@ -345,7 +345,7 @@ namespace Facturas.BizzRules
             document.AddTitle(string.Format("Factura {0}", factura.Numero));
             document.AddSubject(string.Format("Factura por translado en taxi emitida a {0}", factura.Nombre));
 
-            StringBuilder claves = new StringBuilder(string.Format("Importe {0} €", importe));
+            StringBuilder claves = new StringBuilder(string.Format("Importe {0} {1}", importe, System.Globalization.CultureInfo.CurrentCulture.NumberFormat.CurrencySymbol));
 
             //foreach (var item in collection)
             //{
