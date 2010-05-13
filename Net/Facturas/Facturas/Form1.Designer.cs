@@ -45,6 +45,7 @@ namespace Facturas
             System.Windows.Forms.Label telefonoLabel;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.cantidadTextBox = new System.Windows.Forms.TextBox();
+            this.bsLineas = new System.Windows.Forms.BindingSource(this.components);
             this.conceptoTextBox = new System.Windows.Forms.TextBox();
             this.horasEsperaTextBox = new System.Windows.Forms.TextBox();
             this.kilometrosTextBox = new System.Windows.Forms.TextBox();
@@ -61,6 +62,7 @@ namespace Facturas
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.cifTextBox = new System.Windows.Forms.TextBox();
+            this.bsFactura = new System.Windows.Forms.BindingSource(this.components);
             this.ciudadTextBox = new System.Windows.Forms.TextBox();
             this.codigoPostalTextBox = new System.Windows.Forms.TextBox();
             this.direccionTextBox = new System.Windows.Forms.TextBox();
@@ -86,12 +88,10 @@ namespace Facturas
             this.limpiarDatosClienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.generarFicheroFacturaPDFToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.firmarFacturaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.configurarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.bsFactura = new System.Windows.Forms.BindingSource(this.components);
-            this.bsLineas = new System.Windows.Forms.BindingSource(this.components);
-            this.firmarFacturaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             cantidadLabel = new System.Windows.Forms.Label();
             conceptoLabel = new System.Windows.Forms.Label();
             horasEsperaLabel = new System.Windows.Forms.Label();
@@ -104,8 +104,10 @@ namespace Facturas
             nombreLabel = new System.Windows.Forms.Label();
             numeroLabel = new System.Windows.Forms.Label();
             telefonoLabel = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.bsLineas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsNavLineas)).BeginInit();
             this.bsNavLineas.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bsFactura)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -113,8 +115,6 @@ namespace Facturas
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bsFactura)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsLineas)).BeginInit();
             this.SuspendLayout();
             // 
             // cantidadLabel
@@ -235,6 +235,10 @@ namespace Facturas
             this.cantidadTextBox.Name = "cantidadTextBox";
             this.cantidadTextBox.Size = new System.Drawing.Size(63, 20);
             this.cantidadTextBox.TabIndex = 0;
+            // 
+            // bsLineas
+            // 
+            this.bsLineas.DataSource = typeof(LineaFactura);
             // 
             // conceptoTextBox
             // 
@@ -387,6 +391,10 @@ namespace Facturas
             this.cifTextBox.Size = new System.Drawing.Size(66, 20);
             this.cifTextBox.TabIndex = 3;
             this.cifTextBox.Text = "28806983N";
+            // 
+            // bsFactura
+            // 
+            this.bsFactura.DataSource = typeof(Factura);
             // 
             // ciudadTextBox
             // 
@@ -574,7 +582,7 @@ namespace Facturas
             this.nuevoFacturaToolStripMenuItem.Image = global::Facturas.Facturas.nuevo;
             this.nuevoFacturaToolStripMenuItem.Name = "nuevoFacturaToolStripMenuItem";
             this.nuevoFacturaToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
-            this.nuevoFacturaToolStripMenuItem.Text = "Nuevo Factura";
+            this.nuevoFacturaToolStripMenuItem.Text = "Nueva Factura";
             this.nuevoFacturaToolStripMenuItem.Click += new System.EventHandler(this.nuevoFacturaToolStripMenuItem_Click);
             // 
             // guardarFacturaToolStripMenuItem
@@ -642,6 +650,14 @@ namespace Facturas
             this.generarFicheroFacturaPDFToolStripMenuItem.Text = "Generar Fichero Factura PDF";
             this.generarFicheroFacturaPDFToolStripMenuItem.Click += new System.EventHandler(this.generarFicheroFacturaPDFToolStripMenuItem_Click);
             // 
+            // firmarFacturaToolStripMenuItem
+            // 
+            this.firmarFacturaToolStripMenuItem.Image = global::Facturas.Facturas.sign;
+            this.firmarFacturaToolStripMenuItem.Name = "firmarFacturaToolStripMenuItem";
+            this.firmarFacturaToolStripMenuItem.Size = new System.Drawing.Size(224, 22);
+            this.firmarFacturaToolStripMenuItem.Text = "Firmar Factura";
+            this.firmarFacturaToolStripMenuItem.Click += new System.EventHandler(this.firmarFacturaToolStripMenuItem_Click);
+            // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
@@ -675,22 +691,6 @@ namespace Facturas
             this.splitContainer1.SplitterDistance = 294;
             this.splitContainer1.TabIndex = 31;
             // 
-            // bsFactura
-            // 
-            this.bsFactura.DataSource = typeof(Factura);
-            // 
-            // bsLineas
-            // 
-            this.bsLineas.DataSource = typeof(LineaFactura);
-            // 
-            // firmarFacturaToolStripMenuItem
-            // 
-            this.firmarFacturaToolStripMenuItem.Image = global::Facturas.Facturas.sign;
-            this.firmarFacturaToolStripMenuItem.Name = "firmarFacturaToolStripMenuItem";
-            this.firmarFacturaToolStripMenuItem.Size = new System.Drawing.Size(224, 22);
-            this.firmarFacturaToolStripMenuItem.Text = "Firmar Factura";
-            this.firmarFacturaToolStripMenuItem.Click += new System.EventHandler(this.firmarFacturaToolStripMenuItem_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -704,9 +704,11 @@ namespace Facturas
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "Facturas Taxi";
+            ((System.ComponentModel.ISupportInitialize)(this.bsLineas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsNavLineas)).EndInit();
             this.bsNavLineas.ResumeLayout(false);
             this.bsNavLineas.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bsFactura)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -718,8 +720,6 @@ namespace Facturas
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             this.splitContainer1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.bsFactura)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsLineas)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
