@@ -8,9 +8,9 @@ namespace Facturas.BizzRules
     public class LineaFactura : ILineaFactura
     {
         public string Concepto { get; set; }
-        public float Kilometros { get; set; }
-        public float HorasEspera { get; set; }
-        public float Cantidad { get; set; }
+        public decimal Kilometros { get; set; }
+        public decimal HorasEspera { get; set; }
+        public decimal Cantidad { get; set; }
 
     }
 }
