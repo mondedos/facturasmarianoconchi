@@ -19,6 +19,7 @@ namespace Facturas.BizzRules
         public string CodigoPostal { get; set; }
         public string Telefono { get; set; }
         public string Cif { get; set; }
+        
 
         public List<ILineaFactura> Lineas { get; private set; }
     }

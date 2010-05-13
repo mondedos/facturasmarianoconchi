@@ -58,15 +58,15 @@
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.numericUpDownBordeTabla = new System.Windows.Forms.NumericUpDown();
+            this.label14 = new System.Windows.Forms.Label();
             this.numericUpDownNivelFondo = new System.Windows.Forms.NumericUpDown();
             this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.numericUpDownBordeTabla = new System.Windows.Forms.NumericUpDown();
             this.gbDatosPersonales.SuspendLayout();
             this.gbDatosEconomicos.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownNivelFondo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownBordeTabla)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownNivelFondo)).BeginInit();
             this.SuspendLayout();
             // 
             // gbDatosPersonales
@@ -382,6 +382,28 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Factura";
             // 
+            // numericUpDownBordeTabla
+            // 
+            this.numericUpDownBordeTabla.Location = new System.Drawing.Point(127, 41);
+            this.numericUpDownBordeTabla.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
+            this.numericUpDownBordeTabla.Name = "numericUpDownBordeTabla";
+            this.numericUpDownBordeTabla.Size = new System.Drawing.Size(69, 20);
+            this.numericUpDownBordeTabla.TabIndex = 25;
+            this.numericUpDownBordeTabla.ValueChanged += new System.EventHandler(this.numericUpDownBordeTabla_ValueChanged);
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(56, 43);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(65, 13);
+            this.label14.TabIndex = 24;
+            this.label14.Text = "Borde Tabla";
+            // 
             // numericUpDownNivelFondo
             // 
             this.numericUpDownNivelFondo.Location = new System.Drawing.Point(127, 15);
@@ -404,30 +426,9 @@
             this.label13.TabIndex = 22;
             this.label13.Text = "LM Fondo Nivel";
             // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(56, 43);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(65, 13);
-            this.label14.TabIndex = 24;
-            this.label14.Text = "Borde Tabla";
-            // 
-            // numericUpDownBordeTabla
-            // 
-            this.numericUpDownBordeTabla.Location = new System.Drawing.Point(127, 41);
-            this.numericUpDownBordeTabla.Maximum = new decimal(new int[] {
-            255,
-            0,
-            0,
-            0});
-            this.numericUpDownBordeTabla.Name = "numericUpDownBordeTabla";
-            this.numericUpDownBordeTabla.Size = new System.Drawing.Size(69, 20);
-            this.numericUpDownBordeTabla.TabIndex = 25;
-            this.numericUpDownBordeTabla.ValueChanged += new System.EventHandler(this.numericUpDownBordeTabla_ValueChanged);
-            // 
             // Configuracion
             // 
+            this.AcceptButton = this.btnGuardar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(416, 422);
@@ -448,8 +449,8 @@
             this.gbDatosEconomicos.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownNivelFondo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownBordeTabla)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownNivelFondo)).EndInit();
             this.ResumeLayout(false);
 
         }
