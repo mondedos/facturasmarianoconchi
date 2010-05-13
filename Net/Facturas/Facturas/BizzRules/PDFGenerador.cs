@@ -39,6 +39,31 @@ namespace Facturas.BizzRules
             // step 3: we open the document
             document.Open();
 
+            PdfContentByte cb = writer.DirectContent;
+
+            BaseFont bf = BaseFont.CreateFont(BaseFont.HELVETICA, BaseFont.CP1252, BaseFont.NOT_EMBEDDED);
+
+
+            cb.BeginText();
+
+
+            cb.SetFontAndSize(bf, 24);
+            cb.SetCMYKColorFill(0, 0, 0, 75);
+
+            String text = string.Format("L. M. {0}", Settings.Default.licencia);
+
+            int y = 700;
+            for (int i = 1; i < 30; i++)
+            {
+                // we show some text starting on some absolute position with a given alignment
+                cb.ShowTextAligned(PdfContentByte.ALIGN_CENTER, text, 250, y - 25 * i, 0);
+            }
+
+            cb.SetCMYKColorFill(0, 0, 0, 255);
+            cb.EndText();
+
+
+
             // step 4: we add a paragraph to the document
             Paragraph paragraph = new Paragraph(new Chunk("FACTURA TAXI Mariano",
             FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 20)));
@@ -253,28 +278,7 @@ namespace Facturas.BizzRules
             //document.SetFooter(footer);
 
 
-            PdfContentByte cb = writer.DirectContent;
-
-            BaseFont bf = BaseFont.CreateFont(BaseFont.HELVETICA, BaseFont.CP1252, BaseFont.NOT_EMBEDDED);
-
-
-            cb.BeginText();
-
-
-            cb.SetFontAndSize(bf, 24);
-            cb.SetCMYKColorFill(0, 0, 0, 75);
-
-            String text = string.Format("L. M. {0}", Settings.Default.licencia);
-
-            int y = 700;
-            for (int i = 1; i < 30; i++)
-            {
-                // we show some text starting on some absolute position with a given alignment
-                cb.ShowTextAligned(PdfContentByte.ALIGN_CENTER, text, 250, y - 25 * i, 0);
-            }
-
-
-            cb.EndText();
+           
 
 
             // step 5: we close the document
