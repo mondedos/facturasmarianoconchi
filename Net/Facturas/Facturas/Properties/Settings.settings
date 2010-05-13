@@ -38,5 +38,8 @@
     <Setting Name="iva" Type="System.Decimal" Scope="User">
       <Value Profile="(Default)">0.08</Value>
     </Setting>
+    <Setting Name="nivelLMFondo" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">75</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

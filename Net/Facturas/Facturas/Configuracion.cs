@@ -39,7 +39,8 @@ namespace Facturas
             txtIva.Text = Convert.ToString(Settings.Default.iva);
             txtKilometros.Text = Convert.ToString(Settings.Default.eurosXKilometros);
             txtHorasEspera.Text = Convert.ToString(Settings.Default.eurosXHora);
-   
+
+            numericUpDownNivelFondo.Value = Settings.Default.nivelLMFondo;
         }
 
         private decimal ParsePercent(string numero)
@@ -98,6 +99,7 @@ namespace Facturas
             Settings.Default.eurosXKilometros = decimal.Parse(txtKilometros.Text, System.Globalization.NumberStyles.Any);
             Settings.Default.eurosXHora = decimal.Parse(txtHorasEspera.Text, System.Globalization.NumberStyles.Any);
 
+            Settings.Default.nivelLMFondo = Convert.ToInt32(numericUpDownNivelFondo.Value);
 
             Settings.Default.Save();
         }

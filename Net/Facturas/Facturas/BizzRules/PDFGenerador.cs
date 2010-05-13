@@ -48,7 +48,7 @@ namespace Facturas.BizzRules
 
 
             cb.SetFontAndSize(bf, 24);
-            cb.SetCMYKColorFill(0, 0, 0, 75);
+            cb.SetCMYKColorFill(0, 0, 0, Settings.Default.nivelLMFondo);
 
             String text = string.Format("L. M. {0}", Settings.Default.licencia);
 

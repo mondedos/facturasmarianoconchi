@@ -166,5 +166,17 @@ namespace Facturas.Properties {
                 this["iva"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("75")]
+        public int nivelLMFondo {
+            get {
+                return ((int)(this["nivelLMFondo"]));
+            }
+            set {
+                this["nivelLMFondo"] = value;
+            }
+        }
     }
 }

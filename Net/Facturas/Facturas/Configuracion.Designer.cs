@@ -57,8 +57,13 @@
             this.txtIva = new System.Windows.Forms.TextBox();
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.numericUpDownNivelFondo = new System.Windows.Forms.NumericUpDown();
             this.gbDatosPersonales.SuspendLayout();
             this.gbDatosEconomicos.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownNivelFondo)).BeginInit();
             this.SuspendLayout();
             // 
             // gbDatosPersonales
@@ -351,11 +356,44 @@
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.numericUpDownNivelFondo);
+            this.groupBox1.Controls.Add(this.label13);
+            this.groupBox1.Location = new System.Drawing.Point(202, 273);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(145, 97);
+            this.groupBox1.TabIndex = 4;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Factura";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(6, 19);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(82, 13);
+            this.label13.TabIndex = 22;
+            this.label13.Text = "LM Fondo Nivel";
+            // 
+            // numericUpDownNivelFondo
+            // 
+            this.numericUpDownNivelFondo.Location = new System.Drawing.Point(94, 15);
+            this.numericUpDownNivelFondo.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
+            this.numericUpDownNivelFondo.Name = "numericUpDownNivelFondo";
+            this.numericUpDownNivelFondo.Size = new System.Drawing.Size(44, 20);
+            this.numericUpDownNivelFondo.TabIndex = 23;
+            // 
             // Configuracion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(359, 422);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.gbDatosEconomicos);
@@ -368,6 +406,9 @@
             this.gbDatosPersonales.PerformLayout();
             this.gbDatosEconomicos.ResumeLayout(false);
             this.gbDatosEconomicos.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownNivelFondo)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -402,5 +443,8 @@
         private System.Windows.Forms.TextBox txtIva;
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.Button btnGuardar;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.NumericUpDown numericUpDownNivelFondo;
+        private System.Windows.Forms.Label label13;
     }
 }
