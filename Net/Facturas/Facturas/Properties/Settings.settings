@@ -1,0 +1,42 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Facturas.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="licencia" Type="System.String" Scope="User">
+      <Value Profile="(Default)">1279</Value>
+    </Setting>
+    <Setting Name="nombre" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Manuel Prieto Gallego</Value>
+    </Setting>
+    <Setting Name="direccion" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C/ Sector Triángulo Nº 12, 8º A</Value>
+    </Setting>
+    <Setting Name="poblacionCP" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Dos Hermanas, 41089</Value>
+    </Setting>
+    <Setting Name="telefono" Type="System.String" Scope="User">
+      <Value Profile="(Default)">954120606</Value>
+    </Setting>
+    <Setting Name="movil" Type="System.String" Scope="User">
+      <Value Profile="(Default)">617637215</Value>
+    </Setting>
+    <Setting Name="email" Type="System.String" Scope="User">
+      <Value Profile="(Default)">conchi@montequinto.org</Value>
+    </Setting>
+    <Setting Name="nif" Type="System.String" Scope="User">
+      <Value Profile="(Default)">nif</Value>
+    </Setting>
+    <Setting Name="ccc" Type="System.String" Scope="User">
+      <Value Profile="(Default)">ccc</Value>
+    </Setting>
+    <Setting Name="eurosXKilometros" Type="System.Single" Scope="User">
+      <Value Profile="(Default)">0.15</Value>
+    </Setting>
+    <Setting Name="eurosXHora" Type="System.Single" Scope="User">
+      <Value Profile="(Default)">0.16</Value>
+    </Setting>
+    <Setting Name="iva" Type="System.Single" Scope="User">
+      <Value Profile="(Default)">0.08</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
