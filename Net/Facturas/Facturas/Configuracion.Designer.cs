@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Configuracion));
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.gbDatosPersonales = new System.Windows.Forms.GroupBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -48,7 +48,7 @@
             this.txtPoblacion = new System.Windows.Forms.TextBox();
             this.txtLicencia = new System.Windows.Forms.TextBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.gbDatosEconomicos = new System.Windows.Forms.GroupBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -57,38 +57,38 @@
             this.txtIva = new System.Windows.Forms.TextBox();
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
-            this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
+            this.gbDatosPersonales.SuspendLayout();
+            this.gbDatosEconomicos.SuspendLayout();
             this.SuspendLayout();
             // 
-            // groupBox1
+            // gbDatosPersonales
             // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.gbDatosPersonales.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox1.Controls.Add(this.label9);
-            this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.txtCCC);
-            this.groupBox1.Controls.Add(this.txtNif);
-            this.groupBox1.Controls.Add(this.txtEmail);
-            this.groupBox1.Controls.Add(this.txtMovil);
-            this.groupBox1.Controls.Add(this.txtTelefono);
-            this.groupBox1.Controls.Add(this.txtDireccion);
-            this.groupBox1.Controls.Add(this.txtPoblacion);
-            this.groupBox1.Controls.Add(this.txtLicencia);
-            this.groupBox1.Controls.Add(this.txtNombre);
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(335, 255);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Datos personales";
+            this.gbDatosPersonales.Controls.Add(this.label9);
+            this.gbDatosPersonales.Controls.Add(this.label8);
+            this.gbDatosPersonales.Controls.Add(this.label7);
+            this.gbDatosPersonales.Controls.Add(this.label6);
+            this.gbDatosPersonales.Controls.Add(this.label5);
+            this.gbDatosPersonales.Controls.Add(this.label4);
+            this.gbDatosPersonales.Controls.Add(this.label3);
+            this.gbDatosPersonales.Controls.Add(this.label2);
+            this.gbDatosPersonales.Controls.Add(this.label1);
+            this.gbDatosPersonales.Controls.Add(this.txtCCC);
+            this.gbDatosPersonales.Controls.Add(this.txtNif);
+            this.gbDatosPersonales.Controls.Add(this.txtEmail);
+            this.gbDatosPersonales.Controls.Add(this.txtMovil);
+            this.gbDatosPersonales.Controls.Add(this.txtTelefono);
+            this.gbDatosPersonales.Controls.Add(this.txtDireccion);
+            this.gbDatosPersonales.Controls.Add(this.txtPoblacion);
+            this.gbDatosPersonales.Controls.Add(this.txtLicencia);
+            this.gbDatosPersonales.Controls.Add(this.txtNombre);
+            this.gbDatosPersonales.Location = new System.Drawing.Point(12, 12);
+            this.gbDatosPersonales.Name = "gbDatosPersonales";
+            this.gbDatosPersonales.Size = new System.Drawing.Size(335, 255);
+            this.gbDatosPersonales.TabIndex = 0;
+            this.gbDatosPersonales.TabStop = false;
+            this.gbDatosPersonales.Text = "Datos personales";
             // 
             // label9
             // 
@@ -251,20 +251,20 @@
             this.txtNombre.TabIndex = 1;
             this.txtNombre.Text = "Manuel Prieto Gallego";
             // 
-            // groupBox2
+            // gbDatosEconomicos
             // 
-            this.groupBox2.Controls.Add(this.label12);
-            this.groupBox2.Controls.Add(this.label11);
-            this.groupBox2.Controls.Add(this.label10);
-            this.groupBox2.Controls.Add(this.txtKilometros);
-            this.groupBox2.Controls.Add(this.txtHorasEspera);
-            this.groupBox2.Controls.Add(this.txtIva);
-            this.groupBox2.Location = new System.Drawing.Point(12, 273);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(184, 97);
-            this.groupBox2.TabIndex = 1;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Datos Económicos";
+            this.gbDatosEconomicos.Controls.Add(this.label12);
+            this.gbDatosEconomicos.Controls.Add(this.label11);
+            this.gbDatosEconomicos.Controls.Add(this.label10);
+            this.gbDatosEconomicos.Controls.Add(this.txtKilometros);
+            this.gbDatosEconomicos.Controls.Add(this.txtHorasEspera);
+            this.gbDatosEconomicos.Controls.Add(this.txtIva);
+            this.gbDatosEconomicos.Location = new System.Drawing.Point(12, 273);
+            this.gbDatosEconomicos.Name = "gbDatosEconomicos";
+            this.gbDatosEconomicos.Size = new System.Drawing.Size(184, 97);
+            this.gbDatosEconomicos.TabIndex = 1;
+            this.gbDatosEconomicos.TabStop = false;
+            this.gbDatosEconomicos.Text = "Datos Económicos";
             // 
             // label12
             // 
@@ -358,23 +358,23 @@
             this.ClientSize = new System.Drawing.Size(359, 422);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.btnSalir);
-            this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.gbDatosEconomicos);
+            this.Controls.Add(this.gbDatosPersonales);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(367, 456);
             this.Name = "Configuracion";
             this.Text = "Configuracion";
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
+            this.gbDatosPersonales.ResumeLayout(false);
+            this.gbDatosPersonales.PerformLayout();
+            this.gbDatosEconomicos.ResumeLayout(false);
+            this.gbDatosEconomicos.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox gbDatosPersonales;
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.TextBox txtMovil;
@@ -393,7 +393,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox gbDatosEconomicos;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;

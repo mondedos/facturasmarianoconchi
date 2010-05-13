@@ -7,6 +7,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using Facturas.Properties;
+using System.Globalization;
 
 namespace Facturas
 {
@@ -33,16 +34,30 @@ namespace Facturas
             txtCCC.Text = Settings.Default.ccc;
 
             //datos económicos
+
+
             txtIva.Text = Convert.ToString(Settings.Default.iva);
-            Settings.Default.eurosXKilometros = decimal.Parse(txtKilometros.Text, System.Globalization.NumberStyles.Any);
-            Settings.Default.eurosXHora = decimal.Parse(txtHorasEspera.Text, System.Globalization.NumberStyles.Any);
-           
+            txtKilometros.Text = Convert.ToString(Settings.Default.eurosXKilometros);
+            txtHorasEspera.Text = Convert.ToString(Settings.Default.eurosXHora);
+   
+        }
+
+        private decimal ParsePercent(string numero)
+        {
+            NumberFormatInfo nfi = new NumberFormatInfo()
+            {
+                PercentDecimalSeparator = ",",
+                PercentSymbol = "%"
+            };
+
+            return decimal.Parse(numero.Replace("%", null), System.Globalization.NumberStyles.Any, nfi);
+          
         }
 
         private void txtHorasEspera_TextChanged(object sender, EventArgs e)
         {
             TextBox tb = sender as TextBox;
-            decimal iv = decimal.Parse(tb.Text, System.Globalization.NumberStyles.Any);
+
             float euros;
 
             if (float.TryParse(tb.Text, out euros))
@@ -55,7 +70,7 @@ namespace Facturas
         private void txtIva_TextChanged(object sender, EventArgs e)
         {
             TextBox tb = sender as TextBox;
-            //decimal iv = decimal.Parse(tb.Text, System.Globalization.NumberStyles.Any);
+             
             float iva;
 
             if (float.TryParse(tb.Text, out iva))
@@ -78,16 +93,39 @@ namespace Facturas
             Settings.Default.nif = txtNif.Text;
             Settings.Default.ccc = txtCCC.Text;
 
-
-            throw new NotImplementedException();
             //datos económicos
-            txtIva.Text = Convert.ToString(Settings.Default.iva);
-            txtKilometros.Text = Convert.ToString(Settings.Default.eurosXKilometros);
-            txtHorasEspera.Text = Convert.ToString(Settings.Default.eurosXHora);
+            Settings.Default.iva = ParsePercent(txtIva.Text);
+            Settings.Default.eurosXKilometros = decimal.Parse(txtKilometros.Text, System.Globalization.NumberStyles.Any);
+            Settings.Default.eurosXHora = decimal.Parse(txtHorasEspera.Text, System.Globalization.NumberStyles.Any);
+
+
+            Settings.Default.Save();
         }
         private bool EsValido()
         {
-            return false;
+            StringBuilder sb = new StringBuilder();
+            foreach (Control item in gbDatosPersonales.Controls)
+            {
+                if (item is TextBox && string.IsNullOrEmpty(item.Text))
+                {
+                    sb.AppendLine("Exiten datos Personales sin rellenar");
+                    break;
+                }
+            }
+
+            foreach (Control item in gbDatosEconomicos.Controls)
+            {
+                if (item is TextBox && string.IsNullOrEmpty(item.Text))
+                {
+                    sb.AppendLine("Exiten datos Económicos sin rellenar");
+                    break;
+                }
+            }
+
+            string moneda = System.Globalization.CultureInfo.CurrentCulture.NumberFormat.CurrencySymbol;
+
+
+            return !Convert.ToBoolean(sb.Length);
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -106,6 +144,21 @@ namespace Facturas
         private void btnSalir_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+
+        private static System.Text.RegularExpressions.Regex _isNumber = new System.Text.RegularExpressions.Regex(@"^\d+$");
+
+        public static bool IsInteger(string theValue)
+        {
+            System.Text.RegularExpressions.Match m = _isNumber.Match(theValue);
+            return m.Success;
+        } //IsInteger
+
+        public static bool IsNumber(string text)
+        {
+            System.Text.RegularExpressions.Regex regex = new System.Text.RegularExpressions.Regex(@"^[-+]?[0-9]*\.?[0-9]+$");
+            return regex.IsMatch(text);
         }
     }
 }
