@@ -93,7 +93,7 @@
             this.gbDatosPersonales.Controls.Add(this.txtNombre);
             this.gbDatosPersonales.Location = new System.Drawing.Point(12, 12);
             this.gbDatosPersonales.Name = "gbDatosPersonales";
-            this.gbDatosPersonales.Size = new System.Drawing.Size(335, 255);
+            this.gbDatosPersonales.Size = new System.Drawing.Size(392, 255);
             this.gbDatosPersonales.TabIndex = 0;
             this.gbDatosPersonales.TabStop = false;
             this.gbDatosPersonales.Text = "Datos personales";
@@ -186,6 +186,7 @@
             this.txtCCC.Size = new System.Drawing.Size(146, 20);
             this.txtCCC.TabIndex = 8;
             this.txtCCC.Text = "2106 0950 06 0286145041";
+            this.txtCCC.TextChanged += new System.EventHandler(this.numericUpDownBordeTabla_ValueChanged);
             // 
             // txtNif
             // 
@@ -194,6 +195,7 @@
             this.txtNif.Size = new System.Drawing.Size(77, 20);
             this.txtNif.TabIndex = 7;
             this.txtNif.Text = "28806983N";
+            this.txtNif.TextChanged += new System.EventHandler(this.numericUpDownBordeTabla_ValueChanged);
             // 
             // txtEmail
             // 
@@ -201,9 +203,10 @@
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.txtEmail.Location = new System.Drawing.Point(107, 175);
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(222, 20);
+            this.txtEmail.Size = new System.Drawing.Size(279, 20);
             this.txtEmail.TabIndex = 6;
             this.txtEmail.Text = "conchi@montequinto.org";
+            this.txtEmail.TextChanged += new System.EventHandler(this.numericUpDownBordeTabla_ValueChanged);
             // 
             // txtMovil
             // 
@@ -212,6 +215,7 @@
             this.txtMovil.Size = new System.Drawing.Size(61, 20);
             this.txtMovil.TabIndex = 5;
             this.txtMovil.Text = "95412606";
+            this.txtMovil.TextChanged += new System.EventHandler(this.numericUpDownBordeTabla_ValueChanged);
             // 
             // txtTelefono
             // 
@@ -220,6 +224,7 @@
             this.txtTelefono.Size = new System.Drawing.Size(61, 20);
             this.txtTelefono.TabIndex = 4;
             this.txtTelefono.Text = "95412606";
+            this.txtTelefono.TextChanged += new System.EventHandler(this.numericUpDownBordeTabla_ValueChanged);
             // 
             // txtDireccion
             // 
@@ -227,9 +232,10 @@
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.txtDireccion.Location = new System.Drawing.Point(107, 97);
             this.txtDireccion.Name = "txtDireccion";
-            this.txtDireccion.Size = new System.Drawing.Size(222, 20);
+            this.txtDireccion.Size = new System.Drawing.Size(279, 20);
             this.txtDireccion.TabIndex = 3;
             this.txtDireccion.Text = "C/ Sector Triángulo, Nº 12 8º A";
+            this.txtDireccion.TextChanged += new System.EventHandler(this.numericUpDownBordeTabla_ValueChanged);
             // 
             // txtPoblacion
             // 
@@ -237,9 +243,10 @@
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.txtPoblacion.Location = new System.Drawing.Point(107, 71);
             this.txtPoblacion.Name = "txtPoblacion";
-            this.txtPoblacion.Size = new System.Drawing.Size(222, 20);
+            this.txtPoblacion.Size = new System.Drawing.Size(279, 20);
             this.txtPoblacion.TabIndex = 2;
             this.txtPoblacion.Text = "Dos Hermanas, 41089";
+            this.txtPoblacion.TextChanged += new System.EventHandler(this.numericUpDownBordeTabla_ValueChanged);
             // 
             // txtLicencia
             // 
@@ -248,6 +255,7 @@
             this.txtLicencia.Size = new System.Drawing.Size(35, 20);
             this.txtLicencia.TabIndex = 0;
             this.txtLicencia.Text = "1279";
+            this.txtLicencia.TextChanged += new System.EventHandler(this.numericUpDownBordeTabla_ValueChanged);
             // 
             // txtNombre
             // 
@@ -255,9 +263,10 @@
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.txtNombre.Location = new System.Drawing.Point(107, 45);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(222, 20);
+            this.txtNombre.Size = new System.Drawing.Size(279, 20);
             this.txtNombre.TabIndex = 1;
             this.txtNombre.Text = "Manuel Prieto Gallego";
+            this.txtNombre.TextChanged += new System.EventHandler(this.numericUpDownBordeTabla_ValueChanged);
             // 
             // gbDatosEconomicos
             // 
@@ -336,7 +345,7 @@
             this.btnSalir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSalir.Image = global::Facturas.Facturas.sout;
             this.btnSalir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSalir.Location = new System.Drawing.Point(272, 377);
+            this.btnSalir.Location = new System.Drawing.Point(329, 377);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(75, 33);
             this.btnSalir.TabIndex = 3;
@@ -348,9 +357,10 @@
             // btnGuardar
             // 
             this.btnGuardar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnGuardar.Enabled = false;
             this.btnGuardar.Image = global::Facturas.Facturas.save;
             this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGuardar.Location = new System.Drawing.Point(191, 376);
+            this.btnGuardar.Location = new System.Drawing.Point(248, 376);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(75, 34);
             this.btnGuardar.TabIndex = 2;
@@ -367,27 +377,28 @@
             this.groupBox1.Controls.Add(this.label13);
             this.groupBox1.Location = new System.Drawing.Point(202, 273);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(145, 97);
+            this.groupBox1.Size = new System.Drawing.Size(202, 97);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Factura";
             // 
             // numericUpDownNivelFondo
             // 
-            this.numericUpDownNivelFondo.Location = new System.Drawing.Point(94, 15);
+            this.numericUpDownNivelFondo.Location = new System.Drawing.Point(127, 15);
             this.numericUpDownNivelFondo.Maximum = new decimal(new int[] {
             255,
             0,
             0,
             0});
             this.numericUpDownNivelFondo.Name = "numericUpDownNivelFondo";
-            this.numericUpDownNivelFondo.Size = new System.Drawing.Size(44, 20);
+            this.numericUpDownNivelFondo.Size = new System.Drawing.Size(69, 20);
             this.numericUpDownNivelFondo.TabIndex = 23;
+            this.numericUpDownNivelFondo.ValueChanged += new System.EventHandler(this.numericUpDownBordeTabla_ValueChanged);
             // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(6, 19);
+            this.label13.Location = new System.Drawing.Point(39, 17);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(82, 13);
             this.label13.TabIndex = 22;
@@ -396,7 +407,7 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(23, 45);
+            this.label14.Location = new System.Drawing.Point(56, 43);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(65, 13);
             this.label14.TabIndex = 24;
@@ -404,21 +415,22 @@
             // 
             // numericUpDownBordeTabla
             // 
-            this.numericUpDownBordeTabla.Location = new System.Drawing.Point(94, 41);
+            this.numericUpDownBordeTabla.Location = new System.Drawing.Point(127, 41);
             this.numericUpDownBordeTabla.Maximum = new decimal(new int[] {
             255,
             0,
             0,
             0});
             this.numericUpDownBordeTabla.Name = "numericUpDownBordeTabla";
-            this.numericUpDownBordeTabla.Size = new System.Drawing.Size(44, 20);
+            this.numericUpDownBordeTabla.Size = new System.Drawing.Size(69, 20);
             this.numericUpDownBordeTabla.TabIndex = 25;
+            this.numericUpDownBordeTabla.ValueChanged += new System.EventHandler(this.numericUpDownBordeTabla_ValueChanged);
             // 
             // Configuracion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(359, 422);
+            this.ClientSize = new System.Drawing.Size(416, 422);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.btnSalir);
@@ -428,6 +440,8 @@
             this.MinimumSize = new System.Drawing.Size(367, 456);
             this.Name = "Configuracion";
             this.Text = "Configuracion";
+            this.Load += new System.EventHandler(this.Configuracion_Load);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Configuracion_FormClosing);
             this.gbDatosPersonales.ResumeLayout(false);
             this.gbDatosPersonales.PerformLayout();
             this.gbDatosEconomicos.ResumeLayout(false);
