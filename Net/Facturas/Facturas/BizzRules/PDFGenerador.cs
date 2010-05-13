@@ -34,7 +34,7 @@ namespace Facturas.BizzRules
 
 
 
-            EscribirMetaInformacion(document);
+
 
             // step 3: we open the document
             document.Open();
@@ -150,7 +150,7 @@ namespace Facturas.BizzRules
 
             document.Add(paragraph);
             paragraph = new Paragraph();
-            
+
 
             paragraph.Add(string.Format("Ciudad: {0}", _factura.Ciudad));
 
@@ -245,14 +245,41 @@ namespace Facturas.BizzRules
             paragraph.Add(aTable);
             document.Add(paragraph);
 
-            
-            
+
+
             //iTextSharp.text.HeaderFooter
             //HeaderFooter footer ;//= new PDFHeaderFooter(new Phrase("Antes de imprimir este mensaje, asegúrate de que es necesario. Proteger el medio ambiente está también en tu mano."), true);
-            
+
             //document.SetFooter(footer);
 
+
+            PdfContentByte cb = writer.DirectContent;
+
+            BaseFont bf = BaseFont.CreateFont(BaseFont.HELVETICA, BaseFont.CP1252, BaseFont.NOT_EMBEDDED);
+
+
+            cb.BeginText();
+
+
+            cb.SetFontAndSize(bf, 24);
+            cb.SetCMYKColorFill(0, 0, 0, 75);
+
+            String text = string.Format("L. M. {0}", Settings.Default.licencia);
+
+            int y = 700;
+            for (int i = 1; i < 30; i++)
+            {
+                // we show some text starting on some absolute position with a given alignment
+                cb.ShowTextAligned(PdfContentByte.ALIGN_CENTER, text, 250, y - 25 * i, 0);
+            }
+
+
+            cb.EndText();
+
+
             // step 5: we close the document
+            EscribirMetaInformacion(document, _factura, total);
+
             document.Close();
 
 
@@ -303,13 +330,25 @@ namespace Facturas.BizzRules
             return total;
         }
 
-        private void EscribirMetaInformacion(Document document)
+        private void EscribirMetaInformacion(Document document, IFactura factura, decimal importe)
         {
-            document.AddTitle("Hello World example");
-            document.AddSubject("This example explains step 3 in Chapter 1");
-            document.AddKeywords("Metadata, iText, step 3, tutorial");
-            document.AddCreator("My program using iText");
-            document.AddAuthor("Bruno Lowagie");
+            document.AddTitle(string.Format("Factura {0}", factura.Numero));
+            document.AddSubject(string.Format("Factura por translado en taxi emitida a {0}", factura.Nombre));
+
+            StringBuilder claves = new StringBuilder(string.Format("Importe {0} €", importe));
+
+            //foreach (var item in collection)
+            //{
+            //    if (Convert.ToBoolean(claves.Length))
+            //    {
+            //        claves.Append(", ");
+            //    }
+            //}
+
+
+            document.AddKeywords(claves.ToString());
+            document.AddCreator("Ricardo Prieto Mendoza, email: ricardo.prietomendozaATgmail.com");
+            document.AddAuthor(Settings.Default.nombre);
             document.AddHeader("Expires", "0");
 
         }
@@ -374,7 +413,7 @@ namespace Facturas.BizzRules
             File.Delete(nombreFichero);
             File.Move(nombreFichero.Replace(".pdf", "[temp][file].pdf"), nombreFichero);
 
-        }         
+        }
     }
 
 }

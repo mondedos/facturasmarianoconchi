@@ -130,6 +130,9 @@
   <data name="icon_config" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\icon-config.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="lin_agt_wrench" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\lin_agt_wrench.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="nuevo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\nuevo.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
