@@ -109,6 +109,13 @@ namespace Facturas {
             }
         }
         
+        internal static System.Drawing.Bitmap sign {
+            get {
+                object obj = ResourceManager.GetObject("sign", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap sout {
             get {
                 object obj = ResourceManager.GetObject("sout", resourceCulture);
