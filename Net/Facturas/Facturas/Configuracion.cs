@@ -13,11 +13,14 @@ namespace Facturas
 {
     public partial class Configuracion : Form
     {
+        private bool _detectarCambios = false;
         public Configuracion()
         {
             InitializeComponent();
 
             InicialezeValues();
+
+         
         }
 
         private void InicialezeValues()
@@ -155,6 +158,7 @@ namespace Facturas
             if (EsValido())
             {
                 Guardar();
+                btnGuardar.Enabled = false;
             }
         }
 
@@ -175,9 +179,36 @@ namespace Facturas
 
         public static bool IsNumber(string text)
         {
-            string decimalSeparador = System.Globalization.CultureInfo.CurrentCulture.NumberFormat.CurrencyDecimalSeparator;
-            System.Text.RegularExpressions.Regex regex = new System.Text.RegularExpressions.Regex(@"^[-+]?[0-9]*"+decimalSeparador+"?[0-9]+$");
-            return regex.IsMatch(text);
+            double numb;
+            return Double.TryParse(text, System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.CurrentCulture.NumberFormat, out numb);
+        }
+
+        private void numericUpDownBordeTabla_ValueChanged(object sender, EventArgs e)
+        {
+            if (_detectarCambios)
+            {
+                btnGuardar.Enabled = true;
+            }
+        }
+
+        private void Configuracion_Load(object sender, EventArgs e)
+        {
+            txtIva.TextChanged += new EventHandler(numericUpDownBordeTabla_ValueChanged);
+            txtKilometros.TextChanged += new EventHandler(numericUpDownBordeTabla_ValueChanged);
+            txtHorasEspera.TextChanged += new EventHandler(numericUpDownBordeTabla_ValueChanged);
+
+            _detectarCambios = true;
+        }
+
+        private void Configuracion_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (btnGuardar.Enabled)
+            {
+                if (MessageBox.Show("Existen datos sin guardar, ¿Deseas salir?", Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+                {
+                    e.Cancel = true;
+                }
+            }
         }
     }
 }

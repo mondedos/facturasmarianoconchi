@@ -47,17 +47,19 @@ namespace Facturas.BizzRules
             cb.BeginText();
 
 
-            cb.SetFontAndSize(bf, 24);
+            cb.SetFontAndSize(bf, 65);
             cb.SetCMYKColorFill(0, 0, 0, Settings.Default.nivelLMFondo);
 
             String text = string.Format("L. M. {0}", Settings.Default.licencia);
 
-            int y = 700;
-            for (int i = 1; i < 30; i++)
-            {
-                // we show some text starting on some absolute position with a given alignment
-                cb.ShowTextAligned(PdfContentByte.ALIGN_CENTER, text, 250, y - 25 * i, 0);
-            }
+            int y = 650;
+            //for (int i = 1; i < 8; i++)
+            //{
+            //    // we show some text starting on some absolute position with a given alignment
+            //    cb.ShowTextAligned(PdfContentByte.ALIGN_CENTER, text, 400, y - 75 * i, 0);
+            //}
+
+            cb.ShowTextAligned(PdfContentByte.ALIGN_CENTER, text, 500, y - 75 , 270);
 
             cb.SetCMYKColorFill(0, 0, 0, 255);
             cb.EndText();
@@ -206,6 +208,8 @@ namespace Facturas.BizzRules
 
 
             document.Add(paragraph);
+
+
             paragraph = new Paragraph();
 
             paragraph.ExtraParagraphSpace = 10;
