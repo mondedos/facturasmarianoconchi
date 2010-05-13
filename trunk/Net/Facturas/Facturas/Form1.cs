@@ -140,7 +140,7 @@ namespace Facturas
                                 if (sabeD.ShowDialog(this) == DialogResult.OK)
                                 {
                                     PDFSigner pdfs = new PDFSigner(openFileDialog.FileName, sabeD.FileName, myCert, MyMD);
-                                    pdfs.Sign("Factura por translado en taxi", Settings.Default.email, Settings.Default.direccion + " " + Settings.Default.poblacionCP, true);
+                                    pdfs.Sign("Factura por translado en taxi", Settings.Default.email, Settings.Default.direccion + " " + Settings.Default.poblacionCP, false);
 
 
                                     Process.Start(sabeD.FileName);
