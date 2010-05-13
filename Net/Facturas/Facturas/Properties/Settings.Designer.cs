@@ -182,9 +182,9 @@ namespace Facturas.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("1")]
-        public float tablaBorde {
+        public decimal tablaBorde {
             get {
-                return ((float)(this["tablaBorde"]));
+                return ((decimal)(this["tablaBorde"]));
             }
             set {
                 this["tablaBorde"] = value;

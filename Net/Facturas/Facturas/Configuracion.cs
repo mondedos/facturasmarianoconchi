@@ -41,6 +41,7 @@ namespace Facturas
             txtHorasEspera.Text = Convert.ToString(Settings.Default.eurosXHora);
 
             numericUpDownNivelFondo.Value = Settings.Default.nivelLMFondo;
+            numericUpDownBordeTabla.Value = Settings.Default.tablaBorde;
         }
 
         private decimal ParsePercent(string numero)
@@ -51,7 +52,7 @@ namespace Facturas
                 PercentSymbol = "%"
             };
 
-            return decimal.Parse(numero.Replace("%", null), System.Globalization.NumberStyles.Any, nfi);
+            return decimal.Parse(numero.Replace(System.Globalization.CultureInfo.CurrentCulture.NumberFormat.PercentSymbol, null), System.Globalization.NumberStyles.Any, nfi);
           
         }
 
@@ -76,7 +77,7 @@ namespace Facturas
 
             if (float.TryParse(tb.Text, out iva))
             {
-                tb.Text = String.Format("{0} %", iva);
+                tb.Text = String.Format("{0} {1}", iva,System.Globalization.CultureInfo.CurrentCulture.NumberFormat.PercentSymbol);
             }
         }
 
@@ -100,6 +101,7 @@ namespace Facturas
             Settings.Default.eurosXHora = decimal.Parse(txtHorasEspera.Text, System.Globalization.NumberStyles.Any);
 
             Settings.Default.nivelLMFondo = Convert.ToInt32(numericUpDownNivelFondo.Value);
+            Settings.Default.tablaBorde = numericUpDownBordeTabla.Value;
 
             Settings.Default.Save();
         }
@@ -174,7 +176,7 @@ namespace Facturas
         public static bool IsNumber(string text)
         {
             string decimalSeparador = System.Globalization.CultureInfo.CurrentCulture.NumberFormat.CurrencyDecimalSeparator;
-            System.Text.RegularExpressions.Regex regex = new System.Text.RegularExpressions.Regex(@"^[-+]?[0-9]*\.?[0-9]+$");
+            System.Text.RegularExpressions.Regex regex = new System.Text.RegularExpressions.Regex(@"^[-+]?[0-9]*"+decimalSeparador+"?[0-9]+$");
             return regex.IsMatch(text);
         }
     }
