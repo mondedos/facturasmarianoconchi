@@ -29,13 +29,13 @@
     <Setting Name="ccc" Type="System.String" Scope="User">
       <Value Profile="(Default)">ccc</Value>
     </Setting>
-    <Setting Name="eurosXKilometros" Type="System.Single" Scope="User">
+    <Setting Name="eurosXKilometros" Type="System.Decimal" Scope="User">
       <Value Profile="(Default)">0.15</Value>
     </Setting>
-    <Setting Name="eurosXHora" Type="System.Single" Scope="User">
+    <Setting Name="eurosXHora" Type="System.Decimal" Scope="User">
       <Value Profile="(Default)">0.16</Value>
     </Setting>
-    <Setting Name="iva" Type="System.Single" Scope="User">
+    <Setting Name="iva" Type="System.Decimal" Scope="User">
       <Value Profile="(Default)">0.08</Value>
     </Setting>
   </Settings>

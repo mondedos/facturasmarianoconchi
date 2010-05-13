@@ -198,9 +198,9 @@ namespace Facturas.BizzRules
             aTable.Rows.Add(fila);
 
 
-            float total = GenerarLinea(aTable.Rows, _factura.Lineas);
+            decimal total = GenerarLinea(aTable.Rows, _factura.Lineas);
 
-            float totalSinIva = total / (1 + Settings.Default.iva);
+            decimal totalSinIva = total / (1 + Settings.Default.iva);
 
             PdfPCell celdaBlanco = new PdfPCell(new Phrase(string.Empty));
 
@@ -280,9 +280,9 @@ namespace Facturas.BizzRules
         }
 
 
-        private float GenerarLinea(List<PdfPRow> list, IEnumerable<ILineaFactura> lineas)
+        private decimal GenerarLinea(List<PdfPRow> list, IEnumerable<ILineaFactura> lineas)
         {
-            float total = 0;
+            decimal total = 0;
             foreach (ILineaFactura item in lineas)
             {
                 total += item.Cantidad;

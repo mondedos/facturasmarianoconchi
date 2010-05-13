@@ -34,14 +34,15 @@ namespace Facturas
 
             //datos económicos
             txtIva.Text = Convert.ToString(Settings.Default.iva);
-            txtKilometros.Text = Convert.ToString(Settings.Default.eurosXKilometros);
-            txtHorasEspera.Text = Convert.ToString(Settings.Default.eurosXHora);
+            Settings.Default.eurosXKilometros = decimal.Parse(txtKilometros.Text, System.Globalization.NumberStyles.Any);
+            Settings.Default.eurosXHora = decimal.Parse(txtHorasEspera.Text, System.Globalization.NumberStyles.Any);
+           
         }
 
         private void txtHorasEspera_TextChanged(object sender, EventArgs e)
         {
             TextBox tb = sender as TextBox;
-
+            decimal iv = decimal.Parse(tb.Text, System.Globalization.NumberStyles.Any);
             float euros;
 
             if (float.TryParse(tb.Text, out euros))
@@ -54,7 +55,7 @@ namespace Facturas
         private void txtIva_TextChanged(object sender, EventArgs e)
         {
             TextBox tb = sender as TextBox;
-
+            //decimal iv = decimal.Parse(tb.Text, System.Globalization.NumberStyles.Any);
             float iva;
 
             if (float.TryParse(tb.Text, out iva))
