@@ -526,7 +526,7 @@ namespace Facturas
             // toolStripButtonNuevo
             // 
             this.toolStripButtonNuevo.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonNuevo.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonNuevo.Image")));
+            this.toolStripButtonNuevo.Image = global::Facturas.Facturas.nuevo;
             this.toolStripButtonNuevo.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonNuevo.Name = "toolStripButtonNuevo";
             this.toolStripButtonNuevo.Size = new System.Drawing.Size(23, 22);
@@ -578,6 +578,7 @@ namespace Facturas
             // 
             // nuevoFacturaToolStripMenuItem
             // 
+            this.nuevoFacturaToolStripMenuItem.Image = global::Facturas.Facturas.nuevo;
             this.nuevoFacturaToolStripMenuItem.Name = "nuevoFacturaToolStripMenuItem";
             this.nuevoFacturaToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
             this.nuevoFacturaToolStripMenuItem.Text = "Nuevo Factura";
