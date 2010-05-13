@@ -22,7 +22,11 @@ namespace Facturas.BizzRules
 
         public void Run()
         {
-            string nombreFichero = string.Format("Factura-{0}.pdf", _factura.Numero);
+            string escritorio = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
+
+            string nombreFichero = System.IO.Path.Combine(escritorio, string.Format("Factura-{0}.pdf", _factura.Numero));
+
+
 
             // step 1: creation of a document-object
             Document document = new Document();
