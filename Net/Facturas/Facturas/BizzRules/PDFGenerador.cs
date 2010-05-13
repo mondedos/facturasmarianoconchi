@@ -234,7 +234,7 @@ namespace Facturas.BizzRules
 
             decimal total = GenerarLinea(aTable.Rows, _factura.Lineas);
 
-            decimal totalSinIva = total / (1 + Settings.Default.iva);
+            decimal totalSinIva = total / (1 + Settings.Default.iva/100);
 
             PdfPCell celdaBlanco = new PdfPCell(new Phrase(string.Empty));
 
@@ -336,9 +336,9 @@ namespace Facturas.BizzRules
                 PdfPRow fila = new PdfPRow(new PdfPCell[6] {
                         FormatearBorde(new PdfPCell(new Phrase(item.Concepto))), 
                         FormatearBorde(FormatearEuros(new PdfPCell(new Phrase(Convert.ToString(item.Kilometros))))), 
-                        FormatearBorde(FormatearEuros(new PdfPCell(new Phrase(String.Format("{0:C}", Settings.Default.eurosXKilometros))))),
+                        FormatearBorde(FormatearEuros(new PdfPCell(new Phrase(String.Format("{0:C}", item.KilometrosEuros))))),
                         FormatearBorde(FormatearEuros(new PdfPCell(new Phrase(Convert.ToString(item.HorasEspera))))),
-                        FormatearBorde(FormatearEuros(new PdfPCell(new Phrase(String.Format("{0:C}", Settings.Default.eurosXHora))))),
+                        FormatearBorde(FormatearEuros(new PdfPCell(new Phrase(String.Format("{0:C}", item.HorasEuros))))),
                        FormatearBorde( FormatearEuros(new PdfPCell(new Phrase(String.Format("{0:C}",item.Cantidad))))) });
                 list.Add(fila);
             }

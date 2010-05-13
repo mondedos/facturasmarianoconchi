@@ -21,9 +21,25 @@ namespace Facturas
             toolStripButtonGenerar.Text = generarFicheroFacturaPDFToolStripMenuItem.Text;
             toolStripButtonNuevo.Text = nuevoFacturaToolStripMenuItem.Text;
             //pictureBox1.Image = Base64ToImage.ConvertThis("Hola mundo");
-            bsFactura.AddNew();
-            bsLineas.AddNew();
 
+
+            bsLineas.AddingNew += new AddingNewEventHandler(bsLineas_AddingNew);
+
+
+            nuevoFacturaToolStripMenuItem_Click(this, EventArgs.Empty);
+
+        }
+
+        void bsLineas_AddingNew(object sender, AddingNewEventArgs e)
+        {
+
+            e.NewObject = new LineaFactura();
+            
+            LineaFactura linea = e.NewObject as LineaFactura;
+            
+            linea.HorasEuros = Settings.Default.eurosXHora;
+            linea.KilometrosEuros = Settings.Default.eurosXKilometros;
+            
         }
 
 
@@ -149,6 +165,18 @@ namespace Facturas
                         }
                     }
                 }
+            }
+        }
+
+        private void txtKilomestrosEuros_TextChanged(object sender, EventArgs e)
+        {
+            TextBox tb = sender as TextBox;
+
+            float euros;
+
+            if (float.TryParse(tb.Text, out euros))
+            {
+                tb.Text = String.Format("{0:C}", euros);
             }
         }
     }

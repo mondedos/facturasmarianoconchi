@@ -7,5 +7,7 @@ namespace Facturas.BizzRules
         string Concepto { get; set; }
         decimal HorasEspera { get; set; }
         decimal Kilometros { get; set; }
+        decimal KilometrosEuros { get; set; }
+        decimal HorasEuros { get; set; }
     }
 }

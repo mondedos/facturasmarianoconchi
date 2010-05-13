@@ -11,6 +11,8 @@ namespace Facturas.BizzRules
         public decimal Kilometros { get; set; }
         public decimal HorasEspera { get; set; }
         public decimal Cantidad { get; set; }
+        public decimal KilometrosEuros { get; set; }
+        public decimal HorasEuros { get; set; }
 
     }
 }
