@@ -73,7 +73,9 @@ namespace Facturas
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonNuevo = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonGuardar = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonGenerar = new System.Windows.Forms.ToolStripButton();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.archivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nuevoFacturaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -307,8 +309,8 @@ namespace Facturas
             // bindingNavigatorCountItem
             // 
             this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(36, 22);
-            this.bindingNavigatorCountItem.Text = "of {0}";
+            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(38, 22);
+            this.bindingNavigatorCountItem.Text = "de {0}";
             this.bindingNavigatorCountItem.ToolTipText = "Número total de elementos";
             // 
             // bindingNavigatorDeleteItem
@@ -512,21 +514,43 @@ namespace Facturas
             // toolStrip1
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButton1});
+            this.toolStripButtonNuevo,
+            this.toolStripButtonGuardar,
+            this.toolStripButtonGenerar});
             this.toolStrip1.Location = new System.Drawing.Point(0, 24);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(461, 25);
             this.toolStrip1.TabIndex = 29;
             this.toolStrip1.Text = "toolStrip1";
             // 
-            // toolStripButton1
+            // toolStripButtonNuevo
             // 
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton1.Text = "toolStripButton1";
+            this.toolStripButtonNuevo.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonNuevo.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonNuevo.Image")));
+            this.toolStripButtonNuevo.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonNuevo.Name = "toolStripButtonNuevo";
+            this.toolStripButtonNuevo.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButtonNuevo.Text = "toolStripButton1";
+            this.toolStripButtonNuevo.Click += new System.EventHandler(this.toolStripButtonNuevo_Click);
+            // 
+            // toolStripButtonGuardar
+            // 
+            this.toolStripButtonGuardar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonGuardar.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonGuardar.Image")));
+            this.toolStripButtonGuardar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonGuardar.Name = "toolStripButtonGuardar";
+            this.toolStripButtonGuardar.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButtonGuardar.Text = "toolStripButton1";
+            // 
+            // toolStripButtonGenerar
+            // 
+            this.toolStripButtonGenerar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonGenerar.Image = global::Facturas.Facturas.page;
+            this.toolStripButtonGenerar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonGenerar.Name = "toolStripButtonGenerar";
+            this.toolStripButtonGenerar.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButtonGenerar.Text = "toolStripButton1";
+            this.toolStripButtonGenerar.Click += new System.EventHandler(this.toolStripButtonGenerar_Click);
             // 
             // menuStrip1
             // 
@@ -617,6 +641,7 @@ namespace Facturas
             // 
             // generarFicheroFacturaPDFToolStripMenuItem
             // 
+            this.generarFicheroFacturaPDFToolStripMenuItem.Image = global::Facturas.Facturas.page;
             this.generarFicheroFacturaPDFToolStripMenuItem.Name = "generarFicheroFacturaPDFToolStripMenuItem";
             this.generarFicheroFacturaPDFToolStripMenuItem.Size = new System.Drawing.Size(224, 22);
             this.generarFicheroFacturaPDFToolStripMenuItem.Text = "Generar Fichero Factura PDF";
@@ -719,7 +744,7 @@ namespace Facturas
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private System.Windows.Forms.ToolStripButton toolStripButtonNuevo;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem archivoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem nuevoFacturaToolStripMenuItem;
@@ -736,6 +761,8 @@ namespace Facturas
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripMenuItem configurarToolStripMenuItem;
+        private System.Windows.Forms.ToolStripButton toolStripButtonGuardar;
+        private System.Windows.Forms.ToolStripButton toolStripButtonGenerar;
     }
 }
 

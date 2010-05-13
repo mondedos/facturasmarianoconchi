@@ -122,8 +122,26 @@ namespace Facturas
                 }
             }
 
-            string moneda = System.Globalization.CultureInfo.CurrentCulture.NumberFormat.CurrencySymbol;
+            if (!Convert.ToBoolean(sb.Length))
+            {
+                string moneda = System.Globalization.CultureInfo.CurrentCulture.NumberFormat.CurrencySymbol;
 
+                TextBox[] tmonedas = new TextBox[2] { txtKilometros, txtHorasEspera };
+
+                foreach (TextBox item in tmonedas)
+                {
+                    //decimal.TryParse("",System.Globalization.NumberStyles.Any,
+                    if (!IsNumber(item.Text.Replace(moneda,null)))
+                    {
+                        sb.AppendLine("Asegurese que los datos económicos están correctamente rellenos");
+                    }
+                }
+            }
+
+            if (Convert.ToBoolean(sb.Length))
+            {
+                MessageBox.Show(sb.ToString(), Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
 
             return !Convert.ToBoolean(sb.Length);
         }
@@ -133,10 +151,6 @@ namespace Facturas
             if (EsValido())
             {
                 Guardar();
-            }
-            else
-            {
-                MessageBox.Show("Revise los datos, existen datos que no son válidos.", Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
@@ -157,6 +171,7 @@ namespace Facturas
 
         public static bool IsNumber(string text)
         {
+            string decimalSeparador = System.Globalization.CultureInfo.CurrentCulture.NumberFormat.CurrencyDecimalSeparator;
             System.Text.RegularExpressions.Regex regex = new System.Text.RegularExpressions.Regex(@"^[-+]?[0-9]*\.?[0-9]+$");
             return regex.IsMatch(text);
         }
