@@ -7,6 +7,7 @@ using iTextSharp.text;
 using iTextSharp.text.pdf;
 using System.Diagnostics;
 using Facturas.Properties;
+using iTextSharpSign;
 
 namespace Facturas.BizzRules
 {
@@ -292,6 +293,7 @@ namespace Facturas.BizzRules
 
 
             //EstamparMarcaAgua(nombreFichero);
+
 
             Process.Start(nombreFichero);
         }
