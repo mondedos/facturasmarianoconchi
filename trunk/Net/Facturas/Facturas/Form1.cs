@@ -15,6 +15,8 @@ namespace Facturas
         public Form1()
         {
             InitializeComponent();
+            toolStripButtonGenerar.Text = generarFicheroFacturaPDFToolStripMenuItem.Text;
+            toolStripButtonNuevo.Text = nuevoFacturaToolStripMenuItem.Text;
             //pictureBox1.Image = Base64ToImage.ConvertThis("Hola mundo");
             bsFactura.AddNew();
             bsLineas.AddNew();
@@ -63,6 +65,16 @@ namespace Facturas
             bsLineas.EndEdit();
             bsLineas.List.Clear();
             bsLineas.AddNew();
+        }
+
+        private void toolStripButtonGenerar_Click(object sender, EventArgs e)
+        {
+            generarFicheroFacturaPDFToolStripMenuItem_Click(sender, e);
+        }
+
+        private void toolStripButtonNuevo_Click(object sender, EventArgs e)
+        {
+            nuevoFacturaToolStripMenuItem_Click(sender, e);
         }
     }
 }

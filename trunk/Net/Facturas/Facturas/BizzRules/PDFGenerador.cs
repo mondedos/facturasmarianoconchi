@@ -150,7 +150,7 @@ namespace Facturas.BizzRules
 
             document.Add(paragraph);
             paragraph = new Paragraph();
-
+            
 
             paragraph.Add(string.Format("Ciudad: {0}", _factura.Ciudad));
 
@@ -166,6 +166,10 @@ namespace Facturas.BizzRules
             paragraph = new Paragraph();
 
             string telefono = _factura.Telefono;
+            if (string.IsNullOrEmpty(telefono))
+            {
+                telefono = "*".PadRight(9, '*');
+            }
             paragraph.Add(string.Format("Teléfono: {0}", telefono));
 
 
@@ -252,7 +256,7 @@ namespace Facturas.BizzRules
             document.Close();
 
 
-            EstamparMarcaAgua(nombreFichero);
+            //EstamparMarcaAgua(nombreFichero);
 
             Process.Start(nombreFichero);
         }
@@ -372,6 +376,5 @@ namespace Facturas.BizzRules
 
         }         
     }
-
 
 }
