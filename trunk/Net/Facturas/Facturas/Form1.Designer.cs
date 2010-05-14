@@ -753,6 +753,7 @@ namespace Facturas
             this.MinimumSize = new System.Drawing.Size(752, 614);
             this.Name = "Form1";
             this.Text = "Facturas Taxi";
+            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.bsLineas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsNavLineas)).EndInit();
             this.bsNavLineas.ResumeLayout(false);
