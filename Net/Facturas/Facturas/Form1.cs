@@ -24,9 +24,21 @@ namespace Facturas
 
 
             bsLineas.AddingNew += new AddingNewEventHandler(bsLineas_AddingNew);
+            bsFactura.AddingNew += new AddingNewEventHandler(bsFactura_AddingNew);
 
+            //nuevoFacturaToolStripMenuItem_Click(this, EventArgs.Empty);
+            //HabilitarGenerar(false);
+        }
 
-            nuevoFacturaToolStripMenuItem_Click(this, EventArgs.Empty);
+        void bsFactura_AddingNew(object sender, AddingNewEventArgs e)
+        {
+            Factura f = new Factura();
+
+            e.NewObject = f;
+
+            f.Fecha = DateTime.Now;
+            f.Numero = 0;
+
 
         }
 
@@ -45,9 +57,13 @@ namespace Facturas
 
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Close();
+            Application.Exit();
         }
-
+        private void HabilitarGenerar(bool value)
+        {
+            generarFicheroFacturaPDFToolStripMenuItem.Enabled = value;
+            toolStripButtonGenerar.Enabled = value;
+        }
         private void generarFicheroFacturaPDFToolStripMenuItem_Click(object sender, EventArgs e)
         {
             bsFactura.EndEdit();
@@ -178,6 +194,18 @@ namespace Facturas
             {
                 tb.Text = String.Format("{0:C}", euros);
             }
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            //nuevoFacturaToolStripMenuItem_Click(sender, e);
+
+            bsFactura.AddNew();
+
+            numeroTextBox.Focus();
+            //bsLineas.EndEdit();
+            //bsLineas.List.Clear();
+            //bsLineas.AddNew();
         }
     }
 }
