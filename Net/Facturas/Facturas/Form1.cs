@@ -27,7 +27,7 @@ namespace Facturas
             bsFactura.AddingNew += new AddingNewEventHandler(bsFactura_AddingNew);
 
             //nuevoFacturaToolStripMenuItem_Click(this, EventArgs.Empty);
-            //HabilitarGenerar(false);
+            HabilitarGenerar(false);
         }
 
         void bsFactura_AddingNew(object sender, AddingNewEventArgs e)
@@ -206,6 +206,13 @@ namespace Facturas
             //bsLineas.EndEdit();
             //bsLineas.List.Clear();
             //bsLineas.AddNew();
+        }
+
+        private void bindingNavigatorAddNewItem_Click(object sender, EventArgs e)
+        {
+            bool activar=Convert.ToBoolean(bsLineas.List.Count);
+            gbLineas.Enabled = activar;
+            HabilitarGenerar(activar);
         }
     }
 }
