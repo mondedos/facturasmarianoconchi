@@ -100,7 +100,7 @@ namespace Facturas
 
             bsLineas.EndEdit();
             bsLineas.List.Clear();
-            bsLineas.AddNew();
+            //bsLineas.AddNew();
 
             bindingNavigatorAddNewItem_Click(sender, e);
         }

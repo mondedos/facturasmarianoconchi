@@ -190,5 +190,17 @@ namespace Facturas.Properties {
                 this["tablaBorde"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string carpetaSalidaPDF {
+            get {
+                return ((string)(this["carpetaSalidaPDF"]));
+            }
+            set {
+                this["carpetaSalidaPDF"] = value;
+            }
+        }
     }
 }
