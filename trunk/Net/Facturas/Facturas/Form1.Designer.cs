@@ -73,7 +73,7 @@ namespace Facturas
             this.telefonoTextBox = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.gbLineas = new System.Windows.Forms.GroupBox();
             this.txtKilomestrosEuros = new System.Windows.Forms.TextBox();
             this.txtHorasEuros = new System.Windows.Forms.TextBox();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
@@ -115,7 +115,7 @@ namespace Facturas
             this.bsNavLineas.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bsFactura)).BeginInit();
             this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
+            this.gbLineas.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -332,6 +332,7 @@ namespace Facturas
             this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorAddNewItem.Text = "Agregar nuevo";
+            this.bindingNavigatorAddNewItem.Click += new System.EventHandler(this.bindingNavigatorAddNewItem_Click);
             // 
             // bindingNavigatorCountItem
             // 
@@ -348,6 +349,7 @@ namespace Facturas
             this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorDeleteItem.Text = "Eliminar";
+            this.bindingNavigatorDeleteItem.Click += new System.EventHandler(this.bindingNavigatorAddNewItem_Click);
             // 
             // bindingNavigatorMoveFirstItem
             // 
@@ -518,29 +520,30 @@ namespace Facturas
             this.textBox1.Size = new System.Drawing.Size(66, 20);
             this.textBox1.TabIndex = 1;
             // 
-            // groupBox2
+            // gbLineas
             // 
-            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            this.gbLineas.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox2.Controls.Add(this.txtKilomestrosEuros);
-            this.groupBox2.Controls.Add(this.conceptoTextBox);
-            this.groupBox2.Controls.Add(label1);
-            this.groupBox2.Controls.Add(this.kilometrosTextBox);
-            this.groupBox2.Controls.Add(this.txtHorasEuros);
-            this.groupBox2.Controls.Add(kilometrosLabel);
-            this.groupBox2.Controls.Add(label2);
-            this.groupBox2.Controls.Add(cantidadLabel);
-            this.groupBox2.Controls.Add(this.horasEsperaTextBox);
-            this.groupBox2.Controls.Add(this.cantidadTextBox);
-            this.groupBox2.Controls.Add(horasEsperaLabel);
-            this.groupBox2.Controls.Add(conceptoLabel);
-            this.groupBox2.Location = new System.Drawing.Point(3, 3);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(714, 196);
-            this.groupBox2.TabIndex = 0;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Líneas de factura";
+            this.gbLineas.Controls.Add(this.txtKilomestrosEuros);
+            this.gbLineas.Controls.Add(this.conceptoTextBox);
+            this.gbLineas.Controls.Add(label1);
+            this.gbLineas.Controls.Add(this.kilometrosTextBox);
+            this.gbLineas.Controls.Add(this.txtHorasEuros);
+            this.gbLineas.Controls.Add(kilometrosLabel);
+            this.gbLineas.Controls.Add(label2);
+            this.gbLineas.Controls.Add(cantidadLabel);
+            this.gbLineas.Controls.Add(this.horasEsperaTextBox);
+            this.gbLineas.Controls.Add(this.cantidadTextBox);
+            this.gbLineas.Controls.Add(horasEsperaLabel);
+            this.gbLineas.Controls.Add(conceptoLabel);
+            this.gbLineas.Enabled = false;
+            this.gbLineas.Location = new System.Drawing.Point(3, 3);
+            this.gbLineas.Name = "gbLineas";
+            this.gbLineas.Size = new System.Drawing.Size(714, 196);
+            this.gbLineas.TabIndex = 0;
+            this.gbLineas.TabStop = false;
+            this.gbLineas.Text = "Líneas de factura";
             // 
             // txtKilomestrosEuros
             // 
@@ -734,7 +737,7 @@ namespace Facturas
             // 
             // splitContainer1.Panel2
             // 
-            this.splitContainer1.Panel2.Controls.Add(this.groupBox2);
+            this.splitContainer1.Panel2.Controls.Add(this.gbLineas);
             this.splitContainer1.Size = new System.Drawing.Size(720, 500);
             this.splitContainer1.SplitterDistance = 294;
             this.splitContainer1.TabIndex = 31;
@@ -761,8 +764,8 @@ namespace Facturas
             ((System.ComponentModel.ISupportInitialize)(this.bsFactura)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
+            this.gbLineas.ResumeLayout(false);
+            this.gbLineas.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
@@ -803,7 +806,7 @@ namespace Facturas
         private System.Windows.Forms.TextBox numeroTextBox;
         private System.Windows.Forms.TextBox telefonoTextBox;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox gbLineas;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton toolStripButtonNuevo;
         private System.Windows.Forms.MenuStrip menuStrip1;

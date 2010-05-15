@@ -8,6 +8,7 @@ using iTextSharp.text.pdf;
 using System.Diagnostics;
 using Facturas.Properties;
 using iTextSharpSign;
+using System.Security.Cryptography;
 
 namespace Facturas.BizzRules
 {
@@ -64,7 +65,7 @@ namespace Facturas.BizzRules
             //    cb.ShowTextAligned(PdfContentByte.ALIGN_CENTER, text, 400, y - 75 * i, 0);
             //}
 
-            cb.ShowTextAligned(PdfContentByte.ALIGN_CENTER, text, 500, y - 75 , 270);
+            cb.ShowTextAligned(PdfContentByte.ALIGN_CENTER, text, 500, y - 75, 270);
 
             cb.SetCMYKColorFill(0, 0, 0, 255);
             cb.EndText();
@@ -224,7 +225,7 @@ namespace Facturas.BizzRules
             PdfPTable aTable = new PdfPTable(medidasColumnas);    // 2 rows, 2 columns
             aTable.WidthPercentage = 100;
             aTable.SpacingBefore = 20;
-            
+
 
             PdfPRow fila = new PdfPRow(new PdfPCell[6] {
                 FormatearBorde(new PdfPCell(new Phrase("Concepto",FontFactory.GetFont(FontFactory.HELVETICA_BOLD, textSize)))), 
@@ -238,7 +239,7 @@ namespace Facturas.BizzRules
 
             decimal total = GenerarLinea(aTable.Rows, _factura.Lineas);
 
-            decimal totalSinIva = total / (1 + Settings.Default.iva/100);
+            decimal totalSinIva = total / (1 + Settings.Default.iva / 100);
 
             PdfPCell celdaBlanco = new PdfPCell(new Phrase(string.Empty));
 
@@ -252,7 +253,7 @@ namespace Facturas.BizzRules
                         FormatearBorde(FormatearEuros(new PdfPCell(new Phrase(String.Format("{0:C}",Math.Round( totalSinIva,2)))))) });
 
             aTable.Rows.Add(fila);
-            
+
 
 
             fila = new PdfPRow(new PdfPCell[6] {
@@ -279,15 +280,21 @@ namespace Facturas.BizzRules
             paragraph.Add(aTable);
             document.Add(paragraph);
 
+            paragraph = new Paragraph();
 
+            paragraph.SpacingBefore = 20;
+            paragraph.Font = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 6);
+            paragraph.Alignment = Element.ALIGN_RIGHT;
+            paragraph.Add(FirmarFactura(_factura, total));
 
+            document.Add(paragraph);
             //iTextSharp.text.HeaderFooter)
             //HeaderFooter footer ;//= new PDFHeaderFooter(new Phrase("Antes de imprimir este mensaje, asegúrate de que es necesario. Proteger el medio ambiente está también en tu mano."), true);
 
             //document.SetFooter(footer);
 
 
-           
+
 
 
             // step 5: we close the document
@@ -298,12 +305,20 @@ namespace Facturas.BizzRules
 
             //EstamparMarcaAgua(nombreFichero);
 
+            try
+            {
+                Process.Start(nombreFichero);
+            }
+            catch (System.ComponentModel.Win32Exception)
+            {
 
-            Process.Start(nombreFichero);
+
+            }
+
         }
         private PdfPCell FormatearBorde(PdfPCell celda)
         {
-            celda.BorderWidth =(float)Convert.ToDouble( Settings.Default.tablaBorde);
+            celda.BorderWidth = (float)Convert.ToDouble(Settings.Default.tablaBorde);
 
             return celda;
         }
@@ -330,6 +345,25 @@ namespace Facturas.BizzRules
             return celda;
         }
 
+        private string FirmarFactura(IFactura factura, decimal total)
+        {
+            StringBuilder sb = new StringBuilder(Settings.Default.licencia);
+
+            sb.Append(factura.Numero).Append(Settings.Default.ccc)
+                .Append(total).Append(factura.Nombre).Append(Settings.Default.nif);
+
+            return GetSHA1(sb.ToString());
+        }
+        public static string GetSHA1(string str)
+        {
+            SHA1 sha1 = SHA1Managed.Create();
+            ASCIIEncoding encoding = new ASCIIEncoding();
+            byte[] stream = null;
+            StringBuilder sb = new StringBuilder();
+            stream = sha1.ComputeHash(encoding.GetBytes(str));
+            for (int i = 0; i < stream.Length; i++) sb.AppendFormat("{0:x2}", stream[i]);
+            return sb.ToString();
+        }
 
         private decimal GenerarLinea(List<PdfPRow> list, IEnumerable<ILineaFactura> lineas)
         {
