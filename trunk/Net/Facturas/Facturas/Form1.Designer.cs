@@ -96,6 +96,7 @@ namespace Facturas
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.configurarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.cargarFacturaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             cantidadLabel = new System.Windows.Forms.Label();
             conceptoLabel = new System.Windows.Forms.Label();
             horasEsperaLabel = new System.Windows.Forms.Label();
@@ -619,6 +620,7 @@ namespace Facturas
             // 
             this.archivoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.nuevoFacturaToolStripMenuItem,
+            this.cargarFacturaToolStripMenuItem,
             this.guardarFacturaToolStripMenuItem,
             this.cargarDatosClienteToolStripMenuItem,
             this.guardarDatosClienteToolStripMenuItem,
@@ -642,12 +644,14 @@ namespace Facturas
             this.guardarFacturaToolStripMenuItem.Name = "guardarFacturaToolStripMenuItem";
             this.guardarFacturaToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
             this.guardarFacturaToolStripMenuItem.Text = "&Guardar Factura";
+            this.guardarFacturaToolStripMenuItem.Click += new System.EventHandler(this.guardarFacturaToolStripMenuItem_Click);
             // 
             // cargarDatosClienteToolStripMenuItem
             // 
             this.cargarDatosClienteToolStripMenuItem.Name = "cargarDatosClienteToolStripMenuItem";
             this.cargarDatosClienteToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
             this.cargarDatosClienteToolStripMenuItem.Text = "Cargar Datos Cliente";
+            this.cargarDatosClienteToolStripMenuItem.Click += new System.EventHandler(this.cargarDatosClienteToolStripMenuItem_Click);
             // 
             // guardarDatosClienteToolStripMenuItem
             // 
@@ -655,6 +659,7 @@ namespace Facturas
             this.guardarDatosClienteToolStripMenuItem.Name = "guardarDatosClienteToolStripMenuItem";
             this.guardarDatosClienteToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
             this.guardarDatosClienteToolStripMenuItem.Text = "Guardar Datos Cliente";
+            this.guardarDatosClienteToolStripMenuItem.Click += new System.EventHandler(this.guardarDatosClienteToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
@@ -741,6 +746,13 @@ namespace Facturas
             this.splitContainer1.Size = new System.Drawing.Size(720, 500);
             this.splitContainer1.SplitterDistance = 294;
             this.splitContainer1.TabIndex = 31;
+            // 
+            // cargarFacturaToolStripMenuItem
+            // 
+            this.cargarFacturaToolStripMenuItem.Name = "cargarFacturaToolStripMenuItem";
+            this.cargarFacturaToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
+            this.cargarFacturaToolStripMenuItem.Text = "Cargar Factura";
+            this.cargarFacturaToolStripMenuItem.Click += new System.EventHandler(this.cargarFacturaToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -830,6 +842,7 @@ namespace Facturas
         private System.Windows.Forms.ToolStripMenuItem firmarFacturaToolStripMenuItem;
         private System.Windows.Forms.TextBox txtKilomestrosEuros;
         private System.Windows.Forms.TextBox txtHorasEuros;
+        private System.Windows.Forms.ToolStripMenuItem cargarFacturaToolStripMenuItem;
     }
 }
 

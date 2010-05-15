@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 
 using System.Text;
+using System.Xml.Serialization;
 
 namespace Facturas.BizzRules
 {
@@ -20,7 +21,9 @@ namespace Facturas.BizzRules
         public string Telefono { get; set; }
         public string Cif { get; set; }
         
-
+        [XmlIgnore]
         public List<ILineaFactura> Lineas { get; private set; }
+
+        
     }
 }
