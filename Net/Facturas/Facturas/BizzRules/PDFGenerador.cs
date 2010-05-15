@@ -39,7 +39,7 @@ namespace Facturas.BizzRules
             PdfWriter writer = PdfWriter.GetInstance(document, new FileStream(nombreFichero, FileMode.Create));
 
 
-
+            writer.PageEvent=new MyPdfPageEventHelpPageNo();
 
 
             // step 3: we open the document
@@ -470,4 +470,66 @@ namespace Facturas.BizzRules
         }
     }
 
+
+
+
+
+    public class MyPdfPageEventHelpPageNo : iTextSharp.text.pdf.PdfPageEventHelper
+    {
+        protected PdfTemplate total;
+        protected BaseFont helv;
+        private bool settingFont = false;
+
+        public IFactura FacturaAsociada { get; set; }
+
+        public override void OnOpenDocument(PdfWriter writer, Document document)
+        {
+            total = writer.DirectContent.CreateTemplate(100, 100);
+            total.BoundingBox = new Rectangle(-20, -20, 100, 100);
+
+            helv = BaseFont.CreateFont(BaseFont.HELVETICA, BaseFont.WINANSI, BaseFont.NOT_EMBEDDED);
+        }
+
+        public override void OnEndPage(PdfWriter writer, Document document)
+        {
+            PdfContentByte cb = writer.DirectContent;
+            cb.SaveState();
+            string text = "Page " + writer.PageNumber + " of ";
+            float textBase = document.Bottom - 20;
+            float textSize = 8; //helv.GetWidthPoint(text, 12); 
+            cb.BeginText();
+            cb.SetFontAndSize(helv, 8);
+
+            cb.SetTextMatrix(document.Right, textBase);
+            cb.ShowText("Antes de imprimir este mensaje, asegúrate de que es necesario. Proteger el medio ambiente está también en tu mano.");
+            cb.EndText();
+            cb.AddTemplate(total, document.Left + textSize, textBase);
+
+
+            //if ((writer.PageNumber % 2) == 1)
+            //{
+              
+            //}
+            //else
+            //{
+            //    float adjust = helv.GetWidthPoint("0", 12);
+            //    cb.SetTextMatrix(document.Right - textSize - adjust, textBase);
+            //    cb.ShowText(text);
+            //    cb.EndText();
+            //    cb.AddTemplate(total, document.Right - adjust, textBase);
+            //}
+            cb.RestoreState();
+        }
+
+        public override void OnCloseDocument(PdfWriter writer, Document document)
+        {
+            total.BeginText();
+            total.SetFontAndSize(helv, 12);
+            total.SetTextMatrix(0, 0);
+            int pageNumber = writer.PageNumber - 1;
+            total.ShowText(Convert.ToString(pageNumber));
+            total.EndText();
+        }
+
+    }
 }
