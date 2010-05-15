@@ -23,7 +23,7 @@ namespace Facturas.BizzRules
 
         public void Run()
         {
-            string escritorio = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
+            string escritorio = Settings.Default.carpetaSalidaPDF;
 
             string nombreFichero = System.IO.Path.Combine(escritorio, string.Format("Factura-{0}.pdf", _factura.Numero));
 

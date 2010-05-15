@@ -30,6 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Configuracion));
             this.gbDatosPersonales = new System.Windows.Forms.GroupBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.txtForder = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -63,8 +66,6 @@
             this.numericUpDownNivelFondo = new System.Windows.Forms.NumericUpDown();
             this.label13 = new System.Windows.Forms.Label();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
-            this.button1 = new System.Windows.Forms.Button();
-            this.txtForder = new System.Windows.Forms.TextBox();
             this.gbDatosPersonales.SuspendLayout();
             this.gbDatosEconomicos.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -76,6 +77,7 @@
             // 
             this.gbDatosPersonales.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
+            this.gbDatosPersonales.Controls.Add(this.label15);
             this.gbDatosPersonales.Controls.Add(this.txtForder);
             this.gbDatosPersonales.Controls.Add(this.button1);
             this.gbDatosPersonales.Controls.Add(this.label9);
@@ -102,6 +104,37 @@
             this.gbDatosPersonales.TabIndex = 0;
             this.gbDatosPersonales.TabStop = false;
             this.gbDatosPersonales.Text = "Datos personales";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(6, 256);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(101, 13);
+            this.label15.TabIndex = 20;
+            this.label15.Text = "Carpeta No Pagada";
+            // 
+            // txtForder
+            // 
+            this.txtForder.Location = new System.Drawing.Point(107, 253);
+            this.txtForder.Name = "txtForder";
+            this.txtForder.ReadOnly = true;
+            this.txtForder.Size = new System.Drawing.Size(198, 20);
+            this.txtForder.TabIndex = 19;
+            this.txtForder.Text = "2106 0950 06 0286145041";
+            this.txtForder.TextChanged += new System.EventHandler(this.numericUpDownBordeTabla_ValueChanged);
+            // 
+            // button1
+            // 
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(311, 251);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 18;
+            this.button1.Text = "Explorar";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label9
             // 
@@ -431,25 +464,6 @@
             this.label13.TabIndex = 22;
             this.label13.Text = "LM Fondo Nivel";
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(311, 251);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 18;
-            this.button1.Text = "Explorar";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // txtForder
-            // 
-            this.txtForder.Enabled = false;
-            this.txtForder.Location = new System.Drawing.Point(107, 253);
-            this.txtForder.Name = "txtForder";
-            this.txtForder.Size = new System.Drawing.Size(198, 20);
-            this.txtForder.TabIndex = 19;
-            this.txtForder.Text = "2106 0950 06 0286145041";
-            // 
             // Configuracion
             // 
             this.AcceptButton = this.btnGuardar;
@@ -517,5 +531,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
         private System.Windows.Forms.TextBox txtForder;
+        private System.Windows.Forms.Label label15;
     }
 }

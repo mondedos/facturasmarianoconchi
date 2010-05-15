@@ -36,6 +36,13 @@ namespace Facturas
             txtNif.Text = Settings.Default.nif;
             txtCCC.Text = Settings.Default.ccc;
 
+            if (string.IsNullOrEmpty(Settings.Default.carpetaSalidaPDF))
+            {
+                Settings.Default.carpetaSalidaPDF = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
+                Settings.Default.Save();
+            }
+            txtForder.Text = Settings.Default.carpetaSalidaPDF;
+
             //datos económicos
 
 
@@ -97,6 +104,7 @@ namespace Facturas
             Settings.Default.email = txtEmail.Text;
             Settings.Default.nif = txtNif.Text;
             Settings.Default.ccc = txtCCC.Text;
+            Settings.Default.carpetaSalidaPDF = txtForder.Text;
 
             //datos económicos
             Settings.Default.iva = ParsePercent(txtIva.Text);
@@ -213,6 +221,7 @@ namespace Facturas
 
         private void button1_Click(object sender, EventArgs e)
         {
+            folderBrowserDialog1.SelectedPath = txtForder.Text;
             if (folderBrowserDialog1.ShowDialog() == DialogResult.OK)
             {
                 txtForder.Text = folderBrowserDialog1.SelectedPath;
