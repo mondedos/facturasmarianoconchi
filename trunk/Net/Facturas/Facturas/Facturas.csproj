@@ -50,12 +50,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BizzRules\Base64ToImage.cs" />
+    <Compile Include="BizzRules\Cliente.cs" />
     <Compile Include="BizzRules\Factura.cs" />
     <Compile Include="BizzRules\IFactura.cs" />
     <Compile Include="BizzRules\ILineaFactura.cs" />
     <Compile Include="BizzRules\LineaFactura.cs" />
     <Compile Include="BizzRules\PDFGenerador.cs" />
     <Compile Include="BizzRules\PDFSigner.cs" />
+    <Compile Include="BizzRules\Util.cs" />
     <Compile Include="Configuracion.cs">
       <SubType>Form</SubType>
     </Compile>

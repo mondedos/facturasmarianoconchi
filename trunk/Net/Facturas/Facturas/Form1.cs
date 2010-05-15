@@ -48,12 +48,12 @@ namespace Facturas
         {
 
             e.NewObject = new LineaFactura();
-            
+
             LineaFactura linea = e.NewObject as LineaFactura;
-            
+
             linea.HorasEuros = Settings.Default.eurosXHora;
             linea.KilometrosEuros = Settings.Default.eurosXKilometros;
-            
+
         }
 
 
@@ -215,7 +215,7 @@ namespace Facturas
 
         private void bindingNavigatorAddNewItem_Click(object sender, EventArgs e)
         {
-            bool activar=Convert.ToBoolean(bsLineas.List.Count);
+            bool activar = Convert.ToBoolean(bsLineas.List.Count);
             gbLineas.Enabled = activar;
             HabilitarGenerar(activar);
 
@@ -246,6 +246,33 @@ namespace Facturas
         private void cargarDatosClienteToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
+            openFileDialog.Title = "Seleccione los datos del cliente";
+            openFileDialog.Filter = "Factura (*.upo)|*.upo";
+
+
+            if (openFileDialog.ShowDialog(this) == DialogResult.OK)
+            {
+                Cliente myObject;
+                // Construct an instance of the XmlSerializer with the type
+                // of object that is being deserialized.
+                XmlSerializer mySerializer =
+                new XmlSerializer(typeof(Cliente));
+                // To read the file, create a FileStream.
+                FileStream myFileStream =
+                new FileStream(openFileDialog.FileName, FileMode.Open);
+                // Call the Deserialize method and cast to the object type.
+                myObject = (Cliente)mySerializer.Deserialize(myFileStream);
+
+                Factura fact = bsFactura.Current as Factura;
+
+
+                Util.CopiarPropiedadesTipo(myObject, fact);
+
+                bsFactura.ResetCurrentItem();
+
+            }
         }
 
         private void guardarDatosClienteToolStripMenuItem_Click(object sender, EventArgs e)
@@ -258,16 +285,20 @@ namespace Facturas
 
             if (sabeD.ShowDialog(this) == DialogResult.OK)
             {
-                Factura myObject = bsFactura.Current as Factura;
+                Factura fact = bsFactura.Current as Factura;
+
+                Cliente myObject = new Cliente();
+
+                Util.CopiarPropiedadesTipo(fact, myObject);
 
                 // Insert code to set properties and fields of the object.
                 XmlSerializer mySerializer = new
-                XmlSerializer(typeof(Factura));
+                XmlSerializer(typeof(Cliente));
                 // To write to a file, create a StreamWriter object.
                 StreamWriter myWriter = new StreamWriter(sabeD.FileName);
                 mySerializer.Serialize(myWriter, myObject);
                 myWriter.Close();
- 
+
 
             }
         }
