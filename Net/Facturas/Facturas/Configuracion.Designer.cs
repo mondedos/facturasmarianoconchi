@@ -62,6 +62,9 @@
             this.label14 = new System.Windows.Forms.Label();
             this.numericUpDownNivelFondo = new System.Windows.Forms.NumericUpDown();
             this.label13 = new System.Windows.Forms.Label();
+            this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
+            this.button1 = new System.Windows.Forms.Button();
+            this.txtForder = new System.Windows.Forms.TextBox();
             this.gbDatosPersonales.SuspendLayout();
             this.gbDatosEconomicos.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -73,6 +76,8 @@
             // 
             this.gbDatosPersonales.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
+            this.gbDatosPersonales.Controls.Add(this.txtForder);
+            this.gbDatosPersonales.Controls.Add(this.button1);
             this.gbDatosPersonales.Controls.Add(this.label9);
             this.gbDatosPersonales.Controls.Add(this.label8);
             this.gbDatosPersonales.Controls.Add(this.label7);
@@ -93,7 +98,7 @@
             this.gbDatosPersonales.Controls.Add(this.txtNombre);
             this.gbDatosPersonales.Location = new System.Drawing.Point(12, 12);
             this.gbDatosPersonales.Name = "gbDatosPersonales";
-            this.gbDatosPersonales.Size = new System.Drawing.Size(392, 255);
+            this.gbDatosPersonales.Size = new System.Drawing.Size(392, 294);
             this.gbDatosPersonales.TabIndex = 0;
             this.gbDatosPersonales.TabStop = false;
             this.gbDatosPersonales.Text = "Datos personales";
@@ -276,7 +281,7 @@
             this.gbDatosEconomicos.Controls.Add(this.txtKilometros);
             this.gbDatosEconomicos.Controls.Add(this.txtHorasEspera);
             this.gbDatosEconomicos.Controls.Add(this.txtIva);
-            this.gbDatosEconomicos.Location = new System.Drawing.Point(12, 273);
+            this.gbDatosEconomicos.Location = new System.Drawing.Point(12, 312);
             this.gbDatosEconomicos.Name = "gbDatosEconomicos";
             this.gbDatosEconomicos.Size = new System.Drawing.Size(184, 97);
             this.gbDatosEconomicos.TabIndex = 1;
@@ -345,7 +350,7 @@
             this.btnSalir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSalir.Image = global::Facturas.Facturas.sout;
             this.btnSalir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSalir.Location = new System.Drawing.Point(329, 377);
+            this.btnSalir.Location = new System.Drawing.Point(329, 419);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(75, 33);
             this.btnSalir.TabIndex = 3;
@@ -360,7 +365,7 @@
             this.btnGuardar.Enabled = false;
             this.btnGuardar.Image = global::Facturas.Facturas.save;
             this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGuardar.Location = new System.Drawing.Point(248, 376);
+            this.btnGuardar.Location = new System.Drawing.Point(248, 418);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(75, 34);
             this.btnGuardar.TabIndex = 2;
@@ -375,7 +380,7 @@
             this.groupBox1.Controls.Add(this.label14);
             this.groupBox1.Controls.Add(this.numericUpDownNivelFondo);
             this.groupBox1.Controls.Add(this.label13);
-            this.groupBox1.Location = new System.Drawing.Point(202, 273);
+            this.groupBox1.Location = new System.Drawing.Point(202, 312);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(202, 97);
             this.groupBox1.TabIndex = 4;
@@ -426,12 +431,31 @@
             this.label13.TabIndex = 22;
             this.label13.Text = "LM Fondo Nivel";
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(311, 251);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 18;
+            this.button1.Text = "Explorar";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // txtForder
+            // 
+            this.txtForder.Enabled = false;
+            this.txtForder.Location = new System.Drawing.Point(107, 253);
+            this.txtForder.Name = "txtForder";
+            this.txtForder.Size = new System.Drawing.Size(198, 20);
+            this.txtForder.TabIndex = 19;
+            this.txtForder.Text = "2106 0950 06 0286145041";
+            // 
             // Configuracion
             // 
             this.AcceptButton = this.btnGuardar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(416, 422);
+            this.ClientSize = new System.Drawing.Size(416, 464);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.btnSalir);
@@ -490,5 +514,8 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.NumericUpDown numericUpDownBordeTabla;
         private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
+        private System.Windows.Forms.TextBox txtForder;
     }
 }

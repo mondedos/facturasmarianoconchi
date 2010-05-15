@@ -210,5 +210,13 @@ namespace Facturas
                 }
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (folderBrowserDialog1.ShowDialog() == DialogResult.OK)
+            {
+                txtForder.Text = folderBrowserDialog1.SelectedPath;
+            }
+        }
     }
 }
