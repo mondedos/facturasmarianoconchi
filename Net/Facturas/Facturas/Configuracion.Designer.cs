@@ -126,6 +126,7 @@
             // 
             // button1
             // 
+            this.button1.Image = global::Facturas.Facturas.explorar;
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button1.Location = new System.Drawing.Point(311, 251);
             this.button1.Name = "button1";

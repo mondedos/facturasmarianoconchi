@@ -10,6 +10,8 @@ using Facturas.BizzRules;
 using iTextSharpSign;
 using System.Diagnostics;
 using Facturas.Properties;
+using System.Xml.Serialization;
+using System.IO;
 
 namespace Facturas
 {
@@ -217,6 +219,57 @@ namespace Facturas
             gbLineas.Enabled = activar;
             HabilitarGenerar(activar);
 
+        }
+
+        private void cargarFacturaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guardarFacturaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog sabeD = new SaveFileDialog();
+
+            sabeD.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
+            sabeD.Title = "Guardar Factura como...";
+            sabeD.Filter = "Factura (*.taxi)|*.taxi";
+
+            if (sabeD.ShowDialog(this) == DialogResult.OK)
+            {
+                Factura fact = bsFactura.Current as Factura;
+
+
+
+            }
+        }
+
+        private void cargarDatosClienteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guardarDatosClienteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog sabeD = new SaveFileDialog();
+
+            sabeD.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
+            sabeD.Title = "Guardar Datos Cliente como...";
+            sabeD.Filter = "Factura (*.upo)|*.upo";
+
+            if (sabeD.ShowDialog(this) == DialogResult.OK)
+            {
+                Factura myObject = bsFactura.Current as Factura;
+
+                // Insert code to set properties and fields of the object.
+                XmlSerializer mySerializer = new
+                XmlSerializer(typeof(Factura));
+                // To write to a file, create a StreamWriter object.
+                StreamWriter myWriter = new StreamWriter(sabeD.FileName);
+                mySerializer.Serialize(myWriter, myObject);
+                myWriter.Close();
+ 
+
+            }
         }
     }
 }
