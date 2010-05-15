@@ -38,8 +38,8 @@ namespace Facturas.BizzRules
             // and directs a PDF-stream to a file
             PdfWriter writer = PdfWriter.GetInstance(document, new FileStream(nombreFichero, FileMode.Create));
 
-
-            writer.PageEvent=new MyPdfPageEventHelpPageNo();
+            MyPdfPageEventHelpPageNo footer = new MyPdfPageEventHelpPageNo();
+            writer.PageEvent = footer;
 
 
             // step 3: we open the document
@@ -280,14 +280,16 @@ namespace Facturas.BizzRules
             paragraph.Add(aTable);
             document.Add(paragraph);
 
-            paragraph = new Paragraph();
+            //paragraph = new Paragraph();
 
-            paragraph.SpacingBefore = 20;
-            paragraph.Font = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 6);
-            paragraph.Alignment = Element.ALIGN_RIGHT;
-            paragraph.Add(FirmarFactura(_factura, total));
+            //paragraph.SpacingBefore = 20;
+            //paragraph.Font = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 6);
+            //paragraph.Alignment = Element.ALIGN_RIGHT;
+            //paragraph.Add(FirmarFactura(_factura, total));
 
-            document.Add(paragraph);
+            footer.Hash = FirmarFactura(_factura, total);
+
+            //document.Add(paragraph);
             //iTextSharp.text.HeaderFooter)
             //HeaderFooter footer ;//= new PDFHeaderFooter(new Phrase("Antes de imprimir este mensaje, asegúrate de que es necesario. Proteger el medio ambiente está también en tu mano."), true);
 
@@ -480,7 +482,8 @@ namespace Facturas.BizzRules
         protected BaseFont helv;
         private bool settingFont = false;
 
-        public IFactura FacturaAsociada { get; set; }
+        public string Hash { get; set; }
+
 
         public override void OnOpenDocument(PdfWriter writer, Document document)
         {
@@ -494,16 +497,16 @@ namespace Facturas.BizzRules
         {
             PdfContentByte cb = writer.DirectContent;
             cb.SaveState();
-            string text = "Page " + writer.PageNumber + " of ";
+
             float textBase = document.Bottom - 20;
             float textSize = 8; //helv.GetWidthPoint(text, 12); 
             cb.BeginText();
             cb.SetFontAndSize(helv, 8);
 
-            cb.SetTextMatrix(document.Right, textBase);
-            cb.ShowText("Antes de imprimir este mensaje, asegúrate de que es necesario. Proteger el medio ambiente está también en tu mano.");
+            cb.SetTextMatrix(document.Right-(Hash.Length<<2), textBase);
+            cb.ShowText(Hash);
             cb.EndText();
-            cb.AddTemplate(total, document.Left + textSize, textBase);
+            cb.AddTemplate(total, document.Right - textSize, textBase);
 
 
             //if ((writer.PageNumber % 2) == 1)
@@ -523,12 +526,12 @@ namespace Facturas.BizzRules
 
         public override void OnCloseDocument(PdfWriter writer, Document document)
         {
-            total.BeginText();
-            total.SetFontAndSize(helv, 12);
-            total.SetTextMatrix(0, 0);
-            int pageNumber = writer.PageNumber - 1;
-            total.ShowText(Convert.ToString(pageNumber));
-            total.EndText();
+            //total.BeginText();
+            //total.SetFontAndSize(helv, 12);
+            //total.SetTextMatrix(0, 0);
+            //int pageNumber = writer.PageNumber - 1;
+            //total.ShowText(Convert.ToString(pageNumber));
+            //total.EndText();
         }
 
     }

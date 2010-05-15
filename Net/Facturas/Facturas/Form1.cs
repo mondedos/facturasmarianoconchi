@@ -63,6 +63,7 @@ namespace Facturas
         {
             generarFicheroFacturaPDFToolStripMenuItem.Enabled = value;
             toolStripButtonGenerar.Enabled = value;
+            guardarFacturaToolStripMenuItem.Enabled = value;
         }
         private void generarFicheroFacturaPDFToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -100,6 +101,8 @@ namespace Facturas
             bsLineas.EndEdit();
             bsLineas.List.Clear();
             bsLineas.AddNew();
+
+            bindingNavigatorAddNewItem_Click(sender, e);
         }
 
         private void toolStripButtonGenerar_Click(object sender, EventArgs e)
@@ -213,6 +216,7 @@ namespace Facturas
             bool activar=Convert.ToBoolean(bsLineas.List.Count);
             gbLineas.Enabled = activar;
             HabilitarGenerar(activar);
+
         }
     }
 }
