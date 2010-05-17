@@ -653,21 +653,21 @@ namespace Facturas
             // toolStripButtonPrimero
             // 
             this.toolStripButtonPrimero.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonPrimero.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonPrimero.Image")));
+            this.toolStripButtonPrimero.Image = global::Facturas.Facturas.BindingNavigatorSkin_NavigateEndRTL;
             this.toolStripButtonPrimero.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonPrimero.Name = "toolStripButtonPrimero";
             this.toolStripButtonPrimero.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButtonPrimero.Text = "toolStripButton1";
+            this.toolStripButtonPrimero.Text = "Primera Línea";
             this.toolStripButtonPrimero.Click += new System.EventHandler(this.toolStripButtonPrimero_Click);
             // 
             // toolStripButtonAnterior
             // 
             this.toolStripButtonAnterior.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonAnterior.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonAnterior.Image")));
+            this.toolStripButtonAnterior.Image = global::Facturas.Facturas.BindingNavigatorSkin_NavigateNextRTL;
             this.toolStripButtonAnterior.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonAnterior.Name = "toolStripButtonAnterior";
             this.toolStripButtonAnterior.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButtonAnterior.Text = "toolStripButton2";
+            this.toolStripButtonAnterior.Text = "Línea Anterior";
             this.toolStripButtonAnterior.Click += new System.EventHandler(this.toolStripButtonAnterior_Click);
             // 
             // toolStripSeparator4
@@ -693,21 +693,21 @@ namespace Facturas
             // toolStripButtonSiguiente
             // 
             this.toolStripButtonSiguiente.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonSiguiente.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonSiguiente.Image")));
+            this.toolStripButtonSiguiente.Image = global::Facturas.Facturas.BindingNavigatorSkin_NavigateNextLTR;
             this.toolStripButtonSiguiente.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonSiguiente.Name = "toolStripButtonSiguiente";
             this.toolStripButtonSiguiente.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButtonSiguiente.Text = "toolStripButton3";
+            this.toolStripButtonSiguiente.Text = "Siguiente Línea";
             this.toolStripButtonSiguiente.Click += new System.EventHandler(this.toolStripButtonSiguiente_Click);
             // 
             // toolStripButtonUltimo
             // 
             this.toolStripButtonUltimo.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonUltimo.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonUltimo.Image")));
+            this.toolStripButtonUltimo.Image = global::Facturas.Facturas.BindingNavigatorSkin_NavigateEndLTR;
             this.toolStripButtonUltimo.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonUltimo.Name = "toolStripButtonUltimo";
             this.toolStripButtonUltimo.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButtonUltimo.Text = "toolStripButton4";
+            this.toolStripButtonUltimo.Text = "ültima línea";
             this.toolStripButtonUltimo.Click += new System.EventHandler(this.toolStripButtonUltimo_Click);
             // 
             // toolStripSeparator6
@@ -718,21 +718,21 @@ namespace Facturas
             // toolStripButtonInsertar
             // 
             this.toolStripButtonInsertar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonInsertar.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonInsertar.Image")));
+            this.toolStripButtonInsertar.Image = global::Facturas.Facturas.BindingNavigatorSkin_Add;
             this.toolStripButtonInsertar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonInsertar.Name = "toolStripButtonInsertar";
             this.toolStripButtonInsertar.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButtonInsertar.Text = "toolStripButton5";
+            this.toolStripButtonInsertar.Text = "Añadir Línea";
             this.toolStripButtonInsertar.Click += new System.EventHandler(this.toolStripButtonInsertar_Click);
             // 
             // toolStripButtonEliminar
             // 
             this.toolStripButtonEliminar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonEliminar.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonEliminar.Image")));
+            this.toolStripButtonEliminar.Image = global::Facturas.Facturas.BindingNavigatorSkin_Delete;
             this.toolStripButtonEliminar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonEliminar.Name = "toolStripButtonEliminar";
             this.toolStripButtonEliminar.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButtonEliminar.Text = "toolStripButton6";
+            this.toolStripButtonEliminar.Text = "Eliminar Línea";
             this.toolStripButtonEliminar.Click += new System.EventHandler(this.toolStripButtonEliminar_Click);
             // 
             // Form1
