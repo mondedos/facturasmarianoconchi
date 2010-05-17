@@ -61,19 +61,19 @@
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.numericUpDownUltimaFActura = new System.Windows.Forms.NumericUpDown();
             this.numericUpDownBordeTabla = new System.Windows.Forms.NumericUpDown();
             this.label14 = new System.Windows.Forms.Label();
             this.numericUpDownNivelFondo = new System.Windows.Forms.NumericUpDown();
             this.label13 = new System.Windows.Forms.Label();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
-            this.numericUpDownUltimaFActura = new System.Windows.Forms.NumericUpDown();
-            this.label16 = new System.Windows.Forms.Label();
             this.gbDatosPersonales.SuspendLayout();
             this.gbDatosEconomicos.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownUltimaFActura)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownBordeTabla)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownNivelFondo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownUltimaFActura)).BeginInit();
             this.SuspendLayout();
             // 
             // gbDatosPersonales
@@ -426,6 +426,28 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Factura";
             // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(6, 69);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(115, 13);
+            this.label16.TabIndex = 27;
+            this.label16.Text = "Ultimo Número Factura";
+            // 
+            // numericUpDownUltimaFActura
+            // 
+            this.numericUpDownUltimaFActura.Location = new System.Drawing.Point(127, 67);
+            this.numericUpDownUltimaFActura.Maximum = new decimal(new int[] {
+            -1530494977,
+            232830,
+            0,
+            0});
+            this.numericUpDownUltimaFActura.Name = "numericUpDownUltimaFActura";
+            this.numericUpDownUltimaFActura.Size = new System.Drawing.Size(69, 20);
+            this.numericUpDownUltimaFActura.TabIndex = 26;
+            this.numericUpDownUltimaFActura.ValueChanged += new System.EventHandler(this.numericUpDownBordeTabla_ValueChanged);
+            // 
             // numericUpDownBordeTabla
             // 
             this.numericUpDownBordeTabla.Location = new System.Drawing.Point(127, 41);
@@ -470,27 +492,6 @@
             this.label13.TabIndex = 22;
             this.label13.Text = "LM Fondo Nivel";
             // 
-            // numericUpDownUltimaFActura
-            // 
-            this.numericUpDownUltimaFActura.Location = new System.Drawing.Point(127, 67);
-            this.numericUpDownUltimaFActura.Maximum = new decimal(new int[] {
-            -1530494977,
-            232830,
-            0,
-            0});
-            this.numericUpDownUltimaFActura.Name = "numericUpDownUltimaFActura";
-            this.numericUpDownUltimaFActura.Size = new System.Drawing.Size(69, 20);
-            this.numericUpDownUltimaFActura.TabIndex = 26;
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(6, 69);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(115, 13);
-            this.label16.TabIndex = 27;
-            this.label16.Text = "Ultimo Número Factura";
-            // 
             // Configuracion
             // 
             this.AcceptButton = this.btnGuardar;
@@ -514,9 +515,9 @@
             this.gbDatosEconomicos.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownUltimaFActura)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownBordeTabla)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownNivelFondo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownUltimaFActura)).EndInit();
             this.ResumeLayout(false);
 
         }
