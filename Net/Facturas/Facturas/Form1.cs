@@ -74,6 +74,7 @@ namespace Facturas
 
             bsLineas.EndEdit();
 
+            ActualizarContadoresLineas();
 
             (new PDFGenerador(factura)).Run();
 
@@ -341,9 +342,12 @@ namespace Facturas
             toolStripTextBoxActual.Text = Convert.ToString(_current + 1);
             toolStripLabelTotal.Text = string.Format("de {0} líneas de factura", c.Lineas.Count);
 
-            LineaFactura nl = c.Lineas[_current] as LineaFactura;
+            if (_current>=0)
+            {
+                LineaFactura nl = c.Lineas[_current] as LineaFactura;
 
-            Util.CopiarPropiedadesTipo(nl, this);
+                Util.CopiarPropiedadesTipo(nl, this);
+            }
         }
         private void toolStripButtonEliminar_Click(object sender, EventArgs e)
         {
@@ -405,9 +409,16 @@ namespace Facturas
         {
             ActualizarContadoresLineas();
 
+            Factura c = bsFactura.Current as Factura;
 
-            _current = 0;
-            ActualizarContradoresLineasForm();
+            if (Convert.ToBoolean(c.Lineas.Count))
+            {
+                _current = 0;
+
+                ActualizarContradoresLineasForm();
+            }
+            
+           
         }
         #region ILineaFactura Members
 
