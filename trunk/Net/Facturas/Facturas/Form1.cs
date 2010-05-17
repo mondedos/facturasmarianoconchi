@@ -39,7 +39,7 @@ namespace Facturas
             e.NewObject = f;
 
             f.Fecha = DateTime.Now;
-            f.Numero = 0;
+            f.Numero = Settings.Default.ultimaFactura+1;
 
 
         }
@@ -83,6 +83,9 @@ namespace Facturas
             }
 
             (new PDFGenerador(factura)).Run();
+
+            Settings.Default.ultimaFactura = factura.Numero;
+            Settings.Default.Save();
         }
 
         private void configurarToolStripMenuItem_Click(object sender, EventArgs e)
@@ -271,6 +274,7 @@ namespace Facturas
                 Util.CopiarPropiedadesTipo(myObject, fact);
 
                 bsFactura.ResetCurrentItem();
+                
 
             }
         }
