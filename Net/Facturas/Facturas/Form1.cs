@@ -15,7 +15,7 @@ using System.IO;
 
 namespace Facturas
 {
-    public partial class Form1 : Form
+    public partial class Form1 : Form, ILineaFactura
     {
         public Form1()
         {
@@ -39,7 +39,7 @@ namespace Facturas
             e.NewObject = f;
 
             f.Fecha = DateTime.Now;
-            f.Numero = Settings.Default.ultimaFactura+1;
+            f.Numero = Settings.Default.ultimaFactura + 1;
 
 
         }
@@ -74,13 +74,6 @@ namespace Facturas
 
             bsLineas.EndEdit();
 
-
-
-            factura.Lineas.Clear();
-            foreach (LineaFactura item in bsLineas.List)
-            {
-                factura.Lineas.Add(item);
-            }
 
             (new PDFGenerador(factura)).Run();
 
@@ -274,7 +267,7 @@ namespace Facturas
                 Util.CopiarPropiedadesTipo(myObject, fact);
 
                 bsFactura.ResetCurrentItem();
-                
+
 
             }
         }
@@ -306,5 +299,192 @@ namespace Facturas
 
             }
         }
+        private int _current = -1;
+        private void toolStripButtonInsertar_Click(object sender, EventArgs e)
+        {
+            ActualizarContadoresLineas();
+
+            Factura c = bsFactura.Current as Factura;
+
+            LineaFactura nl = new LineaFactura();
+
+            nl.HorasEuros = Settings.Default.eurosXHora;
+            nl.KilometrosEuros = Settings.Default.eurosXKilometros;
+
+            _current++;
+            c.Lineas.Add(nl);
+
+            bool activar = Convert.ToBoolean(c.Lineas.Count);
+            gbLineas.Enabled = activar;
+            HabilitarGenerar(activar);
+
+
+
+            ActualizarContradoresLineasForm();
+        }
+        public void ActualizarContadoresLineas()
+        {
+            if (_current >= 0)
+            {
+                Factura c = bsFactura.Current as Factura;
+
+
+                LineaFactura nl = c.Lineas[_current] as LineaFactura;
+
+                Util.CopiarPropiedadesTipo(this, nl);
+            }
+        }
+        public void ActualizarContradoresLineasForm()
+        {
+            Factura c = bsFactura.Current as Factura;
+
+            toolStripTextBoxActual.Text = Convert.ToString(_current + 1);
+            toolStripLabelTotal.Text = string.Format("de {0} líneas de factura", c.Lineas.Count);
+
+            LineaFactura nl = c.Lineas[_current] as LineaFactura;
+
+            Util.CopiarPropiedadesTipo(nl, this);
+        }
+        private void toolStripButtonEliminar_Click(object sender, EventArgs e)
+        {
+            Factura c = bsFactura.Current as Factura;
+
+            LineaFactura act = c.Lineas[_current] as LineaFactura;
+
+            c.Lineas.Remove(act);
+
+            if (_current >= c.Lineas.Count)
+            {
+                _current = c.Lineas.Count - 1;
+            }
+
+            ActualizarContradoresLineasForm();
+        }
+
+        private void toolStripButtonSiguiente_Click(object sender, EventArgs e)
+        {
+            ActualizarContadoresLineas();
+
+
+            Factura c = bsFactura.Current as Factura;
+
+            if (Convert.ToBoolean(c.Lineas.Count) && _current < (c.Lineas.Count - 1))
+            {
+                _current++;
+                ActualizarContradoresLineasForm();
+            }
+        }
+
+        private void toolStripButtonAnterior_Click(object sender, EventArgs e)
+        {
+            ActualizarContadoresLineas();
+
+            Factura c = bsFactura.Current as Factura;
+
+            if (Convert.ToBoolean(c.Lineas.Count) && Convert.ToBoolean(_current))
+            {
+                _current--;
+                ActualizarContradoresLineasForm();
+            }
+        }
+
+        private void toolStripButtonUltimo_Click(object sender, EventArgs e)
+        {
+            ActualizarContadoresLineas();
+
+            Factura c = bsFactura.Current as Factura;
+
+            if (Convert.ToBoolean(c.Lineas.Count))
+            {
+                _current = c.Lineas.Count - 1;
+                ActualizarContradoresLineasForm();
+            }
+        }
+
+        private void toolStripButtonPrimero_Click(object sender, EventArgs e)
+        {
+            ActualizarContadoresLineas();
+
+
+            _current = 0;
+            ActualizarContradoresLineasForm();
+        }
+        #region ILineaFactura Members
+
+        public decimal Cantidad
+        {
+            get
+            {
+                return decimal.Parse(cantidadTextBox.Text, System.Globalization.NumberStyles.Any);
+            }
+            set
+            {
+                cantidadTextBox.Text = String.Format("{0:C}", value);
+            }
+        }
+
+        public string Concepto
+        {
+            get
+            {
+                return conceptoTextBox.Text;
+            }
+            set
+            {
+                conceptoTextBox.Text = value;
+            }
+        }
+
+        public decimal HorasEspera
+        {
+            get
+            {
+                return Convert.ToDecimal(horasEsperaTextBox.Text);
+            }
+            set
+            {
+                horasEsperaTextBox.Text = Convert.ToString(value);
+            }
+        }
+
+        public decimal Kilometros
+        {
+            get
+            {
+                return Convert.ToDecimal(kilometrosTextBox.Text);
+            }
+            set
+            {
+                kilometrosTextBox.Text = Convert.ToString(value);
+            }
+        }
+
+        public decimal KilometrosEuros
+        {
+            get
+            {
+                return decimal.Parse(txtKilomestrosEuros.Text, System.Globalization.NumberStyles.Any);
+            }
+            set
+            {
+                txtKilomestrosEuros.Text = String.Format("{0:C}", value);
+            }
+        }
+
+        public decimal HorasEuros
+        {
+            get
+            {
+                return decimal.Parse(txtHorasEuros.Text, System.Globalization.NumberStyles.Any);
+            }
+            set
+            {
+                txtHorasEuros.Text = String.Format("{0:C}", value);
+            }
+        }
+
+        #endregion
+
+
     }
 }
