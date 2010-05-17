@@ -66,11 +66,14 @@
             this.numericUpDownNivelFondo = new System.Windows.Forms.NumericUpDown();
             this.label13 = new System.Windows.Forms.Label();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
+            this.numericUpDownUltimaFActura = new System.Windows.Forms.NumericUpDown();
+            this.label16 = new System.Windows.Forms.Label();
             this.gbDatosPersonales.SuspendLayout();
             this.gbDatosEconomicos.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownBordeTabla)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownNivelFondo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownUltimaFActura)).BeginInit();
             this.SuspendLayout();
             // 
             // gbDatosPersonales
@@ -410,6 +413,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label16);
+            this.groupBox1.Controls.Add(this.numericUpDownUltimaFActura);
             this.groupBox1.Controls.Add(this.numericUpDownBordeTabla);
             this.groupBox1.Controls.Add(this.label14);
             this.groupBox1.Controls.Add(this.numericUpDownNivelFondo);
@@ -465,6 +470,27 @@
             this.label13.TabIndex = 22;
             this.label13.Text = "LM Fondo Nivel";
             // 
+            // numericUpDownUltimaFActura
+            // 
+            this.numericUpDownUltimaFActura.Location = new System.Drawing.Point(127, 67);
+            this.numericUpDownUltimaFActura.Maximum = new decimal(new int[] {
+            -1530494977,
+            232830,
+            0,
+            0});
+            this.numericUpDownUltimaFActura.Name = "numericUpDownUltimaFActura";
+            this.numericUpDownUltimaFActura.Size = new System.Drawing.Size(69, 20);
+            this.numericUpDownUltimaFActura.TabIndex = 26;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(6, 69);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(115, 13);
+            this.label16.TabIndex = 27;
+            this.label16.Text = "Ultimo Número Factura";
+            // 
             // Configuracion
             // 
             this.AcceptButton = this.btnGuardar;
@@ -477,7 +503,7 @@
             this.Controls.Add(this.gbDatosEconomicos);
             this.Controls.Add(this.gbDatosPersonales);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MinimumSize = new System.Drawing.Size(367, 456);
+            this.MinimumSize = new System.Drawing.Size(424, 498);
             this.Name = "Configuracion";
             this.Text = "Configuracion";
             this.Load += new System.EventHandler(this.Configuracion_Load);
@@ -490,6 +516,7 @@
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownBordeTabla)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownNivelFondo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownUltimaFActura)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -533,5 +560,7 @@
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
         private System.Windows.Forms.TextBox txtForder;
         private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.NumericUpDown numericUpDownUltimaFActura;
     }
 }

@@ -52,6 +52,7 @@ namespace Facturas
 
             numericUpDownNivelFondo.Value = Settings.Default.nivelLMFondo;
             numericUpDownBordeTabla.Value = Settings.Default.tablaBorde;
+            numericUpDownUltimaFActura.Value = Convert.ToDecimal(Settings.Default.ultimaFactura);
         }
 
         private decimal ParsePercent(string numero)
@@ -113,6 +114,8 @@ namespace Facturas
 
             Settings.Default.nivelLMFondo = Convert.ToInt32(numericUpDownNivelFondo.Value);
             Settings.Default.tablaBorde = numericUpDownBordeTabla.Value;
+
+            Settings.Default.ultimaFactura = Convert.ToInt32(numericUpDownUltimaFActura.Value);
 
             Settings.Default.Save();
         }
