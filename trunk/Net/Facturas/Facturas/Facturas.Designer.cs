@@ -67,6 +67,48 @@ namespace Facturas {
             }
         }
         
+        internal static System.Drawing.Bitmap BindingNavigatorSkin_Add {
+            get {
+                object obj = ResourceManager.GetObject("BindingNavigatorSkin_Add", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap BindingNavigatorSkin_Delete {
+            get {
+                object obj = ResourceManager.GetObject("BindingNavigatorSkin_Delete", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap BindingNavigatorSkin_NavigateEndLTR {
+            get {
+                object obj = ResourceManager.GetObject("BindingNavigatorSkin_NavigateEndLTR", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap BindingNavigatorSkin_NavigateEndRTL {
+            get {
+                object obj = ResourceManager.GetObject("BindingNavigatorSkin_NavigateEndRTL", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap BindingNavigatorSkin_NavigateNextLTR {
+            get {
+                object obj = ResourceManager.GetObject("BindingNavigatorSkin_NavigateNextLTR", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap BindingNavigatorSkin_NavigateNextRTL {
+            get {
+                object obj = ResourceManager.GetObject("BindingNavigatorSkin_NavigateNextRTL", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Icon config {
             get {
                 object obj = ResourceManager.GetObject("config", resourceCulture);
