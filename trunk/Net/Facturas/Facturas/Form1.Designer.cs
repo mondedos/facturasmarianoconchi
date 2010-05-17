@@ -51,18 +51,6 @@ namespace Facturas
             this.conceptoTextBox = new System.Windows.Forms.TextBox();
             this.horasEsperaTextBox = new System.Windows.Forms.TextBox();
             this.kilometrosTextBox = new System.Windows.Forms.TextBox();
-            this.bsNavLineas = new System.Windows.Forms.BindingNavigator(this.components);
-            this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
-            this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
-            this.bindingNavigatorPositionItem = new System.Windows.Forms.ToolStripTextBox();
-            this.bindingNavigatorSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.cifTextBox = new System.Windows.Forms.TextBox();
             this.bsFactura = new System.Windows.Forms.BindingSource(this.components);
             this.ciudadTextBox = new System.Windows.Forms.TextBox();
@@ -83,6 +71,7 @@ namespace Facturas
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.archivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nuevoFacturaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cargarFacturaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.guardarFacturaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cargarDatosClienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.guardarDatosClienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -96,7 +85,18 @@ namespace Facturas
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.configurarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.cargarFacturaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStrip2 = new System.Windows.Forms.ToolStrip();
+            this.toolStripButtonPrimero = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonAnterior = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripTextBoxActual = new System.Windows.Forms.ToolStripTextBox();
+            this.toolStripLabelTotal = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripButtonSiguiente = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonUltimo = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripButtonInsertar = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonEliminar = new System.Windows.Forms.ToolStripButton();
             cantidadLabel = new System.Windows.Forms.Label();
             conceptoLabel = new System.Windows.Forms.Label();
             horasEsperaLabel = new System.Windows.Forms.Label();
@@ -112,8 +112,6 @@ namespace Facturas
             label1 = new System.Windows.Forms.Label();
             label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.bsLineas)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsNavLineas)).BeginInit();
-            this.bsNavLineas.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bsFactura)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.gbLineas.SuspendLayout();
@@ -122,6 +120,7 @@ namespace Facturas
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            this.toolStrip2.SuspendLayout();
             this.SuspendLayout();
             // 
             // cantidadLabel
@@ -255,7 +254,6 @@ namespace Facturas
             // 
             // cantidadTextBox
             // 
-            this.cantidadTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsLineas, "Cantidad", true));
             this.cantidadTextBox.Location = new System.Drawing.Point(78, 19);
             this.cantidadTextBox.Name = "cantidadTextBox";
             this.cantidadTextBox.Size = new System.Drawing.Size(63, 20);
@@ -271,7 +269,6 @@ namespace Facturas
             this.conceptoTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.conceptoTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsLineas, "Concepto", true));
             this.conceptoTextBox.Location = new System.Drawing.Point(78, 45);
             this.conceptoTextBox.Multiline = true;
             this.conceptoTextBox.Name = "conceptoTextBox";
@@ -280,7 +277,6 @@ namespace Facturas
             // 
             // horasEsperaTextBox
             // 
-            this.horasEsperaTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsLineas, "HorasEspera", true));
             this.horasEsperaTextBox.Location = new System.Drawing.Point(227, 19);
             this.horasEsperaTextBox.Name = "horasEsperaTextBox";
             this.horasEsperaTextBox.Size = new System.Drawing.Size(63, 20);
@@ -288,129 +284,10 @@ namespace Facturas
             // 
             // kilometrosTextBox
             // 
-            this.kilometrosTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsLineas, "Kilometros", true));
             this.kilometrosTextBox.Location = new System.Drawing.Point(360, 19);
             this.kilometrosTextBox.Name = "kilometrosTextBox";
             this.kilometrosTextBox.Size = new System.Drawing.Size(63, 20);
             this.kilometrosTextBox.TabIndex = 2;
-            // 
-            // bsNavLineas
-            // 
-            this.bsNavLineas.AddNewItem = this.bindingNavigatorAddNewItem;
-            this.bsNavLineas.BindingSource = this.bsLineas;
-            this.bsNavLineas.CountItem = this.bindingNavigatorCountItem;
-            this.bsNavLineas.CountItemFormat = "de {0} líneas de factura";
-            this.bsNavLineas.DeleteItem = this.bindingNavigatorDeleteItem;
-            this.bsNavLineas.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.bsNavLineas.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.bindingNavigatorMoveFirstItem,
-            this.bindingNavigatorMovePreviousItem,
-            this.bindingNavigatorSeparator,
-            this.bindingNavigatorPositionItem,
-            this.bindingNavigatorCountItem,
-            this.bindingNavigatorSeparator1,
-            this.bindingNavigatorMoveNextItem,
-            this.bindingNavigatorMoveLastItem,
-            this.bindingNavigatorSeparator2,
-            this.bindingNavigatorAddNewItem,
-            this.bindingNavigatorDeleteItem});
-            this.bsNavLineas.Location = new System.Drawing.Point(0, 555);
-            this.bsNavLineas.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
-            this.bsNavLineas.MoveLastItem = this.bindingNavigatorMoveLastItem;
-            this.bsNavLineas.MoveNextItem = this.bindingNavigatorMoveNextItem;
-            this.bsNavLineas.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
-            this.bsNavLineas.Name = "bsNavLineas";
-            this.bsNavLineas.PositionItem = this.bindingNavigatorPositionItem;
-            this.bsNavLineas.Size = new System.Drawing.Size(744, 25);
-            this.bsNavLineas.TabIndex = 0;
-            this.bsNavLineas.Text = "bindingNavigator1";
-            // 
-            // bindingNavigatorAddNewItem
-            // 
-            this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
-            this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
-            this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorAddNewItem.Text = "Agregar nuevo";
-            this.bindingNavigatorAddNewItem.Click += new System.EventHandler(this.bindingNavigatorAddNewItem_Click);
-            // 
-            // bindingNavigatorCountItem
-            // 
-            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(121, 22);
-            this.bindingNavigatorCountItem.Text = "de {0} líneas de factura";
-            this.bindingNavigatorCountItem.ToolTipText = "Número total de elementos";
-            // 
-            // bindingNavigatorDeleteItem
-            // 
-            this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
-            this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
-            this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorDeleteItem.Text = "Eliminar";
-            this.bindingNavigatorDeleteItem.Click += new System.EventHandler(this.bindingNavigatorAddNewItem_Click);
-            // 
-            // bindingNavigatorMoveFirstItem
-            // 
-            this.bindingNavigatorMoveFirstItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem.Image")));
-            this.bindingNavigatorMoveFirstItem.Name = "bindingNavigatorMoveFirstItem";
-            this.bindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorMoveFirstItem.Text = "Mover primero";
-            // 
-            // bindingNavigatorMovePreviousItem
-            // 
-            this.bindingNavigatorMovePreviousItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem.Image")));
-            this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
-            this.bindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorMovePreviousItem.Text = "Mover anterior";
-            // 
-            // bindingNavigatorSeparator
-            // 
-            this.bindingNavigatorSeparator.Name = "bindingNavigatorSeparator";
-            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 25);
-            // 
-            // bindingNavigatorPositionItem
-            // 
-            this.bindingNavigatorPositionItem.AccessibleName = "Posición";
-            this.bindingNavigatorPositionItem.AutoSize = false;
-            this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
-            this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 21);
-            this.bindingNavigatorPositionItem.Text = "0";
-            this.bindingNavigatorPositionItem.ToolTipText = "Posición actual";
-            // 
-            // bindingNavigatorSeparator1
-            // 
-            this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
-            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 25);
-            // 
-            // bindingNavigatorMoveNextItem
-            // 
-            this.bindingNavigatorMoveNextItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
-            this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
-            this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorMoveNextItem.Text = "Mover siguiente";
-            // 
-            // bindingNavigatorMoveLastItem
-            // 
-            this.bindingNavigatorMoveLastItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
-            this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
-            this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorMoveLastItem.Text = "Mover último";
-            // 
-            // bindingNavigatorSeparator2
-            // 
-            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
-            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
             // 
             // cifTextBox
             // 
@@ -548,7 +425,6 @@ namespace Facturas
             // 
             // txtKilomestrosEuros
             // 
-            this.txtKilomestrosEuros.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsLineas, "KilometrosEuros", true));
             this.txtKilomestrosEuros.Location = new System.Drawing.Point(642, 19);
             this.txtKilomestrosEuros.Name = "txtKilomestrosEuros";
             this.txtKilomestrosEuros.Size = new System.Drawing.Size(63, 20);
@@ -557,7 +433,6 @@ namespace Facturas
             // 
             // txtHorasEuros
             // 
-            this.txtHorasEuros.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsLineas, "HorasEuros", true));
             this.txtHorasEuros.Location = new System.Drawing.Point(509, 19);
             this.txtHorasEuros.Name = "txtHorasEuros";
             this.txtHorasEuros.Size = new System.Drawing.Size(63, 20);
@@ -637,6 +512,13 @@ namespace Facturas
             this.nuevoFacturaToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
             this.nuevoFacturaToolStripMenuItem.Text = "Nueva Factura";
             this.nuevoFacturaToolStripMenuItem.Click += new System.EventHandler(this.nuevoFacturaToolStripMenuItem_Click);
+            // 
+            // cargarFacturaToolStripMenuItem
+            // 
+            this.cargarFacturaToolStripMenuItem.Name = "cargarFacturaToolStripMenuItem";
+            this.cargarFacturaToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
+            this.cargarFacturaToolStripMenuItem.Text = "Cargar Factura";
+            this.cargarFacturaToolStripMenuItem.Click += new System.EventHandler(this.cargarFacturaToolStripMenuItem_Click);
             // 
             // guardarFacturaToolStripMenuItem
             // 
@@ -747,21 +629,120 @@ namespace Facturas
             this.splitContainer1.SplitterDistance = 294;
             this.splitContainer1.TabIndex = 31;
             // 
-            // cargarFacturaToolStripMenuItem
+            // toolStrip2
             // 
-            this.cargarFacturaToolStripMenuItem.Name = "cargarFacturaToolStripMenuItem";
-            this.cargarFacturaToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
-            this.cargarFacturaToolStripMenuItem.Text = "Cargar Factura";
-            this.cargarFacturaToolStripMenuItem.Click += new System.EventHandler(this.cargarFacturaToolStripMenuItem_Click);
+            this.toolStrip2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripButtonPrimero,
+            this.toolStripButtonAnterior,
+            this.toolStripSeparator4,
+            this.toolStripTextBoxActual,
+            this.toolStripLabelTotal,
+            this.toolStripSeparator5,
+            this.toolStripButtonSiguiente,
+            this.toolStripButtonUltimo,
+            this.toolStripSeparator6,
+            this.toolStripButtonInsertar,
+            this.toolStripButtonEliminar});
+            this.toolStrip2.Location = new System.Drawing.Point(0, 555);
+            this.toolStrip2.Name = "toolStrip2";
+            this.toolStrip2.Size = new System.Drawing.Size(744, 25);
+            this.toolStrip2.TabIndex = 32;
+            this.toolStrip2.Text = "toolStrip2";
+            // 
+            // toolStripButtonPrimero
+            // 
+            this.toolStripButtonPrimero.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonPrimero.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonPrimero.Image")));
+            this.toolStripButtonPrimero.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonPrimero.Name = "toolStripButtonPrimero";
+            this.toolStripButtonPrimero.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButtonPrimero.Text = "toolStripButton1";
+            this.toolStripButtonPrimero.Click += new System.EventHandler(this.toolStripButtonPrimero_Click);
+            // 
+            // toolStripButtonAnterior
+            // 
+            this.toolStripButtonAnterior.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonAnterior.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonAnterior.Image")));
+            this.toolStripButtonAnterior.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonAnterior.Name = "toolStripButtonAnterior";
+            this.toolStripButtonAnterior.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButtonAnterior.Text = "toolStripButton2";
+            this.toolStripButtonAnterior.Click += new System.EventHandler(this.toolStripButtonAnterior_Click);
+            // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 25);
+            // 
+            // toolStripTextBoxActual
+            // 
+            this.toolStripTextBoxActual.Name = "toolStripTextBoxActual";
+            this.toolStripTextBoxActual.Size = new System.Drawing.Size(50, 25);
+            // 
+            // toolStripLabelTotal
+            // 
+            this.toolStripLabelTotal.Name = "toolStripLabelTotal";
+            this.toolStripLabelTotal.Size = new System.Drawing.Size(0, 22);
+            // 
+            // toolStripSeparator5
+            // 
+            this.toolStripSeparator5.Name = "toolStripSeparator5";
+            this.toolStripSeparator5.Size = new System.Drawing.Size(6, 25);
+            // 
+            // toolStripButtonSiguiente
+            // 
+            this.toolStripButtonSiguiente.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonSiguiente.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonSiguiente.Image")));
+            this.toolStripButtonSiguiente.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonSiguiente.Name = "toolStripButtonSiguiente";
+            this.toolStripButtonSiguiente.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButtonSiguiente.Text = "toolStripButton3";
+            this.toolStripButtonSiguiente.Click += new System.EventHandler(this.toolStripButtonSiguiente_Click);
+            // 
+            // toolStripButtonUltimo
+            // 
+            this.toolStripButtonUltimo.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonUltimo.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonUltimo.Image")));
+            this.toolStripButtonUltimo.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonUltimo.Name = "toolStripButtonUltimo";
+            this.toolStripButtonUltimo.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButtonUltimo.Text = "toolStripButton4";
+            this.toolStripButtonUltimo.Click += new System.EventHandler(this.toolStripButtonUltimo_Click);
+            // 
+            // toolStripSeparator6
+            // 
+            this.toolStripSeparator6.Name = "toolStripSeparator6";
+            this.toolStripSeparator6.Size = new System.Drawing.Size(6, 25);
+            // 
+            // toolStripButtonInsertar
+            // 
+            this.toolStripButtonInsertar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonInsertar.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonInsertar.Image")));
+            this.toolStripButtonInsertar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonInsertar.Name = "toolStripButtonInsertar";
+            this.toolStripButtonInsertar.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButtonInsertar.Text = "toolStripButton5";
+            this.toolStripButtonInsertar.Click += new System.EventHandler(this.toolStripButtonInsertar_Click);
+            // 
+            // toolStripButtonEliminar
+            // 
+            this.toolStripButtonEliminar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonEliminar.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonEliminar.Image")));
+            this.toolStripButtonEliminar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonEliminar.Name = "toolStripButtonEliminar";
+            this.toolStripButtonEliminar.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButtonEliminar.Text = "toolStripButton6";
+            this.toolStripButtonEliminar.Click += new System.EventHandler(this.toolStripButtonEliminar_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(744, 580);
+            this.Controls.Add(this.toolStrip2);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.toolStrip1);
-            this.Controls.Add(this.bsNavLineas);
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
@@ -770,9 +751,6 @@ namespace Facturas
             this.Text = "Facturas Taxi";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.bsLineas)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsNavLineas)).EndInit();
-            this.bsNavLineas.ResumeLayout(false);
-            this.bsNavLineas.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bsFactura)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -785,6 +763,8 @@ namespace Facturas
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             this.splitContainer1.ResumeLayout(false);
+            this.toolStrip2.ResumeLayout(false);
+            this.toolStrip2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -797,18 +777,6 @@ namespace Facturas
         private System.Windows.Forms.TextBox conceptoTextBox;
         private System.Windows.Forms.TextBox horasEsperaTextBox;
         private System.Windows.Forms.TextBox kilometrosTextBox;
-        private System.Windows.Forms.BindingNavigator bsNavLineas;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorAddNewItem;
-        private System.Windows.Forms.ToolStripLabel bindingNavigatorCountItem;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorDeleteItem;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorMoveFirstItem;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorMovePreviousItem;
-        private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator;
-        private System.Windows.Forms.ToolStripTextBox bindingNavigatorPositionItem;
-        private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator1;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorMoveNextItem;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
-        private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
         private System.Windows.Forms.BindingSource bsFactura;
         private System.Windows.Forms.TextBox cifTextBox;
         private System.Windows.Forms.TextBox ciudadTextBox;
@@ -843,6 +811,18 @@ namespace Facturas
         private System.Windows.Forms.TextBox txtKilomestrosEuros;
         private System.Windows.Forms.TextBox txtHorasEuros;
         private System.Windows.Forms.ToolStripMenuItem cargarFacturaToolStripMenuItem;
+        private System.Windows.Forms.ToolStrip toolStrip2;
+        private System.Windows.Forms.ToolStripButton toolStripButtonPrimero;
+        private System.Windows.Forms.ToolStripButton toolStripButtonAnterior;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
+        private System.Windows.Forms.ToolStripTextBox toolStripTextBoxActual;
+        private System.Windows.Forms.ToolStripLabel toolStripLabelTotal;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
+        private System.Windows.Forms.ToolStripButton toolStripButtonSiguiente;
+        private System.Windows.Forms.ToolStripButton toolStripButtonUltimo;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
+        private System.Windows.Forms.ToolStripButton toolStripButtonInsertar;
+        private System.Windows.Forms.ToolStripButton toolStripButtonEliminar;
     }
 }
 
