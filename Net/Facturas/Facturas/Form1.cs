@@ -342,7 +342,7 @@ namespace Facturas
             toolStripTextBoxActual.Text = Convert.ToString(_current + 1);
             toolStripLabelTotal.Text = string.Format("de {0} líneas de factura", c.Lineas.Count);
 
-            if (_current>=0)
+            if (_current >= 0)
             {
                 LineaFactura nl = c.Lineas[_current] as LineaFactura;
 
@@ -417,8 +417,8 @@ namespace Facturas
 
                 ActualizarContradoresLineasForm();
             }
-            
-           
+
+
         }
         #region ILineaFactura Members
 
@@ -495,6 +495,11 @@ namespace Facturas
         }
 
         #endregion
+
+        private void codigoPostalTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar);
+        }
 
 
     }

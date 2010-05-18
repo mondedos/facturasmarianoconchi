@@ -281,6 +281,7 @@ namespace Facturas
             this.horasEsperaTextBox.Name = "horasEsperaTextBox";
             this.horasEsperaTextBox.Size = new System.Drawing.Size(63, 20);
             this.horasEsperaTextBox.TabIndex = 1;
+            this.horasEsperaTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.codigoPostalTextBox_KeyPress);
             // 
             // kilometrosTextBox
             // 
@@ -288,6 +289,7 @@ namespace Facturas
             this.kilometrosTextBox.Name = "kilometrosTextBox";
             this.kilometrosTextBox.Size = new System.Drawing.Size(63, 20);
             this.kilometrosTextBox.TabIndex = 2;
+            this.kilometrosTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.codigoPostalTextBox_KeyPress);
             // 
             // cifTextBox
             // 
@@ -321,6 +323,7 @@ namespace Facturas
             this.codigoPostalTextBox.Size = new System.Drawing.Size(66, 20);
             this.codigoPostalTextBox.TabIndex = 6;
             this.codigoPostalTextBox.Text = "41089";
+            this.codigoPostalTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.codigoPostalTextBox_KeyPress);
             // 
             // direccionTextBox
             // 
@@ -351,6 +354,7 @@ namespace Facturas
             this.numeroTextBox.Name = "numeroTextBox";
             this.numeroTextBox.Size = new System.Drawing.Size(66, 20);
             this.numeroTextBox.TabIndex = 0;
+            this.numeroTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.codigoPostalTextBox_KeyPress);
             // 
             // telefonoTextBox
             // 
