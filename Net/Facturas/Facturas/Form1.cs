@@ -29,6 +29,7 @@ namespace Facturas
 
             //nuevoFacturaToolStripMenuItem_Click(this, EventArgs.Empty);
             HabilitarGenerar(false);
+
         }
 
         void bsFactura_AddingNew(object sender, AddingNewEventArgs e)
@@ -205,6 +206,8 @@ namespace Facturas
             bsFactura.AddNew();
 
             numeroTextBox.Focus();
+
+            ActualizarContradoresLineasForm();
         }
 
         private void bindingNavigatorAddNewItem_Click(object sender, EventArgs e)
@@ -350,13 +353,16 @@ namespace Facturas
         {
             Factura c = bsFactura.Current as Factura;
 
-            LineaFactura act = c.Lineas[_current] as LineaFactura;
-
-            c.Lineas.Remove(act);
-
-            if (_current >= c.Lineas.Count)
+            if (_current > -1)
             {
-                _current = c.Lineas.Count - 1;
+                LineaFactura act = c.Lineas[_current] as LineaFactura;
+
+                c.Lineas.Remove(act);
+
+                if (_current >= c.Lineas.Count)
+                {
+                    _current = c.Lineas.Count - 1;
+                }
             }
 
             ActualizarContradoresLineasForm();
