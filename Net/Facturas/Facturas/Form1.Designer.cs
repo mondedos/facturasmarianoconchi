@@ -47,7 +47,6 @@ namespace Facturas
             System.Windows.Forms.Label label2;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.cantidadTextBox = new System.Windows.Forms.TextBox();
-            this.bsLineas = new System.Windows.Forms.BindingSource(this.components);
             this.conceptoTextBox = new System.Windows.Forms.TextBox();
             this.horasEsperaTextBox = new System.Windows.Forms.TextBox();
             this.kilometrosTextBox = new System.Windows.Forms.TextBox();
@@ -111,7 +110,6 @@ namespace Facturas
             telefonoLabel = new System.Windows.Forms.Label();
             label1 = new System.Windows.Forms.Label();
             label2 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.bsLineas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsFactura)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.gbLineas.SuspendLayout();
@@ -260,10 +258,6 @@ namespace Facturas
             this.cantidadTextBox.TabIndex = 0;
             this.cantidadTextBox.TextChanged += new System.EventHandler(this.txtKilomestrosEuros_TextChanged);
             // 
-            // bsLineas
-            // 
-            this.bsLineas.DataSource = typeof(Facturas.BizzRules.LineaFactura);
-            // 
             // conceptoTextBox
             // 
             this.conceptoTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
@@ -302,7 +296,7 @@ namespace Facturas
             // 
             // bsFactura
             // 
-            this.bsFactura.DataSource = typeof(Facturas.BizzRules.Factura);
+            this.bsFactura.DataSource = typeof(Factura);
             // 
             // ciudadTextBox
             // 
@@ -754,7 +748,6 @@ namespace Facturas
             this.Name = "Form1";
             this.Text = "Facturas Taxi";
             this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.bsLineas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsFactura)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -776,7 +769,6 @@ namespace Facturas
 
         #endregion
 
-        private System.Windows.Forms.BindingSource bsLineas;
         private System.Windows.Forms.TextBox cantidadTextBox;
         private System.Windows.Forms.TextBox conceptoTextBox;
         private System.Windows.Forms.TextBox horasEsperaTextBox;
