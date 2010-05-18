@@ -95,6 +95,13 @@ namespace Facturas
 
 
             bindingNavigatorAddNewItem_Click(sender, e);
+
+            _current = -1;
+
+            gbLineas.Enabled = false;
+            HabilitarGenerar(false);
+
+            ActualizarContradoresLineasForm();
         }
 
         private void toolStripButtonGenerar_Click(object sender, EventArgs e)
@@ -489,6 +496,13 @@ namespace Facturas
         private void codigoPostalTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = !char.IsDigit(e.KeyChar);
+        }
+
+        private void cantidadTextBox_Enter(object sender, EventArgs e)
+        {
+            TextBox t = sender as TextBox;
+
+            t.SelectAll();
         }
 
 

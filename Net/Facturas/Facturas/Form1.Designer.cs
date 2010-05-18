@@ -257,6 +257,7 @@ namespace Facturas
             this.cantidadTextBox.Size = new System.Drawing.Size(63, 20);
             this.cantidadTextBox.TabIndex = 0;
             this.cantidadTextBox.TextChanged += new System.EventHandler(this.txtKilomestrosEuros_TextChanged);
+            this.cantidadTextBox.Enter += new System.EventHandler(this.cantidadTextBox_Enter);
             // 
             // conceptoTextBox
             // 
