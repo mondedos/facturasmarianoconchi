@@ -25,7 +25,6 @@ namespace Facturas
             //pictureBox1.Image = Base64ToImage.ConvertThis("Hola mundo");
 
 
-            bsLineas.AddingNew += new AddingNewEventHandler(bsLineas_AddingNew);
             bsFactura.AddingNew += new AddingNewEventHandler(bsFactura_AddingNew);
 
             //nuevoFacturaToolStripMenuItem_Click(this, EventArgs.Empty);
@@ -72,8 +71,6 @@ namespace Facturas
             bsFactura.EndEdit();
             Factura factura = bsFactura.Current as Factura;
 
-            bsLineas.EndEdit();
-
             ActualizarContadoresLineas();
 
             (new PDFGenerador(factura)).Run();
@@ -96,10 +93,6 @@ namespace Facturas
             bsFactura.List.Clear();
             bsFactura.AddNew();
 
-
-            bsLineas.EndEdit();
-            bsLineas.List.Clear();
-            //bsLineas.AddNew();
 
             bindingNavigatorAddNewItem_Click(sender, e);
         }
@@ -205,16 +198,13 @@ namespace Facturas
             bsFactura.AddNew();
 
             numeroTextBox.Focus();
-            //bsLineas.EndEdit();
-            //bsLineas.List.Clear();
-            //bsLineas.AddNew();
         }
 
         private void bindingNavigatorAddNewItem_Click(object sender, EventArgs e)
         {
-            bool activar = Convert.ToBoolean(bsLineas.List.Count);
-            gbLineas.Enabled = activar;
-            HabilitarGenerar(activar);
+            //bool activar = Convert.ToBoolean(bsLineas.List.Count);
+            //gbLineas.Enabled = activar;
+            //HabilitarGenerar(activar);
 
         }
 
