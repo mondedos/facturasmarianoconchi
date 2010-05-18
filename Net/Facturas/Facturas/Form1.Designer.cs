@@ -262,7 +262,7 @@ namespace Facturas
             // 
             // bsLineas
             // 
-            this.bsLineas.DataSource = typeof(LineaFactura);
+            this.bsLineas.DataSource = typeof(Facturas.BizzRules.LineaFactura);
             // 
             // conceptoTextBox
             // 
@@ -302,7 +302,7 @@ namespace Facturas
             // 
             // bsFactura
             // 
-            this.bsFactura.DataSource = typeof(Factura);
+            this.bsFactura.DataSource = typeof(Facturas.BizzRules.Factura);
             // 
             // ciudadTextBox
             // 
