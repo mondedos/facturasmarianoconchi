@@ -657,7 +657,7 @@ namespace Facturas
             // toolStripButtonPrimero
             // 
             this.toolStripButtonPrimero.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonPrimero.Image = global::Facturas.Facturas.BindingNavigatorSkin_NavigateEndRTL;
+            this.toolStripButtonPrimero.Image = global::Facturas.Facturas.first_img;
             this.toolStripButtonPrimero.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonPrimero.Name = "toolStripButtonPrimero";
             this.toolStripButtonPrimero.Size = new System.Drawing.Size(23, 22);
@@ -667,7 +667,7 @@ namespace Facturas
             // toolStripButtonAnterior
             // 
             this.toolStripButtonAnterior.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonAnterior.Image = global::Facturas.Facturas.BindingNavigatorSkin_NavigateNextRTL;
+            this.toolStripButtonAnterior.Image = global::Facturas.Facturas.prev;
             this.toolStripButtonAnterior.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonAnterior.Name = "toolStripButtonAnterior";
             this.toolStripButtonAnterior.Size = new System.Drawing.Size(23, 22);
@@ -697,7 +697,7 @@ namespace Facturas
             // toolStripButtonSiguiente
             // 
             this.toolStripButtonSiguiente.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonSiguiente.Image = global::Facturas.Facturas.BindingNavigatorSkin_NavigateNextLTR;
+            this.toolStripButtonSiguiente.Image = global::Facturas.Facturas.next;
             this.toolStripButtonSiguiente.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonSiguiente.Name = "toolStripButtonSiguiente";
             this.toolStripButtonSiguiente.Size = new System.Drawing.Size(23, 22);
@@ -707,7 +707,7 @@ namespace Facturas
             // toolStripButtonUltimo
             // 
             this.toolStripButtonUltimo.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonUltimo.Image = global::Facturas.Facturas.BindingNavigatorSkin_NavigateEndLTR;
+            this.toolStripButtonUltimo.Image = global::Facturas.Facturas.last_img;
             this.toolStripButtonUltimo.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonUltimo.Name = "toolStripButtonUltimo";
             this.toolStripButtonUltimo.Size = new System.Drawing.Size(23, 22);
