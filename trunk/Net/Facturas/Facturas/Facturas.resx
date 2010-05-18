@@ -160,16 +160,16 @@
   <data name="BindingNavigatorSkin_Delete" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\BindingNavigatorSkin_Delete.gif;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="BindingNavigatorSkin_NavigateEndLTR" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\BindingNavigatorSkin_NavigateEndLTR.gif;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="first_img" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\first_img.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="BindingNavigatorSkin_NavigateEndRTL" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\BindingNavigatorSkin_NavigateEndRTL.gif;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="last_img" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\last_img.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="BindingNavigatorSkin_NavigateNextLTR" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\BindingNavigatorSkin_NavigateNextLTR.gif;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="next" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\next.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="BindingNavigatorSkin_NavigateNextRTL" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\BindingNavigatorSkin_NavigateNextRTL.gif;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="prev" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\prev.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
