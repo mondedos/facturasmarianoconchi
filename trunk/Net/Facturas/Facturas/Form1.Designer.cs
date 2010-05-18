@@ -716,7 +716,7 @@ namespace Facturas
             // toolStripButtonInsertar
             // 
             this.toolStripButtonInsertar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonInsertar.Image = global::Facturas.Facturas.BindingNavigatorSkin_Add;
+            this.toolStripButtonInsertar.Image = global::Facturas.Facturas.document_add;
             this.toolStripButtonInsertar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonInsertar.Name = "toolStripButtonInsertar";
             this.toolStripButtonInsertar.Size = new System.Drawing.Size(23, 22);
@@ -726,7 +726,7 @@ namespace Facturas
             // toolStripButtonEliminar
             // 
             this.toolStripButtonEliminar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonEliminar.Image = global::Facturas.Facturas.BindingNavigatorSkin_Delete;
+            this.toolStripButtonEliminar.Image = global::Facturas.Facturas.delete;
             this.toolStripButtonEliminar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonEliminar.Name = "toolStripButtonEliminar";
             this.toolStripButtonEliminar.Size = new System.Drawing.Size(23, 22);
