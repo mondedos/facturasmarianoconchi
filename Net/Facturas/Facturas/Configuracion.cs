@@ -168,6 +168,19 @@ namespace Facturas
             }
 
             if (Convert.ToBoolean(sb.Length))
+            {                
+                try
+                {
+                    if (!CifNifValidador.ValidarCifNifNie(txtNif.Text))
+                        sb.AppendLine("El CIF no es válido");
+                }
+                catch (ArgumentException ex)
+                {
+                    sb.AppendLine(ex.Message);
+                }
+            }
+
+            if (Convert.ToBoolean(sb.Length))
             {
                 MessageBox.Show(sb.ToString(), Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
