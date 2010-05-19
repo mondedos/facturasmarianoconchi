@@ -53,6 +53,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BizzRules\Base64ToImage.cs" />
+    <Compile Include="BizzRules\CifNifValidador.cs" />
     <Compile Include="BizzRules\Cliente.cs" />
     <Compile Include="BizzRules\CuentaBancariaValidador.cs" />
     <Compile Include="BizzRules\Factura.cs" />
