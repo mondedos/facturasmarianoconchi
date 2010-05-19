@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using Facturas.Properties;
 using System.Globalization;
+using Facturas.BizzRules;
 
 namespace Facturas
 {
@@ -154,6 +155,16 @@ namespace Facturas
                         sb.AppendLine("Asegurese que los datos económicos están correctamente rellenos");
                     }
                 }
+            }
+
+            try
+            {
+                if (CuentaBancariaValidador.ValidaCuentaBancaria(txtCCC.Text))
+                    sb.AppendLine("La cuenta Bancaria Introducida no es válida");
+            }
+            catch (ArgumentException ex)
+            {
+                sb.AppendLine(ex.Message);
             }
 
             if (Convert.ToBoolean(sb.Length))
