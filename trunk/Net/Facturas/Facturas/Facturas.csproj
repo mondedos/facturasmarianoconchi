@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.21022</ProductVersion>
+    <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{056BB3FC-04FC-4F49-B8D7-7C68B15B050F}</ProjectGuid>
     <OutputType>WinExe</OutputType>
@@ -54,6 +54,7 @@
   <ItemGroup>
     <Compile Include="BizzRules\Base64ToImage.cs" />
     <Compile Include="BizzRules\Cliente.cs" />
+    <Compile Include="BizzRules\CuentaBancariaValidador.cs" />
     <Compile Include="BizzRules\Factura.cs" />
     <Compile Include="BizzRules\IFactura.cs" />
     <Compile Include="BizzRules\ILineaFactura.cs" />
