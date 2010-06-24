@@ -297,7 +297,7 @@ namespace Facturas
             // 
             // bsFactura
             // 
-            this.bsFactura.DataSource = typeof(Factura);
+            this.bsFactura.DataSource = typeof(BizzRules.Factura);
             // 
             // ciudadTextBox
             // 
@@ -514,6 +514,7 @@ namespace Facturas
             // 
             // cargarFacturaToolStripMenuItem
             // 
+            this.cargarFacturaToolStripMenuItem.Enabled = false;
             this.cargarFacturaToolStripMenuItem.Name = "cargarFacturaToolStripMenuItem";
             this.cargarFacturaToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
             this.cargarFacturaToolStripMenuItem.Text = "Cargar Factura";
@@ -521,6 +522,7 @@ namespace Facturas
             // 
             // guardarFacturaToolStripMenuItem
             // 
+            this.guardarFacturaToolStripMenuItem.Enabled = false;
             this.guardarFacturaToolStripMenuItem.Image = global::Facturas.Facturas.save;
             this.guardarFacturaToolStripMenuItem.Name = "guardarFacturaToolStripMenuItem";
             this.guardarFacturaToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
