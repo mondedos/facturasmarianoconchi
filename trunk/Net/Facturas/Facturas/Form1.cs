@@ -311,6 +311,7 @@ namespace Facturas
 
             nl.HorasEuros = Settings.Default.eurosXHora;
             nl.KilometrosEuros = Settings.Default.eurosXKilometros;
+            nl.Concepto = string.Empty;
 
             _current++;
             c.Lineas.Add(nl);
