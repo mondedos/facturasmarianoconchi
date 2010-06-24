@@ -159,7 +159,7 @@ namespace Facturas
 
             try
             {
-                if (CuentaBancariaValidador.ValidaCuentaBancaria(txtCCC.Text))
+                if (!CuentaBancariaValidador.ValidaCuentaBancaria(txtCCC.Text))
                     sb.AppendLine("La cuenta Bancaria Introducida no es válida");
             }
             catch (ArgumentException ex)
