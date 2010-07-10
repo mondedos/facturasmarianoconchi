@@ -69,15 +69,53 @@ namespace Facturas
         }
         private void generarFicheroFacturaPDFToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            bsFactura.EndEdit();
-            Factura factura = bsFactura.Current as Factura;
+            if (datosLineaValido())
+            {
+                bsFactura.EndEdit();
+                Factura factura = bsFactura.Current as Factura;
 
-            ActualizarContadoresLineas();
+                ActualizarContadoresLineas();
 
-            (new PDFGenerador(factura)).Run();
+                (new PDFGenerador(factura)).Run();
 
-            Settings.Default.ultimaFactura = factura.Numero;
-            Settings.Default.Save();
+                Settings.Default.ultimaFactura = factura.Numero;
+                Settings.Default.Save();
+            }
+        }
+
+        private bool datosLineaValido()
+        {
+            StringBuilder sb = new StringBuilder();
+
+            float cantidad = 0;
+
+            if (!float.TryParse(cantidadTextBox.Text, System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.CurrentCulture.NumberFormat, out cantidad))
+            {
+                sb.AppendLine("La cantidad no es correcta, por favor introduce una canidad en euros o 0€.");
+            }
+            if (!float.TryParse(horasEsperaTextBox.Text, System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.CurrentCulture.NumberFormat, out cantidad))
+            {
+                sb.AppendLine("Las horas de espera no es correcta, por favor introduce una canidad en euros o 0€.");
+            }
+            if (!float.TryParse(kilometrosTextBox.Text, System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.CurrentCulture.NumberFormat, out cantidad))
+            {
+                sb.AppendLine("Los ckilometros no es correcto, por favor introduce una canidad en euros o 0€.");
+            }
+            if (!float.TryParse(txtHorasEuros.Text, System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.CurrentCulture.NumberFormat, out cantidad))
+            {
+                sb.AppendLine("El precio de las horas de espera no es correcto, por favor introduce una canidad en euros o 0€.");
+            }
+            if (!float.TryParse(txtKilomestrosEuros.Text, System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.CurrentCulture.NumberFormat, out cantidad))
+            {
+                sb.AppendLine("El precio de los kilometros no es correcto, por favor introduce una canidad en euros o 0€.");
+            }
+
+            if (sb.Length != 0)
+            {
+                MessageBox.Show(sb.ToString(), Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+
+            return sb.Length == 0;
         }
 
         private void configurarToolStripMenuItem_Click(object sender, EventArgs e)
@@ -303,26 +341,29 @@ namespace Facturas
         private int _current = -1;
         private void toolStripButtonInsertar_Click(object sender, EventArgs e)
         {
-            ActualizarContadoresLineas();
+            if (datosLineaValido())
+            {
+                ActualizarContadoresLineas();
 
-            Factura c = bsFactura.Current as Factura;
+                Factura c = bsFactura.Current as Factura;
 
-            LineaFactura nl = new LineaFactura();
+                LineaFactura nl = new LineaFactura();
 
-            nl.HorasEuros = Settings.Default.eurosXHora;
-            nl.KilometrosEuros = Settings.Default.eurosXKilometros;
-            nl.Concepto = string.Empty;
+                nl.HorasEuros = Settings.Default.eurosXHora;
+                nl.KilometrosEuros = Settings.Default.eurosXKilometros;
+                nl.Concepto = string.Empty;
 
-            _current++;
-            c.Lineas.Add(nl);
+                _current++;
+                c.Lineas.Add(nl);
 
-            bool activar = Convert.ToBoolean(c.Lineas.Count);
-            gbLineas.Enabled = activar;
-            HabilitarGenerar(activar);
+                bool activar = Convert.ToBoolean(c.Lineas.Count);
+                gbLineas.Enabled = activar;
+                HabilitarGenerar(activar);
 
 
 
-            ActualizarContradoresLineasForm();
+                ActualizarContradoresLineasForm();
+            }
         }
         public void ActualizarContadoresLineas()
         {
@@ -371,58 +412,69 @@ namespace Facturas
 
         private void toolStripButtonSiguiente_Click(object sender, EventArgs e)
         {
-            ActualizarContadoresLineas();
-
-
-            Factura c = bsFactura.Current as Factura;
-
-            if (Convert.ToBoolean(c.Lineas.Count) && _current < (c.Lineas.Count - 1))
+            if (datosLineaValido())
             {
-                _current++;
-                ActualizarContradoresLineasForm();
+                ActualizarContadoresLineas();
+
+
+                Factura c = bsFactura.Current as Factura;
+
+                if (Convert.ToBoolean(c.Lineas.Count) && _current < (c.Lineas.Count - 1))
+                {
+                    _current++;
+                    ActualizarContradoresLineasForm();
+                }
             }
         }
 
         private void toolStripButtonAnterior_Click(object sender, EventArgs e)
         {
-            ActualizarContadoresLineas();
-
-            Factura c = bsFactura.Current as Factura;
-
-            if (Convert.ToBoolean(c.Lineas.Count) && Convert.ToBoolean(_current))
+            if (datosLineaValido())
             {
-                _current--;
-                ActualizarContradoresLineasForm();
+                ActualizarContadoresLineas();
+
+                Factura c = bsFactura.Current as Factura;
+
+                if (Convert.ToBoolean(c.Lineas.Count) && Convert.ToBoolean(_current))
+                {
+                    _current--;
+                    ActualizarContradoresLineasForm();
+                }
             }
         }
 
         private void toolStripButtonUltimo_Click(object sender, EventArgs e)
         {
-            ActualizarContadoresLineas();
-
-            Factura c = bsFactura.Current as Factura;
-
-            if (Convert.ToBoolean(c.Lineas.Count))
+            if (datosLineaValido())
             {
-                _current = c.Lineas.Count - 1;
-                ActualizarContradoresLineasForm();
+                ActualizarContadoresLineas();
+
+                Factura c = bsFactura.Current as Factura;
+
+                if (Convert.ToBoolean(c.Lineas.Count))
+                {
+                    _current = c.Lineas.Count - 1;
+                    ActualizarContradoresLineasForm();
+                }
             }
         }
 
         private void toolStripButtonPrimero_Click(object sender, EventArgs e)
         {
-            ActualizarContadoresLineas();
-
-            Factura c = bsFactura.Current as Factura;
-
-            if (Convert.ToBoolean(c.Lineas.Count))
+            if (datosLineaValido())
             {
-                _current = 0;
+                ActualizarContadoresLineas();
 
-                ActualizarContradoresLineasForm();
+                Factura c = bsFactura.Current as Factura;
+
+                if (Convert.ToBoolean(c.Lineas.Count))
+                {
+                    _current = 0;
+
+                    ActualizarContradoresLineasForm();
+                }
+
             }
-
-
         }
         #region ILineaFactura Members
 
