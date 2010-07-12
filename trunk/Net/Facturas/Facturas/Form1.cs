@@ -85,31 +85,36 @@ namespace Facturas
 
         private bool datosLineaValido()
         {
+            Factura c = bsFactura.Current as Factura;
+
             StringBuilder sb = new StringBuilder();
 
-            float cantidad = 0;
+            if (Convert.ToBoolean(c.Lineas.Count))
+            {
+                float cantidad = 0;
 
-            if (!float.TryParse(cantidadTextBox.Text, System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.CurrentCulture.NumberFormat, out cantidad))
-            {
-                sb.AppendLine("La cantidad no es correcta, por favor introduce una canidad en euros o 0€.");
-            }
-            if (!float.TryParse(horasEsperaTextBox.Text, System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.CurrentCulture.NumberFormat, out cantidad))
-            {
-                sb.AppendLine("Las horas de espera no es correcta, por favor introduce una canidad en euros o 0€.");
-            }
-            if (!float.TryParse(kilometrosTextBox.Text, System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.CurrentCulture.NumberFormat, out cantidad))
-            {
-                sb.AppendLine("Los ckilometros no es correcto, por favor introduce una canidad en euros o 0€.");
-            }
-            if (!float.TryParse(txtHorasEuros.Text, System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.CurrentCulture.NumberFormat, out cantidad))
-            {
-                sb.AppendLine("El precio de las horas de espera no es correcto, por favor introduce una canidad en euros o 0€.");
-            }
-            if (!float.TryParse(txtKilomestrosEuros.Text, System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.CurrentCulture.NumberFormat, out cantidad))
-            {
-                sb.AppendLine("El precio de los kilometros no es correcto, por favor introduce una canidad en euros o 0€.");
-            }
+                if (!float.TryParse(cantidadTextBox.Text, System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.CurrentCulture.NumberFormat, out cantidad))
+                {
+                    sb.AppendLine("La cantidad no es correcta, por favor introduce una canidad en euros o 0€.");
+                }
+                if (!float.TryParse(horasEsperaTextBox.Text, System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.CurrentCulture.NumberFormat, out cantidad))
+                {
+                    sb.AppendLine("Las horas de espera no es correcta, por favor introduce una canidad en euros o 0€.");
+                }
+                if (!float.TryParse(kilometrosTextBox.Text, System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.CurrentCulture.NumberFormat, out cantidad))
+                {
+                    sb.AppendLine("Los ckilometros no es correcto, por favor introduce una canidad en euros o 0€.");
+                }
+                if (!float.TryParse(txtHorasEuros.Text, System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.CurrentCulture.NumberFormat, out cantidad))
+                {
+                    sb.AppendLine("El precio de las horas de espera no es correcto, por favor introduce una canidad en euros o 0€.");
+                }
+                if (!float.TryParse(txtKilomestrosEuros.Text, System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.CurrentCulture.NumberFormat, out cantidad))
+                {
+                    sb.AppendLine("El precio de los kilometros no es correcto, por favor introduce una canidad en euros o 0€.");
+                }
 
+            }
             if (sb.Length != 0)
             {
                 MessageBox.Show(sb.ToString(), Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
