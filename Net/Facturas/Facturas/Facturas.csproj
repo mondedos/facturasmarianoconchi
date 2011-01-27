@@ -15,7 +15,7 @@
     <ManifestCertificateThumbprint>E981F4C804A5F55FA18C4A95C731707AF86D502D</ManifestCertificateThumbprint>
     <ManifestKeyFile>Facturas_TemporaryKey.pfx</ManifestKeyFile>
     <GenerateManifests>true</GenerateManifests>
-    <SignManifests>true</SignManifests>
+    <SignManifests>false</SignManifests>
     <IsWebBootstrapper>true</IsWebBootstrapper>
     <ApplicationIcon>8234.ico</ApplicationIcon>
     <PublishUrl>ftp://ftpusuarios.ono.com/</PublishUrl>
@@ -215,7 +215,6 @@
     <None Include="Resources\document_add.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Facturas_TemporaryKey.pfx" />
     <None Include="Resources\delete.png" />
   </ItemGroup>
   <ItemGroup>
