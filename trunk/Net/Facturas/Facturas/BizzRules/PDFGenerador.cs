@@ -12,6 +12,9 @@ using System.Security.Cryptography;
 
 namespace Facturas.BizzRules
 {
+    /// <summary>
+    /// Clase encargada de la generación de ficheros PDF para las facturas
+    /// </summary>
     public class PDFGenerador
     {
         private IFactura _factura;
@@ -20,7 +23,9 @@ namespace Facturas.BizzRules
         {
             _factura = factura;
         }
-
+        /// <summary>
+        /// Método que realiza la construcción de una factura en PDF.
+        /// </summary>
         public void Run()
         {
             string escritorio = Settings.Default.carpetaSalidaPDF;
@@ -39,6 +44,7 @@ namespace Facturas.BizzRules
             PdfWriter writer = PdfWriter.GetInstance(document, new FileStream(nombreFichero, FileMode.Create));
 
             MyPdfPageEventHelpPageNo footer = new MyPdfPageEventHelpPageNo();
+            footer.Hash = FirmarFactura(_factura);
             writer.PageEvent = footer;
 
 
@@ -287,7 +293,7 @@ namespace Facturas.BizzRules
             //paragraph.Alignment = Element.ALIGN_RIGHT;
             //paragraph.Add(FirmarFactura(_factura, total));
 
-            footer.Hash = FirmarFactura(_factura, total);
+            
 
             //document.Add(paragraph);
             //iTextSharp.text.HeaderFooter)
@@ -346,10 +352,23 @@ namespace Facturas.BizzRules
 
             return celda;
         }
-
-        private string FirmarFactura(IFactura factura, decimal total)
+        /// <summary>
+        /// Método que realiza el cálculo de firma de factura.
+        /// </summary>
+        /// <param name="factura">Factura a firmar</param>
+        /// <returns>cadena de firma</returns>
+        private string FirmarFactura(IFactura factura)
         {
             StringBuilder sb = new StringBuilder(Settings.Default.licencia);
+
+            decimal total = 0;
+
+            //suma el total a pagar
+            foreach (ILineaFactura item in factura.Lineas)
+            {
+                total += item.Cantidad;
+            }
+
 
             sb.Append(factura.Numero).Append(Settings.Default.ccc)
                 .Append(total).Append(factura.Nombre).Append(Settings.Default.nif);
@@ -491,6 +510,11 @@ namespace Facturas.BizzRules
             total.BoundingBox = new Rectangle(-20, -20, 100, 100);
 
             helv = BaseFont.CreateFont(BaseFont.HELVETICA, BaseFont.WINANSI, BaseFont.NOT_EMBEDDED);
+        }
+
+        public override void OnStartPage(PdfWriter writer, Document document)
+        {
+            base.OnStartPage(writer, document);
         }
 
         public override void OnEndPage(PdfWriter writer, Document document)
