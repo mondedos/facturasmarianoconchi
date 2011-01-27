@@ -12,12 +12,14 @@
     <AssemblyName>Facturas</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <ManifestCertificateThumbprint>E981F4C804A5F55FA18C4A95C731707AF86D502D</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>9B141E41099DCD30C43E49D1342CFD4E0B157462</ManifestCertificateThumbprint>
     <ManifestKeyFile>Facturas_TemporaryKey.pfx</ManifestKeyFile>
     <GenerateManifests>true</GenerateManifests>
-    <SignManifests>false</SignManifests>
+    <SignManifests>true</SignManifests>
     <IsWebBootstrapper>true</IsWebBootstrapper>
     <ApplicationIcon>8234.ico</ApplicationIcon>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>Factura.pfx</AssemblyOriginatorKeyFile>
     <PublishUrl>ftp://ftpusuarios.ono.com/</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Web</InstallFrom>
@@ -32,8 +34,8 @@
     <UpdateUrl>http://webs.ono.com/fatmariano/</UpdateUrl>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>6</ApplicationRevision>
-    <ApplicationVersion>1.0.1.%2a</ApplicationVersion>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.3.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -215,6 +217,8 @@
     <None Include="Resources\document_add.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Factura.pfx" />
+    <None Include="Facturas_TemporaryKey.pfx" />
     <None Include="Resources\delete.png" />
   </ItemGroup>
   <ItemGroup>
