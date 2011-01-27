@@ -45,6 +45,7 @@ namespace Facturas.BizzRules
 
             MyPdfPageEventHelpPageNo footer = new MyPdfPageEventHelpPageNo();
             footer.Hash = FirmarFactura(_factura);
+            footer.NumeroFactura = _factura.Numero;
             writer.PageEvent = footer;
 
 
@@ -503,6 +504,10 @@ namespace Facturas.BizzRules
 
         public string Hash { get; set; }
 
+        private int _numeroPagina = 0;
+
+        public int NumeroFactura { get; set; }
+        
 
         public override void OnOpenDocument(PdfWriter writer, Document document)
         {
@@ -515,6 +520,25 @@ namespace Facturas.BizzRules
         public override void OnStartPage(PdfWriter writer, Document document)
         {
             base.OnStartPage(writer, document);
+
+            if (Convert.ToBoolean(_numeroPagina))
+            {
+                //Ya no estamos en la primera página
+                PdfPTable tableTitle = new PdfPTable(1);
+
+                PdfPCell cell = new PdfPCell(new Phrase(string.Format("FACTURA TAXI Mariano Nº {0}",NumeroFactura) + Environment.NewLine));
+
+                cell.Border = 0;
+                cell.PaddingBottom = 15;
+                
+
+                tableTitle.AddCell(cell);
+
+                document.Add(tableTitle);
+
+            }
+
+            _numeroPagina++;
         }
 
         public override void OnEndPage(PdfWriter writer, Document document)
@@ -527,6 +551,8 @@ namespace Facturas.BizzRules
             cb.BeginText();
             cb.SetFontAndSize(helv, 8);
 
+            cb.SetTextMatrix(document.Left,textBase);
+            cb.ShowText(string.Format("Página {0}", document.PageNumber));
             cb.SetTextMatrix(document.Right-(Hash.Length<<2), textBase);
             cb.ShowText(Hash);
             cb.EndText();
