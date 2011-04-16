@@ -175,4 +175,28 @@
   <data name="document_add" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\document_add.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+	<data name="Configuracion_Configuracion_FormClosing_">
+		<value xml:space="preserve">Existen datos sin guardar, ¿Deseas salir?</value>
+	</data>
+	<data name="Form1_guardarDatosClienteToolStripMenuItem_Click_Factura____upo____upo">
+		<value xml:space="preserve">Factura (*.upo)|*.upo</value>
+	</data>
+	<data name="Form1_guardarDatosClienteToolStripMenuItem_Click_Guardar_Datos_Cliente_como___">
+		<value xml:space="preserve">Guardar Datos Cliente como...</value>
+	</data>
+	<data name="Form1_cargarDatosClienteToolStripMenuItem_Click_Seleccione_los_datos_del_cliente">
+		<value xml:space="preserve">Seleccione los datos del cliente</value>
+	</data>
+	<data name="Form1_guardarFacturaToolStripMenuItem_Click_Factura____taxi____taxi">
+		<value xml:space="preserve">Factura (*.taxi)|*.taxi</value>
+	</data>
+	<data name="Form1_guardarFacturaToolStripMenuItem_Click_Guardar_Factura_como___">
+		<value xml:space="preserve">Guardar Factura como...</value>
+	</data>
+	<data name="Form1_firmarFacturaToolStripMenuItem_Click_Guardar_Factura_Firmada_como___">
+		<value xml:space="preserve">Guardar Factura Firmada como...</value>
+	</data>
+	<data name="Form1_firmarFacturaToolStripMenuItem_Click_Factura____pdf____pdf">
+		<value xml:space="preserve">Factura (*.pdf)|*.pdf</value>
+	</data>
 </root>
