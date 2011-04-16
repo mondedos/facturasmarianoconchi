@@ -1,13 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-
 using System.Text;
 using System.Windows.Forms;
 using Facturas.BizzRules;
-using iTextSharpSign;
 using System.Diagnostics;
 using Facturas.Properties;
 using System.Xml.Serialization;
@@ -217,7 +212,7 @@ namespace Facturas
 
                                 if (sabeD.ShowDialog(this) == DialogResult.OK)
                                 {
-                                    PDFSigner pdfs = new PDFSigner(openFileDialog.FileName, sabeD.FileName, myCert, MyMD);
+                                    PdfSigner pdfs = new PdfSigner(openFileDialog.FileName, sabeD.FileName, myCert, MyMD);
                                     pdfs.Sign("Factura por translado en taxi", Settings.Default.email, Settings.Default.direccion + " " + Settings.Default.poblacionCP, false);
 
 

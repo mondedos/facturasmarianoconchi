@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-using System.Text;
-
-namespace Facturas.BizzRules
+﻿namespace Facturas.BizzRules
 {
     public class LineaFactura : ILineaFactura
     {
