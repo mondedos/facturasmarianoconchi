@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-
 using System.Text;
 using System.Windows.Forms;
 using Facturas.Properties;
@@ -14,14 +9,14 @@ namespace Facturas
 {
     public partial class Configuracion : Form
     {
-        private bool _detectarCambios = false;
+        private bool _detectarCambios;
         public Configuracion()
         {
             InitializeComponent();
 
             InicialezeValues();
 
-         
+
         }
 
         private void InicialezeValues()
@@ -58,14 +53,14 @@ namespace Facturas
 
         private decimal ParsePercent(string numero)
         {
-            NumberFormatInfo nfi = new NumberFormatInfo()
-            {
-                PercentDecimalSeparator = ",",
-                PercentSymbol = "%"
-            };
+            NumberFormatInfo nfi = new NumberFormatInfo
+                                       {
+                                           PercentDecimalSeparator = ",",
+                                           PercentSymbol = "%"
+                                       };
 
-            return decimal.Parse(numero.Replace(System.Globalization.CultureInfo.CurrentCulture.NumberFormat.PercentSymbol, null), System.Globalization.NumberStyles.Any, nfi);
-          
+            return decimal.Parse(numero.Replace(CultureInfo.CurrentCulture.NumberFormat.PercentSymbol, null), NumberStyles.Any, nfi);
+
         }
 
         private void txtHorasEspera_TextChanged(object sender, EventArgs e)
@@ -74,23 +69,24 @@ namespace Facturas
 
             float euros;
 
-            if (float.TryParse(tb.Text, out euros))
-            {
-                tb.Text = String.Format("{0:C}", euros);
-            }
-
+            if (tb != null)
+                if (float.TryParse(tb.Text, out euros))
+                {
+                    tb.Text = String.Format("{0:C}", euros);
+                }
         }
 
         private void txtIva_TextChanged(object sender, EventArgs e)
         {
             TextBox tb = sender as TextBox;
-             
+
             float iva;
 
-            if (float.TryParse(tb.Text, out iva))
-            {
-                tb.Text = String.Format("{0} {1}", iva,System.Globalization.CultureInfo.CurrentCulture.NumberFormat.PercentSymbol);
-            }
+            if (tb != null)
+                if (float.TryParse(tb.Text, out iva))
+                {
+                    tb.Text = String.Format("{0} {1}", iva, CultureInfo.CurrentCulture.NumberFormat.PercentSymbol);
+                }
         }
 
         private void Guardar()
@@ -110,8 +106,8 @@ namespace Facturas
 
             //datos económicos
             Settings.Default.iva = ParsePercent(txtIva.Text);
-            Settings.Default.eurosXKilometros = decimal.Parse(txtKilometros.Text, System.Globalization.NumberStyles.Any);
-            Settings.Default.eurosXHora = decimal.Parse(txtHorasEspera.Text, System.Globalization.NumberStyles.Any);
+            Settings.Default.eurosXKilometros = decimal.Parse(txtKilometros.Text, NumberStyles.Any);
+            Settings.Default.eurosXHora = decimal.Parse(txtHorasEspera.Text, NumberStyles.Any);
 
             Settings.Default.nivelLMFondo = Convert.ToInt32(numericUpDownNivelFondo.Value);
             Settings.Default.tablaBorde = numericUpDownBordeTabla.Value;
@@ -143,14 +139,14 @@ namespace Facturas
 
             if (!Convert.ToBoolean(sb.Length))
             {
-                string moneda = System.Globalization.CultureInfo.CurrentCulture.NumberFormat.CurrencySymbol;
+                string moneda = CultureInfo.CurrentCulture.NumberFormat.CurrencySymbol;
 
                 TextBox[] tmonedas = new TextBox[2] { txtKilometros, txtHorasEspera };
 
                 foreach (TextBox item in tmonedas)
                 {
                     //decimal.TryParse("",System.Globalization.NumberStyles.Any,
-                    if (!IsNumber(item.Text.Replace(moneda,null)))
+                    if (!IsNumber(item.Text.Replace(moneda, null)))
                     {
                         sb.AppendLine("Asegurese que los datos económicos están correctamente rellenos");
                     }
@@ -168,7 +164,7 @@ namespace Facturas
             }
 
             if (Convert.ToBoolean(sb.Length))
-            {                
+            {
                 try
                 {
                     if (!CifNifValidador.ValidarCifNifNie(txtNif.Text))
@@ -190,11 +186,9 @@ namespace Facturas
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            if (EsValido())
-            {
-                Guardar();
-                btnGuardar.Enabled = false;
-            }
+            if (!EsValido()) return;
+            Guardar();
+            btnGuardar.Enabled = false;
         }
 
 
@@ -204,7 +198,7 @@ namespace Facturas
         }
 
 
-        private static System.Text.RegularExpressions.Regex _isNumber = new System.Text.RegularExpressions.Regex(@"^\d+$");
+        private static readonly System.Text.RegularExpressions.Regex _isNumber = new System.Text.RegularExpressions.Regex(@"^\d+$");
 
         public static bool IsInteger(string theValue)
         {
@@ -215,7 +209,7 @@ namespace Facturas
         public static bool IsNumber(string text)
         {
             double numb;
-            return Double.TryParse(text, System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.CurrentCulture.NumberFormat, out numb);
+            return Double.TryParse(text, NumberStyles.Any, CultureInfo.CurrentCulture.NumberFormat, out numb);
         }
 
         private void numericUpDownBordeTabla_ValueChanged(object sender, EventArgs e)
@@ -237,12 +231,10 @@ namespace Facturas
 
         private void Configuracion_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (btnGuardar.Enabled)
+            if (!btnGuardar.Enabled) return;
+            if (MessageBox.Show(Facturas.Configuracion_Configuracion_FormClosing_, Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
             {
-                if (MessageBox.Show("Existen datos sin guardar, ¿Deseas salir?", Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
-                {
-                    e.Cancel = true;
-                }
+                e.Cancel = true;
             }
         }
 

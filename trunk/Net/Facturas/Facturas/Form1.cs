@@ -202,7 +202,7 @@ namespace Facturas
                         OpenFileDialog openFileDialog = new OpenFileDialog();
                         openFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
                         openFileDialog.Title = "Seleccione una factura sin firmar";
-                        openFileDialog.Filter = "Factura (*.pdf)|*.pdf";
+                        openFileDialog.Filter = Facturas.Form1_firmarFacturaToolStripMenuItem_Click_Factura____pdf____pdf;
 
 
                         if (openFileDialog.ShowDialog(this) == DialogResult.OK)
@@ -221,8 +221,8 @@ namespace Facturas
                                 SaveFileDialog sabeD = new SaveFileDialog();
 
                                 sabeD.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
-                                sabeD.Title = "Guardar Factura Firmada como...";
-                                sabeD.Filter = "Factura (*.pdf)|*.pdf";
+                                sabeD.Title = Facturas.Form1_firmarFacturaToolStripMenuItem_Click_Guardar_Factura_Firmada_como___;
+                                sabeD.Filter = Facturas.Form1_firmarFacturaToolStripMenuItem_Click_Factura____pdf____pdf;
 
 
                                 if (sabeD.ShowDialog(this) == DialogResult.OK)
@@ -281,8 +281,8 @@ namespace Facturas
             SaveFileDialog sabeD = new SaveFileDialog();
 
             sabeD.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
-            sabeD.Title = "Guardar Factura como...";
-            sabeD.Filter = "Factura (*.taxi)|*.taxi";
+            sabeD.Title = Facturas.Form1_guardarFacturaToolStripMenuItem_Click_Guardar_Factura_como___;
+            sabeD.Filter = Facturas.Form1_guardarFacturaToolStripMenuItem_Click_Factura____taxi____taxi;
 
             if (sabeD.ShowDialog(this) == DialogResult.OK)
             {
@@ -298,32 +298,28 @@ namespace Facturas
 
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
-            openFileDialog.Title = "Seleccione los datos del cliente";
-            openFileDialog.Filter = "Factura (*.upo)|*.upo";
+            openFileDialog.Title = Facturas.Form1_cargarDatosClienteToolStripMenuItem_Click_Seleccione_los_datos_del_cliente;
+            openFileDialog.Filter = Facturas.Form1_guardarDatosClienteToolStripMenuItem_Click_Factura____upo____upo;
 
 
-            if (openFileDialog.ShowDialog(this) == DialogResult.OK)
-            {
-                Cliente myObject;
-                // Construct an instance of the XmlSerializer with the type
-                // of object that is being deserialized.
-                XmlSerializer mySerializer =
+            if (openFileDialog.ShowDialog(this) != DialogResult.OK) return;
+            Cliente myObject;
+            // Construct an instance of the XmlSerializer with the type
+            // of object that is being deserialized.
+            XmlSerializer mySerializer =
                 new XmlSerializer(typeof(Cliente));
-                // To read the file, create a FileStream.
-                FileStream myFileStream =
+            // To read the file, create a FileStream.
+            FileStream myFileStream =
                 new FileStream(openFileDialog.FileName, FileMode.Open);
-                // Call the Deserialize method and cast to the object type.
-                myObject = (Cliente)mySerializer.Deserialize(myFileStream);
+            // Call the Deserialize method and cast to the object type.
+            myObject = (Cliente)mySerializer.Deserialize(myFileStream);
 
-                Factura fact = bsFactura.Current as Factura;
-
-
-                Util.CopiarPropiedadesTipo(myObject, fact);
-
-                bsFactura.ResetCurrentItem();
+            Factura fact = bsFactura.Current as Factura;
 
 
-            }
+            Util.CopiarPropiedadesTipo(myObject, fact);
+
+            bsFactura.ResetCurrentItem();
         }
 
         private void guardarDatosClienteToolStripMenuItem_Click(object sender, EventArgs e)
@@ -331,54 +327,48 @@ namespace Facturas
             SaveFileDialog sabeD = new SaveFileDialog();
 
             sabeD.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
-            sabeD.Title = "Guardar Datos Cliente como...";
-            sabeD.Filter = "Factura (*.upo)|*.upo";
+            sabeD.Title = Facturas.Form1_guardarDatosClienteToolStripMenuItem_Click_Guardar_Datos_Cliente_como___;
+            sabeD.Filter = Facturas.Form1_guardarDatosClienteToolStripMenuItem_Click_Factura____upo____upo;
 
-            if (sabeD.ShowDialog(this) == DialogResult.OK)
-            {
-                Factura fact = bsFactura.Current as Factura;
+            if (sabeD.ShowDialog(this) != DialogResult.OK) return;
+            Factura fact = bsFactura.Current as Factura;
 
-                Cliente myObject = new Cliente();
+            Cliente myObject = new Cliente();
 
-                Util.CopiarPropiedadesTipo(fact, myObject);
+            Util.CopiarPropiedadesTipo(fact, myObject);
 
-                // Insert code to set properties and fields of the object.
-                XmlSerializer mySerializer = new
+            // Insert code to set properties and fields of the object.
+            XmlSerializer mySerializer = new
                 XmlSerializer(typeof(Cliente));
-                // To write to a file, create a StreamWriter object.
-                StreamWriter myWriter = new StreamWriter(sabeD.FileName);
-                mySerializer.Serialize(myWriter, myObject);
-                myWriter.Close();
-
-
-            }
+            // To write to a file, create a StreamWriter object.
+            StreamWriter myWriter = new StreamWriter(sabeD.FileName);
+            mySerializer.Serialize(myWriter, myObject);
+            myWriter.Close();
         }
      
         private void toolStripButtonInsertar_Click(object sender, EventArgs e)
         {
-            if (DatosLineaValido())
-            {
-                ActualizarContadoresLineas();
+            if (!DatosLineaValido()) return;
+            ActualizarContadoresLineas();
 
-                Factura c = bsFactura.Current as Factura;
+            Factura c = bsFactura.Current as Factura;
 
-                LineaFactura nl = new LineaFactura();
+            LineaFactura nl = new LineaFactura();
 
-                nl.HorasEuros = Settings.Default.eurosXHora;
-                nl.KilometrosEuros = Settings.Default.eurosXKilometros;
-                nl.Concepto = string.Empty;
+            nl.HorasEuros = Settings.Default.eurosXHora;
+            nl.KilometrosEuros = Settings.Default.eurosXKilometros;
+            nl.Concepto = string.Empty;
 
-                _current++;
-                c.Lineas.Add(nl);
+            _current++;
+            c.Lineas.Add(nl);
 
-                bool activar = Convert.ToBoolean(c.Lineas.Count);
-                gbLineas.Enabled = activar;
-                HabilitarGenerar(activar);
-
+            bool activar = Convert.ToBoolean(c.Lineas.Count);
+            gbLineas.Enabled = activar;
+            HabilitarGenerar(activar);
 
 
-                ActualizarContradoresLineasForm();
-            }
+
+            ActualizarContradoresLineasForm();
         }
         public void ActualizarContadoresLineas()
         {
@@ -386,21 +376,20 @@ namespace Facturas
             Factura c = bsFactura.Current as Factura;
 
 
-            if (c != null)
-            {
-                LineaFactura nl = c.Lineas[_current] as LineaFactura;
+            if (c == null) return;
+            LineaFactura nl = c.Lineas[_current] as LineaFactura;
 
-                Util.CopiarPropiedadesTipo(this, nl);
-            }
+            Util.CopiarPropiedadesTipo(this, nl);
         }
         public void ActualizarContradoresLineasForm()
         {
             Factura c = bsFactura.Current as Factura;
-
+            if (c == null) return;
             toolStripTextBoxActual.Text = Convert.ToString(_current + 1);
             toolStripLabelTotal.Text = string.Format("de {0} líneas de factura", c.Lineas.Count);
 
             if (_current < 0) return;
+            
             LineaFactura nl = c.Lineas[_current] as LineaFactura;
 
             Util.CopiarPropiedadesTipo(nl, this);
