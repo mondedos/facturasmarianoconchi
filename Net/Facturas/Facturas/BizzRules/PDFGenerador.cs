@@ -14,11 +14,11 @@ namespace Facturas.BizzRules
     /// <summary>
     /// Clase encargada de la generación de ficheros PDF para las facturas
     /// </summary>
-    public class PDFGenerador
+    public class PdfGenerador
     {
         private IFactura _factura;
 
-        public PDFGenerador(IFactura factura)
+        public PdfGenerador(IFactura factura)
         {
             _factura = factura;
         }
@@ -29,7 +29,7 @@ namespace Facturas.BizzRules
         {
             string escritorio = Settings.Default.carpetaSalidaPDF;
 
-            string nombreFichero = System.IO.Path.Combine(escritorio, string.Format("Factura-{0}.pdf", _factura.Numero));
+            string nombreFichero = Path.Combine(escritorio, string.Format("Factura-{0}.pdf", _factura.Numero));
 
 
 
@@ -262,7 +262,7 @@ namespace Facturas.BizzRules
 
 
 
-            fila = new PdfPRow(new PdfPCell[6] {
+            fila = new PdfPRow(new[] {
                         FormatearCeldaVacia(new PdfPCell()),  
                         FormatearCeldaVacia(new PdfPCell()), 
                         FormatearCeldaVacia(new PdfPCell()),
@@ -272,7 +272,7 @@ namespace Facturas.BizzRules
 
             aTable.Rows.Add(fila);
 
-            fila = new PdfPRow(new PdfPCell[6] {
+            fila = new PdfPRow(new[] {
                         FormatearCeldaVacia(new PdfPCell()), 
                         FormatearCeldaVacia(new PdfPCell()), 
                         FormatearCeldaVacia(new PdfPCell()),
@@ -373,13 +373,14 @@ namespace Facturas.BizzRules
             sb.Append(factura.Numero).Append(Settings.Default.ccc)
                 .Append(total).Append(factura.Nombre).Append(Settings.Default.nif);
 
-            return GetSHA1(sb.ToString());
+            return GetSha1(sb.ToString());
         }
-        public static string GetSHA1(string str)
+
+        private static string GetSha1(string str)
         {
             SHA1 sha1 = SHA1Managed.Create();
             ASCIIEncoding encoding = new ASCIIEncoding();
-            byte[] stream = null;
+            byte[] stream;
             StringBuilder sb = new StringBuilder();
             stream = sha1.ComputeHash(encoding.GetBytes(str));
             for (int i = 0; i < stream.Length; i++) sb.AppendFormat("{0:x2}", stream[i]);
@@ -472,7 +473,7 @@ namespace Facturas.BizzRules
             PdfReader pdfReader = new PdfReader(nombreFichero);
             PdfStamper stamp = new PdfStamper(pdfReader, new FileStream(nombreFichero.Replace(".pdf", "[temp][file].pdf"), FileMode.Create));
 
-            iTextSharp.text.Image img = iTextSharp.text.Image.GetInstance(Base64ToImage.ConvertThis("Hola mundo"), BaseColor.GRAY);
+            Image img = Image.GetInstance(Base64ToImage.ConvertThis("Hola mundo"), BaseColor.GRAY);
             img.SetAbsolutePosition(250, 300); // set the position in the document where you want the watermark to appear (0,0 = bottom left corner of the page)
 
             PdfContentByte waterMark;
@@ -495,25 +496,24 @@ namespace Facturas.BizzRules
 
 
 
-    public class MyPdfPageEventHelpPageNo : iTextSharp.text.pdf.PdfPageEventHelper
+    public class MyPdfPageEventHelpPageNo : PdfPageEventHelper
     {
-        protected PdfTemplate total;
-        protected BaseFont helv;
-        private bool settingFont = false;
+        private PdfTemplate _total;
+        private BaseFont _helv;
 
         public string Hash { get; set; }
 
-        private int _numeroPagina = 0;
+        private int _numeroPagina;
 
         public int NumeroFactura { get; set; }
         
 
         public override void OnOpenDocument(PdfWriter writer, Document document)
         {
-            total = writer.DirectContent.CreateTemplate(100, 100);
-            total.BoundingBox = new Rectangle(-20, -20, 100, 100);
+            _total = writer.DirectContent.CreateTemplate(100, 100);
+            _total.BoundingBox = new Rectangle(-20, -20, 100, 100);
 
-            helv = BaseFont.CreateFont(BaseFont.HELVETICA, BaseFont.WINANSI, BaseFont.NOT_EMBEDDED);
+            _helv = BaseFont.CreateFont(BaseFont.HELVETICA, BaseFont.WINANSI, BaseFont.NOT_EMBEDDED);
         }
 
         public override void OnStartPage(PdfWriter writer, Document document)
@@ -548,14 +548,14 @@ namespace Facturas.BizzRules
             float textBase = document.Bottom - 20;
             float textSize = 8; //helv.GetWidthPoint(text, 12); 
             cb.BeginText();
-            cb.SetFontAndSize(helv, 8);
+            cb.SetFontAndSize(_helv, 8);
 
             cb.SetTextMatrix(document.Left,textBase);
             cb.ShowText(string.Format("Página {0}", document.PageNumber));
             cb.SetTextMatrix(document.Right-(Hash.Length<<2), textBase);
             cb.ShowText(Hash);
             cb.EndText();
-            cb.AddTemplate(total, document.Right - textSize, textBase);
+            cb.AddTemplate(_total, document.Right - textSize, textBase);
 
 
             //if ((writer.PageNumber % 2) == 1)

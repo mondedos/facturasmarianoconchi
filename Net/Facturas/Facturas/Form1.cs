@@ -12,6 +12,13 @@ namespace Facturas
 {
     public partial class Form1 : Form, ILineaFactura
     {
+        private int _current = -1;
+        private string _elPrecioDeLasHorasDeEsperaNoEsCorrectoPorFavorIntroduceUnaCanidadEnEurosO = "El precio de las horas de espera no es correcto, por favor introduce una canidad en euros o 0€.";
+        private string _losCkilometrosNoEsCorrectoPorFavorIntroduceUnaCanidadEnEurosO = "Los ckilometros no es correcto, por favor introduce una canidad en euros o 0€.";
+        private string _lasHorasDeEsperaNoEsCorrectaPorFavorIntroduceUnaCanidadEnEurosO = "Las horas de espera no es correcta, por favor introduce una canidad en euros o 0€.";
+        private string _laCantidadNoEsCorrectaPorFavorIntroduceUnaCanidadEnEurosO = "La cantidad no es correcta, por favor introduce una canidad en euros o 0€.";
+        private string _elPrecioDeLosKilometrosNoEsCorrectoPorFavorIntroduceUnaCanidadEnEurosO = "El precio de los kilometros no es correcto, por favor introduce una canidad en euros o 0€.";
+
         public Form1()
         {
             InitializeComponent();
@@ -64,52 +71,60 @@ namespace Facturas
         }
         private void generarFicheroFacturaPDFToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (datosLineaValido())
+            if (DatosLineaValido())
             {
                 bsFactura.EndEdit();
                 Factura factura = bsFactura.Current as Factura;
 
                 ActualizarContadoresLineas();
 
-                (new PDFGenerador(factura)).Run();
+                (new PdfGenerador(factura)).Run();
 
                 Settings.Default.ultimaFactura = factura.Numero;
                 Settings.Default.Save();
             }
         }
 
-        private bool datosLineaValido()
+        private bool DatosLineaValido()
         {
             Factura c = bsFactura.Current as Factura;
 
             StringBuilder sb = new StringBuilder();
 
-            if (Convert.ToBoolean(c.Lineas.Count))
-            {
-                float cantidad = 0;
+            errorProvider1.Clear();
 
-                if (!float.TryParse(cantidadTextBox.Text, System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.CurrentCulture.NumberFormat, out cantidad))
+            if (c != null)
+                if (Convert.ToBoolean(c.Lineas.Count))
                 {
-                    sb.AppendLine("La cantidad no es correcta, por favor introduce una canidad en euros o 0€.");
-                }
-                if (!float.TryParse(horasEsperaTextBox.Text, System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.CurrentCulture.NumberFormat, out cantidad))
-                {
-                    sb.AppendLine("Las horas de espera no es correcta, por favor introduce una canidad en euros o 0€.");
-                }
-                if (!float.TryParse(kilometrosTextBox.Text, System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.CurrentCulture.NumberFormat, out cantidad))
-                {
-                    sb.AppendLine("Los ckilometros no es correcto, por favor introduce una canidad en euros o 0€.");
-                }
-                if (!float.TryParse(txtHorasEuros.Text, System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.CurrentCulture.NumberFormat, out cantidad))
-                {
-                    sb.AppendLine("El precio de las horas de espera no es correcto, por favor introduce una canidad en euros o 0€.");
-                }
-                if (!float.TryParse(txtKilomestrosEuros.Text, System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.CurrentCulture.NumberFormat, out cantidad))
-                {
-                    sb.AppendLine("El precio de los kilometros no es correcto, por favor introduce una canidad en euros o 0€.");
-                }
+                    float cantidad = 0;
 
-            }
+                    if (!float.TryParse(cantidadTextBox.Text, System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.CurrentCulture.NumberFormat, out cantidad))
+                    {
+                        errorProvider1.SetError(cantidadTextBox, _laCantidadNoEsCorrectaPorFavorIntroduceUnaCanidadEnEurosO);
+                        sb.AppendLine(_laCantidadNoEsCorrectaPorFavorIntroduceUnaCanidadEnEurosO);
+                    }
+                    if (!float.TryParse(horasEsperaTextBox.Text, System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.CurrentCulture.NumberFormat, out cantidad))
+                    {
+                        errorProvider1.SetError(horasEsperaTextBox, _lasHorasDeEsperaNoEsCorrectaPorFavorIntroduceUnaCanidadEnEurosO);
+                        sb.AppendLine(_lasHorasDeEsperaNoEsCorrectaPorFavorIntroduceUnaCanidadEnEurosO);
+                    }
+                    if (!float.TryParse(kilometrosTextBox.Text, System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.CurrentCulture.NumberFormat, out cantidad))
+                    {
+                        errorProvider1.SetError(kilometrosTextBox, _losCkilometrosNoEsCorrectoPorFavorIntroduceUnaCanidadEnEurosO);
+                        sb.AppendLine(_losCkilometrosNoEsCorrectoPorFavorIntroduceUnaCanidadEnEurosO);
+                    }
+                    if (!float.TryParse(txtHorasEuros.Text, System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.CurrentCulture.NumberFormat, out cantidad))
+                    {
+                        errorProvider1.SetError(txtHorasEuros, _elPrecioDeLasHorasDeEsperaNoEsCorrectoPorFavorIntroduceUnaCanidadEnEurosO);
+                        sb.AppendLine(_elPrecioDeLasHorasDeEsperaNoEsCorrectoPorFavorIntroduceUnaCanidadEnEurosO);
+                    }
+                    if (!float.TryParse(txtKilomestrosEuros.Text, System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.CurrentCulture.NumberFormat, out cantidad))
+                    {
+                        errorProvider1.SetError(txtKilomestrosEuros, _elPrecioDeLosKilometrosNoEsCorrectoPorFavorIntroduceUnaCanidadEnEurosO);
+                        sb.AppendLine(_elPrecioDeLosKilometrosNoEsCorrectoPorFavorIntroduceUnaCanidadEnEurosO);
+                    }
+
+                }
             if (sb.Length != 0)
             {
                 MessageBox.Show(sb.ToString(), Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -338,10 +353,10 @@ namespace Facturas
 
             }
         }
-        private int _current = -1;
+     
         private void toolStripButtonInsertar_Click(object sender, EventArgs e)
         {
-            if (datosLineaValido())
+            if (DatosLineaValido())
             {
                 ActualizarContadoresLineas();
 
@@ -367,11 +382,12 @@ namespace Facturas
         }
         public void ActualizarContadoresLineas()
         {
-            if (_current >= 0)
+            if (_current < 0) return;
+            Factura c = bsFactura.Current as Factura;
+
+
+            if (c != null)
             {
-                Factura c = bsFactura.Current as Factura;
-
-
                 LineaFactura nl = c.Lineas[_current] as LineaFactura;
 
                 Util.CopiarPropiedadesTipo(this, nl);
@@ -384,12 +400,10 @@ namespace Facturas
             toolStripTextBoxActual.Text = Convert.ToString(_current + 1);
             toolStripLabelTotal.Text = string.Format("de {0} líneas de factura", c.Lineas.Count);
 
-            if (_current >= 0)
-            {
-                LineaFactura nl = c.Lineas[_current] as LineaFactura;
+            if (_current < 0) return;
+            LineaFactura nl = c.Lineas[_current] as LineaFactura;
 
-                Util.CopiarPropiedadesTipo(nl, this);
-            }
+            Util.CopiarPropiedadesTipo(nl, this);
         }
         private void toolStripButtonEliminar_Click(object sender, EventArgs e)
         {
@@ -412,69 +426,64 @@ namespace Facturas
 
         private void toolStripButtonSiguiente_Click(object sender, EventArgs e)
         {
-            if (datosLineaValido())
-            {
-                ActualizarContadoresLineas();
+            if (!DatosLineaValido()) return;
+            ActualizarContadoresLineas();
 
 
-                Factura c = bsFactura.Current as Factura;
+            Factura c = bsFactura.Current as Factura;
 
+            if (c != null)
                 if (Convert.ToBoolean(c.Lineas.Count) && _current < (c.Lineas.Count - 1))
                 {
                     _current++;
                     ActualizarContradoresLineasForm();
                 }
-            }
         }
 
         private void toolStripButtonAnterior_Click(object sender, EventArgs e)
         {
-            if (datosLineaValido())
-            {
-                ActualizarContadoresLineas();
+            if (!DatosLineaValido()) return;
+            ActualizarContadoresLineas();
 
-                Factura c = bsFactura.Current as Factura;
+            Factura c = bsFactura.Current as Factura;
 
+            if (c != null)
                 if (Convert.ToBoolean(c.Lineas.Count) && Convert.ToBoolean(_current))
                 {
                     _current--;
                     ActualizarContradoresLineasForm();
                 }
-            }
         }
 
         private void toolStripButtonUltimo_Click(object sender, EventArgs e)
         {
-            if (datosLineaValido())
-            {
-                ActualizarContadoresLineas();
+            if (!DatosLineaValido()) return;
+            ActualizarContadoresLineas();
 
-                Factura c = bsFactura.Current as Factura;
+            Factura c = bsFactura.Current as Factura;
 
+            if (c != null)
                 if (Convert.ToBoolean(c.Lineas.Count))
                 {
                     _current = c.Lineas.Count - 1;
                     ActualizarContradoresLineasForm();
                 }
-            }
         }
 
         private void toolStripButtonPrimero_Click(object sender, EventArgs e)
         {
-            if (datosLineaValido())
-            {
-                ActualizarContadoresLineas();
+            if (!DatosLineaValido()) return;
+            ActualizarContadoresLineas();
 
-                Factura c = bsFactura.Current as Factura;
+            Factura c = bsFactura.Current as Factura;
 
+            if (c != null)
                 if (Convert.ToBoolean(c.Lineas.Count))
                 {
                     _current = 0;
 
                     ActualizarContradoresLineasForm();
                 }
-
-            }
         }
         #region ILineaFactura Members
 
@@ -561,7 +570,74 @@ namespace Facturas
         {
             TextBox t = sender as TextBox;
 
-            t.SelectAll();
+            if (t != null) t.SelectAll();
+        }
+
+        private void codigoPostalTextBox_Validating(object sender, CancelEventArgs e)
+        {
+            TextBox tb = sender as TextBox;
+
+            int valor;
+
+
+            if (tb != null && !string.IsNullOrEmpty(tb.Text))
+            {
+                errorProvider1.SetError(tb,string.Empty);
+                if (!int.TryParse(tb.Text, out valor))
+                {
+                    errorProvider1.SetError(tb, "El código postal debe ser un número entero de 5 cifras.");
+                }
+            }
+        }
+
+        private void cantidadTextBox_Validating(object sender, CancelEventArgs e)
+        {
+            float cantidad;
+            errorProvider1.SetError(cantidadTextBox,string.Empty);
+            if(!float.TryParse(cantidadTextBox.Text, System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.CurrentCulture.NumberFormat, out cantidad))
+            {
+                errorProvider1.SetError(cantidadTextBox, _laCantidadNoEsCorrectaPorFavorIntroduceUnaCanidadEnEurosO);
+            }
+        }
+
+        private void horasEsperaTextBox_Validating(object sender, CancelEventArgs e)
+        {
+            float cantidad;
+
+            
+            if (!float.TryParse(horasEsperaTextBox.Text, System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.CurrentCulture.NumberFormat, out cantidad))
+            {
+                errorProvider1.SetError(horasEsperaTextBox, _lasHorasDeEsperaNoEsCorrectaPorFavorIntroduceUnaCanidadEnEurosO);
+            }
+        }
+
+        private void kilometrosTextBox_Validating(object sender, CancelEventArgs e)
+        {
+            float cantidad;
+                 
+            if (!float.TryParse(kilometrosTextBox.Text, System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.CurrentCulture.NumberFormat, out cantidad))
+            {
+                errorProvider1.SetError(kilometrosTextBox, _losCkilometrosNoEsCorrectoPorFavorIntroduceUnaCanidadEnEurosO);
+            }
+        }
+
+        private void txtHorasEuros_Validating(object sender, CancelEventArgs e)
+        {
+            float cantidad;
+            if (!float.TryParse(txtHorasEuros.Text, System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.CurrentCulture.NumberFormat, out cantidad))
+            {
+                errorProvider1.SetError(txtHorasEuros, _elPrecioDeLasHorasDeEsperaNoEsCorrectoPorFavorIntroduceUnaCanidadEnEurosO);
+            }
+            
+        }
+
+        private void txtKilomestrosEuros_Validating(object sender, CancelEventArgs e)
+        {
+            float cantidad;
+            if (!float.TryParse(txtKilomestrosEuros.Text, System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.CurrentCulture.NumberFormat, out cantidad))
+            {
+                errorProvider1.SetError(txtKilomestrosEuros, _elPrecioDeLosKilometrosNoEsCorrectoPorFavorIntroduceUnaCanidadEnEurosO);
+            }
         }
 
 

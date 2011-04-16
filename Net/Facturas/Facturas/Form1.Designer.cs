@@ -96,6 +96,7 @@ namespace Facturas
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButtonInsertar = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonEliminar = new System.Windows.Forms.ToolStripButton();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             cantidadLabel = new System.Windows.Forms.Label();
             conceptoLabel = new System.Windows.Forms.Label();
             horasEsperaLabel = new System.Windows.Forms.Label();
@@ -119,6 +120,7 @@ namespace Facturas
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.toolStrip2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // cantidadLabel
@@ -142,7 +144,7 @@ namespace Facturas
             // horasEsperaLabel
             // 
             horasEsperaLabel.AutoSize = true;
-            horasEsperaLabel.Location = new System.Drawing.Point(147, 22);
+            horasEsperaLabel.Location = new System.Drawing.Point(166, 22);
             horasEsperaLabel.Name = "horasEsperaLabel";
             horasEsperaLabel.Size = new System.Drawing.Size(74, 13);
             horasEsperaLabel.TabIndex = 6;
@@ -151,7 +153,7 @@ namespace Facturas
             // kilometrosLabel
             // 
             kilometrosLabel.AutoSize = true;
-            kilometrosLabel.Location = new System.Drawing.Point(296, 22);
+            kilometrosLabel.Location = new System.Drawing.Point(336, 22);
             kilometrosLabel.Name = "kilometrosLabel";
             kilometrosLabel.Size = new System.Drawing.Size(58, 13);
             kilometrosLabel.TabIndex = 8;
@@ -235,7 +237,7 @@ namespace Facturas
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new System.Drawing.Point(578, 22);
+            label1.Location = new System.Drawing.Point(666, 22);
             label1.Name = "label1";
             label1.Size = new System.Drawing.Size(58, 13);
             label1.TabIndex = 35;
@@ -244,7 +246,7 @@ namespace Facturas
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new System.Drawing.Point(429, 22);
+            label2.Location = new System.Drawing.Point(490, 22);
             label2.Name = "label2";
             label2.Size = new System.Drawing.Size(74, 13);
             label2.TabIndex = 34;
@@ -258,6 +260,7 @@ namespace Facturas
             this.cantidadTextBox.TabIndex = 0;
             this.cantidadTextBox.TextChanged += new System.EventHandler(this.txtKilomestrosEuros_TextChanged);
             this.cantidadTextBox.Enter += new System.EventHandler(this.cantidadTextBox_Enter);
+            this.cantidadTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.cantidadTextBox_Validating);
             // 
             // conceptoTextBox
             // 
@@ -267,24 +270,26 @@ namespace Facturas
             this.conceptoTextBox.Location = new System.Drawing.Point(78, 45);
             this.conceptoTextBox.Multiline = true;
             this.conceptoTextBox.Name = "conceptoTextBox";
-            this.conceptoTextBox.Size = new System.Drawing.Size(628, 145);
+            this.conceptoTextBox.Size = new System.Drawing.Size(715, 145);
             this.conceptoTextBox.TabIndex = 5;
             // 
             // horasEsperaTextBox
             // 
-            this.horasEsperaTextBox.Location = new System.Drawing.Point(227, 19);
+            this.horasEsperaTextBox.Location = new System.Drawing.Point(246, 19);
             this.horasEsperaTextBox.Name = "horasEsperaTextBox";
             this.horasEsperaTextBox.Size = new System.Drawing.Size(63, 20);
             this.horasEsperaTextBox.TabIndex = 1;
             this.horasEsperaTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.codigoPostalTextBox_KeyPress);
+            this.horasEsperaTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.horasEsperaTextBox_Validating);
             // 
             // kilometrosTextBox
             // 
-            this.kilometrosTextBox.Location = new System.Drawing.Point(360, 19);
+            this.kilometrosTextBox.Location = new System.Drawing.Point(400, 19);
             this.kilometrosTextBox.Name = "kilometrosTextBox";
             this.kilometrosTextBox.Size = new System.Drawing.Size(63, 20);
             this.kilometrosTextBox.TabIndex = 2;
             this.kilometrosTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.codigoPostalTextBox_KeyPress);
+            this.kilometrosTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.kilometrosTextBox_Validating);
             // 
             // cifTextBox
             // 
@@ -297,16 +302,15 @@ namespace Facturas
             // 
             // bsFactura
             // 
-            this.bsFactura.DataSource = typeof(BizzRules.Factura);
+            this.bsFactura.DataSource = typeof(Factura);
             // 
             // ciudadTextBox
             // 
-            this.ciudadTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.ciudadTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.ciudadTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsFactura, "Ciudad", true));
             this.ciudadTextBox.Location = new System.Drawing.Point(90, 209);
             this.ciudadTextBox.Name = "ciudadTextBox";
-            this.ciudadTextBox.Size = new System.Drawing.Size(616, 20);
+            this.ciudadTextBox.Size = new System.Drawing.Size(703, 20);
             this.ciudadTextBox.TabIndex = 5;
             // 
             // codigoPostalTextBox
@@ -319,27 +323,25 @@ namespace Facturas
             this.codigoPostalTextBox.TabIndex = 6;
             this.codigoPostalTextBox.Text = "41089";
             this.codigoPostalTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.codigoPostalTextBox_KeyPress);
+            this.codigoPostalTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.codigoPostalTextBox_Validating);
             // 
             // direccionTextBox
             // 
-            this.direccionTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.direccionTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.direccionTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsFactura, "Direccion", true));
             this.direccionTextBox.Location = new System.Drawing.Point(90, 123);
             this.direccionTextBox.Multiline = true;
             this.direccionTextBox.Name = "direccionTextBox";
-            this.direccionTextBox.Size = new System.Drawing.Size(616, 81);
+            this.direccionTextBox.Size = new System.Drawing.Size(703, 81);
             this.direccionTextBox.TabIndex = 4;
             // 
             // nombreTextBox
             // 
-            this.nombreTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.nombreTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.nombreTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsFactura, "Nombre", true));
             this.nombreTextBox.Location = new System.Drawing.Point(90, 71);
             this.nombreTextBox.Name = "nombreTextBox";
-            this.nombreTextBox.Size = new System.Drawing.Size(616, 20);
+            this.nombreTextBox.Size = new System.Drawing.Size(703, 20);
             this.nombreTextBox.TabIndex = 2;
             // 
             // numeroTextBox
@@ -384,7 +386,7 @@ namespace Facturas
             this.groupBox1.Controls.Add(this.direccionTextBox);
             this.groupBox1.Location = new System.Drawing.Point(3, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(714, 288);
+            this.groupBox1.Size = new System.Drawing.Size(813, 288);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos del cliente";
@@ -417,26 +419,28 @@ namespace Facturas
             this.gbLineas.Enabled = false;
             this.gbLineas.Location = new System.Drawing.Point(3, 3);
             this.gbLineas.Name = "gbLineas";
-            this.gbLineas.Size = new System.Drawing.Size(714, 196);
+            this.gbLineas.Size = new System.Drawing.Size(813, 196);
             this.gbLineas.TabIndex = 0;
             this.gbLineas.TabStop = false;
             this.gbLineas.Text = "Líneas de factura";
             // 
             // txtKilomestrosEuros
             // 
-            this.txtKilomestrosEuros.Location = new System.Drawing.Point(642, 19);
+            this.txtKilomestrosEuros.Location = new System.Drawing.Point(730, 19);
             this.txtKilomestrosEuros.Name = "txtKilomestrosEuros";
             this.txtKilomestrosEuros.Size = new System.Drawing.Size(63, 20);
             this.txtKilomestrosEuros.TabIndex = 4;
             this.txtKilomestrosEuros.TextChanged += new System.EventHandler(this.txtKilomestrosEuros_TextChanged);
+            this.txtKilomestrosEuros.Validating += new System.ComponentModel.CancelEventHandler(this.txtKilomestrosEuros_Validating);
             // 
             // txtHorasEuros
             // 
-            this.txtHorasEuros.Location = new System.Drawing.Point(509, 19);
+            this.txtHorasEuros.Location = new System.Drawing.Point(570, 19);
             this.txtHorasEuros.Name = "txtHorasEuros";
             this.txtHorasEuros.Size = new System.Drawing.Size(63, 20);
             this.txtHorasEuros.TabIndex = 3;
             this.txtHorasEuros.TextChanged += new System.EventHandler(this.txtKilomestrosEuros_TextChanged);
+            this.txtHorasEuros.Validating += new System.ComponentModel.CancelEventHandler(this.txtHorasEuros_Validating);
             // 
             // toolStrip1
             // 
@@ -446,7 +450,7 @@ namespace Facturas
             this.toolStripButtonGenerar});
             this.toolStrip1.Location = new System.Drawing.Point(0, 24);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(744, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(843, 25);
             this.toolStrip1.TabIndex = 29;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -486,7 +490,7 @@ namespace Facturas
             this.herramientasToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(744, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(843, 24);
             this.menuStrip1.TabIndex = 30;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -626,7 +630,7 @@ namespace Facturas
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.gbLineas);
-            this.splitContainer1.Size = new System.Drawing.Size(720, 500);
+            this.splitContainer1.Size = new System.Drawing.Size(819, 500);
             this.splitContainer1.SplitterDistance = 294;
             this.splitContainer1.TabIndex = 31;
             // 
@@ -647,7 +651,7 @@ namespace Facturas
             this.toolStripButtonEliminar});
             this.toolStrip2.Location = new System.Drawing.Point(0, 555);
             this.toolStrip2.Name = "toolStrip2";
-            this.toolStrip2.Size = new System.Drawing.Size(744, 25);
+            this.toolStrip2.Size = new System.Drawing.Size(843, 25);
             this.toolStrip2.TabIndex = 32;
             this.toolStrip2.Text = "toolStrip2";
             // 
@@ -736,18 +740,22 @@ namespace Facturas
             this.toolStripButtonEliminar.Text = "Eliminar Línea";
             this.toolStripButtonEliminar.Click += new System.EventHandler(this.toolStripButtonEliminar_Click);
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(744, 580);
+            this.ClientSize = new System.Drawing.Size(843, 580);
             this.Controls.Add(this.toolStrip2);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
-            this.MinimumSize = new System.Drawing.Size(752, 614);
+            this.MinimumSize = new System.Drawing.Size(851, 614);
             this.Name = "Form1";
             this.Text = "Facturas Taxi";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -765,6 +773,7 @@ namespace Facturas
             this.splitContainer1.ResumeLayout(false);
             this.toolStrip2.ResumeLayout(false);
             this.toolStrip2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -822,6 +831,7 @@ namespace Facturas
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
         private System.Windows.Forms.ToolStripButton toolStripButtonInsertar;
         private System.Windows.Forms.ToolStripButton toolStripButtonEliminar;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }
 
