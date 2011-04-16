@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using System.ComponentModel;
 
 namespace Facturas.BizzRules
@@ -9,8 +7,8 @@ namespace Facturas.BizzRules
     {
         public static void CopiarPropiedadesTipo<T1, T2>(T1 origen, T2 destino)
         {
-            Type tipoPropiedad = null;
-            System.Reflection.PropertyInfo pdestino = null;
+            Type tipoPropiedad;
+            System.Reflection.PropertyInfo pdestino;
             foreach (System.Reflection.PropertyInfo var in origen.GetType().GetProperties())
             {
                 pdestino = destino.GetType().GetProperty(var.Name);

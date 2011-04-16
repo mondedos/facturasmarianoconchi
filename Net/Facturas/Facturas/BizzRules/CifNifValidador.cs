@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace Facturas.BizzRules
 {
@@ -10,12 +7,12 @@ namespace Facturas.BizzRules
         public static bool ValidarCifNifNie(string cadena)
         {
             cadena = cadena.ToUpper();
-            return validateCif(cadena) || ValidarNIF(cadena);
+            return ValidateCif(cadena) || ValidarNif(cadena);
         }
 
-        public static bool ValidarNIF(string nif)
+        public static bool ValidarNif(string nif)
         {
-            return LetraNIF(nif.Substring(0, 8)).Equals(nif[nif.Length - 1]);
+            return LetraNif(nif.Substring(0, 8)).Equals(nif[nif.Length - 1]);
         }
 
         /// <summary> Tabla de asignación. </summary>
@@ -24,7 +21,7 @@ namespace Facturas.BizzRules
         /// <summary> Genera la letra correspondiente a un DNI. </summary>
         /// <param name="dni"> DNI a procesar. </param>
         /// <returns> Letra correspondiente al DNI. </returns>
-        public static char LetraNIF(string dni)
+        public static char LetraNif(string dni)
         {
             int n;
 
@@ -39,7 +36,7 @@ namespace Facturas.BizzRules
         /// <summary> Genera la letra correspondiente a un NIE. </summary>
         /// <param name="nie"> NIE a procesar. </param>
         /// <returns> Letra correspondiente al NIE. </returns>
-        public static char LetraNIE(string nie)
+        public static char LetraNie(string nie)
         {
             int n;
 
@@ -61,7 +58,7 @@ namespace Facturas.BizzRules
             }
         }
 
-        public static bool validateCif(string cif)
+        public static bool ValidateCif(string cif)
         {
             cif = cif.Replace(" ", string.Empty).Replace("-", string.Empty);
 
@@ -84,8 +81,8 @@ namespace Facturas.BizzRules
                 Int32 sumaImpar = default(Int32);
                 // A continuación, la cadena debe tener 7 dígitos + el dígito de control. 
                 // 
-                string cif_sinControl = cif.Substring(0, 8);
-                string digits = cif_sinControl.Substring(1, 7);
+                string cifSinControl = cif.Substring(0, 8);
+                string digits = cifSinControl.Substring(1, 7);
                 for (Int32 n = 0; n <= digits.Length - 1; n += 2)
                 {
                     if (n < 6)
@@ -112,7 +109,7 @@ namespace Facturas.BizzRules
                 // Devuelvo el Dígito de Control dependiendo del primer carácter 
                 // del NIF pasado a la función. 
                 //
-                string digitoControl = "";
+                string digitoControl;
                 switch (firstChar)
                 {
                     case "N":

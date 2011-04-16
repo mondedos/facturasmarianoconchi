@@ -8,11 +8,11 @@ namespace Facturas.BizzRules
 {
     public class Base64ToImage
     {
-        public static Bitmap ConvertThis(string ImageText)
+        public static Bitmap ConvertThis(string imageText)
         {
             Bitmap bitImage = null;
 
-            if (ImageText.Length > 0)
+            if (imageText.Length > 0)
             {
                 //Byte[] bitmapData = new Byte[ImageText.Length];
                 //bitmapData = Convert.FromBase64String(FixBase64ForImage(ImageText));
@@ -32,9 +32,9 @@ namespace Facturas.BizzRules
 
             return bitImage;
         }
-        public static string FixBase64ForImage(string Image)
+        public static string FixBase64ForImage(string image)
         {
-            System.Text.StringBuilder sbText = new System.Text.StringBuilder(Image, Image.Length);
+            StringBuilder sbText = new StringBuilder(image, image.Length);
 
             sbText.Replace("\r\n", String.Empty);
 

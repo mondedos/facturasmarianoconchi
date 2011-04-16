@@ -7,7 +7,6 @@ using iTextSharp.text;
 using iTextSharp.text.pdf;
 using System.Diagnostics;
 using Facturas.Properties;
-using iTextSharpSign;
 using System.Security.Cryptography;
 
 namespace Facturas.BizzRules

@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
 
 namespace Facturas.BizzRules
@@ -101,7 +98,7 @@ namespace Facturas.BizzRules
         ///     - Codigo + CódigoOficina
         ///     - CuentaBancaria
         /// </summary>
-        private static string GetDigitoControl(string CadenaNumerica)
+        private static string GetDigitoControl(string cadenaNumerica)
         {
             int[] pesos = { 1, 2, 4, 8, 5, 10, 9, 7, 3, 6 };
             UInt32 suma = 0;
@@ -109,7 +106,7 @@ namespace Facturas.BizzRules
 
             for (int i = 0; i < pesos.Length; i++)
             {
-                suma += (UInt32)pesos[i] * UInt32.Parse(CadenaNumerica.Substring(i, 1));
+                suma += (UInt32)pesos[i] * UInt32.Parse(cadenaNumerica.Substring(i, 1));
             }
             resto = 11 - (suma % 11);
 
