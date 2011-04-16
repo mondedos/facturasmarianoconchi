@@ -199,4 +199,13 @@
 	<data name="Form1_firmarFacturaToolStripMenuItem_Click_Factura____pdf____pdf">
 		<value xml:space="preserve">Factura (*.pdf)|*.pdf</value>
 	</data>
+	<data name="Form1_firmarFacturaToolStripMenuItem_Click_Seleccione_una_factura_sin_firmar">
+		<value xml:space="preserve">Seleccione una factura sin firmar</value>
+	</data>
+	<data name="Form1_firmarFacturaToolStripMenuItem_Click_Certificado_Digital____p12____p12">
+		<value xml:space="preserve">Certificado Digital (*.p12)|*.p12</value>
+	</data>
+	<data name="Form1_firmarFacturaToolStripMenuItem_Click_Seleccione_su_certificado_de_usuario">
+		<value xml:space="preserve">Seleccione su certificado de usuario</value>
+	</data>
 </root>

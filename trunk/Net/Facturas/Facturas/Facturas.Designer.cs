@@ -128,6 +128,15 @@ namespace Facturas {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Certificado Digital (*.p12)|*.p12.
+        /// </summary>
+        internal static string Form1_firmarFacturaToolStripMenuItem_Click_Certificado_Digital____p12____p12 {
+            get {
+                return ResourceManager.GetString("Form1_firmarFacturaToolStripMenuItem_Click_Certificado_Digital____p12____p12", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Factura (*.pdf)|*.pdf.
         /// </summary>
         internal static string Form1_firmarFacturaToolStripMenuItem_Click_Factura____pdf____pdf {
@@ -142,6 +151,24 @@ namespace Facturas {
         internal static string Form1_firmarFacturaToolStripMenuItem_Click_Guardar_Factura_Firmada_como___ {
             get {
                 return ResourceManager.GetString("Form1_firmarFacturaToolStripMenuItem_Click_Guardar_Factura_Firmada_como___", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Seleccione su certificado de usuario.
+        /// </summary>
+        internal static string Form1_firmarFacturaToolStripMenuItem_Click_Seleccione_su_certificado_de_usuario {
+            get {
+                return ResourceManager.GetString("Form1_firmarFacturaToolStripMenuItem_Click_Seleccione_su_certificado_de_usuario", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Seleccione una factura sin firmar.
+        /// </summary>
+        internal static string Form1_firmarFacturaToolStripMenuItem_Click_Seleccione_una_factura_sin_firmar {
+            get {
+                return ResourceManager.GetString("Form1_firmarFacturaToolStripMenuItem_Click_Seleccione_una_factura_sin_firmar", resourceCulture);
             }
         }
         

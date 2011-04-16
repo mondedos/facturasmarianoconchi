@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Configuracion));
             this.gbDatosPersonales = new System.Windows.Forms.GroupBox();
             this.label15 = new System.Windows.Forms.Label();
@@ -68,12 +69,14 @@
             this.numericUpDownNivelFondo = new System.Windows.Forms.NumericUpDown();
             this.label13 = new System.Windows.Forms.Label();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.gbDatosPersonales.SuspendLayout();
             this.gbDatosEconomicos.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownUltimaFActura)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownBordeTabla)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownNivelFondo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // gbDatosPersonales
@@ -492,6 +495,10 @@
             this.label13.TabIndex = 22;
             this.label13.Text = "LM Fondo Nivel";
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
             // Configuracion
             // 
             this.AcceptButton = this.btnGuardar;
@@ -518,6 +525,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownUltimaFActura)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownBordeTabla)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownNivelFondo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -563,5 +571,6 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.NumericUpDown numericUpDownUltimaFActura;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

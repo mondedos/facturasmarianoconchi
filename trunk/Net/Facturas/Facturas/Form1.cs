@@ -71,18 +71,16 @@ namespace Facturas
         }
         private void generarFicheroFacturaPDFToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (DatosLineaValido())
-            {
-                bsFactura.EndEdit();
-                Factura factura = bsFactura.Current as Factura;
+            if (!DatosLineaValido()) return;
+            bsFactura.EndEdit();
+            Factura factura = bsFactura.Current as Factura;
 
-                ActualizarContadoresLineas();
+            ActualizarContadoresLineas();
 
-                (new PdfGenerador(factura)).Run();
+            (new PdfGenerador(factura)).Run();
 
-                Settings.Default.ultimaFactura = factura.Numero;
-                Settings.Default.Save();
-            }
+            if (factura != null) Settings.Default.ultimaFactura = factura.Numero;
+            Settings.Default.Save();
         }
 
         private bool DatosLineaValido()
@@ -172,8 +170,8 @@ namespace Facturas
         {
             OpenFileDialog openCertificadoFileDialog = new OpenFileDialog();
             openCertificadoFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
-            openCertificadoFileDialog.Title = "Seleccione su certificado de usuario";
-            openCertificadoFileDialog.Filter = "Certificado Digital (*.p12)|*.p12";
+            openCertificadoFileDialog.Title = Facturas.Form1_firmarFacturaToolStripMenuItem_Click_Seleccione_su_certificado_de_usuario;
+            openCertificadoFileDialog.Filter = Facturas.Form1_firmarFacturaToolStripMenuItem_Click_Certificado_Digital____p12____p12;
 
 
             if (openCertificadoFileDialog.ShowDialog(this) == DialogResult.OK)
@@ -201,7 +199,7 @@ namespace Facturas
 
                         OpenFileDialog openFileDialog = new OpenFileDialog();
                         openFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
-                        openFileDialog.Title = "Seleccione una factura sin firmar";
+                        openFileDialog.Title = Facturas.Form1_firmarFacturaToolStripMenuItem_Click_Seleccione_una_factura_sin_firmar;
                         openFileDialog.Filter = Facturas.Form1_firmarFacturaToolStripMenuItem_Click_Factura____pdf____pdf;
 
 
@@ -210,13 +208,13 @@ namespace Facturas
 
                             if (!string.IsNullOrEmpty(openFileDialog.FileName))
                             {
-                                MetaData MyMD = new MetaData();
-                                MyMD.Author = Settings.Default.nombre;
-                                MyMD.Title = string.Format("Factura emitida por {0}", Settings.Default.nombre);
-                                MyMD.Subject = "Factura por translado en taxi";
-                                MyMD.Keywords = "factura, taxi, mariano";
-                                MyMD.Creator = "Riccardo Prieto Mendoza";
-                                MyMD.Producer = "Riccardo Prieto Mendoza";
+                                MetaData myMd = new MetaData();
+                                myMd.Author = Settings.Default.nombre;
+                                myMd.Title = string.Format("Factura emitida por {0}", Settings.Default.nombre);
+                                myMd.Subject = "Factura por translado en taxi";
+                                myMd.Keywords = "factura, taxi, mariano";
+                                myMd.Creator = "Riccardo Prieto Mendoza";
+                                myMd.Producer = "Riccardo Prieto Mendoza";
 
                                 SaveFileDialog sabeD = new SaveFileDialog();
 
@@ -227,7 +225,7 @@ namespace Facturas
 
                                 if (sabeD.ShowDialog(this) == DialogResult.OK)
                                 {
-                                    PdfSigner pdfs = new PdfSigner(openFileDialog.FileName, sabeD.FileName, myCert, MyMD);
+                                    PdfSigner pdfs = new PdfSigner(openFileDialog.FileName, sabeD.FileName, myCert, myMd);
                                     pdfs.Sign("Factura por translado en taxi", Settings.Default.email, Settings.Default.direccion + " " + Settings.Default.poblacionCP, false);
 
 
