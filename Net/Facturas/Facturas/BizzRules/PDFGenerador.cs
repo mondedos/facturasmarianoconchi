@@ -233,7 +233,7 @@ namespace Facturas.BizzRules
             aTable.SpacingBefore = 20;
 
 
-            PdfPRow fila = new PdfPRow(new PdfPCell[6] {
+            PdfPRow fila = new PdfPRow(new[] {
                 FormatearBorde(new PdfPCell(new Phrase("Concepto",FontFactory.GetFont(FontFactory.HELVETICA_BOLD, textSize)))), 
                 FormatearBorde(new PdfPCell(new Phrase("Km",FontFactory.GetFont(FontFactory.HELVETICA_BOLD, textSize)))), 
                 FormatearBorde(new PdfPCell(new Phrase(string.Format("{0}/Km",System.Globalization.CultureInfo.CurrentCulture.NumberFormat.CurrencySymbol),FontFactory.GetFont(FontFactory.HELVETICA_BOLD, textSize)))), 
@@ -250,7 +250,7 @@ namespace Facturas.BizzRules
             PdfPCell celdaBlanco = new PdfPCell(new Phrase(string.Empty));
 
 
-            fila = new PdfPRow(new PdfPCell[6] {
+            fila = new PdfPRow(new[] {
                         FormatearCeldaVacia(new PdfPCell()), 
                         FormatearCeldaVacia(new PdfPCell()), 
                         FormatearCeldaVacia(new PdfPCell()),

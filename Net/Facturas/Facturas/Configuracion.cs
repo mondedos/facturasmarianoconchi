@@ -118,11 +118,13 @@ namespace Facturas
         }
         private bool EsValido()
         {
+            errorProvider1.Clear();
             StringBuilder sb = new StringBuilder();
             foreach (Control item in gbDatosPersonales.Controls)
             {
-                if (item is TextBox && string.IsNullOrEmpty(item.Text))
+                if (item is TextBox && item.Text.IsNullOrEmptyTrim())
                 {
+                    errorProvider1.SetError(item, "Falta por rellenar este dato personal.");
                     sb.AppendLine("Exiten datos Personales sin rellenar");
                     break;
                 }
@@ -130,8 +132,9 @@ namespace Facturas
 
             foreach (Control item in gbDatosEconomicos.Controls)
             {
-                if (item is TextBox && string.IsNullOrEmpty(item.Text))
+                if (item is TextBox && item.Text.IsNullOrEmptyTrim())
                 {
+                    errorProvider1.SetError(item, "Falta por rellenar este dato económico.");
                     sb.AppendLine("Exiten datos Económicos sin rellenar");
                     break;
                 }
@@ -148,6 +151,7 @@ namespace Facturas
                     //decimal.TryParse("",System.Globalization.NumberStyles.Any,
                     if (!IsNumber(item.Text.Replace(moneda, null)))
                     {
+                        errorProvider1.SetError(item,"El dato económico debe estar correctamente relleno.");
                         sb.AppendLine("Asegurese que los datos económicos están correctamente rellenos");
                     }
                 }
@@ -156,7 +160,10 @@ namespace Facturas
             try
             {
                 if (!CuentaBancariaValidador.ValidaCuentaBancaria(txtCCC.Text))
+                {
+                    errorProvider1.SetError(txtCCC, "La cuenta Bancaria Introducida no es válida");
                     sb.AppendLine("La cuenta Bancaria Introducida no es válida");
+                }
             }
             catch (ArgumentException ex)
             {
@@ -168,7 +175,10 @@ namespace Facturas
                 try
                 {
                     if (!CifNifValidador.ValidarCifNifNie(txtNif.Text))
+                    {
+                        errorProvider1.SetError(txtNif, "El CIF no es válido");
                         sb.AppendLine("El CIF no es válido");
+                    }
                 }
                 catch (ArgumentException ex)
                 {

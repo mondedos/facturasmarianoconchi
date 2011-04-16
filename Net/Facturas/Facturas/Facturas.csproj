@@ -12,15 +12,14 @@
     <AssemblyName>Facturas</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <ManifestCertificateThumbprint>9B141E41099DCD30C43E49D1342CFD4E0B157462</ManifestCertificateThumbprint>
-    <ManifestKeyFile>Facturas_TemporaryKey.pfx</ManifestKeyFile>
+    <ManifestCertificateThumbprint>BA5760716C368F8408E47260D097021C155FDC50</ManifestCertificateThumbprint>
+    <ManifestKeyFile>Facturas.pfx</ManifestKeyFile>
     <GenerateManifests>true</GenerateManifests>
-    <SignManifests>false</SignManifests>
+    <SignManifests>true</SignManifests>
     <IsWebBootstrapper>true</IsWebBootstrapper>
     <ApplicationIcon>8234.ico</ApplicationIcon>
-    <SignAssembly>false</SignAssembly>
-    <AssemblyOriginatorKeyFile>
-    </AssemblyOriginatorKeyFile>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>Facturas.pfx</AssemblyOriginatorKeyFile>
     <PublishUrl>ftp://ftpusuarios.ono.com/</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Web</InstallFrom>
@@ -33,8 +32,8 @@
     <MapFileExtensions>true</MapFileExtensions>
     <InstallUrl>http://webs.ono.com/fatmariano/</InstallUrl>
     <UpdateUrl>http://webs.ono.com/fatmariano/</UpdateUrl>
-    <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>1.0.3.%2a</ApplicationVersion>
+    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationVersion>1.1.4.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -149,6 +148,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="StringExtension.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icon-config.png" />
@@ -216,6 +216,7 @@
     <None Include="Resources\document_add.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Facturas.pfx" />
     <None Include="Resources\delete.png" />
   </ItemGroup>
   <ItemGroup>
