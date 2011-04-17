@@ -106,7 +106,7 @@
             this.gbDatosPersonales.Controls.Add(this.txtNombre);
             this.gbDatosPersonales.Location = new System.Drawing.Point(12, 12);
             this.gbDatosPersonales.Name = "gbDatosPersonales";
-            this.gbDatosPersonales.Size = new System.Drawing.Size(392, 294);
+            this.gbDatosPersonales.Size = new System.Drawing.Size(419, 294);
             this.gbDatosPersonales.TabIndex = 0;
             this.gbDatosPersonales.TabStop = false;
             this.gbDatosPersonales.Text = "Datos personales";
@@ -232,6 +232,7 @@
             this.txtCCC.TabIndex = 8;
             this.txtCCC.Text = "2106 0950 06 0286145041";
             this.txtCCC.TextChanged += new System.EventHandler(this.numericUpDownBordeTabla_ValueChanged);
+            this.txtCCC.Validating += new System.ComponentModel.CancelEventHandler(this.txtCCC_Validating);
             // 
             // txtNif
             // 
@@ -241,6 +242,7 @@
             this.txtNif.TabIndex = 7;
             this.txtNif.Text = "28806983N";
             this.txtNif.TextChanged += new System.EventHandler(this.numericUpDownBordeTabla_ValueChanged);
+            this.txtNif.Validating += new System.ComponentModel.CancelEventHandler(this.txtNif_Validating);
             // 
             // txtEmail
             // 
@@ -248,10 +250,11 @@
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.txtEmail.Location = new System.Drawing.Point(107, 175);
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(279, 20);
+            this.txtEmail.Size = new System.Drawing.Size(285, 20);
             this.txtEmail.TabIndex = 6;
             this.txtEmail.Text = "conchi@montequinto.org";
             this.txtEmail.TextChanged += new System.EventHandler(this.numericUpDownBordeTabla_ValueChanged);
+            this.txtEmail.Validating += new System.ComponentModel.CancelEventHandler(this.txtEmail_Validating);
             // 
             // txtMovil
             // 
@@ -261,6 +264,7 @@
             this.txtMovil.TabIndex = 5;
             this.txtMovil.Text = "95412606";
             this.txtMovil.TextChanged += new System.EventHandler(this.numericUpDownBordeTabla_ValueChanged);
+            this.txtMovil.Validating += new System.ComponentModel.CancelEventHandler(this.txtMovil_Validating);
             // 
             // txtTelefono
             // 
@@ -270,6 +274,7 @@
             this.txtTelefono.TabIndex = 4;
             this.txtTelefono.Text = "95412606";
             this.txtTelefono.TextChanged += new System.EventHandler(this.numericUpDownBordeTabla_ValueChanged);
+            this.txtTelefono.Validating += new System.ComponentModel.CancelEventHandler(this.txtTelefono_Validating);
             // 
             // txtDireccion
             // 
@@ -277,10 +282,11 @@
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.txtDireccion.Location = new System.Drawing.Point(107, 97);
             this.txtDireccion.Name = "txtDireccion";
-            this.txtDireccion.Size = new System.Drawing.Size(279, 20);
+            this.txtDireccion.Size = new System.Drawing.Size(285, 20);
             this.txtDireccion.TabIndex = 3;
             this.txtDireccion.Text = "C/ Sector Triángulo, Nº 12 8º A";
             this.txtDireccion.TextChanged += new System.EventHandler(this.numericUpDownBordeTabla_ValueChanged);
+            this.txtDireccion.Validating += new System.ComponentModel.CancelEventHandler(this.txtDireccion_Validating);
             // 
             // txtPoblacion
             // 
@@ -288,10 +294,11 @@
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.txtPoblacion.Location = new System.Drawing.Point(107, 71);
             this.txtPoblacion.Name = "txtPoblacion";
-            this.txtPoblacion.Size = new System.Drawing.Size(279, 20);
+            this.txtPoblacion.Size = new System.Drawing.Size(285, 20);
             this.txtPoblacion.TabIndex = 2;
             this.txtPoblacion.Text = "Dos Hermanas, 41089";
             this.txtPoblacion.TextChanged += new System.EventHandler(this.numericUpDownBordeTabla_ValueChanged);
+            this.txtPoblacion.Validating += new System.ComponentModel.CancelEventHandler(this.txtPoblacion_Validating);
             // 
             // txtLicencia
             // 
@@ -301,6 +308,7 @@
             this.txtLicencia.TabIndex = 0;
             this.txtLicencia.Text = "1279";
             this.txtLicencia.TextChanged += new System.EventHandler(this.numericUpDownBordeTabla_ValueChanged);
+            this.txtLicencia.Validating += new System.ComponentModel.CancelEventHandler(this.txtLicencia_Validating);
             // 
             // txtNombre
             // 
@@ -308,10 +316,11 @@
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.txtNombre.Location = new System.Drawing.Point(107, 45);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(279, 20);
+            this.txtNombre.Size = new System.Drawing.Size(285, 20);
             this.txtNombre.TabIndex = 1;
             this.txtNombre.Text = "Manuel Prieto Gallego";
             this.txtNombre.TextChanged += new System.EventHandler(this.numericUpDownBordeTabla_ValueChanged);
+            this.txtNombre.Validating += new System.ComponentModel.CancelEventHandler(this.txtNombre_Validating);
             // 
             // gbDatosEconomicos
             // 
@@ -323,7 +332,7 @@
             this.gbDatosEconomicos.Controls.Add(this.txtIva);
             this.gbDatosEconomicos.Location = new System.Drawing.Point(12, 312);
             this.gbDatosEconomicos.Name = "gbDatosEconomicos";
-            this.gbDatosEconomicos.Size = new System.Drawing.Size(184, 97);
+            this.gbDatosEconomicos.Size = new System.Drawing.Size(211, 97);
             this.gbDatosEconomicos.TabIndex = 1;
             this.gbDatosEconomicos.TabStop = false;
             this.gbDatosEconomicos.Text = "Datos Económicos";
@@ -361,9 +370,10 @@
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.txtKilometros.Location = new System.Drawing.Point(107, 71);
             this.txtKilometros.Name = "txtKilometros";
-            this.txtKilometros.Size = new System.Drawing.Size(63, 20);
+            this.txtKilometros.Size = new System.Drawing.Size(77, 20);
             this.txtKilometros.TabIndex = 2;
             this.txtKilometros.TextChanged += new System.EventHandler(this.txtHorasEspera_TextChanged);
+            this.txtKilometros.Validating += new System.ComponentModel.CancelEventHandler(this.txtKilometros_Validating);
             // 
             // txtHorasEspera
             // 
@@ -371,9 +381,10 @@
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.txtHorasEspera.Location = new System.Drawing.Point(107, 45);
             this.txtHorasEspera.Name = "txtHorasEspera";
-            this.txtHorasEspera.Size = new System.Drawing.Size(63, 20);
+            this.txtHorasEspera.Size = new System.Drawing.Size(77, 20);
             this.txtHorasEspera.TabIndex = 1;
             this.txtHorasEspera.TextChanged += new System.EventHandler(this.txtHorasEspera_TextChanged);
+            this.txtHorasEspera.Validating += new System.ComponentModel.CancelEventHandler(this.txtHorasEspera_Validating);
             // 
             // txtIva
             // 
@@ -381,16 +392,17 @@
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.txtIva.Location = new System.Drawing.Point(107, 19);
             this.txtIva.Name = "txtIva";
-            this.txtIva.Size = new System.Drawing.Size(63, 20);
+            this.txtIva.Size = new System.Drawing.Size(77, 20);
             this.txtIva.TabIndex = 0;
             this.txtIva.TextChanged += new System.EventHandler(this.txtIva_TextChanged);
+            this.txtIva.Validating += new System.ComponentModel.CancelEventHandler(this.txtIva_Validating);
             // 
             // btnSalir
             // 
             this.btnSalir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSalir.Image = global::Facturas.Facturas.sout;
             this.btnSalir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSalir.Location = new System.Drawing.Point(329, 419);
+            this.btnSalir.Location = new System.Drawing.Point(356, 419);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(75, 33);
             this.btnSalir.TabIndex = 3;
@@ -405,7 +417,7 @@
             this.btnGuardar.Enabled = false;
             this.btnGuardar.Image = global::Facturas.Facturas.save;
             this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGuardar.Location = new System.Drawing.Point(248, 418);
+            this.btnGuardar.Location = new System.Drawing.Point(275, 418);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(75, 34);
             this.btnGuardar.TabIndex = 2;
@@ -422,7 +434,7 @@
             this.groupBox1.Controls.Add(this.label14);
             this.groupBox1.Controls.Add(this.numericUpDownNivelFondo);
             this.groupBox1.Controls.Add(this.label13);
-            this.groupBox1.Location = new System.Drawing.Point(202, 312);
+            this.groupBox1.Location = new System.Drawing.Point(229, 312);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(202, 97);
             this.groupBox1.TabIndex = 4;
@@ -504,14 +516,14 @@
             this.AcceptButton = this.btnGuardar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(416, 464);
+            this.ClientSize = new System.Drawing.Size(443, 464);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.gbDatosEconomicos);
             this.Controls.Add(this.gbDatosPersonales);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MinimumSize = new System.Drawing.Size(424, 498);
+            this.MinimumSize = new System.Drawing.Size(451, 498);
             this.Name = "Configuracion";
             this.Text = "Configuracion";
             this.Load += new System.EventHandler(this.Configuracion_Load);

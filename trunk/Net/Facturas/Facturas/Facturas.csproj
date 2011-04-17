@@ -33,7 +33,7 @@
     <InstallUrl>http://webs.ono.com/fatmariano/</InstallUrl>
     <UpdateUrl>http://webs.ono.com/fatmariano/</UpdateUrl>
     <ApplicationRevision>1</ApplicationRevision>
-    <ApplicationVersion>1.1.4.%2a</ApplicationVersion>
+    <ApplicationVersion>1.1.5.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>

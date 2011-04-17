@@ -256,5 +256,184 @@ namespace Facturas
                 txtForder.Text = folderBrowserDialog1.SelectedPath;
             }
         }
+
+        private void txtLicencia_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            TextBox tb = sender as TextBox;
+
+            if (tb == null) return;
+            errorProvider1.SetError(tb, string.Empty);
+
+            if(tb.Text.IsNullOrEmptyTrim())
+            {
+                errorProvider1.SetError(tb, "Debes introducir un número de licencia.");
+            }
+        }
+
+        private void txtNombre_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            TextBox tb = sender as TextBox;
+
+            if (tb == null) return;
+            errorProvider1.SetError(tb, string.Empty);
+
+            if (tb.Text.IsNullOrEmptyTrim())
+            {
+                errorProvider1.SetError(tb, "Debes indicar un nombre.");
+            }
+        }
+
+        private void txtPoblacion_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            TextBox tb = sender as TextBox;
+
+            if (tb == null) return;
+            errorProvider1.SetError(tb, string.Empty);
+
+            if (tb.Text.IsNullOrEmptyTrim())
+            {
+                errorProvider1.SetError(tb, "Debes indicar una población.");
+            }
+        }
+
+        private void txtDireccion_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            TextBox tb = sender as TextBox;
+
+            if (tb == null) return;
+            errorProvider1.SetError(tb, string.Empty);
+
+            if (tb.Text.IsNullOrEmptyTrim())
+            {
+                errorProvider1.SetError(tb, "Debes indicar una dirección.");
+            }
+        }
+
+        private void txtTelefono_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            TextBox tb = sender as TextBox;
+
+            if (tb == null) return;
+            errorProvider1.SetError(tb, string.Empty);
+
+            if (tb.Text.IsNullOrEmptyTrim())
+            {
+                errorProvider1.SetError(tb, "Debes indicar un número de teléfono.");
+            }
+        }
+
+        private void txtMovil_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            TextBox tb = sender as TextBox;
+
+            if (tb == null) return;
+            errorProvider1.SetError(tb, string.Empty);
+
+            if (tb.Text.IsNullOrEmptyTrim())
+            {
+                errorProvider1.SetError(tb, "Debes indicar un número de teléfono movil.");
+            }
+        }
+
+        private void txtEmail_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            TextBox tb = sender as TextBox;
+
+            if (tb == null) return;
+            errorProvider1.SetError(tb, string.Empty);
+
+            if (tb.Text.IsNullOrEmptyTrim())
+            {
+                errorProvider1.SetError(tb, "Debes indicar un email.");
+            }
+        }
+
+        private void txtNif_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            TextBox tb = sender as TextBox;
+
+            if (tb == null) return;
+            errorProvider1.SetError(tb, string.Empty);
+
+            if (tb.Text.IsNullOrEmptyTrim())
+            {
+                errorProvider1.SetError(tb, "Debes indicar un NIF.");
+            }
+            if (!CifNifValidador.ValidarCifNifNie(txtNif.Text))
+            {
+                errorProvider1.SetError(txtNif, "El CIF no es válido");
+            }
+        }
+
+        private void txtCCC_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            TextBox tb = sender as TextBox;
+
+            if (tb == null) return;
+            errorProvider1.SetError(tb, string.Empty);
+
+            if (tb.Text.IsNullOrEmptyTrim())
+            {
+                errorProvider1.SetError(tb, "Debes indicar una cuenta bancaria.");
+            }
+            try
+            {
+                if (!CuentaBancariaValidador.ValidaCuentaBancaria(txtCCC.Text))
+                {
+                    errorProvider1.SetError(txtCCC, "La cuenta Bancaria Introducida no es válida");
+                }
+            }
+            catch (ArgumentException ex)
+            {
+                
+            }
+        }
+
+        private void txtIva_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            TextBox tb = sender as TextBox;
+
+            if (tb == null) return;
+            errorProvider1.SetError(tb, string.Empty);
+
+            if (tb.Text.IsNullOrEmptyTrim())
+            {
+                errorProvider1.SetError(tb, "Debes indicar el IVA.");
+            }
+        }
+
+        private void txtHorasEspera_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            TextBox tb = sender as TextBox;
+
+            if (tb == null) return;
+            errorProvider1.SetError(tb, string.Empty);
+
+            if (tb.Text.IsNullOrEmptyTrim())
+            {
+                errorProvider1.SetError(tb, "Debes indicar el precio de hora de espera.");
+            }
+            if (!IsNumber(tb.Text.Replace(CultureInfo.CurrentCulture.NumberFormat.CurrencySymbol, null)))
+            {
+                errorProvider1.SetError(tb, "El dato económico debe estar correctamente relleno.");
+            }
+        }
+
+        private void txtKilometros_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            TextBox tb = sender as TextBox;
+
+            if (tb == null) return;
+            errorProvider1.SetError(tb, string.Empty);
+
+            if (tb.Text.IsNullOrEmptyTrim())
+            {
+                errorProvider1.SetError(tb, "Debes indicar el precio por kilómetro.");
+            }
+            if (!IsNumber(tb.Text.Replace(CultureInfo.CurrentCulture.NumberFormat.CurrencySymbol, null)))
+            {
+                errorProvider1.SetError(tb, "El dato económico debe estar correctamente relleno.");
+            }
+        }
     }
 }
