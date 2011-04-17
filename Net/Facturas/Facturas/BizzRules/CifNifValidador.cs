@@ -7,12 +7,12 @@ namespace Facturas.BizzRules
         public static bool ValidarCifNifNie(string cadena)
         {
             cadena = cadena.ToUpper();
-            return ValidateCif(cadena) || ValidarNif(cadena);
+            return cadena.Length == 9 && ValidateCif(cadena) || ValidarNif(cadena);
         }
 
         public static bool ValidarNif(string nif)
         {
-            return LetraNif(nif.Substring(0, 8)).Equals(nif[nif.Length - 1]);
+            return nif.Length == 9 && LetraNif(nif.Substring(0, 8)).Equals(nif[nif.Length - 1]);
         }
 
         /// <summary> Tabla de asignación. </summary>
