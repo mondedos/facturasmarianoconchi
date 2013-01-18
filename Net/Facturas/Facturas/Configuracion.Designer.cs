@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Configuracion));
-            this.gbDatosPersonales = new System.Windows.Forms.GroupBox();
+            this.txtLicencia = new DevExpress.XtraEditors.TextEdit();
             this.label15 = new System.Windows.Forms.Label();
             this.txtForder = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
@@ -43,78 +43,68 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtCCC = new System.Windows.Forms.TextBox();
-            this.txtNif = new System.Windows.Forms.TextBox();
-            this.txtEmail = new System.Windows.Forms.TextBox();
-            this.txtMovil = new System.Windows.Forms.TextBox();
-            this.txtTelefono = new System.Windows.Forms.TextBox();
-            this.txtDireccion = new System.Windows.Forms.TextBox();
-            this.txtPoblacion = new System.Windows.Forms.TextBox();
-            this.txtLicencia = new System.Windows.Forms.TextBox();
-            this.txtNombre = new System.Windows.Forms.TextBox();
-            this.gbDatosEconomicos = new System.Windows.Forms.GroupBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.txtKilometros = new System.Windows.Forms.TextBox();
-            this.txtHorasEspera = new System.Windows.Forms.TextBox();
-            this.txtIva = new System.Windows.Forms.TextBox();
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label16 = new System.Windows.Forms.Label();
-            this.numericUpDownUltimaFActura = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDownBordeTabla = new System.Windows.Forms.NumericUpDown();
             this.label14 = new System.Windows.Forms.Label();
-            this.numericUpDownNivelFondo = new System.Windows.Forms.NumericUpDown();
             this.label13 = new System.Windows.Forms.Label();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.gbDatosPersonales.SuspendLayout();
-            this.gbDatosEconomicos.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownUltimaFActura)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownBordeTabla)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownNivelFondo)).BeginInit();
+            this.txtNombre = new DevExpress.XtraEditors.TextEdit();
+            this.txtPoblacion = new DevExpress.XtraEditors.TextEdit();
+            this.txtDireccion = new DevExpress.XtraEditors.TextEdit();
+            this.txtTelefono = new DevExpress.XtraEditors.TextEdit();
+            this.txtMovil = new DevExpress.XtraEditors.TextEdit();
+            this.txtEmail = new DevExpress.XtraEditors.TextEdit();
+            this.txtNif = new DevExpress.XtraEditors.TextEdit();
+            this.txtCCC = new DevExpress.XtraEditors.TextEdit();
+            this.gbDatosPersonales = new DevExpress.XtraEditors.GroupControl();
+            this.gbDatosEconomicos = new DevExpress.XtraEditors.GroupControl();
+            this.txtIva = new DevExpress.XtraEditors.TextEdit();
+            this.txtHorasEspera = new DevExpress.XtraEditors.TextEdit();
+            this.txtKilometros = new DevExpress.XtraEditors.TextEdit();
+            this.groupControl3 = new DevExpress.XtraEditors.GroupControl();
+            this.numericUpDownNivelFondo = new DevExpress.XtraEditors.SpinEdit();
+            this.numericUpDownBordeTabla = new DevExpress.XtraEditors.SpinEdit();
+            this.numericUpDownUltimaFActura = new DevExpress.XtraEditors.SpinEdit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtLicencia.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtNombre.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPoblacion.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDireccion.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTelefono.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMovil.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtEmail.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtNif.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCCC.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gbDatosPersonales)).BeginInit();
+            this.gbDatosPersonales.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gbDatosEconomicos)).BeginInit();
+            this.gbDatosEconomicos.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtIva.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtHorasEspera.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtKilometros.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl3)).BeginInit();
+            this.groupControl3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownNivelFondo.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownBordeTabla.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownUltimaFActura.Properties)).BeginInit();
             this.SuspendLayout();
             // 
-            // gbDatosPersonales
+            // txtLicencia
             // 
-            this.gbDatosPersonales.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.gbDatosPersonales.Controls.Add(this.label15);
-            this.gbDatosPersonales.Controls.Add(this.txtForder);
-            this.gbDatosPersonales.Controls.Add(this.button1);
-            this.gbDatosPersonales.Controls.Add(this.label9);
-            this.gbDatosPersonales.Controls.Add(this.label8);
-            this.gbDatosPersonales.Controls.Add(this.label7);
-            this.gbDatosPersonales.Controls.Add(this.label6);
-            this.gbDatosPersonales.Controls.Add(this.label5);
-            this.gbDatosPersonales.Controls.Add(this.label4);
-            this.gbDatosPersonales.Controls.Add(this.label3);
-            this.gbDatosPersonales.Controls.Add(this.label2);
-            this.gbDatosPersonales.Controls.Add(this.label1);
-            this.gbDatosPersonales.Controls.Add(this.txtCCC);
-            this.gbDatosPersonales.Controls.Add(this.txtNif);
-            this.gbDatosPersonales.Controls.Add(this.txtEmail);
-            this.gbDatosPersonales.Controls.Add(this.txtMovil);
-            this.gbDatosPersonales.Controls.Add(this.txtTelefono);
-            this.gbDatosPersonales.Controls.Add(this.txtDireccion);
-            this.gbDatosPersonales.Controls.Add(this.txtPoblacion);
-            this.gbDatosPersonales.Controls.Add(this.txtLicencia);
-            this.gbDatosPersonales.Controls.Add(this.txtNombre);
-            this.gbDatosPersonales.Location = new System.Drawing.Point(12, 12);
-            this.gbDatosPersonales.Name = "gbDatosPersonales";
-            this.gbDatosPersonales.Size = new System.Drawing.Size(419, 294);
-            this.gbDatosPersonales.TabIndex = 0;
-            this.gbDatosPersonales.TabStop = false;
-            this.gbDatosPersonales.Text = "Datos personales";
+            this.txtLicencia.Location = new System.Drawing.Point(121, 24);
+            this.txtLicencia.Name = "txtLicencia";
+            this.txtLicencia.Size = new System.Drawing.Size(100, 20);
+            this.txtLicencia.TabIndex = 21;
             // 
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(6, 256);
+            this.label15.Location = new System.Drawing.Point(21, 261);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(101, 13);
             this.label15.TabIndex = 20;
@@ -122,31 +112,34 @@
             // 
             // txtForder
             // 
-            this.txtForder.Location = new System.Drawing.Point(107, 253);
+            this.txtForder.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtForder.Location = new System.Drawing.Point(122, 258);
             this.txtForder.Name = "txtForder";
             this.txtForder.ReadOnly = true;
-            this.txtForder.Size = new System.Drawing.Size(198, 20);
+            this.txtForder.Size = new System.Drawing.Size(198, 21);
             this.txtForder.TabIndex = 19;
             this.txtForder.Text = "2106 0950 06 0286145041";
-            this.txtForder.TextChanged += new System.EventHandler(this.numericUpDownBordeTabla_ValueChanged);
+            this.txtForder.TextChanged += new System.EventHandler(this.NumericUpDownBordeTablaValueChanged);
             // 
             // button1
             // 
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.button1.Image = global::Facturas.Facturas.explorar;
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(311, 251);
+            this.button1.Location = new System.Drawing.Point(326, 256);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 18;
             this.button1.Text = "Explorar";
             this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1.Click += new System.EventHandler(this.Button1Click);
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(73, 230);
+            this.label9.Location = new System.Drawing.Point(88, 235);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(28, 13);
             this.label9.TabIndex = 17;
@@ -155,7 +148,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(77, 204);
+            this.label8.Location = new System.Drawing.Point(92, 209);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(24, 13);
             this.label8.TabIndex = 16;
@@ -164,25 +157,25 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(65, 178);
+            this.label7.Location = new System.Drawing.Point(80, 183);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(36, 13);
+            this.label7.Size = new System.Drawing.Size(35, 13);
             this.label7.TabIndex = 15;
             this.label7.Text = "E-Mail";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(69, 152);
+            this.label6.Location = new System.Drawing.Point(83, 157);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(32, 13);
+            this.label6.Size = new System.Drawing.Size(31, 13);
             this.label6.TabIndex = 14;
             this.label6.Text = "Móvil";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(52, 126);
+            this.label5.Location = new System.Drawing.Point(66, 131);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(49, 13);
             this.label5.TabIndex = 13;
@@ -191,25 +184,25 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(49, 100);
+            this.label4.Location = new System.Drawing.Point(63, 105);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(52, 13);
+            this.label4.Size = new System.Drawing.Size(50, 13);
             this.label4.TabIndex = 12;
             this.label4.Text = "Dirección";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(24, 74);
+            this.label3.Location = new System.Drawing.Point(38, 79);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(77, 13);
+            this.label3.Size = new System.Drawing.Size(75, 13);
             this.label3.TabIndex = 11;
             this.label3.Text = "Municipio y CP";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(57, 48);
+            this.label2.Location = new System.Drawing.Point(71, 53);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(44, 13);
             this.label2.TabIndex = 10;
@@ -218,184 +211,38 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 22);
+            this.label1.Location = new System.Drawing.Point(20, 27);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(95, 13);
+            this.label1.Size = new System.Drawing.Size(90, 13);
             this.label1.TabIndex = 9;
             this.label1.Text = "Licencia Municipal";
-            // 
-            // txtCCC
-            // 
-            this.txtCCC.Location = new System.Drawing.Point(107, 227);
-            this.txtCCC.Name = "txtCCC";
-            this.txtCCC.Size = new System.Drawing.Size(146, 20);
-            this.txtCCC.TabIndex = 8;
-            this.txtCCC.Text = "2106 0950 06 0286145041";
-            this.txtCCC.TextChanged += new System.EventHandler(this.numericUpDownBordeTabla_ValueChanged);
-            this.txtCCC.Validating += new System.ComponentModel.CancelEventHandler(this.txtCCC_Validating);
-            // 
-            // txtNif
-            // 
-            this.txtNif.Location = new System.Drawing.Point(107, 201);
-            this.txtNif.Name = "txtNif";
-            this.txtNif.Size = new System.Drawing.Size(77, 20);
-            this.txtNif.TabIndex = 7;
-            this.txtNif.Text = "28806983N";
-            this.txtNif.TextChanged += new System.EventHandler(this.numericUpDownBordeTabla_ValueChanged);
-            this.txtNif.Validating += new System.ComponentModel.CancelEventHandler(this.txtNif_Validating);
-            // 
-            // txtEmail
-            // 
-            this.txtEmail.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtEmail.Location = new System.Drawing.Point(107, 175);
-            this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(285, 20);
-            this.txtEmail.TabIndex = 6;
-            this.txtEmail.Text = "conchi@montequinto.org";
-            this.txtEmail.TextChanged += new System.EventHandler(this.numericUpDownBordeTabla_ValueChanged);
-            this.txtEmail.Validating += new System.ComponentModel.CancelEventHandler(this.txtEmail_Validating);
-            // 
-            // txtMovil
-            // 
-            this.txtMovil.Location = new System.Drawing.Point(107, 149);
-            this.txtMovil.Name = "txtMovil";
-            this.txtMovil.Size = new System.Drawing.Size(61, 20);
-            this.txtMovil.TabIndex = 5;
-            this.txtMovil.Text = "95412606";
-            this.txtMovil.TextChanged += new System.EventHandler(this.numericUpDownBordeTabla_ValueChanged);
-            this.txtMovil.Validating += new System.ComponentModel.CancelEventHandler(this.txtMovil_Validating);
-            // 
-            // txtTelefono
-            // 
-            this.txtTelefono.Location = new System.Drawing.Point(107, 123);
-            this.txtTelefono.Name = "txtTelefono";
-            this.txtTelefono.Size = new System.Drawing.Size(61, 20);
-            this.txtTelefono.TabIndex = 4;
-            this.txtTelefono.Text = "95412606";
-            this.txtTelefono.TextChanged += new System.EventHandler(this.numericUpDownBordeTabla_ValueChanged);
-            this.txtTelefono.Validating += new System.ComponentModel.CancelEventHandler(this.txtTelefono_Validating);
-            // 
-            // txtDireccion
-            // 
-            this.txtDireccion.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtDireccion.Location = new System.Drawing.Point(107, 97);
-            this.txtDireccion.Name = "txtDireccion";
-            this.txtDireccion.Size = new System.Drawing.Size(285, 20);
-            this.txtDireccion.TabIndex = 3;
-            this.txtDireccion.Text = "C/ Sector Triángulo, Nº 12 8º A";
-            this.txtDireccion.TextChanged += new System.EventHandler(this.numericUpDownBordeTabla_ValueChanged);
-            this.txtDireccion.Validating += new System.ComponentModel.CancelEventHandler(this.txtDireccion_Validating);
-            // 
-            // txtPoblacion
-            // 
-            this.txtPoblacion.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtPoblacion.Location = new System.Drawing.Point(107, 71);
-            this.txtPoblacion.Name = "txtPoblacion";
-            this.txtPoblacion.Size = new System.Drawing.Size(285, 20);
-            this.txtPoblacion.TabIndex = 2;
-            this.txtPoblacion.Text = "Dos Hermanas, 41089";
-            this.txtPoblacion.TextChanged += new System.EventHandler(this.numericUpDownBordeTabla_ValueChanged);
-            this.txtPoblacion.Validating += new System.ComponentModel.CancelEventHandler(this.txtPoblacion_Validating);
-            // 
-            // txtLicencia
-            // 
-            this.txtLicencia.Location = new System.Drawing.Point(107, 19);
-            this.txtLicencia.Name = "txtLicencia";
-            this.txtLicencia.Size = new System.Drawing.Size(35, 20);
-            this.txtLicencia.TabIndex = 0;
-            this.txtLicencia.Text = "1279";
-            this.txtLicencia.TextChanged += new System.EventHandler(this.numericUpDownBordeTabla_ValueChanged);
-            this.txtLicencia.Validating += new System.ComponentModel.CancelEventHandler(this.txtLicencia_Validating);
-            // 
-            // txtNombre
-            // 
-            this.txtNombre.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtNombre.Location = new System.Drawing.Point(107, 45);
-            this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(285, 20);
-            this.txtNombre.TabIndex = 1;
-            this.txtNombre.Text = "Manuel Prieto Gallego";
-            this.txtNombre.TextChanged += new System.EventHandler(this.numericUpDownBordeTabla_ValueChanged);
-            this.txtNombre.Validating += new System.ComponentModel.CancelEventHandler(this.txtNombre_Validating);
-            // 
-            // gbDatosEconomicos
-            // 
-            this.gbDatosEconomicos.Controls.Add(this.label12);
-            this.gbDatosEconomicos.Controls.Add(this.label11);
-            this.gbDatosEconomicos.Controls.Add(this.label10);
-            this.gbDatosEconomicos.Controls.Add(this.txtKilometros);
-            this.gbDatosEconomicos.Controls.Add(this.txtHorasEspera);
-            this.gbDatosEconomicos.Controls.Add(this.txtIva);
-            this.gbDatosEconomicos.Location = new System.Drawing.Point(12, 312);
-            this.gbDatosEconomicos.Name = "gbDatosEconomicos";
-            this.gbDatosEconomicos.Size = new System.Drawing.Size(211, 97);
-            this.gbDatosEconomicos.TabIndex = 1;
-            this.gbDatosEconomicos.TabStop = false;
-            this.gbDatosEconomicos.Text = "Datos Económicos";
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(51, 74);
+            this.label12.Location = new System.Drawing.Point(36, 75);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(50, 13);
+            this.label12.Size = new System.Drawing.Size(51, 13);
             this.label12.TabIndex = 20;
             this.label12.Text = "Kilómetro";
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(21, 48);
+            this.label11.Location = new System.Drawing.Point(6, 49);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(80, 13);
+            this.label11.Size = new System.Drawing.Size(81, 13);
             this.label11.TabIndex = 19;
             this.label11.Text = "Hora de espera";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(77, 22);
+            this.label10.Location = new System.Drawing.Point(63, 27);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(24, 13);
             this.label10.TabIndex = 18;
             this.label10.Text = "IVA";
-            // 
-            // txtKilometros
-            // 
-            this.txtKilometros.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtKilometros.Location = new System.Drawing.Point(107, 71);
-            this.txtKilometros.Name = "txtKilometros";
-            this.txtKilometros.Size = new System.Drawing.Size(77, 20);
-            this.txtKilometros.TabIndex = 2;
-            this.txtKilometros.TextChanged += new System.EventHandler(this.txtHorasEspera_TextChanged);
-            this.txtKilometros.Validating += new System.ComponentModel.CancelEventHandler(this.txtKilometros_Validating);
-            // 
-            // txtHorasEspera
-            // 
-            this.txtHorasEspera.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtHorasEspera.Location = new System.Drawing.Point(107, 45);
-            this.txtHorasEspera.Name = "txtHorasEspera";
-            this.txtHorasEspera.Size = new System.Drawing.Size(77, 20);
-            this.txtHorasEspera.TabIndex = 1;
-            this.txtHorasEspera.TextChanged += new System.EventHandler(this.txtHorasEspera_TextChanged);
-            this.txtHorasEspera.Validating += new System.ComponentModel.CancelEventHandler(this.txtHorasEspera_Validating);
-            // 
-            // txtIva
-            // 
-            this.txtIva.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtIva.Location = new System.Drawing.Point(107, 19);
-            this.txtIva.Name = "txtIva";
-            this.txtIva.Size = new System.Drawing.Size(77, 20);
-            this.txtIva.TabIndex = 0;
-            this.txtIva.TextChanged += new System.EventHandler(this.txtIva_TextChanged);
-            this.txtIva.Validating += new System.ComponentModel.CancelEventHandler(this.txtIva_Validating);
             // 
             // btnSalir
             // 
@@ -409,7 +256,7 @@
             this.btnSalir.Text = "&Salir";
             this.btnSalir.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnSalir.UseVisualStyleBackColor = true;
-            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
+            this.btnSalir.Click += new System.EventHandler(this.BtnSalirClick);
             // 
             // btnGuardar
             // 
@@ -424,86 +271,32 @@
             this.btnGuardar.Text = "&Guardar";
             this.btnGuardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnGuardar.UseVisualStyleBackColor = true;
-            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.label16);
-            this.groupBox1.Controls.Add(this.numericUpDownUltimaFActura);
-            this.groupBox1.Controls.Add(this.numericUpDownBordeTabla);
-            this.groupBox1.Controls.Add(this.label14);
-            this.groupBox1.Controls.Add(this.numericUpDownNivelFondo);
-            this.groupBox1.Controls.Add(this.label13);
-            this.groupBox1.Location = new System.Drawing.Point(229, 312);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(202, 97);
-            this.groupBox1.TabIndex = 4;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Factura";
+            this.btnGuardar.Click += new System.EventHandler(this.BtnGuardarClick);
             // 
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(6, 69);
+            this.label16.Location = new System.Drawing.Point(1, 78);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(115, 13);
+            this.label16.Size = new System.Drawing.Size(116, 13);
             this.label16.TabIndex = 27;
             this.label16.Text = "Ultimo Número Factura";
-            // 
-            // numericUpDownUltimaFActura
-            // 
-            this.numericUpDownUltimaFActura.Location = new System.Drawing.Point(127, 67);
-            this.numericUpDownUltimaFActura.Maximum = new decimal(new int[] {
-            -1530494977,
-            232830,
-            0,
-            0});
-            this.numericUpDownUltimaFActura.Name = "numericUpDownUltimaFActura";
-            this.numericUpDownUltimaFActura.Size = new System.Drawing.Size(69, 20);
-            this.numericUpDownUltimaFActura.TabIndex = 26;
-            this.numericUpDownUltimaFActura.ValueChanged += new System.EventHandler(this.numericUpDownBordeTabla_ValueChanged);
-            // 
-            // numericUpDownBordeTabla
-            // 
-            this.numericUpDownBordeTabla.Location = new System.Drawing.Point(127, 41);
-            this.numericUpDownBordeTabla.Maximum = new decimal(new int[] {
-            255,
-            0,
-            0,
-            0});
-            this.numericUpDownBordeTabla.Name = "numericUpDownBordeTabla";
-            this.numericUpDownBordeTabla.Size = new System.Drawing.Size(69, 20);
-            this.numericUpDownBordeTabla.TabIndex = 25;
-            this.numericUpDownBordeTabla.ValueChanged += new System.EventHandler(this.numericUpDownBordeTabla_ValueChanged);
             // 
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(56, 43);
+            this.label14.Location = new System.Drawing.Point(51, 52);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(65, 13);
+            this.label14.Size = new System.Drawing.Size(64, 13);
             this.label14.TabIndex = 24;
             this.label14.Text = "Borde Tabla";
-            // 
-            // numericUpDownNivelFondo
-            // 
-            this.numericUpDownNivelFondo.Location = new System.Drawing.Point(127, 15);
-            this.numericUpDownNivelFondo.Maximum = new decimal(new int[] {
-            255,
-            0,
-            0,
-            0});
-            this.numericUpDownNivelFondo.Name = "numericUpDownNivelFondo";
-            this.numericUpDownNivelFondo.Size = new System.Drawing.Size(69, 20);
-            this.numericUpDownNivelFondo.TabIndex = 23;
-            this.numericUpDownNivelFondo.ValueChanged += new System.EventHandler(this.numericUpDownBordeTabla_ValueChanged);
             // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(39, 17);
+            this.label13.Location = new System.Drawing.Point(34, 26);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(82, 13);
+            this.label13.Size = new System.Drawing.Size(79, 13);
             this.label13.TabIndex = 22;
             this.label13.Text = "LM Fondo Nivel";
             // 
@@ -511,49 +304,258 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
+            // txtNombre
+            // 
+            this.txtNombre.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtNombre.Location = new System.Drawing.Point(121, 50);
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.Size = new System.Drawing.Size(285, 20);
+            this.txtNombre.TabIndex = 22;
+            // 
+            // txtPoblacion
+            // 
+            this.txtPoblacion.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtPoblacion.Location = new System.Drawing.Point(121, 76);
+            this.txtPoblacion.Name = "txtPoblacion";
+            this.txtPoblacion.Size = new System.Drawing.Size(285, 20);
+            this.txtPoblacion.TabIndex = 23;
+            // 
+            // txtDireccion
+            // 
+            this.txtDireccion.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtDireccion.Location = new System.Drawing.Point(121, 102);
+            this.txtDireccion.Name = "txtDireccion";
+            this.txtDireccion.Size = new System.Drawing.Size(285, 20);
+            this.txtDireccion.TabIndex = 24;
+            // 
+            // txtTelefono
+            // 
+            this.txtTelefono.Location = new System.Drawing.Point(121, 128);
+            this.txtTelefono.Name = "txtTelefono";
+            this.txtTelefono.Size = new System.Drawing.Size(61, 20);
+            this.txtTelefono.TabIndex = 25;
+            // 
+            // txtMovil
+            // 
+            this.txtMovil.Location = new System.Drawing.Point(121, 154);
+            this.txtMovil.Name = "txtMovil";
+            this.txtMovil.Size = new System.Drawing.Size(61, 20);
+            this.txtMovil.TabIndex = 26;
+            // 
+            // txtEmail
+            // 
+            this.txtEmail.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtEmail.Location = new System.Drawing.Point(121, 180);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(285, 20);
+            this.txtEmail.TabIndex = 27;
+            // 
+            // txtNif
+            // 
+            this.txtNif.Location = new System.Drawing.Point(122, 206);
+            this.txtNif.Name = "txtNif";
+            this.txtNif.Size = new System.Drawing.Size(78, 20);
+            this.txtNif.TabIndex = 28;
+            // 
+            // txtCCC
+            // 
+            this.txtCCC.Location = new System.Drawing.Point(122, 232);
+            this.txtCCC.Name = "txtCCC";
+            this.txtCCC.Size = new System.Drawing.Size(146, 20);
+            this.txtCCC.TabIndex = 29;
+            // 
+            // gbDatosPersonales
+            // 
+            this.gbDatosPersonales.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.gbDatosPersonales.Controls.Add(this.button1);
+            this.gbDatosPersonales.Controls.Add(this.label15);
+            this.gbDatosPersonales.Controls.Add(this.txtCCC);
+            this.gbDatosPersonales.Controls.Add(this.txtForder);
+            this.gbDatosPersonales.Controls.Add(this.label1);
+            this.gbDatosPersonales.Controls.Add(this.txtNif);
+            this.gbDatosPersonales.Controls.Add(this.label2);
+            this.gbDatosPersonales.Controls.Add(this.txtEmail);
+            this.gbDatosPersonales.Controls.Add(this.label3);
+            this.gbDatosPersonales.Controls.Add(this.txtMovil);
+            this.gbDatosPersonales.Controls.Add(this.label4);
+            this.gbDatosPersonales.Controls.Add(this.label9);
+            this.gbDatosPersonales.Controls.Add(this.txtTelefono);
+            this.gbDatosPersonales.Controls.Add(this.label8);
+            this.gbDatosPersonales.Controls.Add(this.label5);
+            this.gbDatosPersonales.Controls.Add(this.label7);
+            this.gbDatosPersonales.Controls.Add(this.txtDireccion);
+            this.gbDatosPersonales.Controls.Add(this.label6);
+            this.gbDatosPersonales.Controls.Add(this.txtPoblacion);
+            this.gbDatosPersonales.Controls.Add(this.txtLicencia);
+            this.gbDatosPersonales.Controls.Add(this.txtNombre);
+            this.gbDatosPersonales.Location = new System.Drawing.Point(12, 12);
+            this.gbDatosPersonales.Name = "gbDatosPersonales";
+            this.gbDatosPersonales.Size = new System.Drawing.Size(419, 294);
+            this.gbDatosPersonales.TabIndex = 5;
+            this.gbDatosPersonales.Text = "Datos personales";
+            // 
+            // gbDatosEconomicos
+            // 
+            this.gbDatosEconomicos.Controls.Add(this.txtKilometros);
+            this.gbDatosEconomicos.Controls.Add(this.txtHorasEspera);
+            this.gbDatosEconomicos.Controls.Add(this.txtIva);
+            this.gbDatosEconomicos.Controls.Add(this.label12);
+            this.gbDatosEconomicos.Controls.Add(this.label10);
+            this.gbDatosEconomicos.Controls.Add(this.label11);
+            this.gbDatosEconomicos.Location = new System.Drawing.Point(12, 312);
+            this.gbDatosEconomicos.Name = "gbDatosEconomicos";
+            this.gbDatosEconomicos.Size = new System.Drawing.Size(200, 100);
+            this.gbDatosEconomicos.TabIndex = 6;
+            this.gbDatosEconomicos.Text = "Datos Económicos";
+            // 
+            // txtIva
+            // 
+            this.txtIva.Location = new System.Drawing.Point(95, 24);
+            this.txtIva.Name = "txtIva";
+            this.txtIva.Properties.DisplayFormat.FormatString = "p2";
+            this.txtIva.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.txtIva.Properties.EditFormat.FormatString = "p2";
+            this.txtIva.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.txtIva.Properties.Mask.EditMask = "p2";
+            this.txtIva.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.txtIva.Size = new System.Drawing.Size(61, 20);
+            this.txtIva.TabIndex = 27;
+            // 
+            // txtHorasEspera
+            // 
+            this.txtHorasEspera.Location = new System.Drawing.Point(95, 50);
+            this.txtHorasEspera.Name = "txtHorasEspera";
+            this.txtHorasEspera.Properties.DisplayFormat.FormatString = "c2";
+            this.txtHorasEspera.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.txtHorasEspera.Properties.EditFormat.FormatString = "c2";
+            this.txtHorasEspera.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.txtHorasEspera.Properties.Mask.EditMask = "c";
+            this.txtHorasEspera.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.txtHorasEspera.Size = new System.Drawing.Size(61, 20);
+            this.txtHorasEspera.TabIndex = 28;
+            // 
+            // txtKilometros
+            // 
+            this.txtKilometros.Location = new System.Drawing.Point(95, 75);
+            this.txtKilometros.Name = "txtKilometros";
+            this.txtKilometros.Properties.DisplayFormat.FormatString = "c2";
+            this.txtKilometros.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.txtKilometros.Properties.EditFormat.FormatString = "c2";
+            this.txtKilometros.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.txtKilometros.Properties.Mask.EditMask = "c";
+            this.txtKilometros.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.txtKilometros.Size = new System.Drawing.Size(61, 20);
+            this.txtKilometros.TabIndex = 29;
+            // 
+            // groupControl3
+            // 
+            this.groupControl3.Controls.Add(this.numericUpDownUltimaFActura);
+            this.groupControl3.Controls.Add(this.numericUpDownBordeTabla);
+            this.groupControl3.Controls.Add(this.numericUpDownNivelFondo);
+            this.groupControl3.Controls.Add(this.label16);
+            this.groupControl3.Controls.Add(this.label13);
+            this.groupControl3.Controls.Add(this.label14);
+            this.groupControl3.Location = new System.Drawing.Point(219, 313);
+            this.groupControl3.Name = "groupControl3";
+            this.groupControl3.Size = new System.Drawing.Size(212, 100);
+            this.groupControl3.TabIndex = 7;
+            this.groupControl3.Text = "Factura";
+            // 
+            // numericUpDownNivelFondo
+            // 
+            this.numericUpDownNivelFondo.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.numericUpDownNivelFondo.Location = new System.Drawing.Point(124, 26);
+            this.numericUpDownNivelFondo.Name = "numericUpDownNivelFondo";
+            this.numericUpDownNivelFondo.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.numericUpDownNivelFondo.Size = new System.Drawing.Size(69, 20);
+            this.numericUpDownNivelFondo.TabIndex = 28;
+            // 
+            // numericUpDownBordeTabla
+            // 
+            this.numericUpDownBordeTabla.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.numericUpDownBordeTabla.Location = new System.Drawing.Point(124, 52);
+            this.numericUpDownBordeTabla.Name = "numericUpDownBordeTabla";
+            this.numericUpDownBordeTabla.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.numericUpDownBordeTabla.Size = new System.Drawing.Size(69, 20);
+            this.numericUpDownBordeTabla.TabIndex = 29;
+            // 
+            // numericUpDownUltimaFActura
+            // 
+            this.numericUpDownUltimaFActura.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.numericUpDownUltimaFActura.Location = new System.Drawing.Point(124, 78);
+            this.numericUpDownUltimaFActura.Name = "numericUpDownUltimaFActura";
+            this.numericUpDownUltimaFActura.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.numericUpDownUltimaFActura.Size = new System.Drawing.Size(69, 20);
+            this.numericUpDownUltimaFActura.TabIndex = 30;
+            // 
             // Configuracion
             // 
             this.AcceptButton = this.btnGuardar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(443, 464);
-            this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.btnGuardar);
-            this.Controls.Add(this.btnSalir);
+            this.Controls.Add(this.groupControl3);
             this.Controls.Add(this.gbDatosEconomicos);
             this.Controls.Add(this.gbDatosPersonales);
+            this.Controls.Add(this.btnGuardar);
+            this.Controls.Add(this.btnSalir);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(451, 498);
             this.Name = "Configuracion";
             this.Text = "Configuracion";
-            this.Load += new System.EventHandler(this.Configuracion_Load);
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Configuracion_FormClosing);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ConfiguracionFormClosing);
+            this.Load += new System.EventHandler(this.ConfiguracionLoad);
+            ((System.ComponentModel.ISupportInitialize)(this.txtLicencia.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtNombre.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPoblacion.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDireccion.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTelefono.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMovil.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtEmail.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtNif.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCCC.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gbDatosPersonales)).EndInit();
             this.gbDatosPersonales.ResumeLayout(false);
             this.gbDatosPersonales.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gbDatosEconomicos)).EndInit();
             this.gbDatosEconomicos.ResumeLayout(false);
             this.gbDatosEconomicos.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownUltimaFActura)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownBordeTabla)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownNivelFondo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtIva.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtHorasEspera.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtKilometros.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl3)).EndInit();
+            this.groupControl3.ResumeLayout(false);
+            this.groupControl3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownNivelFondo.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownBordeTabla.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownUltimaFActura.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.GroupBox gbDatosPersonales;
-        private System.Windows.Forms.TextBox txtNombre;
-        private System.Windows.Forms.TextBox txtEmail;
-        private System.Windows.Forms.TextBox txtMovil;
-        private System.Windows.Forms.TextBox txtTelefono;
-        private System.Windows.Forms.TextBox txtDireccion;
-        private System.Windows.Forms.TextBox txtPoblacion;
-        private System.Windows.Forms.TextBox txtLicencia;
-        private System.Windows.Forms.TextBox txtCCC;
-        private System.Windows.Forms.TextBox txtNif;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
@@ -563,26 +565,36 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.GroupBox gbDatosEconomicos;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox txtKilometros;
-        private System.Windows.Forms.TextBox txtHorasEspera;
-        private System.Windows.Forms.TextBox txtIva;
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.Button btnGuardar;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.NumericUpDown numericUpDownNivelFondo;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.NumericUpDown numericUpDownBordeTabla;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
         private System.Windows.Forms.TextBox txtForder;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.NumericUpDown numericUpDownUltimaFActura;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private DevExpress.XtraEditors.TextEdit txtLicencia;
+        private DevExpress.XtraEditors.TextEdit txtNombre;
+        private DevExpress.XtraEditors.TextEdit txtDireccion;
+        private DevExpress.XtraEditors.TextEdit txtPoblacion;
+        private DevExpress.XtraEditors.TextEdit txtMovil;
+        private DevExpress.XtraEditors.TextEdit txtTelefono;
+        private DevExpress.XtraEditors.TextEdit txtEmail;
+        private DevExpress.XtraEditors.TextEdit txtNif;
+        private DevExpress.XtraEditors.TextEdit txtCCC;
+        private DevExpress.XtraEditors.GroupControl gbDatosPersonales;
+        private DevExpress.XtraEditors.GroupControl gbDatosEconomicos;
+        private DevExpress.XtraEditors.TextEdit txtKilometros;
+        private DevExpress.XtraEditors.TextEdit txtHorasEspera;
+        private DevExpress.XtraEditors.TextEdit txtIva;
+        private DevExpress.XtraEditors.GroupControl groupControl3;
+        private DevExpress.XtraEditors.SpinEdit numericUpDownUltimaFActura;
+        private DevExpress.XtraEditors.SpinEdit numericUpDownBordeTabla;
+        private DevExpress.XtraEditors.SpinEdit numericUpDownNivelFondo;
     }
 }

@@ -1,6 +1,6 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 10.00
-# Visual Studio 2008
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Facturas", "Facturas\Facturas.csproj", "{056BB3FC-04FC-4F49-B8D7-7C68B15B050F}"
 EndProject
 Global

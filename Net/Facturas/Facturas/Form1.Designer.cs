@@ -258,9 +258,9 @@ namespace Facturas
             this.cantidadTextBox.Name = "cantidadTextBox";
             this.cantidadTextBox.Size = new System.Drawing.Size(63, 20);
             this.cantidadTextBox.TabIndex = 0;
-            this.cantidadTextBox.TextChanged += new System.EventHandler(this.txtKilomestrosEuros_TextChanged);
-            this.cantidadTextBox.Enter += new System.EventHandler(this.cantidadTextBox_Enter);
-            this.cantidadTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.cantidadTextBox_Validating);
+            this.cantidadTextBox.TextChanged += new System.EventHandler(this.TxtKilomestrosEurosTextChanged);
+            this.cantidadTextBox.Enter += new System.EventHandler(this.CantidadTextBoxEnter);
+            this.cantidadTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.CantidadTextBoxValidating);
             // 
             // conceptoTextBox
             // 
@@ -279,8 +279,8 @@ namespace Facturas
             this.horasEsperaTextBox.Name = "horasEsperaTextBox";
             this.horasEsperaTextBox.Size = new System.Drawing.Size(63, 20);
             this.horasEsperaTextBox.TabIndex = 1;
-            this.horasEsperaTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.codigoPostalTextBox_KeyPress);
-            this.horasEsperaTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.horasEsperaTextBox_Validating);
+            this.horasEsperaTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CodigoPostalTextBoxKeyPress);
+            this.horasEsperaTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.HorasEsperaTextBoxValidating);
             // 
             // kilometrosTextBox
             // 
@@ -288,8 +288,8 @@ namespace Facturas
             this.kilometrosTextBox.Name = "kilometrosTextBox";
             this.kilometrosTextBox.Size = new System.Drawing.Size(63, 20);
             this.kilometrosTextBox.TabIndex = 2;
-            this.kilometrosTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.codigoPostalTextBox_KeyPress);
-            this.kilometrosTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.kilometrosTextBox_Validating);
+            this.kilometrosTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CodigoPostalTextBoxKeyPress);
+            this.kilometrosTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.KilometrosTextBoxValidating);
             // 
             // cifTextBox
             // 
@@ -322,8 +322,8 @@ namespace Facturas
             this.codigoPostalTextBox.Size = new System.Drawing.Size(66, 20);
             this.codigoPostalTextBox.TabIndex = 6;
             this.codigoPostalTextBox.Text = "41089";
-            this.codigoPostalTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.codigoPostalTextBox_KeyPress);
-            this.codigoPostalTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.codigoPostalTextBox_Validating);
+            this.codigoPostalTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CodigoPostalTextBoxKeyPress);
+            this.codigoPostalTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.CodigoPostalTextBoxValidating);
             // 
             // direccionTextBox
             // 
@@ -351,7 +351,7 @@ namespace Facturas
             this.numeroTextBox.Name = "numeroTextBox";
             this.numeroTextBox.Size = new System.Drawing.Size(66, 20);
             this.numeroTextBox.TabIndex = 0;
-            this.numeroTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.codigoPostalTextBox_KeyPress);
+            this.numeroTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CodigoPostalTextBoxKeyPress);
             // 
             // telefonoTextBox
             // 
@@ -430,8 +430,8 @@ namespace Facturas
             this.txtKilomestrosEuros.Name = "txtKilomestrosEuros";
             this.txtKilomestrosEuros.Size = new System.Drawing.Size(63, 20);
             this.txtKilomestrosEuros.TabIndex = 4;
-            this.txtKilomestrosEuros.TextChanged += new System.EventHandler(this.txtKilomestrosEuros_TextChanged);
-            this.txtKilomestrosEuros.Validating += new System.ComponentModel.CancelEventHandler(this.txtKilomestrosEuros_Validating);
+            this.txtKilomestrosEuros.TextChanged += new System.EventHandler(this.TxtKilomestrosEurosTextChanged);
+            this.txtKilomestrosEuros.Validating += new System.ComponentModel.CancelEventHandler(this.TxtKilomestrosEurosValidating);
             // 
             // txtHorasEuros
             // 
@@ -439,8 +439,8 @@ namespace Facturas
             this.txtHorasEuros.Name = "txtHorasEuros";
             this.txtHorasEuros.Size = new System.Drawing.Size(63, 20);
             this.txtHorasEuros.TabIndex = 3;
-            this.txtHorasEuros.TextChanged += new System.EventHandler(this.txtKilomestrosEuros_TextChanged);
-            this.txtHorasEuros.Validating += new System.ComponentModel.CancelEventHandler(this.txtHorasEuros_Validating);
+            this.txtHorasEuros.TextChanged += new System.EventHandler(this.TxtKilomestrosEurosTextChanged);
+            this.txtHorasEuros.Validating += new System.ComponentModel.CancelEventHandler(this.TxtHorasEurosValidating);
             // 
             // toolStrip1
             // 
@@ -462,7 +462,7 @@ namespace Facturas
             this.toolStripButtonNuevo.Name = "toolStripButtonNuevo";
             this.toolStripButtonNuevo.Size = new System.Drawing.Size(23, 22);
             this.toolStripButtonNuevo.Text = "toolStripButton1";
-            this.toolStripButtonNuevo.Click += new System.EventHandler(this.toolStripButtonNuevo_Click);
+            this.toolStripButtonNuevo.Click += new System.EventHandler(this.ToolStripButtonNuevoClick);
             // 
             // toolStripButtonGuardar
             // 
@@ -481,7 +481,7 @@ namespace Facturas
             this.toolStripButtonGenerar.Name = "toolStripButtonGenerar";
             this.toolStripButtonGenerar.Size = new System.Drawing.Size(23, 22);
             this.toolStripButtonGenerar.Text = "toolStripButton1";
-            this.toolStripButtonGenerar.Click += new System.EventHandler(this.toolStripButtonGenerar_Click);
+            this.toolStripButtonGenerar.Click += new System.EventHandler(this.ToolStripButtonGenerarClick);
             // 
             // menuStrip1
             // 
@@ -531,14 +531,14 @@ namespace Facturas
             this.guardarFacturaToolStripMenuItem.Name = "guardarFacturaToolStripMenuItem";
             this.guardarFacturaToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
             this.guardarFacturaToolStripMenuItem.Text = "&Guardar Factura";
-            this.guardarFacturaToolStripMenuItem.Click += new System.EventHandler(this.guardarFacturaToolStripMenuItem_Click);
+            this.guardarFacturaToolStripMenuItem.Click += new System.EventHandler(this.GuardarFacturaToolStripMenuItemClick);
             // 
             // cargarDatosClienteToolStripMenuItem
             // 
             this.cargarDatosClienteToolStripMenuItem.Name = "cargarDatosClienteToolStripMenuItem";
             this.cargarDatosClienteToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
             this.cargarDatosClienteToolStripMenuItem.Text = "Cargar Datos Cliente";
-            this.cargarDatosClienteToolStripMenuItem.Click += new System.EventHandler(this.cargarDatosClienteToolStripMenuItem_Click);
+            this.cargarDatosClienteToolStripMenuItem.Click += new System.EventHandler(this.CargarDatosClienteToolStripMenuItemClick);
             // 
             // guardarDatosClienteToolStripMenuItem
             // 
@@ -546,7 +546,7 @@ namespace Facturas
             this.guardarDatosClienteToolStripMenuItem.Name = "guardarDatosClienteToolStripMenuItem";
             this.guardarDatosClienteToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
             this.guardarDatosClienteToolStripMenuItem.Text = "Guardar Datos Cliente";
-            this.guardarDatosClienteToolStripMenuItem.Click += new System.EventHandler(this.guardarDatosClienteToolStripMenuItem_Click);
+            this.guardarDatosClienteToolStripMenuItem.Click += new System.EventHandler(this.GuardarDatosClienteToolStripMenuItemClick);
             // 
             // toolStripSeparator1
             // 
@@ -559,7 +559,7 @@ namespace Facturas
             this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
             this.salirToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
             this.salirToolStripMenuItem.Text = "Salir";
-            this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
+            this.salirToolStripMenuItem.Click += new System.EventHandler(this.SalirToolStripMenuItemClick);
             // 
             // herramientasToolStripMenuItem
             // 
@@ -591,7 +591,7 @@ namespace Facturas
             this.generarFicheroFacturaPDFToolStripMenuItem.Name = "generarFicheroFacturaPDFToolStripMenuItem";
             this.generarFicheroFacturaPDFToolStripMenuItem.Size = new System.Drawing.Size(224, 22);
             this.generarFicheroFacturaPDFToolStripMenuItem.Text = "Generar Fichero Factura PDF";
-            this.generarFicheroFacturaPDFToolStripMenuItem.Click += new System.EventHandler(this.generarFicheroFacturaPDFToolStripMenuItem_Click);
+            this.generarFicheroFacturaPDFToolStripMenuItem.Click += new System.EventHandler(this.GenerarFicheroFacturaPdfToolStripMenuItemClick);
             // 
             // firmarFacturaToolStripMenuItem
             // 
@@ -599,7 +599,7 @@ namespace Facturas
             this.firmarFacturaToolStripMenuItem.Name = "firmarFacturaToolStripMenuItem";
             this.firmarFacturaToolStripMenuItem.Size = new System.Drawing.Size(224, 22);
             this.firmarFacturaToolStripMenuItem.Text = "Firmar Factura";
-            this.firmarFacturaToolStripMenuItem.Click += new System.EventHandler(this.firmarFacturaToolStripMenuItem_Click);
+            this.firmarFacturaToolStripMenuItem.Click += new System.EventHandler(this.FirmarFacturaToolStripMenuItemClick);
             // 
             // toolStripSeparator3
             // 
@@ -663,7 +663,7 @@ namespace Facturas
             this.toolStripButtonPrimero.Name = "toolStripButtonPrimero";
             this.toolStripButtonPrimero.Size = new System.Drawing.Size(23, 22);
             this.toolStripButtonPrimero.Text = "Primera Línea";
-            this.toolStripButtonPrimero.Click += new System.EventHandler(this.toolStripButtonPrimero_Click);
+            this.toolStripButtonPrimero.Click += new System.EventHandler(this.ToolStripButtonPrimeroClick);
             // 
             // toolStripButtonAnterior
             // 
@@ -673,7 +673,7 @@ namespace Facturas
             this.toolStripButtonAnterior.Name = "toolStripButtonAnterior";
             this.toolStripButtonAnterior.Size = new System.Drawing.Size(23, 22);
             this.toolStripButtonAnterior.Text = "Línea Anterior";
-            this.toolStripButtonAnterior.Click += new System.EventHandler(this.toolStripButtonAnterior_Click);
+            this.toolStripButtonAnterior.Click += new System.EventHandler(this.ToolStripButtonAnteriorClick);
             // 
             // toolStripSeparator4
             // 
@@ -703,7 +703,7 @@ namespace Facturas
             this.toolStripButtonSiguiente.Name = "toolStripButtonSiguiente";
             this.toolStripButtonSiguiente.Size = new System.Drawing.Size(23, 22);
             this.toolStripButtonSiguiente.Text = "Siguiente Línea";
-            this.toolStripButtonSiguiente.Click += new System.EventHandler(this.toolStripButtonSiguiente_Click);
+            this.toolStripButtonSiguiente.Click += new System.EventHandler(this.ToolStripButtonSiguienteClick);
             // 
             // toolStripButtonUltimo
             // 
@@ -713,7 +713,7 @@ namespace Facturas
             this.toolStripButtonUltimo.Name = "toolStripButtonUltimo";
             this.toolStripButtonUltimo.Size = new System.Drawing.Size(23, 22);
             this.toolStripButtonUltimo.Text = "ültima línea";
-            this.toolStripButtonUltimo.Click += new System.EventHandler(this.toolStripButtonUltimo_Click);
+            this.toolStripButtonUltimo.Click += new System.EventHandler(this.ToolStripButtonUltimoClick);
             // 
             // toolStripSeparator6
             // 
@@ -728,7 +728,7 @@ namespace Facturas
             this.toolStripButtonInsertar.Name = "toolStripButtonInsertar";
             this.toolStripButtonInsertar.Size = new System.Drawing.Size(23, 22);
             this.toolStripButtonInsertar.Text = "Añadir Línea";
-            this.toolStripButtonInsertar.Click += new System.EventHandler(this.toolStripButtonInsertar_Click);
+            this.toolStripButtonInsertar.Click += new System.EventHandler(this.ToolStripButtonInsertarClick);
             // 
             // toolStripButtonEliminar
             // 
@@ -738,7 +738,7 @@ namespace Facturas
             this.toolStripButtonEliminar.Name = "toolStripButtonEliminar";
             this.toolStripButtonEliminar.Size = new System.Drawing.Size(23, 22);
             this.toolStripButtonEliminar.Text = "Eliminar Línea";
-            this.toolStripButtonEliminar.Click += new System.EventHandler(this.toolStripButtonEliminar_Click);
+            this.toolStripButtonEliminar.Click += new System.EventHandler(this.ToolStripButtonEliminarClick);
             // 
             // errorProvider1
             // 
