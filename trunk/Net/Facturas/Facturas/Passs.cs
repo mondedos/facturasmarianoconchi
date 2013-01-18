@@ -5,10 +5,11 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using DevExpress.XtraEditors;
 
 namespace Facturas
 {
-    public partial class Passs : Form
+    public partial class Passs : XtraForm
     {
         public Passs()
         {

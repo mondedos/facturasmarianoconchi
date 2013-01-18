@@ -2,6 +2,7 @@
 using System.ComponentModel;
 using System.Text;
 using System.Windows.Forms;
+using DevExpress.XtraEditors;
 using Facturas.BizzRules;
 using System.Diagnostics;
 using Facturas.Properties;
@@ -10,7 +11,7 @@ using System.IO;
 
 namespace Facturas
 {
-    public partial class Form1 : Form, ILineaFactura
+    public partial class Form1 : XtraForm, ILineaFactura
     {
         private int _current = -1;
         private string _elPrecioDeLasHorasDeEsperaNoEsCorrectoPorFavorIntroduceUnaCanidadEnEurosO = "El precio de las horas de espera no es correcto, por favor introduce una canidad en euros o 0€.";
@@ -27,7 +28,7 @@ namespace Facturas
             //pictureBox1.Image = Base64ToImage.ConvertThis("Hola mundo");
 
 
-            bsFactura.AddingNew += new AddingNewEventHandler(bsFactura_AddingNew);
+            bsFactura.AddingNew += bsFactura_AddingNew;
 
             //nuevoFacturaToolStripMenuItem_Click(this, EventArgs.Empty);
             HabilitarGenerar(false);
@@ -36,12 +37,12 @@ namespace Facturas
 
         void bsFactura_AddingNew(object sender, AddingNewEventArgs e)
         {
-            Factura f = new Factura();
+            Factura factura = new Factura();
 
-            e.NewObject = f;
+            e.NewObject = factura;
 
-            f.Fecha = DateTime.Now;
-            f.Numero = Settings.Default.ultimaFactura + 1;
+            factura.Fecha = DateTime.Now;
+            factura.Numero = Settings.Default.ultimaFactura + 1;
 
 
         }
@@ -59,7 +60,7 @@ namespace Facturas
         }
 
 
-        private void salirToolStripMenuItem_Click(object sender, EventArgs e)
+        private void SalirToolStripMenuItemClick(object sender, EventArgs e)
         {
             Application.Exit();
         }
@@ -69,7 +70,7 @@ namespace Facturas
             toolStripButtonGenerar.Enabled = value;
             guardarFacturaToolStripMenuItem.Enabled = value;
         }
-        private void generarFicheroFacturaPDFToolStripMenuItem_Click(object sender, EventArgs e)
+        private void GenerarFicheroFacturaPdfToolStripMenuItemClick(object sender, EventArgs e)
         {
             if (!DatosLineaValido()) return;
             bsFactura.EndEdit();
@@ -156,80 +157,80 @@ namespace Facturas
             ActualizarContradoresLineasForm();
         }
 
-        private void toolStripButtonGenerar_Click(object sender, EventArgs e)
+        private void ToolStripButtonGenerarClick(object sender, EventArgs e)
         {
-            generarFicheroFacturaPDFToolStripMenuItem_Click(sender, e);
+            GenerarFicheroFacturaPdfToolStripMenuItemClick(sender, e);
         }
 
-        private void toolStripButtonNuevo_Click(object sender, EventArgs e)
+        private void ToolStripButtonNuevoClick(object sender, EventArgs e)
         {
             nuevoFacturaToolStripMenuItem_Click(sender, e);
         }
 
-        private void firmarFacturaToolStripMenuItem_Click(object sender, EventArgs e)
+        private void FirmarFacturaToolStripMenuItemClick(object sender, EventArgs e)
         {
-            OpenFileDialog openCertificadoFileDialog = new OpenFileDialog();
-            openCertificadoFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
-            openCertificadoFileDialog.Title = Facturas.Form1_firmarFacturaToolStripMenuItem_Click_Seleccione_su_certificado_de_usuario;
-            openCertificadoFileDialog.Filter = Facturas.Form1_firmarFacturaToolStripMenuItem_Click_Certificado_Digital____p12____p12;
-
-
-            if (openCertificadoFileDialog.ShowDialog(this) == DialogResult.OK)
-            {
-                if (!string.IsNullOrEmpty(openCertificadoFileDialog.FileName))
+            using (OpenFileDialog openCertificadoFileDialog = new OpenFileDialog
                 {
-                    Passs pass = new Passs();
-
-                    if (pass.ShowDialog() == DialogResult.OK)
+                    InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Personal), Title = Facturas.Form1_firmarFacturaToolStripMenuItem_Click_Seleccione_su_certificado_de_usuario, Filter = Facturas.Form1_firmarFacturaToolStripMenuItem_Click_Certificado_Digital____p12____p12
+                })
+            {
+                if (openCertificadoFileDialog.ShowDialog(this) == DialogResult.OK)
+                {
+                    if (!string.IsNullOrEmpty(openCertificadoFileDialog.FileName))
                     {
+                        Passs pass = new Passs();
 
-                        Cert myCert = null;
-                        try
-                        {
-                            myCert = new Cert(openCertificadoFileDialog.FileName, pass.Password);
-
-
-
-                        }
-                        catch (Exception ex)
-                        {
-                            MessageBox.Show(ex.Message, Application.ProductName);
-                            return;
-                        }
-
-                        OpenFileDialog openFileDialog = new OpenFileDialog();
-                        openFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
-                        openFileDialog.Title = Facturas.Form1_firmarFacturaToolStripMenuItem_Click_Seleccione_una_factura_sin_firmar;
-                        openFileDialog.Filter = Facturas.Form1_firmarFacturaToolStripMenuItem_Click_Factura____pdf____pdf;
-
-
-                        if (openFileDialog.ShowDialog(this) == DialogResult.OK)
+                        if (pass.ShowDialog() == DialogResult.OK)
                         {
 
-                            if (!string.IsNullOrEmpty(openFileDialog.FileName))
+                            Cert myCert = null;
+                            try
                             {
-                                MetaData myMd = new MetaData();
-                                myMd.Author = Settings.Default.nombre;
-                                myMd.Title = string.Format("Factura emitida por {0}", Settings.Default.nombre);
-                                myMd.Subject = "Factura por translado en taxi";
-                                myMd.Keywords = "factura, taxi, mariano";
-                                myMd.Creator = "Riccardo Prieto Mendoza";
-                                myMd.Producer = "Riccardo Prieto Mendoza";
-
-                                SaveFileDialog sabeD = new SaveFileDialog();
-
-                                sabeD.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
-                                sabeD.Title = Facturas.Form1_firmarFacturaToolStripMenuItem_Click_Guardar_Factura_Firmada_como___;
-                                sabeD.Filter = Facturas.Form1_firmarFacturaToolStripMenuItem_Click_Factura____pdf____pdf;
+                                myCert = new Cert(openCertificadoFileDialog.FileName, pass.Password);
 
 
-                                if (sabeD.ShowDialog(this) == DialogResult.OK)
+
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show(ex.Message, Application.ProductName);
+                                return;
+                            }
+
+                            OpenFileDialog openFileDialog = new OpenFileDialog();
+                            openFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
+                            openFileDialog.Title = Facturas.Form1_firmarFacturaToolStripMenuItem_Click_Seleccione_una_factura_sin_firmar;
+                            openFileDialog.Filter = Facturas.Form1_firmarFacturaToolStripMenuItem_Click_Factura____pdf____pdf;
+
+
+                            if (openFileDialog.ShowDialog(this) == DialogResult.OK)
+                            {
+
+                                if (!string.IsNullOrEmpty(openFileDialog.FileName))
                                 {
-                                    PdfSigner pdfs = new PdfSigner(openFileDialog.FileName, sabeD.FileName, myCert, myMd);
-                                    pdfs.Sign("Factura por translado en taxi", Settings.Default.email, Settings.Default.direccion + " " + Settings.Default.poblacionCP, false);
+                                    MetaData myMd = new MetaData();
+                                    myMd.Author = Settings.Default.nombre;
+                                    myMd.Title = string.Format("Factura emitida por {0}", Settings.Default.nombre);
+                                    myMd.Subject = "Factura por translado en taxi";
+                                    myMd.Keywords = "factura, taxi, mariano";
+                                    myMd.Creator = "Riccardo Prieto Mendoza";
+                                    myMd.Producer = "Riccardo Prieto Mendoza";
+
+                                    SaveFileDialog sabeD = new SaveFileDialog();
+
+                                    sabeD.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
+                                    sabeD.Title = Facturas.Form1_firmarFacturaToolStripMenuItem_Click_Guardar_Factura_Firmada_como___;
+                                    sabeD.Filter = Facturas.Form1_firmarFacturaToolStripMenuItem_Click_Factura____pdf____pdf;
 
 
-                                    Process.Start(sabeD.FileName);
+                                    if (sabeD.ShowDialog(this) == DialogResult.OK)
+                                    {
+                                        PdfSigner pdfs = new PdfSigner(openFileDialog.FileName, sabeD.FileName, myCert, myMd);
+                                        pdfs.Sign("Factura por translado en taxi", Settings.Default.email, Settings.Default.direccion + " " + Settings.Default.poblacionCP, false);
+
+
+                                        Process.Start(sabeD.FileName);
+                                    }
                                 }
                             }
                         }
@@ -238,7 +239,7 @@ namespace Facturas
             }
         }
 
-        private void txtKilomestrosEuros_TextChanged(object sender, EventArgs e)
+        private void TxtKilomestrosEurosTextChanged(object sender, EventArgs e)
         {
             TextBox tb = sender as TextBox;
 
@@ -274,41 +275,40 @@ namespace Facturas
 
         }
 
-        private void guardarFacturaToolStripMenuItem_Click(object sender, EventArgs e)
+        private void GuardarFacturaToolStripMenuItemClick(object sender, EventArgs e)
         {
-            SaveFileDialog sabeD = new SaveFileDialog();
-
-            sabeD.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
-            sabeD.Title = Facturas.Form1_guardarFacturaToolStripMenuItem_Click_Guardar_Factura_como___;
-            sabeD.Filter = Facturas.Form1_guardarFacturaToolStripMenuItem_Click_Factura____taxi____taxi;
-
-            if (sabeD.ShowDialog(this) == DialogResult.OK)
+            using (SaveFileDialog sabeD = new SaveFileDialog
+                {
+                    InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Personal), Title = Facturas.Form1_guardarFacturaToolStripMenuItem_Click_Guardar_Factura_como___, Filter = Facturas.Form1_guardarFacturaToolStripMenuItem_Click_Factura____taxi____taxi
+                })
             {
-                Factura fact = bsFactura.Current as Factura;
+                if (sabeD.ShowDialog(this) == DialogResult.OK)
+                {
+                    Factura fact = bsFactura.Current as Factura;
 
 
 
+                }
             }
         }
 
-        private void cargarDatosClienteToolStripMenuItem_Click(object sender, EventArgs e)
+        private void CargarDatosClienteToolStripMenuItemClick(object sender, EventArgs e)
         {
-
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
-            openFileDialog.Title = Facturas.Form1_cargarDatosClienteToolStripMenuItem_Click_Seleccione_los_datos_del_cliente;
-            openFileDialog.Filter = Facturas.Form1_guardarDatosClienteToolStripMenuItem_Click_Factura____upo____upo;
-
-
-            if (openFileDialog.ShowDialog(this) != DialogResult.OK) return;
             Cliente myObject;
-            // Construct an instance of the XmlSerializer with the type
-            // of object that is being deserialized.
-            XmlSerializer mySerializer =
-                new XmlSerializer(typeof(Cliente));
-            // To read the file, create a FileStream.
-            FileStream myFileStream =
-                new FileStream(openFileDialog.FileName, FileMode.Open);
+            XmlSerializer mySerializer;
+            FileStream myFileStream;
+            using (OpenFileDialog openFileDialog = new OpenFileDialog
+                {
+                    InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Personal), Title = Facturas.Form1_cargarDatosClienteToolStripMenuItem_Click_Seleccione_los_datos_del_cliente, Filter = Facturas.Form1_guardarDatosClienteToolStripMenuItem_Click_Factura____upo____upo
+                })
+            {
+                if (openFileDialog.ShowDialog(this) != DialogResult.OK) return;
+                // Construct an instance of the XmlSerializer with the type
+                // of object that is being deserialized.
+                mySerializer = new XmlSerializer(typeof (Cliente));
+                // To read the file, create a FileStream.
+                myFileStream = new FileStream(openFileDialog.FileName, FileMode.Open);
+            }
             // Call the Deserialize method and cast to the object type.
             myObject = (Cliente)mySerializer.Deserialize(myFileStream);
 
@@ -320,42 +320,45 @@ namespace Facturas
             bsFactura.ResetCurrentItem();
         }
 
-        private void guardarDatosClienteToolStripMenuItem_Click(object sender, EventArgs e)
+        private void GuardarDatosClienteToolStripMenuItemClick(object sender, EventArgs e)
         {
-            SaveFileDialog sabeD = new SaveFileDialog();
+            Cliente myObject;
+            XmlSerializer mySerializer;
+            StreamWriter myWriter;
+            using (SaveFileDialog sabeD = new SaveFileDialog
+                {
+                    InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Personal), Title = Facturas.Form1_guardarDatosClienteToolStripMenuItem_Click_Guardar_Datos_Cliente_como___, Filter = Facturas.Form1_guardarDatosClienteToolStripMenuItem_Click_Factura____upo____upo
+                })
+            {
+                if (sabeD.ShowDialog(this) != DialogResult.OK) return;
+                Factura fact = bsFactura.Current as Factura;
 
-            sabeD.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
-            sabeD.Title = Facturas.Form1_guardarDatosClienteToolStripMenuItem_Click_Guardar_Datos_Cliente_como___;
-            sabeD.Filter = Facturas.Form1_guardarDatosClienteToolStripMenuItem_Click_Factura____upo____upo;
+                myObject = new Cliente();
 
-            if (sabeD.ShowDialog(this) != DialogResult.OK) return;
-            Factura fact = bsFactura.Current as Factura;
+                Util.CopiarPropiedadesTipo(fact, myObject);
 
-            Cliente myObject = new Cliente();
-
-            Util.CopiarPropiedadesTipo(fact, myObject);
-
-            // Insert code to set properties and fields of the object.
-            XmlSerializer mySerializer = new
-                XmlSerializer(typeof(Cliente));
-            // To write to a file, create a StreamWriter object.
-            StreamWriter myWriter = new StreamWriter(sabeD.FileName);
+                // Insert code to set properties and fields of the object.
+                mySerializer = new XmlSerializer(typeof (Cliente));
+                // To write to a file, create a StreamWriter object.
+                myWriter = new StreamWriter(sabeD.FileName);
+            }
             mySerializer.Serialize(myWriter, myObject);
             myWriter.Close();
         }
      
-        private void toolStripButtonInsertar_Click(object sender, EventArgs e)
+        private void ToolStripButtonInsertarClick(object sender, EventArgs e)
         {
             if (!DatosLineaValido()) return;
             ActualizarContadoresLineas();
 
             Factura c = bsFactura.Current as Factura;
 
-            LineaFactura nl = new LineaFactura();
-
-            nl.HorasEuros = Settings.Default.eurosXHora;
-            nl.KilometrosEuros = Settings.Default.eurosXKilometros;
-            nl.Concepto = string.Empty;
+            LineaFactura nl = new LineaFactura
+                {
+                    HorasEuros = Settings.Default.eurosXHora,
+                    KilometrosEuros = Settings.Default.eurosXKilometros,
+                    Concepto = string.Empty
+                };
 
             _current++;
             c.Lineas.Add(nl);
@@ -392,7 +395,7 @@ namespace Facturas
 
             Util.CopiarPropiedadesTipo(nl, this);
         }
-        private void toolStripButtonEliminar_Click(object sender, EventArgs e)
+        private void ToolStripButtonEliminarClick(object sender, EventArgs e)
         {
             Factura c = bsFactura.Current as Factura;
 
@@ -411,7 +414,7 @@ namespace Facturas
             ActualizarContradoresLineasForm();
         }
 
-        private void toolStripButtonSiguiente_Click(object sender, EventArgs e)
+        private void ToolStripButtonSiguienteClick(object sender, EventArgs e)
         {
             if (!DatosLineaValido()) return;
             ActualizarContadoresLineas();
@@ -427,7 +430,7 @@ namespace Facturas
                 }
         }
 
-        private void toolStripButtonAnterior_Click(object sender, EventArgs e)
+        private void ToolStripButtonAnteriorClick(object sender, EventArgs e)
         {
             if (!DatosLineaValido()) return;
             ActualizarContadoresLineas();
@@ -442,7 +445,7 @@ namespace Facturas
                 }
         }
 
-        private void toolStripButtonUltimo_Click(object sender, EventArgs e)
+        private void ToolStripButtonUltimoClick(object sender, EventArgs e)
         {
             if (!DatosLineaValido()) return;
             ActualizarContadoresLineas();
@@ -457,7 +460,7 @@ namespace Facturas
                 }
         }
 
-        private void toolStripButtonPrimero_Click(object sender, EventArgs e)
+        private void ToolStripButtonPrimeroClick(object sender, EventArgs e)
         {
             if (!DatosLineaValido()) return;
             ActualizarContadoresLineas();
@@ -548,19 +551,19 @@ namespace Facturas
 
         #endregion
 
-        private void codigoPostalTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        private void CodigoPostalTextBoxKeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = !char.IsDigit(e.KeyChar);
         }
 
-        private void cantidadTextBox_Enter(object sender, EventArgs e)
+        private void CantidadTextBoxEnter(object sender, EventArgs e)
         {
             TextBox t = sender as TextBox;
 
             if (t != null) t.SelectAll();
         }
 
-        private void codigoPostalTextBox_Validating(object sender, CancelEventArgs e)
+        private void CodigoPostalTextBoxValidating(object sender, CancelEventArgs e)
         {
             TextBox tb = sender as TextBox;
 
@@ -577,7 +580,7 @@ namespace Facturas
             }
         }
 
-        private void cantidadTextBox_Validating(object sender, CancelEventArgs e)
+        private void CantidadTextBoxValidating(object sender, CancelEventArgs e)
         {
             float cantidad;
             errorProvider1.SetError(cantidadTextBox,string.Empty);
@@ -587,7 +590,7 @@ namespace Facturas
             }
         }
 
-        private void horasEsperaTextBox_Validating(object sender, CancelEventArgs e)
+        private void HorasEsperaTextBoxValidating(object sender, CancelEventArgs e)
         {
             float cantidad;
 
@@ -598,7 +601,7 @@ namespace Facturas
             }
         }
 
-        private void kilometrosTextBox_Validating(object sender, CancelEventArgs e)
+        private void KilometrosTextBoxValidating(object sender, CancelEventArgs e)
         {
             float cantidad;
                  
@@ -608,7 +611,7 @@ namespace Facturas
             }
         }
 
-        private void txtHorasEuros_Validating(object sender, CancelEventArgs e)
+        private void TxtHorasEurosValidating(object sender, CancelEventArgs e)
         {
             float cantidad;
             if (!float.TryParse(txtHorasEuros.Text, System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.CurrentCulture.NumberFormat, out cantidad))
@@ -618,7 +621,7 @@ namespace Facturas
             
         }
 
-        private void txtKilomestrosEuros_Validating(object sender, CancelEventArgs e)
+        private void TxtKilomestrosEurosValidating(object sender, CancelEventArgs e)
         {
             float cantidad;
             if (!float.TryParse(txtKilomestrosEuros.Text, System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.CurrentCulture.NumberFormat, out cantidad))

@@ -1,36 +1,53 @@
 ﻿using System;
 using System.Text;
 using System.Windows.Forms;
+using DevExpress.XtraEditors;
 using Facturas.Properties;
 using System.Globalization;
 using Facturas.BizzRules;
 
 namespace Facturas
 {
-    public partial class Configuracion : Form
+    public partial class Configuracion : XtraForm
     {
+        #region Atributos
+
         private bool _detectarCambios;
+
+        #endregion
+
+        #region Constructores
+        /// <summary>
+        /// Constructor por defecto
+        /// </summary>
         public Configuracion()
         {
             InitializeComponent();
 
             InicialezeValues();
-
-
         }
+        #endregion
 
+
+        #region Metodos
+
+        #endregion
+
+        #region Eventos
+
+        #endregion
         private void InicialezeValues()
         {
             //datos personales
-            txtLicencia.Text = Settings.Default.licencia;
-            txtNombre.Text = Settings.Default.nombre;
-            txtPoblacion.Text = Settings.Default.poblacionCP;
-            txtDireccion.Text = Settings.Default.direccion;
-            txtTelefono.Text = Settings.Default.telefono;
-            txtMovil.Text = Settings.Default.movil;
-            txtEmail.Text = Settings.Default.email;
-            txtNif.Text = Settings.Default.nif;
-            txtCCC.Text = Settings.Default.ccc;
+            txtLicencia.EditValue = Settings.Default.licencia;
+            txtNombre.EditValue = Settings.Default.nombre;
+            txtPoblacion.EditValue = Settings.Default.poblacionCP;
+            txtDireccion.EditValue = Settings.Default.direccion;
+            txtTelefono.EditValue = Settings.Default.telefono;
+            txtMovil.EditValue = Settings.Default.movil;
+            txtEmail.EditValue = Settings.Default.email;
+            txtNif.EditValue = Settings.Default.nif;
+            txtCCC.EditValue = Settings.Default.ccc;
 
             if (string.IsNullOrEmpty(Settings.Default.carpetaSalidaPDF))
             {
@@ -42,16 +59,16 @@ namespace Facturas
             //datos económicos
 
 
-            txtIva.Text = Convert.ToString(Settings.Default.iva);
-            txtKilometros.Text = Convert.ToString(Settings.Default.eurosXKilometros);
-            txtHorasEspera.Text = Convert.ToString(Settings.Default.eurosXHora);
+            txtIva.EditValue = Settings.Default.iva;
+            txtKilometros.EditValue = Settings.Default.eurosXKilometros;
+            txtHorasEspera.EditValue = Settings.Default.eurosXHora;
 
-            numericUpDownNivelFondo.Value = Settings.Default.nivelLMFondo;
-            numericUpDownBordeTabla.Value = Settings.Default.tablaBorde;
-            numericUpDownUltimaFActura.Value = Convert.ToDecimal(Settings.Default.ultimaFactura);
+            numericUpDownNivelFondo.EditValue = Settings.Default.nivelLMFondo;
+            numericUpDownBordeTabla.EditValue = Settings.Default.tablaBorde;
+            numericUpDownUltimaFActura.EditValue = Settings.Default.ultimaFactura;
         }
 
-        private decimal ParsePercent(string numero)
+        private static decimal ParsePercent(string numero)
         {
             NumberFormatInfo nfi = new NumberFormatInfo
                                        {
@@ -61,32 +78,6 @@ namespace Facturas
 
             return decimal.Parse(numero.Replace(CultureInfo.CurrentCulture.NumberFormat.PercentSymbol, null), NumberStyles.Any, nfi);
 
-        }
-
-        private void txtHorasEspera_TextChanged(object sender, EventArgs e)
-        {
-            TextBox tb = sender as TextBox;
-
-            float euros;
-
-            if (tb != null)
-                if (float.TryParse(tb.Text, out euros))
-                {
-                    tb.Text = String.Format("{0:C}", euros);
-                }
-        }
-
-        private void txtIva_TextChanged(object sender, EventArgs e)
-        {
-            TextBox tb = sender as TextBox;
-
-            float iva;
-
-            if (tb != null)
-                if (float.TryParse(tb.Text, out iva))
-                {
-                    tb.Text = String.Format("{0} {1}", iva, CultureInfo.CurrentCulture.NumberFormat.PercentSymbol);
-                }
         }
 
         private void Guardar()
@@ -144,9 +135,9 @@ namespace Facturas
             {
                 string moneda = CultureInfo.CurrentCulture.NumberFormat.CurrencySymbol;
 
-                TextBox[] tmonedas = new TextBox[2] { txtKilometros, txtHorasEspera };
+                TextEdit[] tmonedas = new [] { txtKilometros, txtHorasEspera };
 
-                foreach (TextBox item in tmonedas)
+                foreach (TextEdit item in tmonedas)
                 {
                     //decimal.TryParse("",System.Globalization.NumberStyles.Any,
                     if (!IsNumber(item.Text.Replace(moneda, null)))
@@ -194,7 +185,7 @@ namespace Facturas
             return !Convert.ToBoolean(sb.Length);
         }
 
-        private void btnGuardar_Click(object sender, EventArgs e)
+        private void BtnGuardarClick(object sender, EventArgs e)
         {
             if (!EsValido()) return;
             Guardar();
@@ -202,7 +193,7 @@ namespace Facturas
         }
 
 
-        private void btnSalir_Click(object sender, EventArgs e)
+        private void BtnSalirClick(object sender, EventArgs e)
         {
             Close();
         }
@@ -222,7 +213,7 @@ namespace Facturas
             return Double.TryParse(text, NumberStyles.Any, CultureInfo.CurrentCulture.NumberFormat, out numb);
         }
 
-        private void numericUpDownBordeTabla_ValueChanged(object sender, EventArgs e)
+        private void NumericUpDownBordeTablaValueChanged(object sender, EventArgs e)
         {
             if (_detectarCambios)
             {
@@ -230,16 +221,16 @@ namespace Facturas
             }
         }
 
-        private void Configuracion_Load(object sender, EventArgs e)
+        private void ConfiguracionLoad(object sender, EventArgs e)
         {
-            txtIva.TextChanged += new EventHandler(numericUpDownBordeTabla_ValueChanged);
-            txtKilometros.TextChanged += new EventHandler(numericUpDownBordeTabla_ValueChanged);
-            txtHorasEspera.TextChanged += new EventHandler(numericUpDownBordeTabla_ValueChanged);
+            txtIva.TextChanged += NumericUpDownBordeTablaValueChanged;
+            txtKilometros.TextChanged += NumericUpDownBordeTablaValueChanged;
+            txtHorasEspera.TextChanged += NumericUpDownBordeTablaValueChanged;
 
             _detectarCambios = true;
         }
 
-        private void Configuracion_FormClosing(object sender, FormClosingEventArgs e)
+        private void ConfiguracionFormClosing(object sender, FormClosingEventArgs e)
         {
             if (!btnGuardar.Enabled) return;
             if (MessageBox.Show(Facturas.Configuracion_Configuracion_FormClosing_, Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
@@ -248,7 +239,7 @@ namespace Facturas
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Button1Click(object sender, EventArgs e)
         {
             folderBrowserDialog1.SelectedPath = txtForder.Text;
             if (folderBrowserDialog1.ShowDialog() == DialogResult.OK)
@@ -257,7 +248,7 @@ namespace Facturas
             }
         }
 
-        private void txtLicencia_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        private void TxtLicenciaValidating(object sender, System.ComponentModel.CancelEventArgs e)
         {
             TextBox tb = sender as TextBox;
 
@@ -270,7 +261,7 @@ namespace Facturas
             }
         }
 
-        private void txtNombre_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        private void TxtNombreValidating(object sender, System.ComponentModel.CancelEventArgs e)
         {
             TextBox tb = sender as TextBox;
 
@@ -283,7 +274,7 @@ namespace Facturas
             }
         }
 
-        private void txtPoblacion_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        private void TxtPoblacionValidating(object sender, System.ComponentModel.CancelEventArgs e)
         {
             TextBox tb = sender as TextBox;
 
@@ -296,7 +287,7 @@ namespace Facturas
             }
         }
 
-        private void txtDireccion_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        private void TxtDireccionValidating(object sender, System.ComponentModel.CancelEventArgs e)
         {
             TextBox tb = sender as TextBox;
 
@@ -309,7 +300,7 @@ namespace Facturas
             }
         }
 
-        private void txtTelefono_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        private void TxtTelefonoValidating(object sender, System.ComponentModel.CancelEventArgs e)
         {
             TextBox tb = sender as TextBox;
 
@@ -322,7 +313,7 @@ namespace Facturas
             }
         }
 
-        private void txtMovil_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        private void TxtMovilValidating(object sender, System.ComponentModel.CancelEventArgs e)
         {
             TextBox tb = sender as TextBox;
 
@@ -335,7 +326,7 @@ namespace Facturas
             }
         }
 
-        private void txtEmail_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        private void TxtEmailValidating(object sender, System.ComponentModel.CancelEventArgs e)
         {
             TextBox tb = sender as TextBox;
 
@@ -348,7 +339,7 @@ namespace Facturas
             }
         }
 
-        private void txtNif_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        private void TxtNifValidating(object sender, System.ComponentModel.CancelEventArgs e)
         {
             TextBox tb = sender as TextBox;
 
@@ -365,7 +356,7 @@ namespace Facturas
             }
         }
 
-        private void txtCCC_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        private void TxtCccValidating(object sender, System.ComponentModel.CancelEventArgs e)
         {
             TextBox tb = sender as TextBox;
 
@@ -389,7 +380,7 @@ namespace Facturas
             }
         }
 
-        private void txtIva_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        private void TxtIvaValidating(object sender, System.ComponentModel.CancelEventArgs e)
         {
             TextBox tb = sender as TextBox;
 
@@ -402,7 +393,7 @@ namespace Facturas
             }
         }
 
-        private void txtHorasEspera_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        private void TxtHorasEsperaValidating(object sender, System.ComponentModel.CancelEventArgs e)
         {
             TextBox tb = sender as TextBox;
 
@@ -419,7 +410,7 @@ namespace Facturas
             }
         }
 
-        private void txtKilometros_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        private void TxtKilometrosValidating(object sender, System.ComponentModel.CancelEventArgs e)
         {
             TextBox tb = sender as TextBox;
 
