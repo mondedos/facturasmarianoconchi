@@ -126,21 +126,21 @@ namespace Facturas
                 }
             if (sb.Length != 0)
             {
-                MessageBox.Show(sb.ToString(), Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                XtraMessageBox.Show(sb.ToString(), Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
 
             return sb.Length == 0;
         }
 
-        private void configurarToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ConfigurarToolStripMenuItemClick(object sender, EventArgs e)
         {
-            Configuracion conf = new Configuracion();
-
-
-            conf.ShowDialog();
+            using (Configuracion conf = new Configuracion())
+            {
+                conf.ShowDialog();
+            }
         }
 
-        private void nuevoFacturaToolStripMenuItem_Click(object sender, EventArgs e)
+        private void NuevoFacturaToolStripMenuItemClick(object sender, EventArgs e)
         {
             bsFactura.EndEdit();
             bsFactura.List.Clear();
@@ -164,7 +164,7 @@ namespace Facturas
 
         private void ToolStripButtonNuevoClick(object sender, EventArgs e)
         {
-            nuevoFacturaToolStripMenuItem_Click(sender, e);
+            NuevoFacturaToolStripMenuItemClick(sender, e);
         }
 
         private void FirmarFacturaToolStripMenuItemClick(object sender, EventArgs e)
@@ -195,7 +195,7 @@ namespace Facturas
                             }
                             catch (Exception ex)
                             {
-                                MessageBox.Show(ex.Message, Application.ProductName);
+                                XtraMessageBox.Show(ex.Message, Application.ProductName);
                                 return;
                             }
 
@@ -250,7 +250,16 @@ namespace Facturas
         {
            
         }
+        private void DecimalesCalculadoraOnKeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == '.' || e.KeyChar == ',')
+            {
 
+                e.KeyChar =
+                    Convert.ToChar(
+                        System.Threading.Thread.CurrentThread.CurrentCulture.NumberFormat.NumberDecimalSeparator);
+            }
+        }
         private void Form1Load(object sender, EventArgs e)
         {
             //nuevoFacturaToolStripMenuItem_Click(sender, e);
