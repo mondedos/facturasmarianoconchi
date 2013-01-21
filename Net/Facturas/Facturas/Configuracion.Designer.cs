@@ -100,11 +100,12 @@
             // 
             // txtLicencia
             // 
-            this.txtLicencia.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsConfiguracion, "Licencia", true));
+            this.txtLicencia.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsConfiguracion, "Licencia", true, System.Windows.Forms.DataSourceUpdateMode.Never));
             this.txtLicencia.Location = new System.Drawing.Point(121, 24);
             this.txtLicencia.Name = "txtLicencia";
             this.txtLicencia.Size = new System.Drawing.Size(100, 20);
             this.txtLicencia.TabIndex = 0;
+            this.txtLicencia.EditValueChanged += new System.EventHandler(this.TxtLicenciaEditValueChanged);
             // 
             // bsConfiguracion
             // 
@@ -316,73 +317,81 @@
             // 
             this.txtNombre.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtNombre.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsConfiguracion, "Nombre", true));
+            this.txtNombre.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsConfiguracion, "Nombre", true, System.Windows.Forms.DataSourceUpdateMode.Never));
             this.txtNombre.Location = new System.Drawing.Point(121, 50);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(285, 20);
             this.txtNombre.TabIndex = 1;
+            this.txtNombre.EditValueChanged += new System.EventHandler(this.TxtNombreEditValueChanged);
             // 
             // txtPoblacion
             // 
             this.txtPoblacion.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtPoblacion.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsConfiguracion, "PoblacionCp", true));
+            this.txtPoblacion.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsConfiguracion, "PoblacionCp", true, System.Windows.Forms.DataSourceUpdateMode.Never));
             this.txtPoblacion.Location = new System.Drawing.Point(121, 76);
             this.txtPoblacion.Name = "txtPoblacion";
             this.txtPoblacion.Size = new System.Drawing.Size(285, 20);
             this.txtPoblacion.TabIndex = 2;
+            this.txtPoblacion.EditValueChanged += new System.EventHandler(this.TxtPoblacionEditValueChanged);
             // 
             // txtDireccion
             // 
             this.txtDireccion.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtDireccion.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsConfiguracion, "Direccion", true));
+            this.txtDireccion.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsConfiguracion, "Direccion", true, System.Windows.Forms.DataSourceUpdateMode.Never));
             this.txtDireccion.Location = new System.Drawing.Point(121, 102);
             this.txtDireccion.Name = "txtDireccion";
             this.txtDireccion.Size = new System.Drawing.Size(285, 20);
             this.txtDireccion.TabIndex = 3;
+            this.txtDireccion.EditValueChanged += new System.EventHandler(this.TxtDireccionEditValueChanged);
             // 
             // txtTelefono
             // 
-            this.txtTelefono.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsConfiguracion, "Telefono", true));
+            this.txtTelefono.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsConfiguracion, "Telefono", true, System.Windows.Forms.DataSourceUpdateMode.Never));
             this.txtTelefono.Location = new System.Drawing.Point(121, 128);
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(61, 20);
             this.txtTelefono.TabIndex = 4;
+            this.txtTelefono.EditValueChanged += new System.EventHandler(this.TxtTelefonoEditValueChanged);
             // 
             // txtMovil
             // 
-            this.txtMovil.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsConfiguracion, "Movil", true));
+            this.txtMovil.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsConfiguracion, "Movil", true, System.Windows.Forms.DataSourceUpdateMode.Never));
             this.txtMovil.Location = new System.Drawing.Point(121, 154);
             this.txtMovil.Name = "txtMovil";
             this.txtMovil.Size = new System.Drawing.Size(61, 20);
             this.txtMovil.TabIndex = 5;
+            this.txtMovil.EditValueChanged += new System.EventHandler(this.TxtMovilEditValueChanged);
             // 
             // txtEmail
             // 
             this.txtEmail.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtEmail.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsConfiguracion, "Email", true));
+            this.txtEmail.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsConfiguracion, "Email", true, System.Windows.Forms.DataSourceUpdateMode.Never));
             this.txtEmail.Location = new System.Drawing.Point(121, 180);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(285, 20);
             this.txtEmail.TabIndex = 6;
+            this.txtEmail.EditValueChanged += new System.EventHandler(this.TxtEmailEditValueChanged);
             // 
             // txtNif
             // 
-            this.txtNif.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsConfiguracion, "Cif", true));
+            this.txtNif.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsConfiguracion, "Cif", true, System.Windows.Forms.DataSourceUpdateMode.Never));
             this.txtNif.Location = new System.Drawing.Point(122, 206);
             this.txtNif.Name = "txtNif";
             this.txtNif.Size = new System.Drawing.Size(78, 20);
             this.txtNif.TabIndex = 7;
+            this.txtNif.EditValueChanged += new System.EventHandler(this.TxtNifEditValueChanged);
             // 
             // txtCCC
             // 
-            this.txtCCC.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsConfiguracion, "Ccc", true));
+            this.txtCCC.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsConfiguracion, "Ccc", true, System.Windows.Forms.DataSourceUpdateMode.Never));
             this.txtCCC.Location = new System.Drawing.Point(122, 232);
             this.txtCCC.Name = "txtCCC";
             this.txtCCC.Size = new System.Drawing.Size(146, 20);
             this.txtCCC.TabIndex = 8;
+            this.txtCCC.EditValueChanged += new System.EventHandler(this.TxtCccEditValueChanged);
             // 
             // gbDatosPersonales
             // 
@@ -431,7 +440,7 @@
             // 
             // txtKilometros
             // 
-            this.txtKilometros.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsConfiguracion, "EurosKilometros", true));
+            this.txtKilometros.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsConfiguracion, "EurosKilometros", true, System.Windows.Forms.DataSourceUpdateMode.Never));
             this.txtKilometros.Location = new System.Drawing.Point(95, 75);
             this.txtKilometros.Name = "txtKilometros";
             this.txtKilometros.Properties.DisplayFormat.FormatString = "c2";
@@ -442,10 +451,12 @@
             this.txtKilometros.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.txtKilometros.Size = new System.Drawing.Size(61, 20);
             this.txtKilometros.TabIndex = 29;
+            this.txtKilometros.EditValueChanged += new System.EventHandler(this.TxtKilometrosEditValueChanged);
+            this.txtKilometros.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DecimalesCalculadoraOnKeyPress);
             // 
             // txtHorasEspera
             // 
-            this.txtHorasEspera.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsConfiguracion, "EurosHora", true));
+            this.txtHorasEspera.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsConfiguracion, "EurosHora", true, System.Windows.Forms.DataSourceUpdateMode.Never));
             this.txtHorasEspera.Location = new System.Drawing.Point(95, 50);
             this.txtHorasEspera.Name = "txtHorasEspera";
             this.txtHorasEspera.Properties.DisplayFormat.FormatString = "c2";
@@ -456,10 +467,12 @@
             this.txtHorasEspera.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.txtHorasEspera.Size = new System.Drawing.Size(61, 20);
             this.txtHorasEspera.TabIndex = 2;
+            this.txtHorasEspera.EditValueChanged += new System.EventHandler(this.TxtHorasEsperaEditValueChanged);
+            this.txtHorasEspera.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DecimalesCalculadoraOnKeyPress);
             // 
             // txtIva
             // 
-            this.txtIva.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsConfiguracion, "Iva", true));
+            this.txtIva.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsConfiguracion, "Iva", true, System.Windows.Forms.DataSourceUpdateMode.Never));
             this.txtIva.Location = new System.Drawing.Point(95, 24);
             this.txtIva.Name = "txtIva";
             this.txtIva.Properties.DisplayFormat.FormatString = "p2";
@@ -470,6 +483,8 @@
             this.txtIva.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.txtIva.Size = new System.Drawing.Size(61, 20);
             this.txtIva.TabIndex = 0;
+            this.txtIva.EditValueChanged += new System.EventHandler(this.TxtIvaEditValueChanged);
+            this.txtIva.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DecimalesCalculadoraOnKeyPress);
             // 
             // groupControl3
             // 
@@ -487,7 +502,7 @@
             // 
             // numericUpDownUltimaFActura
             // 
-            this.numericUpDownUltimaFActura.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsConfiguracion, "UltimaFactura", true));
+            this.numericUpDownUltimaFActura.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsConfiguracion, "UltimaFactura", true, System.Windows.Forms.DataSourceUpdateMode.Never));
             this.numericUpDownUltimaFActura.EditValue = new decimal(new int[] {
             0,
             0,
@@ -499,10 +514,12 @@
             new DevExpress.XtraEditors.Controls.EditorButton()});
             this.numericUpDownUltimaFActura.Size = new System.Drawing.Size(69, 20);
             this.numericUpDownUltimaFActura.TabIndex = 3;
+            this.numericUpDownUltimaFActura.EditValueChanged += new System.EventHandler(this.NumericUpDownUltimaFActuraEditValueChanged);
+            this.numericUpDownUltimaFActura.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DecimalesCalculadoraOnKeyPress);
             // 
             // numericUpDownBordeTabla
             // 
-            this.numericUpDownBordeTabla.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsConfiguracion, "TablaBorde", true));
+            this.numericUpDownBordeTabla.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsConfiguracion, "TablaBorde", true, System.Windows.Forms.DataSourceUpdateMode.Never));
             this.numericUpDownBordeTabla.EditValue = new decimal(new int[] {
             0,
             0,
@@ -514,10 +531,12 @@
             new DevExpress.XtraEditors.Controls.EditorButton()});
             this.numericUpDownBordeTabla.Size = new System.Drawing.Size(69, 20);
             this.numericUpDownBordeTabla.TabIndex = 2;
+            this.numericUpDownBordeTabla.EditValueChanged += new System.EventHandler(this.NumericUpDownBordeTablaEditValueChanged);
+            this.numericUpDownBordeTabla.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DecimalesCalculadoraOnKeyPress);
             // 
             // numericUpDownNivelFondo
             // 
-            this.numericUpDownNivelFondo.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsConfiguracion, "NilvelLmFondo", true));
+            this.numericUpDownNivelFondo.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsConfiguracion, "NilvelLmFondo", true, System.Windows.Forms.DataSourceUpdateMode.Never));
             this.numericUpDownNivelFondo.EditValue = new decimal(new int[] {
             0,
             0,
@@ -529,6 +548,8 @@
             new DevExpress.XtraEditors.Controls.EditorButton()});
             this.numericUpDownNivelFondo.Size = new System.Drawing.Size(69, 20);
             this.numericUpDownNivelFondo.TabIndex = 1;
+            this.numericUpDownNivelFondo.EditValueChanged += new System.EventHandler(this.NumericUpDownNivelFondoEditValueChanged);
+            this.numericUpDownNivelFondo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DecimalesCalculadoraOnKeyPress);
             // 
             // dxErrorProvider1
             // 

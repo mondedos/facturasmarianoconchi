@@ -5,24 +5,188 @@ namespace Facturas.BizzRules
 {
     public class Configuracion : IDXDataErrorInfo
     {
-        public string Licencia { get; set; }
-        public string Nombre { get; set; }
-        public string PoblacionCp { get; set; }
-        public string Direccion { get; set; }
-        public string Telefono { get; set; }
-        public string Movil { get; set; }
-        public string Email { get; set; }
-        public string Cif { get; set; }
-        public string Ccc { get; set; }
+        #region Atributos
 
-        public decimal Iva { get; set; }
-        public decimal EurosKilometros { get; set; }
-        public decimal EurosHora { get; set; }
+        private string _licencia;
+        private string _nombre;
+        private string _poblacionCp;
+        private string _direccion;
+        private string _telefono;
+        private string _movil;
+        private string _email;
+        private string _cif;
+        private string _ccc;
+        private decimal _iva;
+        private decimal _eurosKilometros;
+        private decimal _eurosHora;
+        private int _nilvelLmFondo;
+        private decimal _tablaBorde;
+        private int _ultimaFactura;
+        #endregion
 
-        public int NilvelLmFondo { get; set; }
-        public decimal TablaBorde { get; set; }
-        public int UltimaFactura { get; set; }
+        #region Propiedades
 
+        public string Licencia
+        {
+            get { return _licencia; }
+            set
+            {
+                _licencia = value;
+                RaisePropertyChanged("Licencia");
+            }
+        }
+
+        public string Nombre
+        {
+            get { return _nombre; }
+            set
+            {
+                _nombre = value;
+                RaisePropertyChanged("Nombre");
+            }
+        }
+
+        public string PoblacionCp
+        {
+            get { return _poblacionCp; }
+            set
+            {
+                _poblacionCp = value;
+                RaisePropertyChanged("PoblacionCp");
+            }
+        }
+
+        public string Direccion
+        {
+            get { return _direccion; }
+            set
+            {
+                _direccion = value;
+                RaisePropertyChanged("Direccion");
+            }
+        }
+
+        public string Telefono
+        {
+            get { return _telefono; }
+            set
+            {
+                _telefono = value;
+                RaisePropertyChanged("Telefono");
+            }
+        }
+
+        public string Movil
+        {
+            get { return _movil; }
+            set
+            {
+                _movil = value;
+                RaisePropertyChanged("Movil");
+            }
+        }
+
+        public string Email
+        {
+            get { return _email; }
+            set
+            {
+                _email = value;
+                RaisePropertyChanged("Email");
+            }
+        }
+
+        public string Cif
+        {
+            get { return _cif; }
+            set
+            {
+                _cif = value;
+                RaisePropertyChanged("Cif");
+            }
+        }
+
+        public string Ccc
+        {
+            get { return _ccc; }
+            set
+            {
+                _ccc = value;
+                RaisePropertyChanged("Ccc");
+            }
+        }
+
+        public decimal Iva
+        {
+            get { return _iva; }
+            set
+            {
+                _iva = value;
+                RaisePropertyChanged("Iva");
+            }
+        }
+
+        public decimal EurosKilometros
+        {
+            get { return _eurosKilometros; }
+            set
+            {
+                _eurosKilometros = value;
+                RaisePropertyChanged("EurosKilometros");
+            }
+        }
+
+        public decimal EurosHora
+        {
+            get { return _eurosHora; }
+            set
+            {
+                _eurosHora = value;
+                RaisePropertyChanged("EurosHora");
+            }
+        }
+
+        public int NilvelLmFondo
+        {
+            get { return _nilvelLmFondo; }
+            set
+            {
+                _nilvelLmFondo = value;
+                RaisePropertyChanged("NilvelLmFondo");
+            }
+        }
+
+        public decimal TablaBorde
+        {
+            get { return _tablaBorde; }
+            set
+            {
+                _tablaBorde = value;
+                RaisePropertyChanged("TablaBorde");
+            }
+        }
+
+        public int UltimaFactura
+        {
+            get { return _ultimaFactura; }
+            set { _ultimaFactura = value;
+            RaisePropertyChanged("UltimaFactura");
+            }
+        }
+        #endregion
+
+
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+
+        protected void RaisePropertyChanged(string propertyName)
+        {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
+            if ((propertyChanged != null))
+            {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+        
         #region Implementation of IDXDataErrorInfo
 
         /// <summary>

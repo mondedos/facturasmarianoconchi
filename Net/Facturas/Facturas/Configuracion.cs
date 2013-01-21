@@ -37,6 +37,16 @@ namespace Facturas
 
         #region Eventos
 
+        private void DecimalesCalculadoraOnKeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == '.' || e.KeyChar == ',')
+            {
+
+                e.KeyChar =
+                    Convert.ToChar(
+                        System.Threading.Thread.CurrentThread.CurrentCulture.NumberFormat.NumberDecimalSeparator);
+            }
+        }
         #endregion
 
 
@@ -70,6 +80,7 @@ namespace Facturas
                     UltimaFactura = Settings.Default.ultimaFactura
                 };
 
+            configuracion.PropertyChanged += ConfiguracionPropertyChanged;
 
             if (string.IsNullOrEmpty(Settings.Default.carpetaSalidaPDF))
             {
@@ -79,6 +90,14 @@ namespace Facturas
             txtForder.Text = Settings.Default.carpetaSalidaPDF;
 
             bsConfiguracion.DataSource = configuracion;
+        }
+
+        void ConfiguracionPropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+        {
+            if (_detectarCambios)
+            {
+                btnGuardar.Enabled = true;
+            }
         }
 
         private void Guardar()
@@ -112,7 +131,7 @@ namespace Facturas
         }
         private bool EsValido()
         {
-            return !dxErrorProvider1.HasErrorsOfType(ErrorType.Critical); 
+            return !dxErrorProvider1.HasErrorsOfType(ErrorType.Critical);
         }
 
         private void BtnGuardarClick(object sender, EventArgs e)
@@ -151,7 +170,7 @@ namespace Facturas
         private void ConfiguracionFormClosing(object sender, FormClosingEventArgs e)
         {
             if (!btnGuardar.Enabled) return;
-            if (MessageBox.Show(FacturasRecursos.Configuracion_Configuracion_FormClosing_, Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+            if (XtraMessageBox.Show(FacturasRecursos.Configuracion_Configuracion_FormClosing_, Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
             {
                 e.Cancel = true;
             }
@@ -211,6 +230,201 @@ namespace Facturas
             {
                 errorProvider1.SetError(tb, "El dato económico debe estar correctamente relleno.");
             }
+        }
+
+        private void TxtLicenciaEditValueChanged(object sender, EventArgs e)
+        {
+            BizzRules.Configuracion configuracion = bsConfiguracion.Current as BizzRules.Configuracion;
+
+            if (configuracion == null) return;
+
+            BaseEdit baseEdit = sender as BaseEdit;
+
+            if (baseEdit == null || baseEdit.EditValue == null || DBNull.Value.Equals(baseEdit.EditValue)) return;
+
+            configuracion.Licencia = Convert.ToString(baseEdit.EditValue);
+        }
+
+        private void TxtNombreEditValueChanged(object sender, EventArgs e)
+        {
+            BizzRules.Configuracion configuracion = bsConfiguracion.Current as BizzRules.Configuracion;
+
+            if (configuracion == null) return;
+
+            BaseEdit baseEdit = sender as BaseEdit;
+
+            if (baseEdit == null || baseEdit.EditValue == null || DBNull.Value.Equals(baseEdit.EditValue)) return;
+
+            configuracion.Nombre = Convert.ToString(baseEdit.EditValue);
+        }
+
+        private void TxtPoblacionEditValueChanged(object sender, EventArgs e)
+        {
+            BizzRules.Configuracion configuracion = bsConfiguracion.Current as BizzRules.Configuracion;
+
+            if (configuracion == null) return;
+
+            BaseEdit baseEdit = sender as BaseEdit;
+
+            if (baseEdit == null || baseEdit.EditValue == null || DBNull.Value.Equals(baseEdit.EditValue)) return;
+
+            configuracion.PoblacionCp = Convert.ToString(baseEdit.EditValue);
+        }
+
+        private void TxtDireccionEditValueChanged(object sender, EventArgs e)
+        {
+            BizzRules.Configuracion configuracion = bsConfiguracion.Current as BizzRules.Configuracion;
+
+            if (configuracion == null) return;
+
+            BaseEdit baseEdit = sender as BaseEdit;
+
+            if (baseEdit == null || baseEdit.EditValue == null || DBNull.Value.Equals(baseEdit.EditValue)) return;
+
+            configuracion.Direccion = Convert.ToString(baseEdit.EditValue);
+        }
+
+        private void TxtTelefonoEditValueChanged(object sender, EventArgs e)
+        {
+            BizzRules.Configuracion configuracion = bsConfiguracion.Current as BizzRules.Configuracion;
+
+            if (configuracion == null) return;
+
+            BaseEdit baseEdit = sender as BaseEdit;
+
+            if (baseEdit == null || baseEdit.EditValue == null || DBNull.Value.Equals(baseEdit.EditValue)) return;
+
+            configuracion.Telefono = Convert.ToString(baseEdit.EditValue);
+        }
+
+        private void TxtMovilEditValueChanged(object sender, EventArgs e)
+        {
+            BizzRules.Configuracion configuracion = bsConfiguracion.Current as BizzRules.Configuracion;
+
+            if (configuracion == null) return;
+
+            BaseEdit baseEdit = sender as BaseEdit;
+
+            if (baseEdit == null || baseEdit.EditValue == null || DBNull.Value.Equals(baseEdit.EditValue)) return;
+
+            configuracion.Movil = Convert.ToString(baseEdit.EditValue);
+        }
+
+        private void TxtEmailEditValueChanged(object sender, EventArgs e)
+        {
+            BizzRules.Configuracion configuracion = bsConfiguracion.Current as BizzRules.Configuracion;
+
+            if (configuracion == null) return;
+
+            BaseEdit baseEdit = sender as BaseEdit;
+
+            if (baseEdit == null || baseEdit.EditValue == null || DBNull.Value.Equals(baseEdit.EditValue)) return;
+
+            configuracion.Email = Convert.ToString(baseEdit.EditValue);
+        }
+
+        private void TxtNifEditValueChanged(object sender, EventArgs e)
+        {
+            BizzRules.Configuracion configuracion = bsConfiguracion.Current as BizzRules.Configuracion;
+
+            if (configuracion == null) return;
+
+            BaseEdit baseEdit = sender as BaseEdit;
+
+            if (baseEdit == null || baseEdit.EditValue == null || DBNull.Value.Equals(baseEdit.EditValue)) return;
+
+            configuracion.Cif = Convert.ToString(baseEdit.EditValue);
+        }
+
+        private void TxtCccEditValueChanged(object sender, EventArgs e)
+        {
+            BizzRules.Configuracion configuracion = bsConfiguracion.Current as BizzRules.Configuracion;
+
+            if (configuracion == null) return;
+
+            BaseEdit baseEdit = sender as BaseEdit;
+
+            if (baseEdit == null || baseEdit.EditValue == null || DBNull.Value.Equals(baseEdit.EditValue)) return;
+
+            configuracion.Ccc = Convert.ToString(baseEdit.EditValue);
+        }
+
+        private void TxtIvaEditValueChanged(object sender, EventArgs e)
+        {
+            BizzRules.Configuracion configuracion = bsConfiguracion.Current as BizzRules.Configuracion;
+
+            if (configuracion == null) return;
+
+            BaseEdit baseEdit = sender as BaseEdit;
+
+            if (baseEdit == null || baseEdit.EditValue == null || DBNull.Value.Equals(baseEdit.EditValue)) return;
+
+            configuracion.Iva = Convert.ToDecimal(baseEdit.EditValue);
+        }
+
+        private void TxtHorasEsperaEditValueChanged(object sender, EventArgs e)
+        {
+            BizzRules.Configuracion configuracion = bsConfiguracion.Current as BizzRules.Configuracion;
+
+            if (configuracion == null) return;
+
+            BaseEdit baseEdit = sender as BaseEdit;
+
+            if (baseEdit == null || baseEdit.EditValue == null || DBNull.Value.Equals(baseEdit.EditValue)) return;
+
+            configuracion.EurosHora = Convert.ToDecimal(baseEdit.EditValue);
+        }
+
+        private void TxtKilometrosEditValueChanged(object sender, EventArgs e)
+        {
+            BizzRules.Configuracion configuracion = bsConfiguracion.Current as BizzRules.Configuracion;
+
+            if (configuracion == null) return;
+
+            BaseEdit baseEdit = sender as BaseEdit;
+
+            if (baseEdit == null || baseEdit.EditValue == null || DBNull.Value.Equals(baseEdit.EditValue)) return;
+
+            configuracion.EurosKilometros = Convert.ToDecimal(baseEdit.EditValue);
+        }
+
+        private void NumericUpDownNivelFondoEditValueChanged(object sender, EventArgs e)
+        {
+            BizzRules.Configuracion configuracion = bsConfiguracion.Current as BizzRules.Configuracion;
+
+            if (configuracion == null) return;
+
+            BaseEdit baseEdit = sender as BaseEdit;
+
+            if (baseEdit == null || baseEdit.EditValue == null || DBNull.Value.Equals(baseEdit.EditValue)) return;
+
+            configuracion.NilvelLmFondo = Convert.ToInt32(baseEdit.EditValue);
+        }
+
+        private void NumericUpDownBordeTablaEditValueChanged(object sender, EventArgs e)
+        {
+            BizzRules.Configuracion configuracion = bsConfiguracion.Current as BizzRules.Configuracion;
+
+            if (configuracion == null) return;
+
+            BaseEdit baseEdit = sender as BaseEdit;
+
+            if (baseEdit == null || baseEdit.EditValue == null || DBNull.Value.Equals(baseEdit.EditValue)) return;
+
+            configuracion.TablaBorde = Convert.ToInt32(baseEdit.EditValue);
+        }
+
+        private void NumericUpDownUltimaFActuraEditValueChanged(object sender, EventArgs e)
+        {
+            BizzRules.Configuracion configuracion = bsConfiguracion.Current as BizzRules.Configuracion;
+
+            if (configuracion == null) return;
+
+            BaseEdit baseEdit = sender as BaseEdit;
+
+            if (baseEdit == null || baseEdit.EditValue == null || DBNull.Value.Equals(baseEdit.EditValue)) return;
+
+            configuracion.UltimaFactura = Convert.ToInt32(baseEdit.EditValue);
         }
     }
 }
