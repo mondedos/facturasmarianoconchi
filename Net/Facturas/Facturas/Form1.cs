@@ -248,17 +248,10 @@ namespace Facturas
 
         private void TxtKilomestrosEurosTextChanged(object sender, EventArgs e)
         {
-            TextBox tb = sender as TextBox;
-
-            float euros;
-
-            if (float.TryParse(tb.Text, out euros))
-            {
-                tb.Text = String.Format("{0:C}", euros);
-            }
+           
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void Form1Load(object sender, EventArgs e)
         {
             //nuevoFacturaToolStripMenuItem_Click(sender, e);
 
