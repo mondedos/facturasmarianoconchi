@@ -46,23 +46,21 @@ namespace Facturas
             System.Windows.Forms.Label label1;
             System.Windows.Forms.Label label2;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.cantidadTextBox = new System.Windows.Forms.TextBox();
-            this.conceptoTextBox = new System.Windows.Forms.TextBox();
-            this.horasEsperaTextBox = new System.Windows.Forms.TextBox();
-            this.kilometrosTextBox = new System.Windows.Forms.TextBox();
-            this.cifTextBox = new System.Windows.Forms.TextBox();
-            this.bsFactura = new System.Windows.Forms.BindingSource(this.components);
-            this.ciudadTextBox = new System.Windows.Forms.TextBox();
-            this.codigoPostalTextBox = new System.Windows.Forms.TextBox();
-            this.direccionTextBox = new System.Windows.Forms.TextBox();
-            this.nombreTextBox = new System.Windows.Forms.TextBox();
-            this.numeroTextBox = new System.Windows.Forms.TextBox();
-            this.telefonoTextBox = new System.Windows.Forms.TextBox();
+            this.cantidadTextBox = new DevExpress.XtraEditors.TextEdit();
+            this.horasEsperaTextBox = new DevExpress.XtraEditors.TextEdit();
+            this.kilometrosTextBox = new DevExpress.XtraEditors.TextEdit();
+            this.cifTextBox = new DevExpress.XtraEditors.TextEdit();
+            this.ciudadTextBox = new DevExpress.XtraEditors.TextEdit();
+            this.codigoPostalTextBox = new DevExpress.XtraEditors.TextEdit();
+            this.nombreTextBox = new DevExpress.XtraEditors.TextEdit();
+            this.telefonoTextBox = new DevExpress.XtraEditors.TextEdit();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.numeroTextBox = new DevExpress.XtraEditors.SpinEdit();
+            this.direccionTextBox = new DevExpress.XtraEditors.MemoEdit();
             this.gbLineas = new System.Windows.Forms.GroupBox();
-            this.txtKilomestrosEuros = new System.Windows.Forms.TextBox();
-            this.txtHorasEuros = new System.Windows.Forms.TextBox();
+            this.txtKilomestrosEuros = new DevExpress.XtraEditors.TextEdit();
+            this.txtHorasEuros = new DevExpress.XtraEditors.TextEdit();
+            this.conceptoTextBox = new DevExpress.XtraEditors.MemoEdit();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButtonNuevo = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonGuardar = new System.Windows.Forms.ToolStripButton();
@@ -97,6 +95,8 @@ namespace Facturas
             this.toolStripButtonInsertar = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonEliminar = new System.Windows.Forms.ToolStripButton();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.tbFecha = new DevExpress.XtraEditors.DateEdit();
+            this.bsFactura = new System.Windows.Forms.BindingSource(this.components);
             cantidadLabel = new System.Windows.Forms.Label();
             conceptoLabel = new System.Windows.Forms.Label();
             horasEsperaLabel = new System.Windows.Forms.Label();
@@ -111,16 +111,32 @@ namespace Facturas
             telefonoLabel = new System.Windows.Forms.Label();
             label1 = new System.Windows.Forms.Label();
             label2 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.bsFactura)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cantidadTextBox.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.horasEsperaTextBox.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kilometrosTextBox.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cifTextBox.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ciudadTextBox.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.codigoPostalTextBox.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nombreTextBox.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.telefonoTextBox.Properties)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numeroTextBox.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.direccionTextBox.Properties)).BeginInit();
             this.gbLineas.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtKilomestrosEuros.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtHorasEuros.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.conceptoTextBox.Properties)).BeginInit();
             this.toolStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.toolStrip2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbFecha.Properties.VistaTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbFecha.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsFactura)).BeginInit();
             this.SuspendLayout();
             // 
             // cantidadLabel
@@ -128,7 +144,7 @@ namespace Facturas
             cantidadLabel.AutoSize = true;
             cantidadLabel.Location = new System.Drawing.Point(20, 22);
             cantidadLabel.Name = "cantidadLabel";
-            cantidadLabel.Size = new System.Drawing.Size(52, 13);
+            cantidadLabel.Size = new System.Drawing.Size(54, 13);
             cantidadLabel.TabIndex = 2;
             cantidadLabel.Text = "Cantidad:";
             // 
@@ -137,7 +153,7 @@ namespace Facturas
             conceptoLabel.AutoSize = true;
             conceptoLabel.Location = new System.Drawing.Point(16, 48);
             conceptoLabel.Name = "conceptoLabel";
-            conceptoLabel.Size = new System.Drawing.Size(56, 13);
+            conceptoLabel.Size = new System.Drawing.Size(57, 13);
             conceptoLabel.TabIndex = 4;
             conceptoLabel.Text = "Concepto:";
             // 
@@ -146,7 +162,7 @@ namespace Facturas
             horasEsperaLabel.AutoSize = true;
             horasEsperaLabel.Location = new System.Drawing.Point(166, 22);
             horasEsperaLabel.Name = "horasEsperaLabel";
-            horasEsperaLabel.Size = new System.Drawing.Size(74, 13);
+            horasEsperaLabel.Size = new System.Drawing.Size(75, 13);
             horasEsperaLabel.TabIndex = 6;
             horasEsperaLabel.Text = "Horas Espera:";
             // 
@@ -155,7 +171,7 @@ namespace Facturas
             kilometrosLabel.AutoSize = true;
             kilometrosLabel.Location = new System.Drawing.Point(336, 22);
             kilometrosLabel.Name = "kilometrosLabel";
-            kilometrosLabel.Size = new System.Drawing.Size(58, 13);
+            kilometrosLabel.Size = new System.Drawing.Size(60, 13);
             kilometrosLabel.TabIndex = 8;
             kilometrosLabel.Text = "Kilometros:";
             // 
@@ -164,7 +180,7 @@ namespace Facturas
             cifLabel.AutoSize = true;
             cifLabel.Location = new System.Drawing.Point(9, 100);
             cifLabel.Name = "cifLabel";
-            cifLabel.Size = new System.Drawing.Size(22, 13);
+            cifLabel.Size = new System.Drawing.Size(24, 13);
             cifLabel.TabIndex = 11;
             cifLabel.Text = "Cif:";
             // 
@@ -174,7 +190,7 @@ namespace Facturas
             ciudadLabel.AutoSize = true;
             ciudadLabel.Location = new System.Drawing.Point(9, 212);
             ciudadLabel.Name = "ciudadLabel";
-            ciudadLabel.Size = new System.Drawing.Size(43, 13);
+            ciudadLabel.Size = new System.Drawing.Size(44, 13);
             ciudadLabel.TabIndex = 13;
             ciudadLabel.Text = "Ciudad:";
             // 
@@ -184,7 +200,7 @@ namespace Facturas
             codigoPostalLabel.AutoSize = true;
             codigoPostalLabel.Location = new System.Drawing.Point(9, 238);
             codigoPostalLabel.Name = "codigoPostalLabel";
-            codigoPostalLabel.Size = new System.Drawing.Size(75, 13);
+            codigoPostalLabel.Size = new System.Drawing.Size(76, 13);
             codigoPostalLabel.TabIndex = 15;
             codigoPostalLabel.Text = "Codigo Postal:";
             // 
@@ -193,7 +209,7 @@ namespace Facturas
             direccionLabel.AutoSize = true;
             direccionLabel.Location = new System.Drawing.Point(9, 126);
             direccionLabel.Name = "direccionLabel";
-            direccionLabel.Size = new System.Drawing.Size(55, 13);
+            direccionLabel.Size = new System.Drawing.Size(54, 13);
             direccionLabel.TabIndex = 17;
             direccionLabel.Text = "Direccion:";
             // 
@@ -211,7 +227,7 @@ namespace Facturas
             nombreLabel.AutoSize = true;
             nombreLabel.Location = new System.Drawing.Point(9, 74);
             nombreLabel.Name = "nombreLabel";
-            nombreLabel.Size = new System.Drawing.Size(47, 13);
+            nombreLabel.Size = new System.Drawing.Size(48, 13);
             nombreLabel.TabIndex = 21;
             nombreLabel.Text = "Nombre:";
             // 
@@ -220,7 +236,7 @@ namespace Facturas
             numeroLabel.AutoSize = true;
             numeroLabel.Location = new System.Drawing.Point(9, 22);
             numeroLabel.Name = "numeroLabel";
-            numeroLabel.Size = new System.Drawing.Size(47, 13);
+            numeroLabel.Size = new System.Drawing.Size(48, 13);
             numeroLabel.TabIndex = 23;
             numeroLabel.Text = "Numero:";
             // 
@@ -230,7 +246,7 @@ namespace Facturas
             telefonoLabel.AutoSize = true;
             telefonoLabel.Location = new System.Drawing.Point(9, 264);
             telefonoLabel.Name = "telefonoLabel";
-            telefonoLabel.Size = new System.Drawing.Size(52, 13);
+            telefonoLabel.Size = new System.Drawing.Size(53, 13);
             telefonoLabel.TabIndex = 25;
             telefonoLabel.Text = "Telefono:";
             // 
@@ -239,7 +255,7 @@ namespace Facturas
             label1.AutoSize = true;
             label1.Location = new System.Drawing.Point(666, 22);
             label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(58, 13);
+            label1.Size = new System.Drawing.Size(60, 13);
             label1.TabIndex = 35;
             label1.Text = "Kilometros:";
             // 
@@ -248,7 +264,7 @@ namespace Facturas
             label2.AutoSize = true;
             label2.Location = new System.Drawing.Point(490, 22);
             label2.Name = "label2";
-            label2.Size = new System.Drawing.Size(74, 13);
+            label2.Size = new System.Drawing.Size(75, 13);
             label2.TabIndex = 34;
             label2.Text = "Horas Espera:";
             // 
@@ -261,17 +277,6 @@ namespace Facturas
             this.cantidadTextBox.TextChanged += new System.EventHandler(this.TxtKilomestrosEurosTextChanged);
             this.cantidadTextBox.Enter += new System.EventHandler(this.CantidadTextBoxEnter);
             this.cantidadTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.CantidadTextBoxValidating);
-            // 
-            // conceptoTextBox
-            // 
-            this.conceptoTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.conceptoTextBox.Location = new System.Drawing.Point(78, 45);
-            this.conceptoTextBox.Multiline = true;
-            this.conceptoTextBox.Name = "conceptoTextBox";
-            this.conceptoTextBox.Size = new System.Drawing.Size(715, 145);
-            this.conceptoTextBox.TabIndex = 5;
             // 
             // horasEsperaTextBox
             // 
@@ -293,21 +298,18 @@ namespace Facturas
             // 
             // cifTextBox
             // 
-            this.cifTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsFactura, "Cif", true));
+            this.cifTextBox.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsFactura, "Cif", true));
+            this.cifTextBox.EditValue = "28806983N";
             this.cifTextBox.Location = new System.Drawing.Point(90, 97);
             this.cifTextBox.Name = "cifTextBox";
             this.cifTextBox.Size = new System.Drawing.Size(66, 20);
             this.cifTextBox.TabIndex = 3;
-            this.cifTextBox.Text = "28806983N";
-            // 
-            // bsFactura
-            // 
-            this.bsFactura.DataSource = typeof(Factura);
             // 
             // ciudadTextBox
             // 
-            this.ciudadTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.ciudadTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsFactura, "Ciudad", true));
+            this.ciudadTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ciudadTextBox.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsFactura, "Ciudad", true));
             this.ciudadTextBox.Location = new System.Drawing.Point(90, 209);
             this.ciudadTextBox.Name = "ciudadTextBox";
             this.ciudadTextBox.Size = new System.Drawing.Size(703, 20);
@@ -316,66 +318,46 @@ namespace Facturas
             // codigoPostalTextBox
             // 
             this.codigoPostalTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.codigoPostalTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsFactura, "CodigoPostal", true));
+            this.codigoPostalTextBox.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsFactura, "CodigoPostal", true));
+            this.codigoPostalTextBox.EditValue = "41089";
             this.codigoPostalTextBox.Location = new System.Drawing.Point(90, 235);
             this.codigoPostalTextBox.Name = "codigoPostalTextBox";
             this.codigoPostalTextBox.Size = new System.Drawing.Size(66, 20);
             this.codigoPostalTextBox.TabIndex = 6;
-            this.codigoPostalTextBox.Text = "41089";
             this.codigoPostalTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CodigoPostalTextBoxKeyPress);
             this.codigoPostalTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.CodigoPostalTextBoxValidating);
             // 
-            // direccionTextBox
-            // 
-            this.direccionTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.direccionTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsFactura, "Direccion", true));
-            this.direccionTextBox.Location = new System.Drawing.Point(90, 123);
-            this.direccionTextBox.Multiline = true;
-            this.direccionTextBox.Name = "direccionTextBox";
-            this.direccionTextBox.Size = new System.Drawing.Size(703, 81);
-            this.direccionTextBox.TabIndex = 4;
-            // 
             // nombreTextBox
             // 
-            this.nombreTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.nombreTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsFactura, "Nombre", true));
+            this.nombreTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.nombreTextBox.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsFactura, "Nombre", true));
             this.nombreTextBox.Location = new System.Drawing.Point(90, 71);
             this.nombreTextBox.Name = "nombreTextBox";
             this.nombreTextBox.Size = new System.Drawing.Size(703, 20);
             this.nombreTextBox.TabIndex = 2;
             // 
-            // numeroTextBox
-            // 
-            this.numeroTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsFactura, "Numero", true));
-            this.numeroTextBox.Location = new System.Drawing.Point(90, 19);
-            this.numeroTextBox.Name = "numeroTextBox";
-            this.numeroTextBox.Size = new System.Drawing.Size(66, 20);
-            this.numeroTextBox.TabIndex = 0;
-            this.numeroTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CodigoPostalTextBoxKeyPress);
-            // 
             // telefonoTextBox
             // 
             this.telefonoTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.telefonoTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsFactura, "Telefono", true));
+            this.telefonoTextBox.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsFactura, "Telefono", true));
+            this.telefonoTextBox.EditValue = "954120606";
             this.telefonoTextBox.Location = new System.Drawing.Point(90, 261);
             this.telefonoTextBox.Name = "telefonoTextBox";
             this.telefonoTextBox.Size = new System.Drawing.Size(66, 20);
             this.telefonoTextBox.TabIndex = 7;
-            this.telefonoTextBox.Text = "954120606";
             // 
             // groupBox1
             // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.nombreTextBox);
             this.groupBox1.Controls.Add(cifLabel);
             this.groupBox1.Controls.Add(this.telefonoTextBox);
             this.groupBox1.Controls.Add(this.cifTextBox);
             this.groupBox1.Controls.Add(telefonoLabel);
             this.groupBox1.Controls.Add(ciudadLabel);
-            this.groupBox1.Controls.Add(this.numeroTextBox);
             this.groupBox1.Controls.Add(this.ciudadTextBox);
             this.groupBox1.Controls.Add(numeroLabel);
             this.groupBox1.Controls.Add(codigoPostalLabel);
@@ -383,7 +365,9 @@ namespace Facturas
             this.groupBox1.Controls.Add(this.codigoPostalTextBox);
             this.groupBox1.Controls.Add(direccionLabel);
             this.groupBox1.Controls.Add(fechaLabel);
+            this.groupBox1.Controls.Add(this.numeroTextBox);
             this.groupBox1.Controls.Add(this.direccionTextBox);
+            this.groupBox1.Controls.Add(this.tbFecha);
             this.groupBox1.Location = new System.Drawing.Point(3, 3);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(813, 288);
@@ -391,21 +375,41 @@ namespace Facturas
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos del cliente";
             // 
-            // textBox1
+            // numeroTextBox
             // 
-            this.textBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsFactura, "Fecha", true, System.Windows.Forms.DataSourceUpdateMode.OnValidation, null, "d"));
-            this.textBox1.Location = new System.Drawing.Point(90, 45);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(66, 20);
-            this.textBox1.TabIndex = 1;
+            this.numeroTextBox.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsFactura, "Numero", true));
+            this.numeroTextBox.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.numeroTextBox.Location = new System.Drawing.Point(90, 19);
+            this.numeroTextBox.Name = "numeroTextBox";
+            this.numeroTextBox.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.numeroTextBox.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Default;
+            this.numeroTextBox.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.None;
+            this.numeroTextBox.Size = new System.Drawing.Size(66, 20);
+            this.numeroTextBox.TabIndex = 0;
+            this.numeroTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CodigoPostalTextBoxKeyPress);
+            // 
+            // direccionTextBox
+            // 
+            this.direccionTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.direccionTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsFactura, "Direccion", true));
+            this.direccionTextBox.Location = new System.Drawing.Point(90, 123);
+            this.direccionTextBox.Name = "direccionTextBox";
+            this.direccionTextBox.Size = new System.Drawing.Size(703, 80);
+            this.direccionTextBox.TabIndex = 4;
             // 
             // gbLineas
             // 
-            this.gbLineas.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.gbLineas.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.gbLineas.Controls.Add(this.txtKilomestrosEuros);
-            this.gbLineas.Controls.Add(this.conceptoTextBox);
             this.gbLineas.Controls.Add(label1);
             this.gbLineas.Controls.Add(this.kilometrosTextBox);
             this.gbLineas.Controls.Add(this.txtHorasEuros);
@@ -416,6 +420,7 @@ namespace Facturas
             this.gbLineas.Controls.Add(this.cantidadTextBox);
             this.gbLineas.Controls.Add(horasEsperaLabel);
             this.gbLineas.Controls.Add(conceptoLabel);
+            this.gbLineas.Controls.Add(this.conceptoTextBox);
             this.gbLineas.Enabled = false;
             this.gbLineas.Location = new System.Drawing.Point(3, 3);
             this.gbLineas.Name = "gbLineas";
@@ -441,6 +446,16 @@ namespace Facturas
             this.txtHorasEuros.TabIndex = 3;
             this.txtHorasEuros.TextChanged += new System.EventHandler(this.TxtKilomestrosEurosTextChanged);
             this.txtHorasEuros.Validating += new System.ComponentModel.CancelEventHandler(this.TxtHorasEurosValidating);
+            // 
+            // conceptoTextBox
+            // 
+            this.conceptoTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.conceptoTextBox.Location = new System.Drawing.Point(78, 45);
+            this.conceptoTextBox.Name = "conceptoTextBox";
+            this.conceptoTextBox.Size = new System.Drawing.Size(715, 145);
+            this.conceptoTextBox.TabIndex = 5;
             // 
             // toolStrip1
             // 
@@ -505,14 +520,14 @@ namespace Facturas
             this.toolStripSeparator1,
             this.salirToolStripMenuItem});
             this.archivoToolStripMenuItem.Name = "archivoToolStripMenuItem";
-            this.archivoToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
+            this.archivoToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
             this.archivoToolStripMenuItem.Text = "&Archivo";
             // 
             // nuevoFacturaToolStripMenuItem
             // 
             this.nuevoFacturaToolStripMenuItem.Image = global::Facturas.FacturasRecursos.nuevo;
             this.nuevoFacturaToolStripMenuItem.Name = "nuevoFacturaToolStripMenuItem";
-            this.nuevoFacturaToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
+            this.nuevoFacturaToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
             this.nuevoFacturaToolStripMenuItem.Text = "Nueva Factura";
             this.nuevoFacturaToolStripMenuItem.Click += new System.EventHandler(this.nuevoFacturaToolStripMenuItem_Click);
             // 
@@ -520,7 +535,7 @@ namespace Facturas
             // 
             this.cargarFacturaToolStripMenuItem.Enabled = false;
             this.cargarFacturaToolStripMenuItem.Name = "cargarFacturaToolStripMenuItem";
-            this.cargarFacturaToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
+            this.cargarFacturaToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
             this.cargarFacturaToolStripMenuItem.Text = "Cargar Factura";
             this.cargarFacturaToolStripMenuItem.Click += new System.EventHandler(this.cargarFacturaToolStripMenuItem_Click);
             // 
@@ -529,14 +544,14 @@ namespace Facturas
             this.guardarFacturaToolStripMenuItem.Enabled = false;
             this.guardarFacturaToolStripMenuItem.Image = global::Facturas.FacturasRecursos.save;
             this.guardarFacturaToolStripMenuItem.Name = "guardarFacturaToolStripMenuItem";
-            this.guardarFacturaToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
+            this.guardarFacturaToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
             this.guardarFacturaToolStripMenuItem.Text = "&Guardar Factura";
             this.guardarFacturaToolStripMenuItem.Click += new System.EventHandler(this.GuardarFacturaToolStripMenuItemClick);
             // 
             // cargarDatosClienteToolStripMenuItem
             // 
             this.cargarDatosClienteToolStripMenuItem.Name = "cargarDatosClienteToolStripMenuItem";
-            this.cargarDatosClienteToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
+            this.cargarDatosClienteToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
             this.cargarDatosClienteToolStripMenuItem.Text = "Cargar Datos Cliente";
             this.cargarDatosClienteToolStripMenuItem.Click += new System.EventHandler(this.CargarDatosClienteToolStripMenuItemClick);
             // 
@@ -544,20 +559,20 @@ namespace Facturas
             // 
             this.guardarDatosClienteToolStripMenuItem.Image = global::Facturas.FacturasRecursos.save;
             this.guardarDatosClienteToolStripMenuItem.Name = "guardarDatosClienteToolStripMenuItem";
-            this.guardarDatosClienteToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
+            this.guardarDatosClienteToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
             this.guardarDatosClienteToolStripMenuItem.Text = "Guardar Datos Cliente";
             this.guardarDatosClienteToolStripMenuItem.Click += new System.EventHandler(this.GuardarDatosClienteToolStripMenuItemClick);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(188, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(186, 6);
             // 
             // salirToolStripMenuItem
             // 
             this.salirToolStripMenuItem.Image = global::Facturas.FacturasRecursos.sout;
             this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
-            this.salirToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
+            this.salirToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
             this.salirToolStripMenuItem.Text = "Salir";
             this.salirToolStripMenuItem.Click += new System.EventHandler(this.SalirToolStripMenuItemClick);
             // 
@@ -571,25 +586,25 @@ namespace Facturas
             this.toolStripSeparator3,
             this.configurarToolStripMenuItem});
             this.herramientasToolStripMenuItem.Name = "herramientasToolStripMenuItem";
-            this.herramientasToolStripMenuItem.Size = new System.Drawing.Size(83, 20);
+            this.herramientasToolStripMenuItem.Size = new System.Drawing.Size(90, 20);
             this.herramientasToolStripMenuItem.Text = "&Herramientas";
             // 
             // limpiarDatosClienteToolStripMenuItem
             // 
             this.limpiarDatosClienteToolStripMenuItem.Name = "limpiarDatosClienteToolStripMenuItem";
-            this.limpiarDatosClienteToolStripMenuItem.Size = new System.Drawing.Size(224, 22);
+            this.limpiarDatosClienteToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
             this.limpiarDatosClienteToolStripMenuItem.Text = "Limpiar Datos Cliente";
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(221, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(220, 6);
             // 
             // generarFicheroFacturaPDFToolStripMenuItem
             // 
             this.generarFicheroFacturaPDFToolStripMenuItem.Image = global::Facturas.FacturasRecursos.page;
             this.generarFicheroFacturaPDFToolStripMenuItem.Name = "generarFicheroFacturaPDFToolStripMenuItem";
-            this.generarFicheroFacturaPDFToolStripMenuItem.Size = new System.Drawing.Size(224, 22);
+            this.generarFicheroFacturaPDFToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
             this.generarFicheroFacturaPDFToolStripMenuItem.Text = "Generar Fichero Factura PDF";
             this.generarFicheroFacturaPDFToolStripMenuItem.Click += new System.EventHandler(this.GenerarFicheroFacturaPdfToolStripMenuItemClick);
             // 
@@ -597,28 +612,28 @@ namespace Facturas
             // 
             this.firmarFacturaToolStripMenuItem.Image = global::Facturas.FacturasRecursos.sign;
             this.firmarFacturaToolStripMenuItem.Name = "firmarFacturaToolStripMenuItem";
-            this.firmarFacturaToolStripMenuItem.Size = new System.Drawing.Size(224, 22);
+            this.firmarFacturaToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
             this.firmarFacturaToolStripMenuItem.Text = "Firmar Factura";
             this.firmarFacturaToolStripMenuItem.Click += new System.EventHandler(this.FirmarFacturaToolStripMenuItemClick);
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(221, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(220, 6);
             // 
             // configurarToolStripMenuItem
             // 
             this.configurarToolStripMenuItem.Image = global::Facturas.FacturasRecursos.lin_agt_wrench;
             this.configurarToolStripMenuItem.Name = "configurarToolStripMenuItem";
-            this.configurarToolStripMenuItem.Size = new System.Drawing.Size(224, 22);
+            this.configurarToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
             this.configurarToolStripMenuItem.Text = "Configurar";
             this.configurarToolStripMenuItem.Click += new System.EventHandler(this.configurarToolStripMenuItem_Click);
             // 
             // splitContainer1
             // 
-            this.splitContainer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.splitContainer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.splitContainer1.Location = new System.Drawing.Point(12, 52);
             this.splitContainer1.Name = "splitContainer1";
             this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
@@ -744,6 +759,24 @@ namespace Facturas
             // 
             this.errorProvider1.ContainerControl = this;
             // 
+            // tbFecha
+            // 
+            this.tbFecha.EditValue = null;
+            this.tbFecha.Location = new System.Drawing.Point(90, 45);
+            this.tbFecha.Name = "tbFecha";
+            this.tbFecha.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.tbFecha.Properties.Mask.EditMask = "";
+            this.tbFecha.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.None;
+            this.tbFecha.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.tbFecha.Size = new System.Drawing.Size(66, 20);
+            this.tbFecha.TabIndex = 1;
+            // 
+            // bsFactura
+            // 
+            this.bsFactura.DataSource = typeof(Facturas.BizzRules.Factura);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -759,21 +792,37 @@ namespace Facturas
             this.Name = "Form1";
             this.Text = "Facturas Taxi";
             this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.bsFactura)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cantidadTextBox.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.horasEsperaTextBox.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kilometrosTextBox.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cifTextBox.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ciudadTextBox.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.codigoPostalTextBox.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nombreTextBox.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.telefonoTextBox.Properties)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numeroTextBox.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.direccionTextBox.Properties)).EndInit();
             this.gbLineas.ResumeLayout(false);
             this.gbLineas.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtKilomestrosEuros.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtHorasEuros.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.conceptoTextBox.Properties)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             this.toolStrip2.ResumeLayout(false);
             this.toolStrip2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbFecha.Properties.VistaTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbFecha.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsFactura)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -781,18 +830,15 @@ namespace Facturas
 
         #endregion
 
-        private System.Windows.Forms.TextBox cantidadTextBox;
-        private System.Windows.Forms.TextBox conceptoTextBox;
-        private System.Windows.Forms.TextBox horasEsperaTextBox;
-        private System.Windows.Forms.TextBox kilometrosTextBox;
+        private DevExpress.XtraEditors.TextEdit cantidadTextBox;
+        private DevExpress.XtraEditors.TextEdit horasEsperaTextBox;
+        private DevExpress.XtraEditors.TextEdit kilometrosTextBox;
         private System.Windows.Forms.BindingSource bsFactura;
-        private System.Windows.Forms.TextBox cifTextBox;
-        private System.Windows.Forms.TextBox ciudadTextBox;
-        private System.Windows.Forms.TextBox codigoPostalTextBox;
-        private System.Windows.Forms.TextBox direccionTextBox;
-        private System.Windows.Forms.TextBox nombreTextBox;
-        private System.Windows.Forms.TextBox numeroTextBox;
-        private System.Windows.Forms.TextBox telefonoTextBox;
+        private DevExpress.XtraEditors.TextEdit cifTextBox;
+        private DevExpress.XtraEditors.TextEdit ciudadTextBox;
+        private DevExpress.XtraEditors.TextEdit codigoPostalTextBox;
+        private DevExpress.XtraEditors.TextEdit nombreTextBox;
+        private DevExpress.XtraEditors.TextEdit telefonoTextBox;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox gbLineas;
         private System.Windows.Forms.ToolStrip toolStrip1;
@@ -810,14 +856,13 @@ namespace Facturas
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripMenuItem generarFicheroFacturaPDFToolStripMenuItem;
         private System.Windows.Forms.SplitContainer splitContainer1;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripMenuItem configurarToolStripMenuItem;
         private System.Windows.Forms.ToolStripButton toolStripButtonGuardar;
         private System.Windows.Forms.ToolStripButton toolStripButtonGenerar;
         private System.Windows.Forms.ToolStripMenuItem firmarFacturaToolStripMenuItem;
-        private System.Windows.Forms.TextBox txtKilomestrosEuros;
-        private System.Windows.Forms.TextBox txtHorasEuros;
+        private DevExpress.XtraEditors.TextEdit txtKilomestrosEuros;
+        private DevExpress.XtraEditors.TextEdit txtHorasEuros;
         private System.Windows.Forms.ToolStripMenuItem cargarFacturaToolStripMenuItem;
         private System.Windows.Forms.ToolStrip toolStrip2;
         private System.Windows.Forms.ToolStripButton toolStripButtonPrimero;
@@ -832,6 +877,10 @@ namespace Facturas
         private System.Windows.Forms.ToolStripButton toolStripButtonInsertar;
         private System.Windows.Forms.ToolStripButton toolStripButtonEliminar;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private DevExpress.XtraEditors.SpinEdit numeroTextBox;
+        private DevExpress.XtraEditors.MemoEdit direccionTextBox;
+        private DevExpress.XtraEditors.MemoEdit conceptoTextBox;
+        private DevExpress.XtraEditors.DateEdit tbFecha;
     }
 }
 
