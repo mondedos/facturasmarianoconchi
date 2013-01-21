@@ -171,7 +171,9 @@ namespace Facturas
         {
             using (OpenFileDialog openCertificadoFileDialog = new OpenFileDialog
                 {
-                    InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Personal), Title = Facturas.Form1_firmarFacturaToolStripMenuItem_Click_Seleccione_su_certificado_de_usuario, Filter = Facturas.Form1_firmarFacturaToolStripMenuItem_Click_Certificado_Digital____p12____p12
+                    InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Personal),
+                    Title = FacturasRecursos.Form1_firmarFacturaToolStripMenuItem_Click_Seleccione_su_certificado_de_usuario,
+                    Filter = FacturasRecursos.Form1_firmarFacturaToolStripMenuItem_Click_Certificado_Digital____p12____p12
                 })
             {
                 if (openCertificadoFileDialog.ShowDialog(this) == DialogResult.OK)
@@ -197,10 +199,16 @@ namespace Facturas
                                 return;
                             }
 
-                            OpenFileDialog openFileDialog = new OpenFileDialog();
-                            openFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
-                            openFileDialog.Title = Facturas.Form1_firmarFacturaToolStripMenuItem_Click_Seleccione_una_factura_sin_firmar;
-                            openFileDialog.Filter = Facturas.Form1_firmarFacturaToolStripMenuItem_Click_Factura____pdf____pdf;
+                            OpenFileDialog openFileDialog = new OpenFileDialog
+                                {
+                                    InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Personal),
+                                    Title =
+                                        FacturasRecursos.
+                                            Form1_firmarFacturaToolStripMenuItem_Click_Seleccione_una_factura_sin_firmar,
+                                    Filter =
+                                        FacturasRecursos.
+                                            Form1_firmarFacturaToolStripMenuItem_Click_Factura____pdf____pdf
+                                };
 
 
                             if (openFileDialog.ShowDialog(this) == DialogResult.OK)
@@ -216,20 +224,19 @@ namespace Facturas
                                     myMd.Creator = "Riccardo Prieto Mendoza";
                                     myMd.Producer = "Riccardo Prieto Mendoza";
 
-                                    SaveFileDialog sabeD = new SaveFileDialog();
-
-                                    sabeD.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
-                                    sabeD.Title = Facturas.Form1_firmarFacturaToolStripMenuItem_Click_Guardar_Factura_Firmada_como___;
-                                    sabeD.Filter = Facturas.Form1_firmarFacturaToolStripMenuItem_Click_Factura____pdf____pdf;
-
-
-                                    if (sabeD.ShowDialog(this) == DialogResult.OK)
+                                    using (SaveFileDialog sabeD = new SaveFileDialog
+                                        {
+                                            InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Personal), Title = FacturasRecursos.Form1_firmarFacturaToolStripMenuItem_Click_Guardar_Factura_Firmada_como___, Filter = FacturasRecursos.Form1_firmarFacturaToolStripMenuItem_Click_Factura____pdf____pdf
+                                        })
                                     {
-                                        PdfSigner pdfs = new PdfSigner(openFileDialog.FileName, sabeD.FileName, myCert, myMd);
-                                        pdfs.Sign("Factura por translado en taxi", Settings.Default.email, Settings.Default.direccion + " " + Settings.Default.poblacionCP, false);
+                                        if (sabeD.ShowDialog(this) == DialogResult.OK)
+                                        {
+                                            PdfSigner pdfs = new PdfSigner(openFileDialog.FileName, sabeD.FileName, myCert, myMd);
+                                            pdfs.Sign("Factura por translado en taxi", Settings.Default.email, Settings.Default.direccion + " " + Settings.Default.poblacionCP, false);
 
 
-                                        Process.Start(sabeD.FileName);
+                                            Process.Start(sabeD.FileName);
+                                        }
                                     }
                                 }
                             }
@@ -279,7 +286,9 @@ namespace Facturas
         {
             using (SaveFileDialog sabeD = new SaveFileDialog
                 {
-                    InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Personal), Title = Facturas.Form1_guardarFacturaToolStripMenuItem_Click_Guardar_Factura_como___, Filter = Facturas.Form1_guardarFacturaToolStripMenuItem_Click_Factura____taxi____taxi
+                    InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Personal),
+                    Title = FacturasRecursos.Form1_guardarFacturaToolStripMenuItem_Click_Guardar_Factura_como___,
+                    Filter = FacturasRecursos.Form1_guardarFacturaToolStripMenuItem_Click_Factura____taxi____taxi
                 })
             {
                 if (sabeD.ShowDialog(this) == DialogResult.OK)
@@ -299,7 +308,9 @@ namespace Facturas
             FileStream myFileStream;
             using (OpenFileDialog openFileDialog = new OpenFileDialog
                 {
-                    InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Personal), Title = Facturas.Form1_cargarDatosClienteToolStripMenuItem_Click_Seleccione_los_datos_del_cliente, Filter = Facturas.Form1_guardarDatosClienteToolStripMenuItem_Click_Factura____upo____upo
+                    InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Personal),
+                    Title = FacturasRecursos.Form1_cargarDatosClienteToolStripMenuItem_Click_Seleccione_los_datos_del_cliente,
+                    Filter = FacturasRecursos.Form1_guardarDatosClienteToolStripMenuItem_Click_Factura____upo____upo
                 })
             {
                 if (openFileDialog.ShowDialog(this) != DialogResult.OK) return;
@@ -327,7 +338,9 @@ namespace Facturas
             StreamWriter myWriter;
             using (SaveFileDialog sabeD = new SaveFileDialog
                 {
-                    InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Personal), Title = Facturas.Form1_guardarDatosClienteToolStripMenuItem_Click_Guardar_Datos_Cliente_como___, Filter = Facturas.Form1_guardarDatosClienteToolStripMenuItem_Click_Factura____upo____upo
+                    InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Personal),
+                    Title = FacturasRecursos.Form1_guardarDatosClienteToolStripMenuItem_Click_Guardar_Datos_Cliente_como___,
+                    Filter = FacturasRecursos.Form1_guardarDatosClienteToolStripMenuItem_Click_Factura____upo____upo
                 })
             {
                 if (sabeD.ShowDialog(this) != DialogResult.OK) return;

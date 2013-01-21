@@ -39,15 +39,26 @@ namespace Facturas
         private void InicialezeValues()
         {
             //datos personales
-            txtLicencia.EditValue = Settings.Default.licencia;
-            txtNombre.EditValue = Settings.Default.nombre;
-            txtPoblacion.EditValue = Settings.Default.poblacionCP;
-            txtDireccion.EditValue = Settings.Default.direccion;
-            txtTelefono.EditValue = Settings.Default.telefono;
-            txtMovil.EditValue = Settings.Default.movil;
-            txtEmail.EditValue = Settings.Default.email;
-            txtNif.EditValue = Settings.Default.nif;
-            txtCCC.EditValue = Settings.Default.ccc;
+            BizzRules.Configuracion configuracion = new BizzRules.Configuracion
+                {
+                    Licencia = Settings.Default.licencia,
+                    Nombre = Settings.Default.nombre,
+                    PoblacionCp = Settings.Default.poblacionCP,
+                    Direccion = Settings.Default.direccion,
+                    Telefono = Settings.Default.telefono,
+                    Movil = Settings.Default.movil,
+                    Email = Settings.Default.email,
+                    Cif = Settings.Default.nif,
+                    Ccc = Settings.Default.ccc,
+                    Iva = Settings.Default.iva,
+                    EurosKilometros = Settings.Default.eurosXKilometros,
+                    EurosHora = Settings.Default.eurosXHora,
+
+                    NilvelLmFondo = Settings.Default.nivelLMFondo,
+                    TablaBorde = Settings.Default.tablaBorde,
+                    UltimaFactura = Settings.Default.ultimaFactura
+                };
+
 
             if (string.IsNullOrEmpty(Settings.Default.carpetaSalidaPDF))
             {
@@ -55,17 +66,8 @@ namespace Facturas
                 Settings.Default.Save();
             }
             txtForder.Text = Settings.Default.carpetaSalidaPDF;
-
-            //datos económicos
-
-
-            txtIva.EditValue = Settings.Default.iva;
-            txtKilometros.EditValue = Settings.Default.eurosXKilometros;
-            txtHorasEspera.EditValue = Settings.Default.eurosXHora;
-
-            numericUpDownNivelFondo.EditValue = Settings.Default.nivelLMFondo;
-            numericUpDownBordeTabla.EditValue = Settings.Default.tablaBorde;
-            numericUpDownUltimaFActura.EditValue = Settings.Default.ultimaFactura;
+            
+            bsConfiguracion.DataSource = configuracion;
         }
 
         private static decimal ParsePercent(string numero)
@@ -135,14 +137,14 @@ namespace Facturas
             {
                 string moneda = CultureInfo.CurrentCulture.NumberFormat.CurrencySymbol;
 
-                TextEdit[] tmonedas = new [] { txtKilometros, txtHorasEspera };
+                TextEdit[] tmonedas = new[] { txtKilometros, txtHorasEspera };
 
                 foreach (TextEdit item in tmonedas)
                 {
                     //decimal.TryParse("",System.Globalization.NumberStyles.Any,
                     if (!IsNumber(item.Text.Replace(moneda, null)))
                     {
-                        errorProvider1.SetError(item,"El dato económico debe estar correctamente relleno.");
+                        errorProvider1.SetError(item, "El dato económico debe estar correctamente relleno.");
                         sb.AppendLine("Asegurese que los datos económicos están correctamente rellenos");
                     }
                 }
@@ -233,7 +235,7 @@ namespace Facturas
         private void ConfiguracionFormClosing(object sender, FormClosingEventArgs e)
         {
             if (!btnGuardar.Enabled) return;
-            if (MessageBox.Show(Facturas.Configuracion_Configuracion_FormClosing_, Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+            if (MessageBox.Show(FacturasRecursos.Configuracion_Configuracion_FormClosing_, Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
             {
                 e.Cancel = true;
             }
@@ -255,7 +257,7 @@ namespace Facturas
             if (tb == null) return;
             errorProvider1.SetError(tb, string.Empty);
 
-            if(tb.Text.IsNullOrEmptyTrim())
+            if (tb.Text.IsNullOrEmptyTrim())
             {
                 errorProvider1.SetError(tb, "Debes introducir un número de licencia.");
             }
@@ -376,7 +378,7 @@ namespace Facturas
             }
             catch (ArgumentException ex)
             {
-                
+
             }
         }
 
