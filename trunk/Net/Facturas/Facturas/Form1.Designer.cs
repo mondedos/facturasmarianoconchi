@@ -457,7 +457,7 @@ namespace Facturas
             // toolStripButtonNuevo
             // 
             this.toolStripButtonNuevo.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonNuevo.Image = global::Facturas.Facturas.nuevo;
+            this.toolStripButtonNuevo.Image = global::Facturas.FacturasRecursos.nuevo;
             this.toolStripButtonNuevo.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonNuevo.Name = "toolStripButtonNuevo";
             this.toolStripButtonNuevo.Size = new System.Drawing.Size(23, 22);
@@ -476,7 +476,7 @@ namespace Facturas
             // toolStripButtonGenerar
             // 
             this.toolStripButtonGenerar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonGenerar.Image = global::Facturas.Facturas.page;
+            this.toolStripButtonGenerar.Image = global::Facturas.FacturasRecursos.page;
             this.toolStripButtonGenerar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonGenerar.Name = "toolStripButtonGenerar";
             this.toolStripButtonGenerar.Size = new System.Drawing.Size(23, 22);
@@ -510,7 +510,7 @@ namespace Facturas
             // 
             // nuevoFacturaToolStripMenuItem
             // 
-            this.nuevoFacturaToolStripMenuItem.Image = global::Facturas.Facturas.nuevo;
+            this.nuevoFacturaToolStripMenuItem.Image = global::Facturas.FacturasRecursos.nuevo;
             this.nuevoFacturaToolStripMenuItem.Name = "nuevoFacturaToolStripMenuItem";
             this.nuevoFacturaToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
             this.nuevoFacturaToolStripMenuItem.Text = "Nueva Factura";
@@ -527,7 +527,7 @@ namespace Facturas
             // guardarFacturaToolStripMenuItem
             // 
             this.guardarFacturaToolStripMenuItem.Enabled = false;
-            this.guardarFacturaToolStripMenuItem.Image = global::Facturas.Facturas.save;
+            this.guardarFacturaToolStripMenuItem.Image = global::Facturas.FacturasRecursos.save;
             this.guardarFacturaToolStripMenuItem.Name = "guardarFacturaToolStripMenuItem";
             this.guardarFacturaToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
             this.guardarFacturaToolStripMenuItem.Text = "&Guardar Factura";
@@ -542,7 +542,7 @@ namespace Facturas
             // 
             // guardarDatosClienteToolStripMenuItem
             // 
-            this.guardarDatosClienteToolStripMenuItem.Image = global::Facturas.Facturas.save;
+            this.guardarDatosClienteToolStripMenuItem.Image = global::Facturas.FacturasRecursos.save;
             this.guardarDatosClienteToolStripMenuItem.Name = "guardarDatosClienteToolStripMenuItem";
             this.guardarDatosClienteToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
             this.guardarDatosClienteToolStripMenuItem.Text = "Guardar Datos Cliente";
@@ -555,7 +555,7 @@ namespace Facturas
             // 
             // salirToolStripMenuItem
             // 
-            this.salirToolStripMenuItem.Image = global::Facturas.Facturas.sout;
+            this.salirToolStripMenuItem.Image = global::Facturas.FacturasRecursos.sout;
             this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
             this.salirToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
             this.salirToolStripMenuItem.Text = "Salir";
@@ -587,7 +587,7 @@ namespace Facturas
             // 
             // generarFicheroFacturaPDFToolStripMenuItem
             // 
-            this.generarFicheroFacturaPDFToolStripMenuItem.Image = global::Facturas.Facturas.page;
+            this.generarFicheroFacturaPDFToolStripMenuItem.Image = global::Facturas.FacturasRecursos.page;
             this.generarFicheroFacturaPDFToolStripMenuItem.Name = "generarFicheroFacturaPDFToolStripMenuItem";
             this.generarFicheroFacturaPDFToolStripMenuItem.Size = new System.Drawing.Size(224, 22);
             this.generarFicheroFacturaPDFToolStripMenuItem.Text = "Generar Fichero Factura PDF";
@@ -595,7 +595,7 @@ namespace Facturas
             // 
             // firmarFacturaToolStripMenuItem
             // 
-            this.firmarFacturaToolStripMenuItem.Image = global::Facturas.Facturas.sign;
+            this.firmarFacturaToolStripMenuItem.Image = global::Facturas.FacturasRecursos.sign;
             this.firmarFacturaToolStripMenuItem.Name = "firmarFacturaToolStripMenuItem";
             this.firmarFacturaToolStripMenuItem.Size = new System.Drawing.Size(224, 22);
             this.firmarFacturaToolStripMenuItem.Text = "Firmar Factura";
@@ -608,7 +608,7 @@ namespace Facturas
             // 
             // configurarToolStripMenuItem
             // 
-            this.configurarToolStripMenuItem.Image = global::Facturas.Facturas.lin_agt_wrench;
+            this.configurarToolStripMenuItem.Image = global::Facturas.FacturasRecursos.lin_agt_wrench;
             this.configurarToolStripMenuItem.Name = "configurarToolStripMenuItem";
             this.configurarToolStripMenuItem.Size = new System.Drawing.Size(224, 22);
             this.configurarToolStripMenuItem.Text = "Configurar";
@@ -658,7 +658,7 @@ namespace Facturas
             // toolStripButtonPrimero
             // 
             this.toolStripButtonPrimero.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonPrimero.Image = global::Facturas.Facturas.first_img;
+            this.toolStripButtonPrimero.Image = global::Facturas.FacturasRecursos.first_img;
             this.toolStripButtonPrimero.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonPrimero.Name = "toolStripButtonPrimero";
             this.toolStripButtonPrimero.Size = new System.Drawing.Size(23, 22);
@@ -668,7 +668,7 @@ namespace Facturas
             // toolStripButtonAnterior
             // 
             this.toolStripButtonAnterior.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonAnterior.Image = global::Facturas.Facturas.prev;
+            this.toolStripButtonAnterior.Image = global::Facturas.FacturasRecursos.prev;
             this.toolStripButtonAnterior.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonAnterior.Name = "toolStripButtonAnterior";
             this.toolStripButtonAnterior.Size = new System.Drawing.Size(23, 22);
@@ -698,7 +698,7 @@ namespace Facturas
             // toolStripButtonSiguiente
             // 
             this.toolStripButtonSiguiente.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonSiguiente.Image = global::Facturas.Facturas.next;
+            this.toolStripButtonSiguiente.Image = global::Facturas.FacturasRecursos.next;
             this.toolStripButtonSiguiente.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonSiguiente.Name = "toolStripButtonSiguiente";
             this.toolStripButtonSiguiente.Size = new System.Drawing.Size(23, 22);
@@ -708,7 +708,7 @@ namespace Facturas
             // toolStripButtonUltimo
             // 
             this.toolStripButtonUltimo.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonUltimo.Image = global::Facturas.Facturas.last_img;
+            this.toolStripButtonUltimo.Image = global::Facturas.FacturasRecursos.last_img;
             this.toolStripButtonUltimo.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonUltimo.Name = "toolStripButtonUltimo";
             this.toolStripButtonUltimo.Size = new System.Drawing.Size(23, 22);
@@ -723,7 +723,7 @@ namespace Facturas
             // toolStripButtonInsertar
             // 
             this.toolStripButtonInsertar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonInsertar.Image = global::Facturas.Facturas.document_add;
+            this.toolStripButtonInsertar.Image = global::Facturas.FacturasRecursos.document_add;
             this.toolStripButtonInsertar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonInsertar.Name = "toolStripButtonInsertar";
             this.toolStripButtonInsertar.Size = new System.Drawing.Size(23, 22);
@@ -733,7 +733,7 @@ namespace Facturas
             // toolStripButtonEliminar
             // 
             this.toolStripButtonEliminar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonEliminar.Image = global::Facturas.Facturas.delete;
+            this.toolStripButtonEliminar.Image = global::Facturas.FacturasRecursos.delete;
             this.toolStripButtonEliminar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonEliminar.Name = "toolStripButtonEliminar";
             this.toolStripButtonEliminar.Size = new System.Drawing.Size(23, 22);

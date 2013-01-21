@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Configuracion));
             this.txtLicencia = new DevExpress.XtraEditors.TextEdit();
+            this.bsConfiguracion = new System.Windows.Forms.BindingSource(this.components);
             this.label15 = new System.Windows.Forms.Label();
             this.txtForder = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
@@ -63,14 +64,16 @@
             this.txtCCC = new DevExpress.XtraEditors.TextEdit();
             this.gbDatosPersonales = new DevExpress.XtraEditors.GroupControl();
             this.gbDatosEconomicos = new DevExpress.XtraEditors.GroupControl();
-            this.txtIva = new DevExpress.XtraEditors.TextEdit();
-            this.txtHorasEspera = new DevExpress.XtraEditors.TextEdit();
             this.txtKilometros = new DevExpress.XtraEditors.TextEdit();
+            this.txtHorasEspera = new DevExpress.XtraEditors.TextEdit();
+            this.txtIva = new DevExpress.XtraEditors.TextEdit();
             this.groupControl3 = new DevExpress.XtraEditors.GroupControl();
-            this.numericUpDownNivelFondo = new DevExpress.XtraEditors.SpinEdit();
-            this.numericUpDownBordeTabla = new DevExpress.XtraEditors.SpinEdit();
             this.numericUpDownUltimaFActura = new DevExpress.XtraEditors.SpinEdit();
+            this.numericUpDownBordeTabla = new DevExpress.XtraEditors.SpinEdit();
+            this.numericUpDownNivelFondo = new DevExpress.XtraEditors.SpinEdit();
+            this.dxErrorProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.txtLicencia.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsConfiguracion)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNombre.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPoblacion.Properties)).BeginInit();
@@ -84,27 +87,33 @@
             this.gbDatosPersonales.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gbDatosEconomicos)).BeginInit();
             this.gbDatosEconomicos.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtIva.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtHorasEspera.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtKilometros.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtHorasEspera.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtIva.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl3)).BeginInit();
             this.groupControl3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownNivelFondo.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownBordeTabla.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownUltimaFActura.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownBordeTabla.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownNivelFondo.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dxErrorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // txtLicencia
             // 
+            this.txtLicencia.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsConfiguracion, "Licencia", true));
             this.txtLicencia.Location = new System.Drawing.Point(121, 24);
             this.txtLicencia.Name = "txtLicencia";
             this.txtLicencia.Size = new System.Drawing.Size(100, 20);
-            this.txtLicencia.TabIndex = 21;
+            this.txtLicencia.TabIndex = 0;
+            // 
+            // bsConfiguracion
+            // 
+            this.bsConfiguracion.DataSource = typeof(Facturas.BizzRules.Configuracion);
             // 
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(21, 261);
+            this.label15.Location = new System.Drawing.Point(15, 261);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(101, 13);
             this.label15.TabIndex = 20;
@@ -118,14 +127,14 @@
             this.txtForder.Name = "txtForder";
             this.txtForder.ReadOnly = true;
             this.txtForder.Size = new System.Drawing.Size(198, 21);
-            this.txtForder.TabIndex = 19;
+            this.txtForder.TabIndex = 9;
             this.txtForder.Text = "2106 0950 06 0286145041";
             this.txtForder.TextChanged += new System.EventHandler(this.NumericUpDownBordeTablaValueChanged);
             // 
             // button1
             // 
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Image = global::Facturas.Facturas.explorar;
+            this.button1.Image = global::Facturas.FacturasRecursos.explorar;
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button1.Location = new System.Drawing.Point(326, 256);
             this.button1.Name = "button1";
@@ -247,12 +256,12 @@
             // btnSalir
             // 
             this.btnSalir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSalir.Image = global::Facturas.Facturas.sout;
+            this.btnSalir.Image = global::Facturas.FacturasRecursos.sout;
             this.btnSalir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSalir.Location = new System.Drawing.Point(356, 419);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(75, 33);
-            this.btnSalir.TabIndex = 3;
+            this.btnSalir.TabIndex = 4;
             this.btnSalir.Text = "&Salir";
             this.btnSalir.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnSalir.UseVisualStyleBackColor = true;
@@ -262,12 +271,12 @@
             // 
             this.btnGuardar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnGuardar.Enabled = false;
-            this.btnGuardar.Image = global::Facturas.Facturas.save;
+            this.btnGuardar.Image = global::Facturas.FacturasRecursos.save;
             this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnGuardar.Location = new System.Drawing.Point(275, 418);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(75, 34);
-            this.btnGuardar.TabIndex = 2;
+            this.btnGuardar.TabIndex = 3;
             this.btnGuardar.Text = "&Guardar";
             this.btnGuardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnGuardar.UseVisualStyleBackColor = true;
@@ -308,65 +317,73 @@
             // 
             this.txtNombre.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtNombre.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsConfiguracion, "Nombre", true));
             this.txtNombre.Location = new System.Drawing.Point(121, 50);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(285, 20);
-            this.txtNombre.TabIndex = 22;
+            this.txtNombre.TabIndex = 1;
             // 
             // txtPoblacion
             // 
             this.txtPoblacion.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtPoblacion.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsConfiguracion, "PoblacionCp", true));
             this.txtPoblacion.Location = new System.Drawing.Point(121, 76);
             this.txtPoblacion.Name = "txtPoblacion";
             this.txtPoblacion.Size = new System.Drawing.Size(285, 20);
-            this.txtPoblacion.TabIndex = 23;
+            this.txtPoblacion.TabIndex = 2;
             // 
             // txtDireccion
             // 
             this.txtDireccion.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtDireccion.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsConfiguracion, "Direccion", true));
             this.txtDireccion.Location = new System.Drawing.Point(121, 102);
             this.txtDireccion.Name = "txtDireccion";
             this.txtDireccion.Size = new System.Drawing.Size(285, 20);
-            this.txtDireccion.TabIndex = 24;
+            this.txtDireccion.TabIndex = 3;
             // 
             // txtTelefono
             // 
+            this.txtTelefono.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsConfiguracion, "Telefono", true));
             this.txtTelefono.Location = new System.Drawing.Point(121, 128);
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(61, 20);
-            this.txtTelefono.TabIndex = 25;
+            this.txtTelefono.TabIndex = 4;
             // 
             // txtMovil
             // 
+            this.txtMovil.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsConfiguracion, "Movil", true));
             this.txtMovil.Location = new System.Drawing.Point(121, 154);
             this.txtMovil.Name = "txtMovil";
             this.txtMovil.Size = new System.Drawing.Size(61, 20);
-            this.txtMovil.TabIndex = 26;
+            this.txtMovil.TabIndex = 5;
             // 
             // txtEmail
             // 
             this.txtEmail.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtEmail.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsConfiguracion, "Email", true));
             this.txtEmail.Location = new System.Drawing.Point(121, 180);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(285, 20);
-            this.txtEmail.TabIndex = 27;
+            this.txtEmail.TabIndex = 6;
             // 
             // txtNif
             // 
+            this.txtNif.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsConfiguracion, "Cif", true));
             this.txtNif.Location = new System.Drawing.Point(122, 206);
             this.txtNif.Name = "txtNif";
             this.txtNif.Size = new System.Drawing.Size(78, 20);
-            this.txtNif.TabIndex = 28;
+            this.txtNif.TabIndex = 7;
             // 
             // txtCCC
             // 
+            this.txtCCC.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsConfiguracion, "Ccc", true));
             this.txtCCC.Location = new System.Drawing.Point(122, 232);
             this.txtCCC.Name = "txtCCC";
             this.txtCCC.Size = new System.Drawing.Size(146, 20);
-            this.txtCCC.TabIndex = 29;
+            this.txtCCC.TabIndex = 8;
             // 
             // gbDatosPersonales
             // 
@@ -396,7 +413,7 @@
             this.gbDatosPersonales.Location = new System.Drawing.Point(12, 12);
             this.gbDatosPersonales.Name = "gbDatosPersonales";
             this.gbDatosPersonales.Size = new System.Drawing.Size(419, 294);
-            this.gbDatosPersonales.TabIndex = 5;
+            this.gbDatosPersonales.TabIndex = 0;
             this.gbDatosPersonales.Text = "Datos personales";
             // 
             // gbDatosEconomicos
@@ -410,37 +427,12 @@
             this.gbDatosEconomicos.Location = new System.Drawing.Point(12, 312);
             this.gbDatosEconomicos.Name = "gbDatosEconomicos";
             this.gbDatosEconomicos.Size = new System.Drawing.Size(200, 100);
-            this.gbDatosEconomicos.TabIndex = 6;
+            this.gbDatosEconomicos.TabIndex = 1;
             this.gbDatosEconomicos.Text = "Datos Económicos";
-            // 
-            // txtIva
-            // 
-            this.txtIva.Location = new System.Drawing.Point(95, 24);
-            this.txtIva.Name = "txtIva";
-            this.txtIva.Properties.DisplayFormat.FormatString = "p2";
-            this.txtIva.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.txtIva.Properties.EditFormat.FormatString = "p2";
-            this.txtIva.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.txtIva.Properties.Mask.EditMask = "p2";
-            this.txtIva.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.txtIva.Size = new System.Drawing.Size(61, 20);
-            this.txtIva.TabIndex = 27;
-            // 
-            // txtHorasEspera
-            // 
-            this.txtHorasEspera.Location = new System.Drawing.Point(95, 50);
-            this.txtHorasEspera.Name = "txtHorasEspera";
-            this.txtHorasEspera.Properties.DisplayFormat.FormatString = "c2";
-            this.txtHorasEspera.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.txtHorasEspera.Properties.EditFormat.FormatString = "c2";
-            this.txtHorasEspera.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.txtHorasEspera.Properties.Mask.EditMask = "c";
-            this.txtHorasEspera.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.txtHorasEspera.Size = new System.Drawing.Size(61, 20);
-            this.txtHorasEspera.TabIndex = 28;
             // 
             // txtKilometros
             // 
+            this.txtKilometros.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsConfiguracion, "EurosKilometros", true));
             this.txtKilometros.Location = new System.Drawing.Point(95, 75);
             this.txtKilometros.Name = "txtKilometros";
             this.txtKilometros.Properties.DisplayFormat.FormatString = "c2";
@@ -451,6 +443,34 @@
             this.txtKilometros.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.txtKilometros.Size = new System.Drawing.Size(61, 20);
             this.txtKilometros.TabIndex = 29;
+            // 
+            // txtHorasEspera
+            // 
+            this.txtHorasEspera.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsConfiguracion, "EurosHora", true));
+            this.txtHorasEspera.Location = new System.Drawing.Point(95, 50);
+            this.txtHorasEspera.Name = "txtHorasEspera";
+            this.txtHorasEspera.Properties.DisplayFormat.FormatString = "c2";
+            this.txtHorasEspera.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.txtHorasEspera.Properties.EditFormat.FormatString = "c2";
+            this.txtHorasEspera.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.txtHorasEspera.Properties.Mask.EditMask = "c";
+            this.txtHorasEspera.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.txtHorasEspera.Size = new System.Drawing.Size(61, 20);
+            this.txtHorasEspera.TabIndex = 2;
+            // 
+            // txtIva
+            // 
+            this.txtIva.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsConfiguracion, "Iva", true));
+            this.txtIva.Location = new System.Drawing.Point(95, 24);
+            this.txtIva.Name = "txtIva";
+            this.txtIva.Properties.DisplayFormat.FormatString = "p2";
+            this.txtIva.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.txtIva.Properties.EditFormat.FormatString = "p2";
+            this.txtIva.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.txtIva.Properties.Mask.EditMask = "p2";
+            this.txtIva.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.txtIva.Size = new System.Drawing.Size(61, 20);
+            this.txtIva.TabIndex = 0;
             // 
             // groupControl3
             // 
@@ -463,39 +483,12 @@
             this.groupControl3.Location = new System.Drawing.Point(219, 313);
             this.groupControl3.Name = "groupControl3";
             this.groupControl3.Size = new System.Drawing.Size(212, 100);
-            this.groupControl3.TabIndex = 7;
+            this.groupControl3.TabIndex = 2;
             this.groupControl3.Text = "Factura";
-            // 
-            // numericUpDownNivelFondo
-            // 
-            this.numericUpDownNivelFondo.EditValue = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            this.numericUpDownNivelFondo.Location = new System.Drawing.Point(124, 26);
-            this.numericUpDownNivelFondo.Name = "numericUpDownNivelFondo";
-            this.numericUpDownNivelFondo.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.numericUpDownNivelFondo.Size = new System.Drawing.Size(69, 20);
-            this.numericUpDownNivelFondo.TabIndex = 28;
-            // 
-            // numericUpDownBordeTabla
-            // 
-            this.numericUpDownBordeTabla.EditValue = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            this.numericUpDownBordeTabla.Location = new System.Drawing.Point(124, 52);
-            this.numericUpDownBordeTabla.Name = "numericUpDownBordeTabla";
-            this.numericUpDownBordeTabla.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.numericUpDownBordeTabla.Size = new System.Drawing.Size(69, 20);
-            this.numericUpDownBordeTabla.TabIndex = 29;
             // 
             // numericUpDownUltimaFActura
             // 
+            this.numericUpDownUltimaFActura.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsConfiguracion, "UltimaFactura", true));
             this.numericUpDownUltimaFActura.EditValue = new decimal(new int[] {
             0,
             0,
@@ -506,7 +499,42 @@
             this.numericUpDownUltimaFActura.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
             this.numericUpDownUltimaFActura.Size = new System.Drawing.Size(69, 20);
-            this.numericUpDownUltimaFActura.TabIndex = 30;
+            this.numericUpDownUltimaFActura.TabIndex = 3;
+            // 
+            // numericUpDownBordeTabla
+            // 
+            this.numericUpDownBordeTabla.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsConfiguracion, "TablaBorde", true));
+            this.numericUpDownBordeTabla.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.numericUpDownBordeTabla.Location = new System.Drawing.Point(124, 52);
+            this.numericUpDownBordeTabla.Name = "numericUpDownBordeTabla";
+            this.numericUpDownBordeTabla.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.numericUpDownBordeTabla.Size = new System.Drawing.Size(69, 20);
+            this.numericUpDownBordeTabla.TabIndex = 2;
+            // 
+            // numericUpDownNivelFondo
+            // 
+            this.numericUpDownNivelFondo.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsConfiguracion, "NilvelLmFondo", true));
+            this.numericUpDownNivelFondo.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.numericUpDownNivelFondo.Location = new System.Drawing.Point(124, 26);
+            this.numericUpDownNivelFondo.Name = "numericUpDownNivelFondo";
+            this.numericUpDownNivelFondo.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.numericUpDownNivelFondo.Size = new System.Drawing.Size(69, 20);
+            this.numericUpDownNivelFondo.TabIndex = 1;
+            // 
+            // dxErrorProvider1
+            // 
+            this.dxErrorProvider1.ContainerControl = this;
+            this.dxErrorProvider1.DataSource = this.bsConfiguracion;
             // 
             // Configuracion
             // 
@@ -526,6 +554,7 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ConfiguracionFormClosing);
             this.Load += new System.EventHandler(this.ConfiguracionLoad);
             ((System.ComponentModel.ISupportInitialize)(this.txtLicencia.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsConfiguracion)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNombre.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPoblacion.Properties)).EndInit();
@@ -541,15 +570,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.gbDatosEconomicos)).EndInit();
             this.gbDatosEconomicos.ResumeLayout(false);
             this.gbDatosEconomicos.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtIva.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtHorasEspera.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtKilometros.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtHorasEspera.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtIva.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl3)).EndInit();
             this.groupControl3.ResumeLayout(false);
             this.groupControl3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownNivelFondo.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownBordeTabla.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownUltimaFActura.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownBordeTabla.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownNivelFondo.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dxErrorProvider1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -596,5 +626,7 @@
         private DevExpress.XtraEditors.SpinEdit numericUpDownUltimaFActura;
         private DevExpress.XtraEditors.SpinEdit numericUpDownBordeTabla;
         private DevExpress.XtraEditors.SpinEdit numericUpDownNivelFondo;
+        private DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider dxErrorProvider1;
+        private System.Windows.Forms.BindingSource bsConfiguracion;
     }
 }
