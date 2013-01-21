@@ -129,7 +129,6 @@
             this.txtForder.Size = new System.Drawing.Size(198, 21);
             this.txtForder.TabIndex = 9;
             this.txtForder.Text = "2106 0950 06 0286145041";
-            this.txtForder.TextChanged += new System.EventHandler(this.NumericUpDownBordeTablaValueChanged);
             // 
             // button1
             // 

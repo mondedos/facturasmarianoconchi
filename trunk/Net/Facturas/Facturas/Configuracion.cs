@@ -1,10 +1,9 @@
 ﻿using System;
-using System.Text;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
+using DevExpress.XtraEditors.DXErrorProvider;
 using Facturas.Properties;
 using System.Globalization;
-using Facturas.BizzRules;
 
 namespace Facturas
 {
@@ -25,7 +24,10 @@ namespace Facturas
             InitializeComponent();
 
             InicialezeValues();
+
+            bsConfiguracion.CurrentItemChanged += BsConfiguracionCurrentItemChanged;
         }
+
         #endregion
 
 
@@ -36,6 +38,15 @@ namespace Facturas
         #region Eventos
 
         #endregion
+
+
+        void BsConfiguracionCurrentItemChanged(object sender, EventArgs e)
+        {
+            if (_detectarCambios)
+            {
+                btnGuardar.Enabled = true;
+            }
+        }
         private void InicialezeValues()
         {
             //datos personales
@@ -66,125 +77,42 @@ namespace Facturas
                 Settings.Default.Save();
             }
             txtForder.Text = Settings.Default.carpetaSalidaPDF;
-            
+
             bsConfiguracion.DataSource = configuracion;
-        }
-
-        private static decimal ParsePercent(string numero)
-        {
-            NumberFormatInfo nfi = new NumberFormatInfo
-                                       {
-                                           PercentDecimalSeparator = ",",
-                                           PercentSymbol = "%"
-                                       };
-
-            return decimal.Parse(numero.Replace(CultureInfo.CurrentCulture.NumberFormat.PercentSymbol, null), NumberStyles.Any, nfi);
-
         }
 
         private void Guardar()
         {
+            BizzRules.Configuracion configuracion = bsConfiguracion.Current as BizzRules.Configuracion;
 
+            if (configuracion == null) return;
             //datos personales
-            Settings.Default.licencia = txtLicencia.Text;
-            Settings.Default.nombre = txtNombre.Text;
-            Settings.Default.poblacionCP = txtPoblacion.Text;
-            Settings.Default.direccion = txtDireccion.Text;
-            Settings.Default.telefono = txtTelefono.Text;
-            Settings.Default.movil = txtMovil.Text;
-            Settings.Default.email = txtEmail.Text;
-            Settings.Default.nif = txtNif.Text;
-            Settings.Default.ccc = txtCCC.Text;
+            Settings.Default.licencia = configuracion.Licencia;
+            Settings.Default.nombre = configuracion.Nombre;
+            Settings.Default.poblacionCP = configuracion.PoblacionCp;
+            Settings.Default.direccion = configuracion.Direccion;
+            Settings.Default.telefono = configuracion.Telefono;
+            Settings.Default.movil = configuracion.Movil;
+            Settings.Default.email = configuracion.Email;
+            Settings.Default.nif = configuracion.Cif;
+            Settings.Default.ccc = configuracion.Ccc;
             Settings.Default.carpetaSalidaPDF = txtForder.Text;
 
             //datos económicos
-            Settings.Default.iva = ParsePercent(txtIva.Text);
-            Settings.Default.eurosXKilometros = decimal.Parse(txtKilometros.Text, NumberStyles.Any);
-            Settings.Default.eurosXHora = decimal.Parse(txtHorasEspera.Text, NumberStyles.Any);
+            Settings.Default.iva = configuracion.Iva;
+            Settings.Default.eurosXKilometros = configuracion.EurosKilometros;
+            Settings.Default.eurosXHora = configuracion.EurosHora;
 
-            Settings.Default.nivelLMFondo = Convert.ToInt32(numericUpDownNivelFondo.Value);
-            Settings.Default.tablaBorde = numericUpDownBordeTabla.Value;
+            Settings.Default.nivelLMFondo = configuracion.NilvelLmFondo;
+            Settings.Default.tablaBorde = configuracion.TablaBorde;
 
-            Settings.Default.ultimaFactura = Convert.ToInt32(numericUpDownUltimaFActura.Value);
+            Settings.Default.ultimaFactura = configuracion.UltimaFactura;
 
             Settings.Default.Save();
         }
         private bool EsValido()
         {
-            errorProvider1.Clear();
-            StringBuilder sb = new StringBuilder();
-            foreach (Control item in gbDatosPersonales.Controls)
-            {
-                if (item is TextBox && item.Text.IsNullOrEmptyTrim())
-                {
-                    errorProvider1.SetError(item, "Falta por rellenar este dato personal.");
-                    sb.AppendLine("Exiten datos Personales sin rellenar");
-                    break;
-                }
-            }
-
-            foreach (Control item in gbDatosEconomicos.Controls)
-            {
-                if (item is TextBox && item.Text.IsNullOrEmptyTrim())
-                {
-                    errorProvider1.SetError(item, "Falta por rellenar este dato económico.");
-                    sb.AppendLine("Exiten datos Económicos sin rellenar");
-                    break;
-                }
-            }
-
-            if (!Convert.ToBoolean(sb.Length))
-            {
-                string moneda = CultureInfo.CurrentCulture.NumberFormat.CurrencySymbol;
-
-                TextEdit[] tmonedas = new[] { txtKilometros, txtHorasEspera };
-
-                foreach (TextEdit item in tmonedas)
-                {
-                    //decimal.TryParse("",System.Globalization.NumberStyles.Any,
-                    if (!IsNumber(item.Text.Replace(moneda, null)))
-                    {
-                        errorProvider1.SetError(item, "El dato económico debe estar correctamente relleno.");
-                        sb.AppendLine("Asegurese que los datos económicos están correctamente rellenos");
-                    }
-                }
-            }
-
-            try
-            {
-                if (!CuentaBancariaValidador.ValidaCuentaBancaria(txtCCC.Text))
-                {
-                    errorProvider1.SetError(txtCCC, "La cuenta Bancaria Introducida no es válida");
-                    sb.AppendLine("La cuenta Bancaria Introducida no es válida");
-                }
-            }
-            catch (ArgumentException ex)
-            {
-                sb.AppendLine(ex.Message);
-            }
-
-            if (Convert.ToBoolean(sb.Length))
-            {
-                try
-                {
-                    if (!CifNifValidador.ValidarCifNifNie(txtNif.Text))
-                    {
-                        errorProvider1.SetError(txtNif, "El CIF no es válido");
-                        sb.AppendLine("El CIF no es válido");
-                    }
-                }
-                catch (ArgumentException ex)
-                {
-                    sb.AppendLine(ex.Message);
-                }
-            }
-
-            if (Convert.ToBoolean(sb.Length))
-            {
-                MessageBox.Show(sb.ToString(), Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
-
-            return !Convert.ToBoolean(sb.Length);
+            return !dxErrorProvider1.HasErrorsOfType(ErrorType.Critical); 
         }
 
         private void BtnGuardarClick(object sender, EventArgs e)
@@ -215,20 +143,8 @@ namespace Facturas
             return Double.TryParse(text, NumberStyles.Any, CultureInfo.CurrentCulture.NumberFormat, out numb);
         }
 
-        private void NumericUpDownBordeTablaValueChanged(object sender, EventArgs e)
-        {
-            if (_detectarCambios)
-            {
-                btnGuardar.Enabled = true;
-            }
-        }
-
         private void ConfiguracionLoad(object sender, EventArgs e)
         {
-            txtIva.TextChanged += NumericUpDownBordeTablaValueChanged;
-            txtKilometros.TextChanged += NumericUpDownBordeTablaValueChanged;
-            txtHorasEspera.TextChanged += NumericUpDownBordeTablaValueChanged;
-
             _detectarCambios = true;
         }
 
