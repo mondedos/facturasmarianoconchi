@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using System.Linq;
 using System.Text;
 using System.IO;
 using iTextSharp.text;
@@ -42,9 +42,7 @@ namespace Facturas.BizzRules
             // and directs a PDF-stream to a file
             PdfWriter writer = PdfWriter.GetInstance(document, new FileStream(nombreFichero, FileMode.Create));
 
-            MyPdfPageEventHelpPageNo footer = new MyPdfPageEventHelpPageNo();
-            footer.Hash = FirmarFactura(_factura);
-            footer.NumeroFactura = _factura.Numero;
+            MyPdfPageEventHelpPageNo footer = new MyPdfPageEventHelpPageNo { Hash = FirmarFactura(_factura), NumeroFactura = _factura.Numero };
             writer.PageEvent = footer;
 
 
@@ -80,11 +78,7 @@ namespace Facturas.BizzRules
 
             // step 4: we add a paragraph to the document
             Paragraph paragraph = new Paragraph(new Chunk("FACTURA TAXI Mariano",
-            FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 20)));
-            paragraph.Alignment = Element.ALIGN_CENTER;
-            paragraph.SpacingAfter = 10;
-
-
+            FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 20))) { Alignment = Element.ALIGN_CENTER, SpacingAfter = 10 };
 
 
             document.Add(paragraph);
@@ -94,79 +88,50 @@ namespace Facturas.BizzRules
 
             paragraph.Add(string.Format("FECHA: {0}", _factura.Fecha.ToShortDateString()));
             document.Add(paragraph);
-            paragraph = new Paragraph();
-
-
-            paragraph.Add(string.Format("FACTURA Nº: {0}", _factura.Numero));
+            paragraph = new Paragraph { string.Format("FACTURA Nº: {0}", _factura.Numero) };
 
 
             document.Add(paragraph);
-            paragraph = new Paragraph();
+            paragraph = new Paragraph { Font = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, textSize) };
 
-            paragraph.Font = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, textSize);
             paragraph.Add(string.Format("Licencia Municipal: {0}", Settings.Default.licencia));
 
 
             document.Add(paragraph);
-            paragraph = new Paragraph();
-
-
-            paragraph.Add(Settings.Default.nombre);
+            paragraph = new Paragraph { Settings.Default.nombre };
 
 
             document.Add(paragraph);
-            paragraph = new Paragraph();
-
-
-            paragraph.Add(Settings.Default.direccion);
+            paragraph = new Paragraph { Settings.Default.direccion };
 
 
             document.Add(paragraph);
-            paragraph = new Paragraph();
-
-
-            paragraph.Add(Settings.Default.poblacionCP);
+            paragraph = new Paragraph { Settings.Default.poblacionCP };
 
 
             document.Add(paragraph);
-            paragraph = new Paragraph();
-
-
-            paragraph.Add(string.Format("Teléfono: {0}", Settings.Default.telefono));
+            paragraph = new Paragraph { string.Format("Teléfono: {0}", Settings.Default.telefono) };
 
 
             document.Add(paragraph);
-            paragraph = new Paragraph();
-
-
-            paragraph.Add(string.Format("Móvil: {0}", Settings.Default.movil));
+            paragraph = new Paragraph { string.Format("Móvil: {0}", Settings.Default.movil) };
 
 
             document.Add(paragraph);
-            paragraph = new Paragraph();
-
-
-            paragraph.Add(string.Format("E-Mail: {0}", Settings.Default.email));
+            paragraph = new Paragraph { string.Format("E-Mail: {0}", Settings.Default.email) };
 
 
             document.Add(paragraph);
-            paragraph = new Paragraph();
-
-
-            paragraph.Add(string.Format("NIF: {0}", Settings.Default.nif));
+            paragraph = new Paragraph { string.Format("NIF: {0}", Settings.Default.nif) };
 
 
             document.Add(paragraph);
-            paragraph = new Paragraph();
-
-
-            paragraph.Add(string.Format("CCC: {0}", Settings.Default.ccc));
+            paragraph = new Paragraph { string.Format("CCC: {0}", Settings.Default.ccc) };
 
 
             document.Add(paragraph);
-            paragraph = new Paragraph();
+            paragraph = new Paragraph { Font = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, textSize) };
 
-            paragraph.Font = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, textSize);
             paragraph.Add("FACTURAR A:");
 
 
@@ -174,31 +139,19 @@ namespace Facturas.BizzRules
 
 
             document.Add(paragraph);
-            paragraph = new Paragraph();
-
-
-            paragraph.Add(string.Format("Nombre: {0}", _factura.Nombre));
+            paragraph = new Paragraph { string.Format("Nombre: {0}", _factura.Nombre) };
 
 
             document.Add(paragraph);
-            paragraph = new Paragraph();
-
-
-            paragraph.Add(string.Format("Dirección: {0}", _factura.Direccion));
+            paragraph = new Paragraph { string.Format("Dirección: {0}", _factura.Direccion) };
 
 
             document.Add(paragraph);
-            paragraph = new Paragraph();
-
-
-            paragraph.Add(string.Format("Ciudad: {0}", _factura.Ciudad));
+            paragraph = new Paragraph { string.Format("Ciudad: {0}", _factura.Ciudad) };
 
 
             document.Add(paragraph);
-            paragraph = new Paragraph();
-
-
-            paragraph.Add(string.Format("Código Postal: {0}", _factura.CodigoPostal));
+            paragraph = new Paragraph { string.Format("Código Postal: {0}", _factura.CodigoPostal) };
 
 
             document.Add(paragraph);
@@ -213,24 +166,17 @@ namespace Facturas.BizzRules
 
 
             document.Add(paragraph);
-            paragraph = new Paragraph();
-
-
-            paragraph.Add(string.Format("CIF/NIF: {0}", _factura.Cif));
+            paragraph = new Paragraph { string.Format("CIF/NIF: {0}", _factura.Cif) };
 
 
             document.Add(paragraph);
 
 
-            paragraph = new Paragraph();
-
-            paragraph.ExtraParagraphSpace = 10;
+            paragraph = new Paragraph { ExtraParagraphSpace = 10 };
 
             float[] medidasColumnas = new float[6] { 40, 7, 7, 7, 7, 10 };
             //tabla
-            PdfPTable aTable = new PdfPTable(medidasColumnas);    // 2 rows, 2 columns
-            aTable.WidthPercentage = 100;
-            aTable.SpacingBefore = 20;
+            PdfPTable aTable = new PdfPTable(medidasColumnas) { WidthPercentage = 100, SpacingBefore = 20 };    // 2 rows, 2 columns
 
 
             PdfPRow fila = new PdfPRow(new[] {
@@ -245,7 +191,9 @@ namespace Facturas.BizzRules
 
             decimal total = GenerarLinea(aTable.Rows, _factura.Lineas);
 
-            decimal totalSinIva = total / (1 + Settings.Default.iva / 100);
+            decimal impuestos = total * Settings.Default.iva;
+
+            decimal totalSinIva = total - impuestos;
 
             PdfPCell celdaBlanco = new PdfPCell(new Phrase(string.Empty));
 
@@ -256,7 +204,7 @@ namespace Facturas.BizzRules
                         FormatearCeldaVacia(new PdfPCell()),
                         FormatearBorde(FormatearPieTabla(new PdfPCell(new Phrase("SUBTOTAL",FontFactory.GetFont(FontFactory.HELVETICA_BOLD, textSize))))), 
                         FormatearCeldaVacia(new PdfPCell()),
-                        FormatearBorde(FormatearEuros(new PdfPCell(new Phrase(String.Format("{0:C}",Math.Round( totalSinIva,2)))))) });
+                        FormatearBorde(FormatearEuros(new PdfPCell(new Phrase(String.Format("{0:C2}",totalSinIva))))) });
 
             aTable.Rows.Add(fila);
 
@@ -266,9 +214,9 @@ namespace Facturas.BizzRules
                         FormatearCeldaVacia(new PdfPCell()),  
                         FormatearCeldaVacia(new PdfPCell()), 
                         FormatearCeldaVacia(new PdfPCell()),
-                        FormatearBorde(FormatearPieTabla(new PdfPCell(new Phrase(string.Format("IVA {0} {1}",Settings.Default.iva,System.Globalization.CultureInfo.CurrentCulture.NumberFormat.PercentSymbol),FontFactory.GetFont(FontFactory.HELVETICA_BOLD, textSize))))), 
+                        FormatearBorde(FormatearPieTabla(new PdfPCell(new Phrase(string.Format("IVA {0} ",Settings.Default.iva.ToString("p2")),FontFactory.GetFont(FontFactory.HELVETICA_BOLD, textSize))))), 
                         FormatearCeldaVacia(new PdfPCell()),
-                        FormatearBorde(FormatearEuros(new PdfPCell(new Phrase(String.Format("{0:C}",Math.Round( total-totalSinIva,2)))))) });
+                        FormatearBorde(FormatearEuros(new PdfPCell(new Phrase(String.Format("{0:C2}",impuestos))))) });
 
             aTable.Rows.Add(fila);
 
@@ -278,7 +226,7 @@ namespace Facturas.BizzRules
                         FormatearCeldaVacia(new PdfPCell()),
                         FormatearBorde(FormatearPieTabla(new PdfPCell(new Phrase("TOTAL",FontFactory.GetFont(FontFactory.HELVETICA_BOLD, textSize))))),
                         FormatearCeldaVacia(new PdfPCell()),
-                       FormatearBorde( FormatearEuros(new PdfPCell(new Phrase(String.Format("{0:C}", Math.Round(total,2))))))});
+                       FormatearBorde( FormatearEuros(new PdfPCell(new Phrase(String.Format("{0:C2}", total)))))});
             aTable.Rows.Add(fila);
 
 
@@ -293,7 +241,7 @@ namespace Facturas.BizzRules
             //paragraph.Alignment = Element.ALIGN_RIGHT;
             //paragraph.Add(FirmarFactura(_factura, total));
 
-            
+
 
             //document.Add(paragraph);
             //iTextSharp.text.HeaderFooter)
@@ -324,20 +272,20 @@ namespace Facturas.BizzRules
             }
 
         }
-        private PdfPCell FormatearBorde(PdfPCell celda)
+        private static PdfPCell FormatearBorde(PdfPCell celda)
         {
             celda.BorderWidth = (float)Convert.ToDouble(Settings.Default.tablaBorde);
 
             return celda;
         }
-        private PdfPCell FormatearCeldaVacia(PdfPCell celda)
+        private static PdfPCell FormatearCeldaVacia(PdfPCell celda)
         {
             celda.Border = 0;
             celda.BorderWidth = 0;
 
             return celda;
         }
-        private PdfPCell FormatearPieTabla(PdfPCell celda)
+        private static PdfPCell FormatearPieTabla(PdfPCell celda)
         {
             celda.HorizontalAlignment = Element.ALIGN_LEFT;
             celda.Colspan = 2;
@@ -345,7 +293,7 @@ namespace Facturas.BizzRules
             return celda;
         }
 
-        private PdfPCell FormatearEuros(PdfPCell celda)
+        private static PdfPCell FormatearEuros(PdfPCell celda)
         {
             celda.HorizontalAlignment = Element.ALIGN_RIGHT;
 
@@ -357,17 +305,13 @@ namespace Facturas.BizzRules
         /// </summary>
         /// <param name="factura">Factura a firmar</param>
         /// <returns>cadena de firma</returns>
-        private string FirmarFactura(IFactura factura)
+        private static string FirmarFactura(IFactura factura)
         {
             StringBuilder sb = new StringBuilder(Settings.Default.licencia);
 
-            decimal total = 0;
+            decimal total = factura.Lineas.Sum(item => item.Cantidad);
 
             //suma el total a pagar
-            foreach (ILineaFactura item in factura.Lineas)
-            {
-                total += item.Cantidad;
-            }
 
 
             sb.Append(factura.Numero).Append(Settings.Default.ccc)
@@ -380,14 +324,14 @@ namespace Facturas.BizzRules
         {
             SHA1 sha1 = SHA1Managed.Create();
             ASCIIEncoding encoding = new ASCIIEncoding();
-            byte[] stream;
             StringBuilder sb = new StringBuilder();
-            stream = sha1.ComputeHash(encoding.GetBytes(str));
-            for (int i = 0; i < stream.Length; i++) sb.AppendFormat("{0:x2}", stream[i]);
+            byte[] stream = sha1.ComputeHash(encoding.GetBytes(str));
+            foreach (byte t in stream)
+                sb.AppendFormat("{0:x2}", t);
             return sb.ToString();
         }
 
-        private decimal GenerarLinea(List<PdfPRow> list, IEnumerable<ILineaFactura> lineas)
+        private static decimal GenerarLinea(ICollection<PdfPRow> list, IEnumerable<ILineaFactura> lineas)
         {
             decimal total = 0;
             foreach (ILineaFactura item in lineas)
@@ -406,7 +350,7 @@ namespace Facturas.BizzRules
             return total;
         }
 
-        private void EscribirMetaInformacion(Document document, IFactura factura, decimal importe)
+        private static void EscribirMetaInformacion(Document document, IFactura factura, decimal importe)
         {
             document.AddTitle(string.Format("Factura {0}", factura.Numero));
             document.AddSubject(string.Format("Factura por translado en taxi emitida a {0}", factura.Nombre));
@@ -506,7 +450,7 @@ namespace Facturas.BizzRules
         private int _numeroPagina;
 
         public int NumeroFactura { get; set; }
-        
+
 
         public override void OnOpenDocument(PdfWriter writer, Document document)
         {
@@ -525,11 +469,8 @@ namespace Facturas.BizzRules
                 //Ya no estamos en la primera página
                 PdfPTable tableTitle = new PdfPTable(1);
 
-                PdfPCell cell = new PdfPCell(new Phrase(string.Format("FACTURA TAXI Mariano Nº {0}",NumeroFactura) + Environment.NewLine));
+                PdfPCell cell = new PdfPCell(new Phrase(string.Format("FACTURA TAXI Mariano Nº {0}", NumeroFactura) + Environment.NewLine)) { Border = 0, PaddingBottom = 15 };
 
-                cell.Border = 0;
-                cell.PaddingBottom = 15;
-                
 
                 tableTitle.AddCell(cell);
 
@@ -550,9 +491,9 @@ namespace Facturas.BizzRules
             cb.BeginText();
             cb.SetFontAndSize(_helv, 8);
 
-            cb.SetTextMatrix(document.Left,textBase);
+            cb.SetTextMatrix(document.Left, textBase);
             cb.ShowText(string.Format("Página {0}", document.PageNumber));
-            cb.SetTextMatrix(document.Right-(Hash.Length<<2), textBase);
+            cb.SetTextMatrix(document.Right - (Hash.Length << 2), textBase);
             cb.ShowText(Hash);
             cb.EndText();
             cb.AddTemplate(_total, document.Right - textSize, textBase);
@@ -560,7 +501,7 @@ namespace Facturas.BizzRules
 
             //if ((writer.PageNumber % 2) == 1)
             //{
-              
+
             //}
             //else
             //{
