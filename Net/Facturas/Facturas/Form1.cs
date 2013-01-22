@@ -78,7 +78,14 @@ namespace Facturas
 
             ActualizarContadoresLineas();
 
-            (new PdfGenerador(factura)).Run();
+            try
+            {
+                (new PdfGenerador(factura)).Run();
+            }
+            catch (Exception exception)
+            {
+                XtraMessageBox.Show(exception.Message, "Error", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+            }
 
             if (factura != null) Settings.Default.ultimaFactura = factura.Numero;
             Settings.Default.Save();
@@ -226,7 +233,9 @@ namespace Facturas
 
                                     using (SaveFileDialog sabeD = new SaveFileDialog
                                         {
-                                            InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Personal), Title = FacturasRecursos.Form1_firmarFacturaToolStripMenuItem_Click_Guardar_Factura_Firmada_como___, Filter = FacturasRecursos.Form1_firmarFacturaToolStripMenuItem_Click_Factura____pdf____pdf
+                                            InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Personal),
+                                            Title = FacturasRecursos.Form1_firmarFacturaToolStripMenuItem_Click_Guardar_Factura_Firmada_como___,
+                                            Filter = FacturasRecursos.Form1_firmarFacturaToolStripMenuItem_Click_Factura____pdf____pdf
                                         })
                                     {
                                         if (sabeD.ShowDialog(this) == DialogResult.OK)
@@ -248,7 +257,7 @@ namespace Facturas
 
         private void TxtKilomestrosEurosTextChanged(object sender, EventArgs e)
         {
-           
+
         }
         private void DecimalesCalculadoraOnKeyPress(object sender, KeyPressEventArgs e)
         {
@@ -318,7 +327,7 @@ namespace Facturas
                 if (openFileDialog.ShowDialog(this) != DialogResult.OK) return;
                 // Construct an instance of the XmlSerializer with the type
                 // of object that is being deserialized.
-                mySerializer = new XmlSerializer(typeof (Cliente));
+                mySerializer = new XmlSerializer(typeof(Cliente));
                 // To read the file, create a FileStream.
                 myFileStream = new FileStream(openFileDialog.FileName, FileMode.Open);
             }
@@ -353,14 +362,14 @@ namespace Facturas
                 Util.CopiarPropiedadesTipo(fact, myObject);
 
                 // Insert code to set properties and fields of the object.
-                mySerializer = new XmlSerializer(typeof (Cliente));
+                mySerializer = new XmlSerializer(typeof(Cliente));
                 // To write to a file, create a StreamWriter object.
                 myWriter = new StreamWriter(sabeD.FileName);
             }
             mySerializer.Serialize(myWriter, myObject);
             myWriter.Close();
         }
-     
+
         private void ToolStripButtonInsertarClick(object sender, EventArgs e)
         {
             if (!DatosLineaValido()) return;
@@ -405,7 +414,7 @@ namespace Facturas
             toolStripLabelTotal.Text = string.Format("de {0} líneas de factura", c.Lineas.Count);
 
             if (_current < 0) return;
-            
+
             LineaFactura nl = c.Lineas[_current] as LineaFactura;
 
             Util.CopiarPropiedadesTipo(nl, this);
@@ -587,7 +596,7 @@ namespace Facturas
 
             if (tb != null && !string.IsNullOrEmpty(tb.Text))
             {
-                errorProvider1.SetError(tb,string.Empty);
+                errorProvider1.SetError(tb, string.Empty);
                 if (!int.TryParse(tb.Text, out valor))
                 {
                     errorProvider1.SetError(tb, "El código postal debe ser un número entero de 5 cifras.");
@@ -598,8 +607,8 @@ namespace Facturas
         private void CantidadTextBoxValidating(object sender, CancelEventArgs e)
         {
             float cantidad;
-            errorProvider1.SetError(cantidadTextBox,string.Empty);
-            if(!float.TryParse(cantidadTextBox.Text, System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.CurrentCulture.NumberFormat, out cantidad))
+            errorProvider1.SetError(cantidadTextBox, string.Empty);
+            if (!float.TryParse(cantidadTextBox.Text, System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.CurrentCulture.NumberFormat, out cantidad))
             {
                 errorProvider1.SetError(cantidadTextBox, _laCantidadNoEsCorrectaPorFavorIntroduceUnaCanidadEnEurosO);
             }
@@ -609,7 +618,7 @@ namespace Facturas
         {
             float cantidad;
 
-            
+
             if (!float.TryParse(horasEsperaTextBox.Text, System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.CurrentCulture.NumberFormat, out cantidad))
             {
                 errorProvider1.SetError(horasEsperaTextBox, _lasHorasDeEsperaNoEsCorrectaPorFavorIntroduceUnaCanidadEnEurosO);
@@ -619,7 +628,7 @@ namespace Facturas
         private void KilometrosTextBoxValidating(object sender, CancelEventArgs e)
         {
             float cantidad;
-                 
+
             if (!float.TryParse(kilometrosTextBox.Text, System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.CurrentCulture.NumberFormat, out cantidad))
             {
                 errorProvider1.SetError(kilometrosTextBox, _losCkilometrosNoEsCorrectoPorFavorIntroduceUnaCanidadEnEurosO);
@@ -633,7 +642,7 @@ namespace Facturas
             {
                 errorProvider1.SetError(txtHorasEuros, _elPrecioDeLasHorasDeEsperaNoEsCorrectoPorFavorIntroduceUnaCanidadEnEurosO);
             }
-            
+
         }
 
         private void TxtKilomestrosEurosValidating(object sender, CancelEventArgs e)
