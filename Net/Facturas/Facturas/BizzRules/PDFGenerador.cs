@@ -191,9 +191,9 @@ namespace Facturas.BizzRules
 
             decimal total = GenerarLinea(aTable.Rows, _factura.Lineas);
 
-            decimal impuestos = total * Settings.Default.iva;
+            decimal baseImponible = (total / (1 + Settings.Default.iva)).Redondear();
 
-            decimal totalSinIva = total - impuestos;
+            decimal impuestos = total - baseImponible;
 
             PdfPCell celdaBlanco = new PdfPCell(new Phrase(string.Empty));
 
@@ -204,7 +204,7 @@ namespace Facturas.BizzRules
                         FormatearCeldaVacia(new PdfPCell()),
                         FormatearBorde(FormatearPieTabla(new PdfPCell(new Phrase("SUBTOTAL",FontFactory.GetFont(FontFactory.HELVETICA_BOLD, textSize))))), 
                         FormatearCeldaVacia(new PdfPCell()),
-                        FormatearBorde(FormatearEuros(new PdfPCell(new Phrase(String.Format("{0:C2}",totalSinIva))))) });
+                        FormatearBorde(FormatearEuros(new PdfPCell(new Phrase(String.Format("{0:C2}",baseImponible))))) });
 
             aTable.Rows.Add(fila);
 
