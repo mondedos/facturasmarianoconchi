@@ -100,4 +100,31 @@ namespace Facturas.BizzRules
         }
 
     }
+
+    public static class Extensions
+    {
+        private static int _decimalRedondeo = 2;
+
+        /// <summary>
+        /// Función para redondear: redondeará a 2 si no se indica lo contrario, y automáticamente tomará de la configuración de la empresa el decimal por el que empezará a redondear.
+        /// </summary>
+        /// <param name="origen"></param>
+        /// <param name="numeroDecimales"></param>
+        /// <returns></returns>
+        public static decimal Redondear(this decimal origen, int numeroDecimales = 2)
+        {
+            decimal destino = origen;
+
+            if (_decimalRedondeo >= numeroDecimales)
+                while (_decimalRedondeo >= numeroDecimales)
+                {
+                    destino = Math.Round(destino, _decimalRedondeo, MidpointRounding.AwayFromZero);
+                    _decimalRedondeo = _decimalRedondeo - 1;
+                }
+            else
+                destino = Math.Round(destino, numeroDecimales, MidpointRounding.AwayFromZero);
+
+            return destino;
+        }
+    }
 }
