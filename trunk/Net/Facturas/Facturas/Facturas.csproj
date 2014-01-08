@@ -97,6 +97,8 @@
     <Compile Include="BizzRules\Configuracion.cs" />
     <Compile Include="BizzRules\CuentaBancariaValidador.cs" />
     <Compile Include="BizzRules\Factura.cs" />
+    <Compile Include="BizzRules\Iban.cs" />
+    <Compile Include="BizzRules\IbanData.cs" />
     <Compile Include="BizzRules\IFactura.cs" />
     <Compile Include="BizzRules\ILineaFactura.cs" />
     <Compile Include="BizzRules\LineaFactura.cs" />
