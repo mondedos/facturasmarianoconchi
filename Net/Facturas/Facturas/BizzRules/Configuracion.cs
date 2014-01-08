@@ -305,6 +305,26 @@ namespace Facturas.BizzRules
                 }
 
             }
+            if (propertyName.Equals("Iban"))
+            {
+                if (string.IsNullOrWhiteSpace(Iban))
+                {
+                    info.ErrorText = "Debes indicar el código IBAN de la cuenta bancaria.";
+                    info.ErrorType = ErrorType.Critical;
+                    return;
+                }
+                try
+                {
+                    BizzRules.Iban.CheckIban(Iban, true, info);
+                }
+                catch (ArgumentException exception)
+                {
+                    info.ErrorText = exception.Message;
+                    info.ErrorType = ErrorType.Critical;
+                    return;
+                }
+
+            }
 
         }
 
@@ -326,6 +346,7 @@ namespace Facturas.BizzRules
             GetPropertyError("Email", info); if (info.ErrorType == ErrorType.Critical) return;
             GetPropertyError("Cif", info); if (info.ErrorType == ErrorType.Critical) return;
             GetPropertyError("Ccc", info); if (info.ErrorType == ErrorType.Critical) return;
+            GetPropertyError("Iban", info); if (info.ErrorType == ErrorType.Critical) return;
             GetPropertyError("Iva", info); if (info.ErrorType == ErrorType.Critical) return;
             GetPropertyError("EurosKilometros", info); if (info.ErrorType == ErrorType.Critical) return;
             GetPropertyError("EurosHora", info); if (info.ErrorType == ErrorType.Critical) return;

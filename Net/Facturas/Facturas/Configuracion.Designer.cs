@@ -63,6 +63,8 @@
             this.txtNif = new DevExpress.XtraEditors.TextEdit();
             this.txtCCC = new DevExpress.XtraEditors.TextEdit();
             this.gbDatosPersonales = new DevExpress.XtraEditors.GroupControl();
+            this.textEditIban = new DevExpress.XtraEditors.TextEdit();
+            this.label17 = new System.Windows.Forms.Label();
             this.gbDatosEconomicos = new DevExpress.XtraEditors.GroupControl();
             this.txtKilometros = new DevExpress.XtraEditors.TextEdit();
             this.txtHorasEspera = new DevExpress.XtraEditors.TextEdit();
@@ -72,8 +74,6 @@
             this.numericUpDownBordeTabla = new DevExpress.XtraEditors.SpinEdit();
             this.numericUpDownNivelFondo = new DevExpress.XtraEditors.SpinEdit();
             this.dxErrorProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
-            this.textEditIban = new DevExpress.XtraEditors.TextEdit();
-            this.label17 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.txtLicencia.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsConfiguracion)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
@@ -87,6 +87,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtCCC.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gbDatosPersonales)).BeginInit();
             this.gbDatosPersonales.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditIban.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gbDatosEconomicos)).BeginInit();
             this.gbDatosEconomicos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtKilometros.Properties)).BeginInit();
@@ -98,7 +99,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownBordeTabla.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownNivelFondo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxErrorProvider1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEditIban.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // txtLicencia
@@ -396,7 +396,7 @@
             this.txtCCC.Location = new System.Drawing.Point(122, 232);
             this.txtCCC.Name = "txtCCC";
             this.txtCCC.Properties.MaxLength = 20;
-            this.txtCCC.Size = new System.Drawing.Size(146, 20);
+            this.txtCCC.Size = new System.Drawing.Size(284, 20);
             this.txtCCC.TabIndex = 8;
             this.txtCCC.EditValueChanged += new System.EventHandler(this.TxtCccEditValueChanged);
             // 
@@ -432,6 +432,25 @@
             this.gbDatosPersonales.Size = new System.Drawing.Size(419, 330);
             this.gbDatosPersonales.TabIndex = 0;
             this.gbDatosPersonales.Text = "Datos personales";
+            // 
+            // textEditIban
+            // 
+            this.textEditIban.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsConfiguracion, "Iban", true, System.Windows.Forms.DataSourceUpdateMode.Never));
+            this.textEditIban.Location = new System.Drawing.Point(121, 258);
+            this.textEditIban.Name = "textEditIban";
+            this.textEditIban.Properties.MaxLength = 30;
+            this.textEditIban.Size = new System.Drawing.Size(285, 20);
+            this.textEditIban.TabIndex = 21;
+            this.textEditIban.EditValueChanged += new System.EventHandler(this.TextEditIbanEditValueChanged);
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(87, 261);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(29, 13);
+            this.label17.TabIndex = 22;
+            this.label17.Text = "Iban";
             // 
             // gbDatosEconomicos
             // 
@@ -565,25 +584,6 @@
             this.dxErrorProvider1.ContainerControl = this;
             this.dxErrorProvider1.DataSource = this.bsConfiguracion;
             // 
-            // textEditIban
-            // 
-            this.textEditIban.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsConfiguracion, "Iban", true, System.Windows.Forms.DataSourceUpdateMode.Never));
-            this.textEditIban.Location = new System.Drawing.Point(121, 258);
-            this.textEditIban.Name = "textEditIban";
-            this.textEditIban.Properties.MaxLength = 30;
-            this.textEditIban.Size = new System.Drawing.Size(146, 20);
-            this.textEditIban.TabIndex = 21;
-            this.textEditIban.EditValueChanged += new System.EventHandler(this.TextEditIbanEditValueChanged);
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(87, 261);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(29, 13);
-            this.label17.TabIndex = 22;
-            this.label17.Text = "Iban";
-            // 
             // Configuracion
             // 
             this.AcceptButton = this.btnGuardar;
@@ -615,6 +615,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gbDatosPersonales)).EndInit();
             this.gbDatosPersonales.ResumeLayout(false);
             this.gbDatosPersonales.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditIban.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gbDatosEconomicos)).EndInit();
             this.gbDatosEconomicos.ResumeLayout(false);
             this.gbDatosEconomicos.PerformLayout();
@@ -628,7 +629,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownBordeTabla.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownNivelFondo.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxErrorProvider1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEditIban.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
