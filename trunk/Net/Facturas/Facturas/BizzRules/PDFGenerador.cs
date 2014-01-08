@@ -126,7 +126,14 @@ namespace Facturas.BizzRules
 
 
             document.Add(paragraph);
-            paragraph = new Paragraph { string.Format("CCC: {0}", Settings.Default.ccc) };
+            if (!string.IsNullOrEmpty(Settings.Default.Iban))
+            {
+                paragraph = new Paragraph { string.Format("IBAN: {0}", Settings.Default.Iban) };
+            }
+            else
+            {
+                paragraph = new Paragraph { string.Format("CCC: {0}", Settings.Default.ccc) };
+            }
 
 
             document.Add(paragraph);
