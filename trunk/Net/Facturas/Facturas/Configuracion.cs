@@ -71,6 +71,7 @@ namespace Facturas
                     Email = Settings.Default.email,
                     Cif = Settings.Default.nif,
                     Ccc = Settings.Default.ccc,
+                    Iban = Settings.Default.Iban,
                     Iva = Settings.Default.iva,
                     EurosKilometros = Settings.Default.eurosXKilometros,
                     EurosHora = Settings.Default.eurosXHora,
@@ -115,6 +116,7 @@ namespace Facturas
             Settings.Default.email = configuracion.Email;
             Settings.Default.nif = configuracion.Cif;
             Settings.Default.ccc = configuracion.Ccc;
+            Settings.Default.Iban = configuracion.Iban;
             Settings.Default.carpetaSalidaPDF = txtForder.Text;
 
             //datos económicos
@@ -425,6 +427,19 @@ namespace Facturas
             if (baseEdit == null || baseEdit.EditValue == null || DBNull.Value.Equals(baseEdit.EditValue)) return;
 
             configuracion.UltimaFactura = Convert.ToInt32(baseEdit.EditValue);
+        }
+
+        private void TextEditIbanEditValueChanged(object sender, EventArgs e)
+        {
+            BizzRules.Configuracion configuracion = bsConfiguracion.Current as BizzRules.Configuracion;
+
+            if (configuracion == null) return;
+
+            BaseEdit baseEdit = sender as BaseEdit;
+
+            if (baseEdit == null || baseEdit.EditValue == null || DBNull.Value.Equals(baseEdit.EditValue)) return;
+
+            configuracion.Iban = Convert.ToString(baseEdit.EditValue);
         }
     }
 }

@@ -72,6 +72,8 @@
             this.numericUpDownBordeTabla = new DevExpress.XtraEditors.SpinEdit();
             this.numericUpDownNivelFondo = new DevExpress.XtraEditors.SpinEdit();
             this.dxErrorProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
+            this.textEditIban = new DevExpress.XtraEditors.TextEdit();
+            this.label17 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.txtLicencia.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsConfiguracion)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
@@ -96,6 +98,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownBordeTabla.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownNivelFondo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxErrorProvider1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditIban.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // txtLicencia
@@ -114,7 +117,7 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(15, 261);
+            this.label15.Location = new System.Drawing.Point(14, 287);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(101, 13);
             this.label15.TabIndex = 20;
@@ -124,7 +127,7 @@
             // 
             this.txtForder.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtForder.Location = new System.Drawing.Point(122, 258);
+            this.txtForder.Location = new System.Drawing.Point(121, 284);
             this.txtForder.Name = "txtForder";
             this.txtForder.ReadOnly = true;
             this.txtForder.Size = new System.Drawing.Size(198, 21);
@@ -136,7 +139,7 @@
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.button1.Image = global::Facturas.FacturasRecursos.explorar;
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(326, 256);
+            this.button1.Location = new System.Drawing.Point(325, 282);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 18;
@@ -258,7 +261,7 @@
             this.btnSalir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSalir.Image = global::Facturas.FacturasRecursos.sout;
             this.btnSalir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSalir.Location = new System.Drawing.Point(356, 419);
+            this.btnSalir.Location = new System.Drawing.Point(356, 456);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(75, 33);
             this.btnSalir.TabIndex = 4;
@@ -273,7 +276,7 @@
             this.btnGuardar.Enabled = false;
             this.btnGuardar.Image = global::Facturas.FacturasRecursos.save;
             this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGuardar.Location = new System.Drawing.Point(275, 418);
+            this.btnGuardar.Location = new System.Drawing.Point(275, 455);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(75, 34);
             this.btnGuardar.TabIndex = 3;
@@ -351,6 +354,7 @@
             this.txtTelefono.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsConfiguracion, "Telefono", true, System.Windows.Forms.DataSourceUpdateMode.Never));
             this.txtTelefono.Location = new System.Drawing.Point(121, 128);
             this.txtTelefono.Name = "txtTelefono";
+            this.txtTelefono.Properties.MaxLength = 9;
             this.txtTelefono.Size = new System.Drawing.Size(61, 20);
             this.txtTelefono.TabIndex = 4;
             this.txtTelefono.EditValueChanged += new System.EventHandler(this.TxtTelefonoEditValueChanged);
@@ -360,6 +364,7 @@
             this.txtMovil.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsConfiguracion, "Movil", true, System.Windows.Forms.DataSourceUpdateMode.Never));
             this.txtMovil.Location = new System.Drawing.Point(121, 154);
             this.txtMovil.Name = "txtMovil";
+            this.txtMovil.Properties.MaxLength = 9;
             this.txtMovil.Size = new System.Drawing.Size(61, 20);
             this.txtMovil.TabIndex = 5;
             this.txtMovil.EditValueChanged += new System.EventHandler(this.TxtMovilEditValueChanged);
@@ -380,6 +385,7 @@
             this.txtNif.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsConfiguracion, "Cif", true, System.Windows.Forms.DataSourceUpdateMode.Never));
             this.txtNif.Location = new System.Drawing.Point(122, 206);
             this.txtNif.Name = "txtNif";
+            this.txtNif.Properties.MaxLength = 9;
             this.txtNif.Size = new System.Drawing.Size(78, 20);
             this.txtNif.TabIndex = 7;
             this.txtNif.EditValueChanged += new System.EventHandler(this.TxtNifEditValueChanged);
@@ -389,6 +395,7 @@
             this.txtCCC.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsConfiguracion, "Ccc", true, System.Windows.Forms.DataSourceUpdateMode.Never));
             this.txtCCC.Location = new System.Drawing.Point(122, 232);
             this.txtCCC.Name = "txtCCC";
+            this.txtCCC.Properties.MaxLength = 20;
             this.txtCCC.Size = new System.Drawing.Size(146, 20);
             this.txtCCC.TabIndex = 8;
             this.txtCCC.EditValueChanged += new System.EventHandler(this.TxtCccEditValueChanged);
@@ -397,6 +404,8 @@
             // 
             this.gbDatosPersonales.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.gbDatosPersonales.Controls.Add(this.textEditIban);
+            this.gbDatosPersonales.Controls.Add(this.label17);
             this.gbDatosPersonales.Controls.Add(this.button1);
             this.gbDatosPersonales.Controls.Add(this.label15);
             this.gbDatosPersonales.Controls.Add(this.txtCCC);
@@ -420,7 +429,7 @@
             this.gbDatosPersonales.Controls.Add(this.txtNombre);
             this.gbDatosPersonales.Location = new System.Drawing.Point(12, 12);
             this.gbDatosPersonales.Name = "gbDatosPersonales";
-            this.gbDatosPersonales.Size = new System.Drawing.Size(419, 294);
+            this.gbDatosPersonales.Size = new System.Drawing.Size(419, 330);
             this.gbDatosPersonales.TabIndex = 0;
             this.gbDatosPersonales.Text = "Datos personales";
             // 
@@ -432,7 +441,7 @@
             this.gbDatosEconomicos.Controls.Add(this.label12);
             this.gbDatosEconomicos.Controls.Add(this.label10);
             this.gbDatosEconomicos.Controls.Add(this.label11);
-            this.gbDatosEconomicos.Location = new System.Drawing.Point(12, 312);
+            this.gbDatosEconomicos.Location = new System.Drawing.Point(12, 348);
             this.gbDatosEconomicos.Name = "gbDatosEconomicos";
             this.gbDatosEconomicos.Size = new System.Drawing.Size(200, 100);
             this.gbDatosEconomicos.TabIndex = 1;
@@ -494,7 +503,7 @@
             this.groupControl3.Controls.Add(this.label16);
             this.groupControl3.Controls.Add(this.label13);
             this.groupControl3.Controls.Add(this.label14);
-            this.groupControl3.Location = new System.Drawing.Point(219, 313);
+            this.groupControl3.Location = new System.Drawing.Point(219, 349);
             this.groupControl3.Name = "groupControl3";
             this.groupControl3.Size = new System.Drawing.Size(212, 100);
             this.groupControl3.TabIndex = 2;
@@ -556,12 +565,31 @@
             this.dxErrorProvider1.ContainerControl = this;
             this.dxErrorProvider1.DataSource = this.bsConfiguracion;
             // 
+            // textEditIban
+            // 
+            this.textEditIban.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsConfiguracion, "Iban", true, System.Windows.Forms.DataSourceUpdateMode.Never));
+            this.textEditIban.Location = new System.Drawing.Point(121, 258);
+            this.textEditIban.Name = "textEditIban";
+            this.textEditIban.Properties.MaxLength = 30;
+            this.textEditIban.Size = new System.Drawing.Size(146, 20);
+            this.textEditIban.TabIndex = 21;
+            this.textEditIban.EditValueChanged += new System.EventHandler(this.TextEditIbanEditValueChanged);
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(87, 261);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(29, 13);
+            this.label17.TabIndex = 22;
+            this.label17.Text = "Iban";
+            // 
             // Configuracion
             // 
             this.AcceptButton = this.btnGuardar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(443, 464);
+            this.ClientSize = new System.Drawing.Size(443, 501);
             this.Controls.Add(this.groupControl3);
             this.Controls.Add(this.gbDatosEconomicos);
             this.Controls.Add(this.gbDatosPersonales);
@@ -600,6 +628,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownBordeTabla.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownNivelFondo.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxErrorProvider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditIban.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -648,5 +677,7 @@
         private DevExpress.XtraEditors.SpinEdit numericUpDownNivelFondo;
         private DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider dxErrorProvider1;
         private System.Windows.Forms.BindingSource bsConfiguracion;
+        private DevExpress.XtraEditors.TextEdit textEditIban;
+        private System.Windows.Forms.Label label17;
     }
 }

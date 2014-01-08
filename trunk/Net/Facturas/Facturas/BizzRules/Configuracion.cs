@@ -22,6 +22,8 @@ namespace Facturas.BizzRules
         private int _nilvelLmFondo;
         private decimal _tablaBorde;
         private int _ultimaFactura;
+        private string _iban;
+
         #endregion
 
         #region Propiedades
@@ -116,6 +118,16 @@ namespace Facturas.BizzRules
             }
         }
 
+        public string Iban
+        {
+            get { return _iban; }
+            set
+            {
+                _iban = value;
+                RaisePropertyChanged("Iban");
+            }
+        }
+
         public decimal Iva
         {
             get { return _iva; }
@@ -169,8 +181,10 @@ namespace Facturas.BizzRules
         public int UltimaFactura
         {
             get { return _ultimaFactura; }
-            set { _ultimaFactura = value;
-            RaisePropertyChanged("UltimaFactura");
+            set
+            {
+                _ultimaFactura = value;
+                RaisePropertyChanged("UltimaFactura");
             }
         }
         #endregion
@@ -186,7 +200,7 @@ namespace Facturas.BizzRules
                 propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
             }
         }
-        
+
         #region Implementation of IDXDataErrorInfo
 
         /// <summary>
@@ -264,7 +278,7 @@ namespace Facturas.BizzRules
                     info.ErrorType = ErrorType.Critical;
                     return;
                 }
-                
+
             }
             if (propertyName.Equals("Ccc"))
             {
@@ -289,7 +303,7 @@ namespace Facturas.BizzRules
                     info.ErrorType = ErrorType.Critical;
                     return;
                 }
-                
+
             }
 
         }
