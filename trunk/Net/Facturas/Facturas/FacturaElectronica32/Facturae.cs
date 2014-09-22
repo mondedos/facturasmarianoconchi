@@ -1,4 +1,5 @@
 ﻿using FacturaElectronica32;
+using Facturas.BizzRules;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,6 +9,8 @@ namespace FacturaElectronica32
 {
     public partial class Facturae
     {
+        double _total;
+
         public static Facturae Create()
         {
             Facturae factura = new Facturae
@@ -38,6 +41,7 @@ namespace FacturaElectronica32
         }
         public void SetTotal(double total)
         {
+            _total = total;
             AmountType typeInvoicesAmount = FileHeader.Batch.TotalInvoicesAmount ?? new AmountType
             {
 
@@ -59,5 +63,33 @@ namespace FacturaElectronica32
             typeTotalExecutableAmount.TotalAmount = total;
             FileHeader.Batch.TotalExecutableAmount = typeTotalExecutableAmount;
         }
+
+        
+    }
+
+
+    public partial class InvoiceType
+    {
+        internal static InvoiceType Create(IFactura factura)
+        {
+            InvoiceType invoice = new InvoiceType
+            {
+                InvoiceHeader = new InvoiceHeaderType
+                {
+                    InvoiceNumber=Convert.ToString(factura.Numero),
+                    InvoiceSeriesCode=string.Empty,
+                    InvoiceDocumentType=InvoiceDocumentTypeType.FA,
+                    InvoiceClass=InvoiceClassType.OO
+                },
+                InvoiceIssueData = new InvoiceIssueDataType
+                {
+
+                }
+            };
+
+
+            return invoice;
+        }
+
     }
 }
