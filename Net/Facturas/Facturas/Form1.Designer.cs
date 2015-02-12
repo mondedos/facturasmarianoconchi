@@ -47,6 +47,7 @@ namespace Facturas
             System.Windows.Forms.Label label2;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.cifTextBox = new DevExpress.XtraEditors.TextEdit();
+            this.bsFactura = new System.Windows.Forms.BindingSource(this.components);
             this.ciudadTextBox = new DevExpress.XtraEditors.TextEdit();
             this.codigoPostalTextBox = new DevExpress.XtraEditors.TextEdit();
             this.nombreTextBox = new DevExpress.XtraEditors.TextEdit();
@@ -60,6 +61,8 @@ namespace Facturas
             this.conceptoTextBox = new DevExpress.XtraEditors.MemoEdit();
             this.txtHorasEuros = new DevExpress.XtraEditors.TextEdit();
             this.kilometrosTextBox = new DevExpress.XtraEditors.SpinEdit();
+            this.horasEsperaTextBox = new DevExpress.XtraEditors.TextEdit();
+            this.cantidadTextBox = new DevExpress.XtraEditors.TextEdit();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButtonNuevo = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonGuardar = new System.Windows.Forms.ToolStripButton();
@@ -94,9 +97,7 @@ namespace Facturas
             this.toolStripButtonInsertar = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonEliminar = new System.Windows.Forms.ToolStripButton();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.horasEsperaTextBox = new DevExpress.XtraEditors.TextEdit();
-            this.cantidadTextBox = new DevExpress.XtraEditors.TextEdit();
-            this.bsFactura = new System.Windows.Forms.BindingSource(this.components);
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             cantidadLabel = new System.Windows.Forms.Label();
             conceptoLabel = new System.Windows.Forms.Label();
             horasEsperaLabel = new System.Windows.Forms.Label();
@@ -112,6 +113,7 @@ namespace Facturas
             label1 = new System.Windows.Forms.Label();
             label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.cifTextBox.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsFactura)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ciudadTextBox.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.codigoPostalTextBox.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nombreTextBox.Properties)).BeginInit();
@@ -120,7 +122,7 @@ namespace Facturas
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numeroTextBox.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.direccionTextBox.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tbFecha.Properties.VistaTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbFecha.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbFecha.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gbLineas)).BeginInit();
             this.gbLineas.SuspendLayout();
@@ -128,6 +130,8 @@ namespace Facturas
             ((System.ComponentModel.ISupportInitialize)(this.conceptoTextBox.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtHorasEuros.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kilometrosTextBox.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.horasEsperaTextBox.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cantidadTextBox.Properties)).BeginInit();
             this.toolStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -136,9 +140,6 @@ namespace Facturas
             this.splitContainer1.SuspendLayout();
             this.toolStrip2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.horasEsperaTextBox.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cantidadTextBox.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsFactura)).BeginInit();
             this.SuspendLayout();
             // 
             // cantidadLabel
@@ -279,6 +280,10 @@ namespace Facturas
             this.cifTextBox.Size = new System.Drawing.Size(66, 20);
             this.cifTextBox.TabIndex = 3;
             // 
+            // bsFactura
+            // 
+            this.bsFactura.DataSource = typeof(Facturas.BizzRules.Factura);
+            // 
             // ciudadTextBox
             // 
             this.ciudadTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
@@ -384,10 +389,10 @@ namespace Facturas
             this.tbFecha.Name = "tbFecha";
             this.tbFecha.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.tbFecha.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
             this.tbFecha.Properties.Mask.EditMask = "";
             this.tbFecha.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.None;
-            this.tbFecha.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
             this.tbFecha.Size = new System.Drawing.Size(66, 20);
             this.tbFecha.TabIndex = 1;
             // 
@@ -480,12 +485,55 @@ namespace Facturas
             this.kilometrosTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DecimalesCalculadoraOnKeyPress);
             this.kilometrosTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.KilometrosTextBoxValidating);
             // 
+            // horasEsperaTextBox
+            // 
+            this.horasEsperaTextBox.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.horasEsperaTextBox.Location = new System.Drawing.Point(247, 24);
+            this.horasEsperaTextBox.Name = "horasEsperaTextBox";
+            this.horasEsperaTextBox.Properties.Appearance.Options.UseTextOptions = true;
+            this.horasEsperaTextBox.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.horasEsperaTextBox.Properties.DisplayFormat.FormatString = "c";
+            this.horasEsperaTextBox.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.horasEsperaTextBox.Properties.EditFormat.FormatString = "c";
+            this.horasEsperaTextBox.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.horasEsperaTextBox.Size = new System.Drawing.Size(63, 20);
+            this.horasEsperaTextBox.TabIndex = 1;
+            this.horasEsperaTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DecimalesCalculadoraOnKeyPress);
+            this.horasEsperaTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.HorasEsperaTextBoxValidating);
+            // 
+            // cantidadTextBox
+            // 
+            this.cantidadTextBox.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.cantidadTextBox.Location = new System.Drawing.Point(79, 24);
+            this.cantidadTextBox.Name = "cantidadTextBox";
+            this.cantidadTextBox.Properties.Appearance.Options.UseTextOptions = true;
+            this.cantidadTextBox.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.cantidadTextBox.Properties.DisplayFormat.FormatString = "c";
+            this.cantidadTextBox.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.cantidadTextBox.Properties.EditFormat.FormatString = "c";
+            this.cantidadTextBox.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.cantidadTextBox.Size = new System.Drawing.Size(63, 20);
+            this.cantidadTextBox.TabIndex = 0;
+            this.cantidadTextBox.TextChanged += new System.EventHandler(this.TxtKilomestrosEurosTextChanged);
+            this.cantidadTextBox.Enter += new System.EventHandler(this.CantidadTextBoxEnter);
+            this.cantidadTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DecimalesCalculadoraOnKeyPress);
+            this.cantidadTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.CantidadTextBoxValidating);
+            // 
             // toolStrip1
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripButtonNuevo,
             this.toolStripButtonGuardar,
-            this.toolStripButtonGenerar});
+            this.toolStripButtonGenerar,
+            this.toolStripButton1});
             this.toolStrip1.Location = new System.Drawing.Point(0, 24);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(843, 25);
@@ -782,51 +830,15 @@ namespace Facturas
             // 
             this.errorProvider1.ContainerControl = this;
             // 
-            // horasEsperaTextBox
+            // toolStripButton1
             // 
-            this.horasEsperaTextBox.EditValue = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            this.horasEsperaTextBox.Location = new System.Drawing.Point(247, 24);
-            this.horasEsperaTextBox.Name = "horasEsperaTextBox";
-            this.horasEsperaTextBox.Properties.Appearance.Options.UseTextOptions = true;
-            this.horasEsperaTextBox.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-            this.horasEsperaTextBox.Properties.DisplayFormat.FormatString = "c";
-            this.horasEsperaTextBox.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.horasEsperaTextBox.Properties.EditFormat.FormatString = "c";
-            this.horasEsperaTextBox.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.horasEsperaTextBox.Size = new System.Drawing.Size(63, 20);
-            this.horasEsperaTextBox.TabIndex = 1;
-            this.horasEsperaTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DecimalesCalculadoraOnKeyPress);
-            this.horasEsperaTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.HorasEsperaTextBoxValidating);
-            // 
-            // cantidadTextBox
-            // 
-            this.cantidadTextBox.EditValue = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            this.cantidadTextBox.Location = new System.Drawing.Point(79, 24);
-            this.cantidadTextBox.Name = "cantidadTextBox";
-            this.cantidadTextBox.Properties.Appearance.Options.UseTextOptions = true;
-            this.cantidadTextBox.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-            this.cantidadTextBox.Properties.DisplayFormat.FormatString = "c";
-            this.cantidadTextBox.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.cantidadTextBox.Properties.EditFormat.FormatString = "c";
-            this.cantidadTextBox.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.cantidadTextBox.Size = new System.Drawing.Size(63, 20);
-            this.cantidadTextBox.TabIndex = 0;
-            this.cantidadTextBox.TextChanged += new System.EventHandler(this.TxtKilomestrosEurosTextChanged);
-            this.cantidadTextBox.Enter += new System.EventHandler(this.CantidadTextBoxEnter);
-            this.cantidadTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DecimalesCalculadoraOnKeyPress);
-            this.cantidadTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.CantidadTextBoxValidating);
-            // 
-            // bsFactura
-            // 
-            this.bsFactura.DataSource = typeof(Facturas.BizzRules.Factura);
+            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton1.Text = "toolStripButton1";
+            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
             // Form1
             // 
@@ -844,6 +856,7 @@ namespace Facturas
             this.Text = "Facturas Taxi";
             this.Load += new System.EventHandler(this.Form1Load);
             ((System.ComponentModel.ISupportInitialize)(this.cifTextBox.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsFactura)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ciudadTextBox.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.codigoPostalTextBox.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nombreTextBox.Properties)).EndInit();
@@ -853,7 +866,7 @@ namespace Facturas
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numeroTextBox.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.direccionTextBox.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tbFecha.Properties.VistaTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbFecha.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbFecha.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gbLineas)).EndInit();
             this.gbLineas.ResumeLayout(false);
@@ -862,6 +875,8 @@ namespace Facturas
             ((System.ComponentModel.ISupportInitialize)(this.conceptoTextBox.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtHorasEuros.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.kilometrosTextBox.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.horasEsperaTextBox.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cantidadTextBox.Properties)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
@@ -873,9 +888,6 @@ namespace Facturas
             this.toolStrip2.ResumeLayout(false);
             this.toolStrip2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.horasEsperaTextBox.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cantidadTextBox.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsFactura)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -934,6 +946,7 @@ namespace Facturas
         private DevExpress.XtraEditors.SpinEdit kilometrosTextBox;
         private DevExpress.XtraEditors.TextEdit horasEsperaTextBox;
         private DevExpress.XtraEditors.TextEdit cantidadTextBox;
+        private System.Windows.Forms.ToolStripButton toolStripButton1;
     }
 }
 
