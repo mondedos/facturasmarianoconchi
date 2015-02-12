@@ -1,13 +1,18 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using DevExpress.LookAndFeel;
 using DevExpress.XtraEditors;
+using DevExpress.XtraPrinting.Drawing;
+using DevExpress.XtraReports.UI;
 using Facturas.BizzRules;
 using System.Diagnostics;
 using Facturas.Properties;
 using System.Xml.Serialization;
 using System.IO;
+using Facturas.Report;
 
 namespace Facturas
 {
@@ -70,6 +75,18 @@ namespace Facturas
             toolStripButtonGenerar.Enabled = value;
             guardarFacturaToolStripMenuItem.Enabled = value;
         }
+
+        public void SetTextWatermark(XtraReport report)
+        {
+            // Adjust text watermark settings.
+            report.Watermark.Text = "Factura Taxi Mariano";
+            report.Watermark.TextDirection = DirectionMode.ForwardDiagonal;
+            report.Watermark.Font = new Font(report.Watermark.Font.FontFamily, 40);
+            report.Watermark.ForeColor = Color.DodgerBlue;
+            report.Watermark.TextTransparency = 150;
+            report.Watermark.ShowBehind = false;
+            //report.Watermark.PageRange = "1,3-5";
+        }
         private void GenerarFicheroFacturaPdfToolStripMenuItemClick(object sender, EventArgs e)
         {
             if (!DatosLineaValido()) return;
@@ -80,7 +97,24 @@ namespace Facturas
 
             try
             {
-                (new PdfGenerador(factura)).Run();
+                XtraReportFactura xtraReport=new XtraReportFactura
+                {
+                    Factura=factura
+                };
+
+                SetTextWatermark(xtraReport);
+
+                using (ReportPrintTool printTool = new ReportPrintTool(xtraReport))
+                {
+                    // Invoke the Ribbon Print Preview form modally, 
+                    // and load the report document into it.
+                    printTool.ShowRibbonPreviewDialog();
+
+                    // Invoke the Ribbon Print Preview form
+                    // with the specified look and feel setting.
+                    printTool.ShowRibbonPreview(UserLookAndFeel.Default);
+                }
+                //(new PdfGenerador(factura)).Run();
             }
             catch (Exception exception)
             {
