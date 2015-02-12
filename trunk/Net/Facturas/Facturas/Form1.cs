@@ -688,6 +688,24 @@ namespace Facturas
             }
         }
 
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+             Factura factura = bsFactura.Current as Factura;
+
+            if (factura != null)
+            {
+                XtraReportFactura xtraReport = new XtraReportFactura
+                {
+                    Factura = factura
+                };
+                ReportDesignTool dt = new ReportDesignTool(xtraReport);
+
+                // Invoke the Ribbon End-User Designer form modally. 
+                dt.ShowRibbonDesignerDialog();
+            }
+            
+        }
+
 
     }
 }
