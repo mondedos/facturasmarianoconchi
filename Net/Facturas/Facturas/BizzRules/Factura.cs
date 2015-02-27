@@ -16,6 +16,9 @@ namespace Facturas.BizzRules
         private string _codigoPostal;
         private string _telefono;
         private string _cif;
+        private string _unidadTramitadora;
+        private string _unidadOrganica;
+
         #endregion
 
         #region Propiedades
@@ -100,6 +103,25 @@ namespace Facturas.BizzRules
             }
         }
 
+        public string UnidadTramitadora
+        {
+            get { return _unidadTramitadora; }
+            set
+            {
+                _unidadTramitadora = value;
+                RaisePropertyChanged("UnidadTramitadora");
+            }
+        }
+
+        public string UnidadOrganica
+        {
+            get { return _unidadOrganica; }
+            set
+            {
+                _unidadOrganica = value;
+                RaisePropertyChanged("UnidadOrganica");
+            }
+        }
 
         [XmlIgnore]
         public List<ILineaFactura> Lineas { get; private set; }
