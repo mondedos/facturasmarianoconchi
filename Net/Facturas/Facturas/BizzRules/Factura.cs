@@ -23,6 +23,12 @@ namespace Facturas.BizzRules
 
         #region Propiedades
 
+        public decimal Total { get; set; }
+
+        public decimal SubTotal { get; set; }
+
+        public decimal Iva { get; set; }
+
         public DateTime Fecha
         {
             get { return _fecha; }
