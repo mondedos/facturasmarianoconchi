@@ -433,7 +433,7 @@
             this.xrTableCell4.Name = "xrTableCell4";
             this.xrTableCell4.StylePriority.UseFont = false;
             this.xrTableCell4.Text = "Concepto";
-            this.xrTableCell4.Weight = 0.5D;
+            this.xrTableCell4.Weight = 1.3074167298353014D;
             // 
             // xrTableCell5
             // 
@@ -442,7 +442,7 @@
             this.xrTableCell5.Name = "xrTableCell5";
             this.xrTableCell5.StylePriority.UseFont = false;
             this.xrTableCell5.Text = "Km / €";
-            this.xrTableCell5.Weight = 0.5D;
+            this.xrTableCell5.Weight = 0.2374403483501572D;
             // 
             // xrTableCell6
             // 
@@ -451,7 +451,7 @@
             this.xrTableCell6.Name = "xrTableCell6";
             this.xrTableCell6.StylePriority.UseFont = false;
             this.xrTableCell6.Text = "Horas / €";
-            this.xrTableCell6.Weight = 0.5D;
+            this.xrTableCell6.Weight = 0.32057419996968683D;
             // 
             // xrTableCell7
             // 
@@ -460,7 +460,7 @@
             this.xrTableCell7.Name = "xrTableCell7";
             this.xrTableCell7.StylePriority.UseFont = false;
             this.xrTableCell7.Text = "Cantidad";
-            this.xrTableCell7.Weight = 0.5D;
+            this.xrTableCell7.Weight = 0.40530292374002058D;
             // 
             // xrTableCell8
             // 
@@ -469,7 +469,7 @@
             this.xrTableCell8.Name = "xrTableCell8";
             this.xrTableCell8.StylePriority.UseFont = false;
             this.xrTableCell8.Text = "Horas Espera";
-            this.xrTableCell8.Weight = 0.5D;
+            this.xrTableCell8.Weight = 0.40869218220368486D;
             // 
             // xrTableCell9
             // 
@@ -478,7 +478,7 @@
             this.xrTableCell9.Name = "xrTableCell9";
             this.xrTableCell9.StylePriority.UseFont = false;
             this.xrTableCell9.Text = "Kilómetros";
-            this.xrTableCell9.Weight = 0.5D;
+            this.xrTableCell9.Weight = 0.32057361590114908D;
             // 
             // xrLabel3
             // 
@@ -491,37 +491,39 @@
             this.xrLabel3.Multiline = true;
             this.xrLabel3.Name = "xrLabel3";
             this.xrLabel3.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel3.SizeF = new System.Drawing.SizeF(104.5F, 22.29166F);
+            this.xrLabel3.SizeF = new System.Drawing.SizeF(273.2501F, 22.29166F);
             this.xrLabel3.StylePriority.UseBorders = false;
             this.xrLabel3.Text = "xrTableCell4";
             // 
             // xrLabel4
             // 
+            this.xrLabel4.AnchorVertical = ((DevExpress.XtraReports.UI.VerticalAnchorStyles)((DevExpress.XtraReports.UI.VerticalAnchorStyles.Top | DevExpress.XtraReports.UI.VerticalAnchorStyles.Bottom)));
             this.xrLabel4.Borders = ((DevExpress.XtraPrinting.BorderSide)(((DevExpress.XtraPrinting.BorderSide.Top | DevExpress.XtraPrinting.BorderSide.Right) 
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.xrLabel4.CanGrow = false;
             this.xrLabel4.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "Lineas.Kilometros", "{0:n2}")});
-            this.xrLabel4.LocationFloat = new DevExpress.Utils.PointFloat(104.5F, 0F);
+            this.xrLabel4.LocationFloat = new DevExpress.Utils.PointFloat(273.2501F, 0F);
             this.xrLabel4.Name = "xrLabel4";
             this.xrLabel4.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel4.SizeF = new System.Drawing.SizeF(104.5F, 22.29166F);
+            this.xrLabel4.SizeF = new System.Drawing.SizeF(66.99985F, 22.29166F);
             this.xrLabel4.StylePriority.UseBorders = false;
             this.xrLabel4.StylePriority.UseTextAlignment = false;
-            this.xrLabel4.Text = "xrTableCell9";
+            this.xrLabel4.Text = "º";
             this.xrLabel4.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
             // 
             // xrLabel5
             // 
+            this.xrLabel5.AnchorVertical = ((DevExpress.XtraReports.UI.VerticalAnchorStyles)((DevExpress.XtraReports.UI.VerticalAnchorStyles.Top | DevExpress.XtraReports.UI.VerticalAnchorStyles.Bottom)));
             this.xrLabel5.Borders = ((DevExpress.XtraPrinting.BorderSide)(((DevExpress.XtraPrinting.BorderSide.Top | DevExpress.XtraPrinting.BorderSide.Right) 
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.xrLabel5.CanGrow = false;
             this.xrLabel5.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "Lineas.KilometrosEuros", "{0:c2}")});
-            this.xrLabel5.LocationFloat = new DevExpress.Utils.PointFloat(209F, 0F);
+            this.xrLabel5.LocationFloat = new DevExpress.Utils.PointFloat(340.2499F, 0F);
             this.xrLabel5.Name = "xrLabel5";
             this.xrLabel5.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel5.SizeF = new System.Drawing.SizeF(104.5F, 22.29166F);
+            this.xrLabel5.SizeF = new System.Drawing.SizeF(49.625F, 22.29166F);
             this.xrLabel5.StylePriority.UseBorders = false;
             this.xrLabel5.StylePriority.UseTextAlignment = false;
             this.xrLabel5.Text = "xrTableCell5";
@@ -529,15 +531,16 @@
             // 
             // xrLabel6
             // 
+            this.xrLabel6.AnchorVertical = ((DevExpress.XtraReports.UI.VerticalAnchorStyles)((DevExpress.XtraReports.UI.VerticalAnchorStyles.Top | DevExpress.XtraReports.UI.VerticalAnchorStyles.Bottom)));
             this.xrLabel6.Borders = ((DevExpress.XtraPrinting.BorderSide)(((DevExpress.XtraPrinting.BorderSide.Top | DevExpress.XtraPrinting.BorderSide.Right) 
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.xrLabel6.CanGrow = false;
             this.xrLabel6.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "Lineas.HorasEspera", "{0:n2}")});
-            this.xrLabel6.LocationFloat = new DevExpress.Utils.PointFloat(313.5F, 0F);
+            this.xrLabel6.LocationFloat = new DevExpress.Utils.PointFloat(389.875F, 0F);
             this.xrLabel6.Name = "xrLabel6";
             this.xrLabel6.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel6.SizeF = new System.Drawing.SizeF(104.5F, 22.29166F);
+            this.xrLabel6.SizeF = new System.Drawing.SizeF(85.41666F, 22.29166F);
             this.xrLabel6.StylePriority.UseBorders = false;
             this.xrLabel6.StylePriority.UseTextAlignment = false;
             this.xrLabel6.Text = "xrTableCell8";
@@ -545,15 +548,16 @@
             // 
             // xrLabel7
             // 
+            this.xrLabel7.AnchorVertical = ((DevExpress.XtraReports.UI.VerticalAnchorStyles)((DevExpress.XtraReports.UI.VerticalAnchorStyles.Top | DevExpress.XtraReports.UI.VerticalAnchorStyles.Bottom)));
             this.xrLabel7.Borders = ((DevExpress.XtraPrinting.BorderSide)(((DevExpress.XtraPrinting.BorderSide.Top | DevExpress.XtraPrinting.BorderSide.Right) 
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.xrLabel7.CanGrow = false;
             this.xrLabel7.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "Lineas.HorasEuros", "{0:c2}")});
-            this.xrLabel7.LocationFloat = new DevExpress.Utils.PointFloat(418F, 0F);
+            this.xrLabel7.LocationFloat = new DevExpress.Utils.PointFloat(475.2917F, 0F);
             this.xrLabel7.Name = "xrLabel7";
             this.xrLabel7.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel7.SizeF = new System.Drawing.SizeF(104.5F, 22.29166F);
+            this.xrLabel7.SizeF = new System.Drawing.SizeF(66.99994F, 22.29166F);
             this.xrLabel7.StylePriority.UseBorders = false;
             this.xrLabel7.StylePriority.UseTextAlignment = false;
             this.xrLabel7.Text = "xrTableCell6";
@@ -561,15 +565,16 @@
             // 
             // xrLabel8
             // 
+            this.xrLabel8.AnchorVertical = ((DevExpress.XtraReports.UI.VerticalAnchorStyles)((DevExpress.XtraReports.UI.VerticalAnchorStyles.Top | DevExpress.XtraReports.UI.VerticalAnchorStyles.Bottom)));
             this.xrLabel8.Borders = ((DevExpress.XtraPrinting.BorderSide)(((DevExpress.XtraPrinting.BorderSide.Top | DevExpress.XtraPrinting.BorderSide.Right) 
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.xrLabel8.CanGrow = false;
             this.xrLabel8.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "Lineas.Cantidad", "{0:c2}")});
-            this.xrLabel8.LocationFloat = new DevExpress.Utils.PointFloat(522.4999F, 0F);
+            this.xrLabel8.LocationFloat = new DevExpress.Utils.PointFloat(542.2917F, 0F);
             this.xrLabel8.Name = "xrLabel8";
             this.xrLabel8.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel8.SizeF = new System.Drawing.SizeF(104.5F, 22.29166F);
+            this.xrLabel8.SizeF = new System.Drawing.SizeF(84.70819F, 22.29166F);
             this.xrLabel8.StylePriority.UseBorders = false;
             this.xrLabel8.StylePriority.UseTextAlignment = false;
             this.xrLabel8.Text = "xrTableCell7";
