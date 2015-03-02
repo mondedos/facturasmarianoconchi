@@ -102,6 +102,24 @@ namespace Facturas
                     Factura=factura
                 };
 
+                xtraReport.Parameters["licenciaMunicipal"].Value = Settings.Default.licencia;
+                xtraReport.Parameters["email"].Value = Settings.Default.email;
+                xtraReport.Parameters["Movil"].Value = Settings.Default.movil;
+                xtraReport.Parameters["Nif"].Value = Settings.Default.nif;
+                xtraReport.Parameters["Telefono"].Value = Settings.Default.telefono;
+                xtraReport.Parameters["nombre"].Value = Settings.Default.nombre;
+                xtraReport.Parameters["direccion"].Value = Settings.Default.direccion;
+                xtraReport.Parameters["poblacion"].Value = Settings.Default.poblacionCP;
+
+                if (!string.IsNullOrEmpty(Settings.Default.Iban))
+                {
+                    xtraReport.Parameters["poblacion"].Value = string.Format("IBAN: {0}", Settings.Default.Iban);
+                }
+                else
+                {
+                    xtraReport.Parameters["poblacion"].Value = string.Format("IBAN: {0}", Settings.Default.ccc);
+                }
+
                 SetTextWatermark(xtraReport);
 
                 using (ReportPrintTool printTool = new ReportPrintTool(xtraReport))
