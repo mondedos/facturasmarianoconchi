@@ -16,7 +16,7 @@ namespace Facturas
             System.Threading.Thread.CurrentThread.CurrentCulture = new CultureInfo("es-ES");
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new Principal());
 
 
         }

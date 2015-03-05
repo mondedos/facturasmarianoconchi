@@ -86,8 +86,12 @@
             this.textEdit5.EditValue = "";
             this.textEdit5.Location = new System.Drawing.Point(664, 80);
             this.textEdit5.Name = "textEdit5";
+            this.textEdit5.Properties.Appearance.Options.UseTextOptions = true;
+            this.textEdit5.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.textEdit5.Properties.DisplayFormat.FormatString = "c2";
+            this.textEdit5.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.textEdit5.Properties.EditFormat.FormatString = "c2";
+            this.textEdit5.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.textEdit5.Size = new System.Drawing.Size(108, 20);
             this.textEdit5.StyleController = this.layoutControl1;
             this.textEdit5.TabIndex = 9;
@@ -98,8 +102,12 @@
             this.SetBoundPropertyName(this.textEdit4, "EditValue");
             this.textEdit4.Location = new System.Drawing.Point(200, 80);
             this.textEdit4.Name = "textEdit4";
+            this.textEdit4.Properties.Appearance.Options.UseTextOptions = true;
+            this.textEdit4.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.textEdit4.Properties.DisplayFormat.FormatString = "c2";
+            this.textEdit4.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.textEdit4.Properties.EditFormat.FormatString = "c2";
+            this.textEdit4.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.textEdit4.Size = new System.Drawing.Size(81, 20);
             this.textEdit4.StyleController = this.layoutControl1;
             this.textEdit4.TabIndex = 8;
@@ -110,6 +118,8 @@
             this.SetBoundPropertyName(this.textEdit3, "EditValue");
             this.textEdit3.Location = new System.Drawing.Point(352, 80);
             this.textEdit3.Name = "textEdit3";
+            this.textEdit3.Properties.Appearance.Options.UseTextOptions = true;
+            this.textEdit3.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.textEdit3.Properties.DisplayFormat.FormatString = "n2";
             this.textEdit3.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.textEdit3.Properties.EditFormat.FormatString = "n2";
@@ -124,8 +134,12 @@
             this.SetBoundPropertyName(this.textEdit2, "EditValue");
             this.textEdit2.Location = new System.Drawing.Point(532, 80);
             this.textEdit2.Name = "textEdit2";
+            this.textEdit2.Properties.Appearance.Options.UseTextOptions = true;
+            this.textEdit2.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.textEdit2.Properties.DisplayFormat.FormatString = "c2";
+            this.textEdit2.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.textEdit2.Properties.EditFormat.FormatString = "c2";
+            this.textEdit2.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.textEdit2.Size = new System.Drawing.Size(61, 20);
             this.textEdit2.StyleController = this.layoutControl1;
             this.textEdit2.TabIndex = 6;
