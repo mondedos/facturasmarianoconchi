@@ -79,6 +79,8 @@
     <Reference Include="DevExpress.XtraCharts.v14.1, Version=14.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraEditors.v14.1, Version=14.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraGauges.v14.1.Core, Version=14.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGrid.v14.1, Version=14.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v14.1, Version=14.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraPrinting.v14.1, Version=14.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraReports.v14.1, Version=14.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraReports.v14.1.Extensions, Version=14.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
@@ -150,6 +152,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UcLinea.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UcLinea.Designer.cs">
+      <DependentUpon>UcLinea.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Configuracion.resx">
       <DependentUpon>Configuracion.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -183,6 +191,9 @@
     </Compile>
     <EmbeddedResource Include="Report\XtraReportFactura.resx">
       <DependentUpon>XtraReportFactura.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UcLinea.resx">
+      <DependentUpon>UcLinea.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config" />
     <None Include="Facturas.snk" />
