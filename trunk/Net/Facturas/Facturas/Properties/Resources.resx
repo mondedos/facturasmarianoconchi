@@ -46,7 +46,7 @@
     
     mimetype: application/x-microsoft.net.object.binary.base64
     value   : The object must be serialized with 
-            : System.Serialization.Formatters.Binary.BinaryFormatter
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
             : and then encoded with base64 encoding.
     
     mimetype: application/x-microsoft.net.object.soap.base64
@@ -60,6 +60,7 @@
             : and then encoded with base64 encoding.
     -->
   <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
     <xsd:element name="root" msdata:IsDataSet="true">
       <xsd:complexType>
         <xsd:choice maxOccurs="unbounded">
@@ -68,9 +69,10 @@
               <xsd:sequence>
                 <xsd:element name="value" type="xsd:string" minOccurs="0" />
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" />
+              <xsd:attribute name="name" use="required" type="xsd:string" />
               <xsd:attribute name="type" type="xsd:string" />
               <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="assembly">
@@ -85,9 +87,10 @@
                 <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
                 <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
               <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
               <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="resheader">
@@ -109,9 +112,481 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="AdobeAcrobat" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AdobeAcrobat.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="autorizado32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\autorizado32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="autorizado48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\autorizado48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="BindingNavigatorSkin_Add" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BindingNavigatorSkin_Add.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="BindingNavigatorSkin_Delete" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BindingNavigatorSkin_Delete.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="delete" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\delete.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="document_add" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\document_add.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="explorar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\explorar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="first_img" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\first_img.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="group_add" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\group_add.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icon_config" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icon-config.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="last_img" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\last_img.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="lin_agt_wrench" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\lin_agt_wrench.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="next" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\next.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="nuevo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\nuevo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="page" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\page.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="prev" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\prev.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="save" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\save.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="sign" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\sign.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="sout" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\sout.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Validar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Validar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1412779488_Check" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1412779488_Check.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1412779493_Check" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1412779493_Check.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1412779498_Check" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1412779498_Check.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1412779502_Check" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1412779502_Check.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1412779555_Delete" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1412779555_Delete.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1412779560_Delete" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1412779560_Delete.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1412779562_Delete" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1412779562_Delete.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1412779564_Delete" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1412779564_Delete.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1412779587_Previous" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1412779587_Previous.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1412779589_Previous" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1412779589_Previous.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1412779591_Previous" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1412779591_Previous.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1412779593_Previous" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1412779593_Previous.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1412779602_Next" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1412779602_Next.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1412779605_Next" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1412779605_Next.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1412779606_Next" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1412779606_Next.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1412779609_Next" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1412779609_Next.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1412779623_Help" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1412779623_Help.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1412779625_Help" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1412779625_Help.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1412779627_Help" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1412779627_Help.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1412779629_Help" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1412779629_Help.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1412779643_Information" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1412779643_Information.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1412779646_Information" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1412779646_Information.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1412779647_Information" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1412779647_Information.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1412779649_Information" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1412779649_Information.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1412779659_Stock_Index_Up" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1412779659_Stock Index Up.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1412779661_Stock_Index_Up" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1412779661_Stock Index Up.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1412779662_Stock_Index_Up" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1412779662_Stock Index Up.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1412779664_Stock_Index_Up" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1412779664_Stock Index Up.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1412779671_Stock_Index_Down" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1412779671_Stock Index Down.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1412779672_Stock_Index_Down" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1412779672_Stock Index Down.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1412779674_Stock_Index_Down" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1412779674_Stock Index Down.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1412779676_Stock_Index_Down" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1412779676_Stock Index Down.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1412779683_Cancel" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1412779683_Cancel.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1412779684_Cancel" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1412779684_Cancel.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1412779686_Cancel" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1412779686_Cancel.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1412779688_Cancel" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1412779688_Cancel.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1412779706_Search" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1412779706_Search.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1412779708_Search" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1412779708_Search.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1412779710_Search" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1412779710_Search.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1412779711_Search" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1412779711_Search.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1412779737_Download" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1412779737_Download.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1412779739_Download" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1412779739_Download.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1412779741_Download" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1412779741_Download.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1412779742_Download" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1412779742_Download.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1412779753_Mail" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1412779753_Mail.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1412779755_Mail" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1412779755_Mail.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1412779756_Mail" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1412779756_Mail.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1412779758_Mail" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1412779758_Mail.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1412779767_Synchronize" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1412779767_Synchronize.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1412779769_Synchronize" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1412779769_Synchronize.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1412779771_Synchronize" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1412779771_Synchronize.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1412779772_Synchronize" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1412779772_Synchronize.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1412779794_Zoom_Out" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1412779794_Zoom Out.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1412779796_Zoom_Out" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1412779796_Zoom Out.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1412779797_Zoom_Out" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1412779797_Zoom Out.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1412779799_Zoom_Out" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1412779799_Zoom Out.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1412779815_Play" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1412779815_Play.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1412779816_Play" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1412779816_Play.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1412779818_Play" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1412779818_Play.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1412779820_Play" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1412779820_Play.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1412779840_Key" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1412779840_Key.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1412779842_Key" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1412779842_Key.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1412779843_Key" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1412779843_Key.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1412779845_Key" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1412779845_Key.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1412779850_Flash_Disk" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1412779850_Flash Disk.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1412779851_Flash_Disk" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1412779851_Flash Disk.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1412779853_Flash_Disk" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1412779853_Flash Disk.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1412779855_Flash_Disk" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1412779855_Flash Disk.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1412779862_Cut" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1412779862_Cut.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1412779864_Cut" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1412779864_Cut.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1412779865_Cut" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1412779865_Cut.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1412779867_Cut" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1412779867_Cut.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1412779874_Refresh" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1412779874_Refresh.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1412779876_Refresh" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1412779876_Refresh.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1412779877_Refresh" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1412779877_Refresh.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1412779881_Refresh" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1412779881_Refresh.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1412779893_Undo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1412779893_Undo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1412779894_Undo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1412779894_Undo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1412779896_Undo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1412779896_Undo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1412779898_Undo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1412779898_Undo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1412779906_Paste" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1412779906_Paste.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1412779907_Paste" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1412779907_Paste.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1412779909_Paste" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1412779909_Paste.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1412779910_Paste" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1412779910_Paste.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1412779916_Zoom_In" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1412779916_Zoom In.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1412779918_Zoom_In" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1412779918_Zoom In.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1412779919_Zoom_In" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1412779919_Zoom In.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1412779921_Zoom_In" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1412779921_Zoom In.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1412779928_Hard_Disk" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1412779928_Hard Disk.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1412779929_Hard_Disk" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1412779929_Hard Disk.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1412779930_Hard_Disk" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1412779930_Hard Disk.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1412779932_Hard_Disk" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1412779932_Hard Disk.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1412779941_Find" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1412779941_Find.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1412779945_Find" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1412779945_Find.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1412779946_Find" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1412779946_Find.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1412779954_Find" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1412779954_Find.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1412779977_Pause" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1412779977_Pause.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1412779978_Pause" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1412779978_Pause.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1412779980_Pause" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1412779980_Pause.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1412779982_Pause" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1412779982_Pause.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1412780011_Copy" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1412780011_Copy.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1412780013_Copy" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1412780013_Copy.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1412780014_Copy" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1412780014_Copy.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1412780016_Copy" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1412780016_Copy.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1412780023_Text_Document" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1412780023_Text Document.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1412780025_Text_Document" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1412780025_Text Document.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1412780026_Text_Document" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1412780026_Text Document.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1412780028_Text_Document" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1412780028_Text Document.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1412780038_Stop" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1412780038_Stop.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1412780039_Stop" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1412780039_Stop.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1412780040_Stop" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1412780040_Stop.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1412780043_Stop" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1412780043_Stop.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1412780082_Preview" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1412780082_Preview.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1412780083_Preview" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1412780083_Preview.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1412780085_Preview" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1412780085_Preview.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1412780087_Preview" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1412780087_Preview.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1412780093_User" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1412780093_User.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1412780095_User" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1412780095_User.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1412780096_User" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1412780096_User.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1412780098_User" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1412780098_User.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1412780109_Edit" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1412780109_Edit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1412780110_Edit" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1412780110_Edit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1412780112_Edit" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1412780112_Edit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1412780114_Edit" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1412780114_Edit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1412780128_Copy_v2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1412780128_Copy v2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1412780129_Copy_v2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1412780129_Copy v2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1412780131_Copy_v2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1412780131_Copy v2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1412780133_Copy_v2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1412780133_Copy v2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1412780157_Add" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1412780157_Add.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1412780159_Add" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1412780159_Add.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1412780160_Add" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1412780160_Add.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1412780162_Add" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1412780162_Add.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_48px_Crystal_Clear_app_harddrive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\48px-Crystal_Clear_app_harddrive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_48px_Document_save_svg" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\48px-Document-save.svg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_54_220409_folder_black_favourite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\54-220409_folder_black_favourite.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_54_220412_folder_black_favourite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\54-220412_folder_black_favourite.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>
