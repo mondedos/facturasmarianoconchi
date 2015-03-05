@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Configuracion));
             this.txtLicencia = new DevExpress.XtraEditors.TextEdit();
             this.bsConfiguracion = new System.Windows.Forms.BindingSource(this.components);
             this.label15 = new System.Windows.Forms.Label();
@@ -47,7 +46,6 @@
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.btnSalir = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.label16 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
@@ -256,27 +254,13 @@
             this.label10.TabIndex = 18;
             this.label10.Text = "IVA";
             // 
-            // btnSalir
-            // 
-            this.btnSalir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSalir.Image = global::Facturas.FacturasRecursos.sout;
-            this.btnSalir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSalir.Location = new System.Drawing.Point(356, 456);
-            this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(75, 33);
-            this.btnSalir.TabIndex = 4;
-            this.btnSalir.Text = "&Salir";
-            this.btnSalir.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnSalir.UseVisualStyleBackColor = true;
-            this.btnSalir.Click += new System.EventHandler(this.BtnSalirClick);
-            // 
             // btnGuardar
             // 
             this.btnGuardar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnGuardar.Enabled = false;
             this.btnGuardar.Image = global::Facturas.FacturasRecursos.save;
             this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGuardar.Location = new System.Drawing.Point(275, 455);
+            this.btnGuardar.Location = new System.Drawing.Point(356, 455);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(75, 34);
             this.btnGuardar.TabIndex = 3;
@@ -402,8 +386,7 @@
             // 
             // gbDatosPersonales
             // 
-            this.gbDatosPersonales.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.gbDatosPersonales.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.gbDatosPersonales.Controls.Add(this.textEditIban);
             this.gbDatosPersonales.Controls.Add(this.label17);
             this.gbDatosPersonales.Controls.Add(this.button1);
@@ -454,6 +437,7 @@
             // 
             // gbDatosEconomicos
             // 
+            this.gbDatosEconomicos.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.gbDatosEconomicos.Controls.Add(this.txtKilometros);
             this.gbDatosEconomicos.Controls.Add(this.txtHorasEspera);
             this.gbDatosEconomicos.Controls.Add(this.txtIva);
@@ -516,6 +500,7 @@
             // 
             // groupControl3
             // 
+            this.groupControl3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.groupControl3.Controls.Add(this.numericUpDownUltimaFActura);
             this.groupControl3.Controls.Add(this.numericUpDownBordeTabla);
             this.groupControl3.Controls.Add(this.numericUpDownNivelFondo);
@@ -586,20 +571,15 @@
             // 
             // Configuracion
             // 
-            this.AcceptButton = this.btnGuardar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(443, 501);
             this.Controls.Add(this.groupControl3);
             this.Controls.Add(this.gbDatosEconomicos);
             this.Controls.Add(this.gbDatosPersonales);
             this.Controls.Add(this.btnGuardar);
-            this.Controls.Add(this.btnSalir);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(451, 498);
             this.Name = "Configuracion";
-            this.Text = "Configuracion";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ConfiguracionFormClosing);
+            this.Size = new System.Drawing.Size(451, 501);
             this.Load += new System.EventHandler(this.ConfiguracionLoad);
             ((System.ComponentModel.ISupportInitialize)(this.txtLicencia.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsConfiguracion)).EndInit();
@@ -647,7 +627,6 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;

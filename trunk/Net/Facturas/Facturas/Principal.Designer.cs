@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Principal));
-            DevExpress.Utils.Animation.Transition transition1 = new DevExpress.Utils.Animation.Transition();
-            DevExpress.Utils.Animation.SlideFadeTransition slideFadeTransition1 = new DevExpress.Utils.Animation.SlideFadeTransition();
+            DevExpress.Utils.Animation.Transition transition2 = new DevExpress.Utils.Animation.Transition();
+            DevExpress.Utils.Animation.SlideFadeTransition slideFadeTransition2 = new DevExpress.Utils.Animation.SlideFadeTransition();
             this.ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.barButtonItemNuevaFactura = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
@@ -40,10 +40,11 @@
             this.ribbonPageArchivo = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroupFactura = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroupCliente = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.ribbonPageConfiguracion = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.ribbonPageImpresion = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.panelControlContenido = new DevExpress.XtraEditors.PanelControl();
             this.transitionManager1 = new DevExpress.Utils.Animation.TransitionManager();
+            this.ribbonPageConfiguracion = new DevExpress.XtraBars.Ribbon.RibbonPage();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControlContenido)).BeginInit();
             this.SuspendLayout();
@@ -63,10 +64,12 @@
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPageArchivo,
+            this.ribbonPageImpresion,
             this.ribbonPageConfiguracion});
             this.ribbon.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office2013;
             this.ribbon.Size = new System.Drawing.Size(910, 144);
             this.ribbon.StatusBar = this.ribbonStatusBar;
+            this.ribbon.SelectedPageChanged += new System.EventHandler(this.ribbon_SelectedPageChanged);
             // 
             // barButtonItemNuevaFactura
             // 
@@ -142,10 +145,10 @@
             this.ribbonPageGroupCliente.Name = "ribbonPageGroupCliente";
             this.ribbonPageGroupCliente.Text = "Cliente";
             // 
-            // ribbonPageConfiguracion
+            // ribbonPageImpresion
             // 
-            this.ribbonPageConfiguracion.Name = "ribbonPageConfiguracion";
-            this.ribbonPageConfiguracion.Text = "ribbonPage1";
+            this.ribbonPageImpresion.Name = "ribbonPageImpresion";
+            this.ribbonPageImpresion.Text = "ribbonPage1";
             // 
             // ribbonStatusBar
             // 
@@ -166,12 +169,17 @@
             // 
             this.transitionManager1.FrameCount = 500;
             this.transitionManager1.FrameInterval = 5000;
-            transition1.Control = null;
-            transition1.ShowWaitingIndicator = DevExpress.Utils.DefaultBoolean.True;
-            slideFadeTransition1.Parameters.Background = System.Drawing.Color.Empty;
-            slideFadeTransition1.Parameters.FramesCount = null;
-            transition1.TransitionType = slideFadeTransition1;
-            this.transitionManager1.Transitions.Add(transition1);
+            transition2.Control = null;
+            transition2.ShowWaitingIndicator = DevExpress.Utils.DefaultBoolean.True;
+            slideFadeTransition2.Parameters.Background = System.Drawing.Color.Empty;
+            slideFadeTransition2.Parameters.FramesCount = null;
+            transition2.TransitionType = slideFadeTransition2;
+            this.transitionManager1.Transitions.Add(transition2);
+            // 
+            // ribbonPageConfiguracion
+            // 
+            this.ribbonPageConfiguracion.Name = "ribbonPageConfiguracion";
+            this.ribbonPageConfiguracion.Text = "Configuración";
             // 
             // Principal
             // 
@@ -205,7 +213,8 @@
         private DevExpress.XtraBars.BarButtonItem barButtonItemCargarCliente;
         private DevExpress.XtraBars.BarButtonItem barButtonItemGuardar;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroupCliente;
-        private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPageConfiguracion;
+        private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPageImpresion;
         private DevExpress.Utils.Animation.TransitionManager transitionManager1;
+        private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPageConfiguracion;
     }
 }

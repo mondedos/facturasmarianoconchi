@@ -30,6 +30,10 @@ namespace Facturas
             Enabled = false
         };
 
+        private Configuracion _configuracion=new Configuracion();
+
+        private UcPreview _preview=new UcPreview();
+
         #endregion
 
         #region Propiedades
@@ -160,6 +164,30 @@ namespace Facturas
         }
 
         #endregion
+
+        private void ribbon_SelectedPageChanged(object sender, EventArgs e)
+        {
+            if (Equals(ribbon.SelectedPage, ribbonPageArchivo))
+            {
+                CambiarDetalle(_datosFactura);
+
+                return;
+            }
+            if (Equals(ribbon.SelectedPage, ribbonPageImpresion))
+            {
+                _preview.Report = _datosFactura.CreateReportFactura();
+
+                CambiarDetalle(_preview);
+
+                return;
+            }
+            if (Equals(ribbon.SelectedPage, ribbonPageConfiguracion))
+            {
+                CambiarDetalle(_configuracion);
+
+                return;
+            }
+        }
 
 
 

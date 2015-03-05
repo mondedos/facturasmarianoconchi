@@ -7,7 +7,7 @@ using System.Globalization;
 
 namespace Facturas
 {
-    public partial class Configuracion : XtraForm
+    public partial class Configuracion : DevExpress.XtraEditors.XtraUserControl
     {
         #region Atributos
 
@@ -101,7 +101,7 @@ namespace Facturas
             }
         }
 
-        private void Guardar()
+        private void PrivateGuardar()
         {
             BizzRules.Configuracion configuracion = bsConfiguracion.Current as BizzRules.Configuracion;
 
@@ -138,15 +138,20 @@ namespace Facturas
 
         private void BtnGuardarClick(object sender, EventArgs e)
         {
-            if (!EsValido()) return;
             Guardar();
+        }
+
+        public void Guardar()
+        {
+            if (!EsValido()) return;
+            PrivateGuardar();
             btnGuardar.Enabled = false;
         }
 
 
         private void BtnSalirClick(object sender, EventArgs e)
         {
-            Close();
+            //Close();
         }
 
 

@@ -120,7 +120,7 @@
     <Compile Include="BizzRules\PDFSigner.cs" />
     <Compile Include="BizzRules\Util.cs" />
     <Compile Include="Configuracion.cs">
-      <SubType>Form</SubType>
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Configuracion.Designer.cs">
       <DependentUpon>Configuracion.cs</DependentUpon>
@@ -164,6 +164,12 @@
     <Compile Include="UcLinea.Designer.cs">
       <DependentUpon>UcLinea.cs</DependentUpon>
     </Compile>
+    <Compile Include="UcPreview.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UcPreview.Designer.cs">
+      <DependentUpon>UcPreview.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Configuracion.resx">
       <DependentUpon>Configuracion.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -203,6 +209,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UcLinea.resx">
       <DependentUpon>UcLinea.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UcPreview.resx">
+      <DependentUpon>UcPreview.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config" />
     <None Include="Facturas.snk" />
