@@ -47,6 +47,34 @@ namespace Facturas
 
         #region Implementacion de Eventos
 
+        #region Botonera
+
+        private void barButtonItemCargarCliente_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            CargarDatosCliente();
+        }
+
+        private void barButtonItemGuardar_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            GuardarDatosCliente();
+        }
+
+        private void barButtonItemNuevaFactura_ItemClick(object sender, ItemClickEventArgs e)
+        {
+
+        }
+
+        private void barButtonItem2_ItemClick(object sender, ItemClickEventArgs e)
+        {
+
+        }
+
+        private void barButtonItem3_ItemClick(object sender, ItemClickEventArgs e)
+        {
+
+        }
+        #endregion
+
         #region Cabecera
 
         private void numeroTextBox_EditValueChanged(object sender, EventArgs e)
@@ -246,6 +274,8 @@ namespace Facturas
         }
 
         #endregion
+
+ 
 
 
     }
