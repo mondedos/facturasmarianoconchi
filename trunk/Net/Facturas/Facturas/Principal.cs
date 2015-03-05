@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Xml.Serialization;
 using DevExpress.XtraBars;
 using DevExpress.XtraEditors;
+using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraReports.UI;
 using Facturas.BizzRules;
 using Facturas.Properties;
@@ -36,6 +37,10 @@ namespace Facturas
         public Principal()
         {
             InitializeComponent();
+
+            gridView1.OptionsEditForm.CustomEditFormLayout = new UcLinea();
+            gridView1.OptionsBehavior.EditingMode=GridEditingMode.EditFormInplaceHideCurrentRow;
+           
         }
 
         #endregion

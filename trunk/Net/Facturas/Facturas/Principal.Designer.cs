@@ -49,6 +49,7 @@
             this.bsLineas = new System.Windows.Forms.BindingSource(this.components);
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colConcepto = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryItemMemoEditConcepto = new DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit();
             this.colKilometros = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colHorasEspera = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colCantidad = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -84,6 +85,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsLineas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemMemoEditConcepto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.textEditUnidadTramitadora.Properties)).BeginInit();
@@ -259,6 +261,8 @@
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.MenuManager = this.ribbon;
             this.gridControl1.Name = "gridControl1";
+            this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.repositoryItemMemoEditConcepto});
             this.gridControl1.Size = new System.Drawing.Size(882, 215);
             this.gridControl1.TabIndex = 0;
             this.gridControl1.UseEmbeddedNavigator = true;
@@ -281,12 +285,15 @@
             this.colHorasEuros});
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
+            this.gridView1.OptionsBehavior.EditingMode = DevExpress.XtraGrid.Views.Grid.GridEditingMode.EditFormInplaceHideCurrentRow;
+            this.gridView1.OptionsCustomization.AllowRowSizing = true;
             this.gridView1.OptionsView.RowAutoHeight = true;
             this.gridView1.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
             new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colKilometrosEuros, DevExpress.Data.ColumnSortOrder.Ascending)});
             // 
             // colConcepto
             // 
+            this.colConcepto.ColumnEdit = this.repositoryItemMemoEditConcepto;
             this.colConcepto.DisplayFormat.FormatString = "n2";
             this.colConcepto.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.colConcepto.FieldName = "Concepto";
@@ -296,6 +303,10 @@
             this.colConcepto.Visible = true;
             this.colConcepto.VisibleIndex = 0;
             this.colConcepto.Width = 789;
+            // 
+            // repositoryItemMemoEditConcepto
+            // 
+            this.repositoryItemMemoEditConcepto.Name = "repositoryItemMemoEditConcepto";
             // 
             // colKilometros
             // 
@@ -535,6 +546,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsLineas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemMemoEditConcepto)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupBox1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -584,5 +596,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colCantidad;
         private DevExpress.XtraGrid.Columns.GridColumn colKilometrosEuros;
         private DevExpress.XtraGrid.Columns.GridColumn colHorasEuros;
+        private DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit repositoryItemMemoEditConcepto;
     }
 }
