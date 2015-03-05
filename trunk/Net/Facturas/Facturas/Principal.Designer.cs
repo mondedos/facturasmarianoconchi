@@ -57,6 +57,7 @@
             this.bsLineas = new System.Windows.Forms.BindingSource(this.components);
             this.textEditUnidadOrganica = new DevExpress.XtraEditors.TextEdit();
             this.textEditUnidadTramitadora = new DevExpress.XtraEditors.TextEdit();
+            this.groupControlLineas = new DevExpress.XtraEditors.GroupControl();
             cifLabel = new System.Windows.Forms.Label();
             telefonoLabel = new System.Windows.Forms.Label();
             ciudadLabel = new System.Windows.Forms.Label();
@@ -85,6 +86,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.bsLineas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditUnidadOrganica.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditUnidadTramitadora.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControlLineas)).BeginInit();
             this.SuspendLayout();
             // 
             // cifLabel
@@ -172,7 +174,7 @@
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1});
-            this.ribbon.Size = new System.Drawing.Size(849, 144);
+            this.ribbon.Size = new System.Drawing.Size(910, 144);
             this.ribbon.StatusBar = this.ribbonStatusBar;
             // 
             // ribbonPage1
@@ -189,24 +191,24 @@
             // 
             // ribbonStatusBar
             // 
-            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 587);
+            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 688);
             this.ribbonStatusBar.Name = "ribbonStatusBar";
             this.ribbonStatusBar.Ribbon = this.ribbon;
-            this.ribbonStatusBar.Size = new System.Drawing.Size(849, 31);
+            this.ribbonStatusBar.Size = new System.Drawing.Size(910, 31);
             // 
             // panelControlContenido
             // 
+            this.panelControlContenido.Controls.Add(this.groupControlLineas);
             this.panelControlContenido.Controls.Add(this.groupBox1);
             this.panelControlContenido.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControlContenido.Location = new System.Drawing.Point(0, 144);
             this.panelControlContenido.Name = "panelControlContenido";
-            this.panelControlContenido.Size = new System.Drawing.Size(849, 443);
+            this.panelControlContenido.Size = new System.Drawing.Size(910, 544);
             this.panelControlContenido.TabIndex = 2;
             // 
             // groupBox1
             // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(label2);
             this.groupBox1.Controls.Add(label1);
@@ -230,7 +232,7 @@
             this.groupBox1.Controls.Add(this.tbFecha);
             this.groupBox1.Location = new System.Drawing.Point(12, 6);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(825, 288);
+            this.groupBox1.Size = new System.Drawing.Size(886, 288);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.Text = "Datos del cliente";
             // 
@@ -241,7 +243,7 @@
             this.nombreTextBox.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsFactura, "Nombre", true, System.Windows.Forms.DataSourceUpdateMode.Never));
             this.nombreTextBox.Location = new System.Drawing.Point(90, 76);
             this.nombreTextBox.Name = "nombreTextBox";
-            this.nombreTextBox.Size = new System.Drawing.Size(715, 20);
+            this.nombreTextBox.Size = new System.Drawing.Size(776, 20);
             this.nombreTextBox.TabIndex = 2;
             this.nombreTextBox.EditValueChanged += new System.EventHandler(this.nombreTextBox_EditValueChanged);
             // 
@@ -277,7 +279,7 @@
             this.ciudadTextBox.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsFactura, "Ciudad", true, System.Windows.Forms.DataSourceUpdateMode.Never));
             this.ciudadTextBox.Location = new System.Drawing.Point(90, 209);
             this.ciudadTextBox.Name = "ciudadTextBox";
-            this.ciudadTextBox.Size = new System.Drawing.Size(715, 20);
+            this.ciudadTextBox.Size = new System.Drawing.Size(776, 20);
             this.ciudadTextBox.TabIndex = 5;
             this.ciudadTextBox.EditValueChanged += new System.EventHandler(this.ciudadTextBox_EditValueChanged);
             // 
@@ -318,7 +320,7 @@
             this.direccionTextBox.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsFactura, "Direccion", true, System.Windows.Forms.DataSourceUpdateMode.Never));
             this.direccionTextBox.Location = new System.Drawing.Point(90, 128);
             this.direccionTextBox.Name = "direccionTextBox";
-            this.direccionTextBox.Size = new System.Drawing.Size(715, 75);
+            this.direccionTextBox.Size = new System.Drawing.Size(776, 75);
             this.direccionTextBox.TabIndex = 4;
             this.direccionTextBox.EditValueChanged += new System.EventHandler(this.direccionTextBox_EditValueChanged);
             // 
@@ -341,6 +343,7 @@
             // bsLineas
             // 
             this.bsLineas.DataSource = typeof(Facturas.BizzRules.LineaFactura);
+            this.bsLineas.AddingNew += new System.ComponentModel.AddingNewEventHandler(this.bsLineas_AddingNew);
             // 
             // textEditUnidadOrganica
             // 
@@ -350,7 +353,7 @@
             this.textEditUnidadOrganica.Location = new System.Drawing.Point(399, 238);
             this.textEditUnidadOrganica.MenuManager = this.ribbon;
             this.textEditUnidadOrganica.Name = "textEditUnidadOrganica";
-            this.textEditUnidadOrganica.Size = new System.Drawing.Size(406, 20);
+            this.textEditUnidadOrganica.Size = new System.Drawing.Size(467, 20);
             this.textEditUnidadOrganica.TabIndex = 26;
             this.textEditUnidadOrganica.EditValueChanged += new System.EventHandler(this.textEditUnidadOrganica_EditValueChanged);
             // 
@@ -362,7 +365,7 @@
             this.textEditUnidadTramitadora.Location = new System.Drawing.Point(399, 264);
             this.textEditUnidadTramitadora.MenuManager = this.ribbon;
             this.textEditUnidadTramitadora.Name = "textEditUnidadTramitadora";
-            this.textEditUnidadTramitadora.Size = new System.Drawing.Size(406, 20);
+            this.textEditUnidadTramitadora.Size = new System.Drawing.Size(467, 20);
             this.textEditUnidadTramitadora.TabIndex = 27;
             this.textEditUnidadTramitadora.EditValueChanged += new System.EventHandler(this.textEditUnidadTramitadora_EditValueChanged);
             // 
@@ -386,11 +389,22 @@
             label2.TabIndex = 29;
             label2.Text = "Unidad Tramitadora:";
             // 
+            // groupControlLineas
+            // 
+            this.groupControlLineas.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupControlLineas.Location = new System.Drawing.Point(12, 300);
+            this.groupControlLineas.Name = "groupControlLineas";
+            this.groupControlLineas.Size = new System.Drawing.Size(886, 238);
+            this.groupControlLineas.TabIndex = 2;
+            this.groupControlLineas.Text = "Líneas";
+            // 
             // Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(849, 618);
+            this.ClientSize = new System.Drawing.Size(910, 719);
             this.Controls.Add(this.panelControlContenido);
             this.Controls.Add(this.ribbonStatusBar);
             this.Controls.Add(this.ribbon);
@@ -417,6 +431,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.bsLineas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditUnidadOrganica.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditUnidadTramitadora.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControlLineas)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -442,5 +457,6 @@
         private DevExpress.XtraEditors.DateEdit tbFecha;
         private DevExpress.XtraEditors.TextEdit textEditUnidadTramitadora;
         private DevExpress.XtraEditors.TextEdit textEditUnidadOrganica;
+        private DevExpress.XtraEditors.GroupControl groupControlLineas;
     }
 }
