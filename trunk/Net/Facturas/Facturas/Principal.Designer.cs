@@ -37,15 +37,16 @@
             System.Windows.Forms.Label nombreLabel;
             System.Windows.Forms.Label direccionLabel;
             System.Windows.Forms.Label fechaLabel;
+            System.Windows.Forms.Label label1;
+            System.Windows.Forms.Label label2;
             this.ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.panelControlContenido = new DevExpress.XtraEditors.PanelControl();
-            this.bsFactura = new System.Windows.Forms.BindingSource(this.components);
-            this.bsLineas = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox1 = new DevExpress.XtraEditors.GroupControl();
             this.nombreTextBox = new DevExpress.XtraEditors.TextEdit();
+            this.bsFactura = new System.Windows.Forms.BindingSource(this.components);
             this.telefonoTextBox = new DevExpress.XtraEditors.TextEdit();
             this.cifTextBox = new DevExpress.XtraEditors.TextEdit();
             this.ciudadTextBox = new DevExpress.XtraEditors.TextEdit();
@@ -53,6 +54,9 @@
             this.numeroTextBox = new DevExpress.XtraEditors.SpinEdit();
             this.direccionTextBox = new DevExpress.XtraEditors.MemoEdit();
             this.tbFecha = new DevExpress.XtraEditors.DateEdit();
+            this.bsLineas = new System.Windows.Forms.BindingSource(this.components);
+            this.textEditUnidadOrganica = new DevExpress.XtraEditors.TextEdit();
+            this.textEditUnidadTramitadora = new DevExpress.XtraEditors.TextEdit();
             cifLabel = new System.Windows.Forms.Label();
             telefonoLabel = new System.Windows.Forms.Label();
             ciudadLabel = new System.Windows.Forms.Label();
@@ -61,14 +65,15 @@
             nombreLabel = new System.Windows.Forms.Label();
             direccionLabel = new System.Windows.Forms.Label();
             fechaLabel = new System.Windows.Forms.Label();
+            label1 = new System.Windows.Forms.Label();
+            label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControlContenido)).BeginInit();
             this.panelControlContenido.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bsFactura)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsLineas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nombreTextBox.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsFactura)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.telefonoTextBox.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cifTextBox.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ciudadTextBox.Properties)).BeginInit();
@@ -77,7 +82,85 @@
             ((System.ComponentModel.ISupportInitialize)(this.direccionTextBox.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbFecha.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbFecha.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsLineas)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditUnidadOrganica.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditUnidadTramitadora.Properties)).BeginInit();
             this.SuspendLayout();
+            // 
+            // cifLabel
+            // 
+            cifLabel.AutoSize = true;
+            cifLabel.Location = new System.Drawing.Point(9, 105);
+            cifLabel.Name = "cifLabel";
+            cifLabel.Size = new System.Drawing.Size(24, 13);
+            cifLabel.TabIndex = 11;
+            cifLabel.Text = "Cif:";
+            // 
+            // telefonoLabel
+            // 
+            telefonoLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            telefonoLabel.AutoSize = true;
+            telefonoLabel.Location = new System.Drawing.Point(9, 264);
+            telefonoLabel.Name = "telefonoLabel";
+            telefonoLabel.Size = new System.Drawing.Size(53, 13);
+            telefonoLabel.TabIndex = 25;
+            telefonoLabel.Text = "Telefono:";
+            // 
+            // ciudadLabel
+            // 
+            ciudadLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            ciudadLabel.AutoSize = true;
+            ciudadLabel.Location = new System.Drawing.Point(9, 212);
+            ciudadLabel.Name = "ciudadLabel";
+            ciudadLabel.Size = new System.Drawing.Size(44, 13);
+            ciudadLabel.TabIndex = 13;
+            ciudadLabel.Text = "Ciudad:";
+            // 
+            // numeroLabel
+            // 
+            numeroLabel.AutoSize = true;
+            numeroLabel.Location = new System.Drawing.Point(9, 27);
+            numeroLabel.Name = "numeroLabel";
+            numeroLabel.Size = new System.Drawing.Size(48, 13);
+            numeroLabel.TabIndex = 23;
+            numeroLabel.Text = "Numero:";
+            // 
+            // codigoPostalLabel
+            // 
+            codigoPostalLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            codigoPostalLabel.AutoSize = true;
+            codigoPostalLabel.Location = new System.Drawing.Point(9, 238);
+            codigoPostalLabel.Name = "codigoPostalLabel";
+            codigoPostalLabel.Size = new System.Drawing.Size(76, 13);
+            codigoPostalLabel.TabIndex = 15;
+            codigoPostalLabel.Text = "Codigo Postal:";
+            // 
+            // nombreLabel
+            // 
+            nombreLabel.AutoSize = true;
+            nombreLabel.Location = new System.Drawing.Point(9, 79);
+            nombreLabel.Name = "nombreLabel";
+            nombreLabel.Size = new System.Drawing.Size(48, 13);
+            nombreLabel.TabIndex = 21;
+            nombreLabel.Text = "Nombre:";
+            // 
+            // direccionLabel
+            // 
+            direccionLabel.AutoSize = true;
+            direccionLabel.Location = new System.Drawing.Point(9, 131);
+            direccionLabel.Name = "direccionLabel";
+            direccionLabel.Size = new System.Drawing.Size(54, 13);
+            direccionLabel.TabIndex = 17;
+            direccionLabel.Text = "Direccion:";
+            // 
+            // fechaLabel
+            // 
+            fechaLabel.AutoSize = true;
+            fechaLabel.Location = new System.Drawing.Point(9, 54);
+            fechaLabel.Name = "fechaLabel";
+            fechaLabel.Size = new System.Drawing.Size(40, 13);
+            fechaLabel.TabIndex = 19;
+            fechaLabel.Text = "Fecha:";
             // 
             // ribbon
             // 
@@ -120,19 +203,15 @@
             this.panelControlContenido.Size = new System.Drawing.Size(849, 443);
             this.panelControlContenido.TabIndex = 2;
             // 
-            // bsFactura
-            // 
-            this.bsFactura.DataSource = typeof(Facturas.BizzRules.Factura);
-            // 
-            // bsLineas
-            // 
-            this.bsLineas.DataSource = typeof(Facturas.BizzRules.LineaFactura);
-            // 
             // groupBox1
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(label2);
+            this.groupBox1.Controls.Add(label1);
+            this.groupBox1.Controls.Add(this.textEditUnidadTramitadora);
+            this.groupBox1.Controls.Add(this.textEditUnidadOrganica);
             this.groupBox1.Controls.Add(this.nombreTextBox);
             this.groupBox1.Controls.Add(cifLabel);
             this.groupBox1.Controls.Add(this.telefonoTextBox);
@@ -166,14 +245,9 @@
             this.nombreTextBox.TabIndex = 2;
             this.nombreTextBox.EditValueChanged += new System.EventHandler(this.nombreTextBox_EditValueChanged);
             // 
-            // cifLabel
+            // bsFactura
             // 
-            cifLabel.AutoSize = true;
-            cifLabel.Location = new System.Drawing.Point(9, 105);
-            cifLabel.Name = "cifLabel";
-            cifLabel.Size = new System.Drawing.Size(24, 13);
-            cifLabel.TabIndex = 11;
-            cifLabel.Text = "Cif:";
+            this.bsFactura.DataSource = typeof(Facturas.BizzRules.Factura);
             // 
             // telefonoTextBox
             // 
@@ -196,26 +270,6 @@
             this.cifTextBox.TabIndex = 3;
             this.cifTextBox.EditValueChanged += new System.EventHandler(this.cifTextBox_EditValueChanged);
             // 
-            // telefonoLabel
-            // 
-            telefonoLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            telefonoLabel.AutoSize = true;
-            telefonoLabel.Location = new System.Drawing.Point(9, 264);
-            telefonoLabel.Name = "telefonoLabel";
-            telefonoLabel.Size = new System.Drawing.Size(53, 13);
-            telefonoLabel.TabIndex = 25;
-            telefonoLabel.Text = "Telefono:";
-            // 
-            // ciudadLabel
-            // 
-            ciudadLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            ciudadLabel.AutoSize = true;
-            ciudadLabel.Location = new System.Drawing.Point(9, 212);
-            ciudadLabel.Name = "ciudadLabel";
-            ciudadLabel.Size = new System.Drawing.Size(44, 13);
-            ciudadLabel.TabIndex = 13;
-            ciudadLabel.Text = "Ciudad:";
-            // 
             // ciudadTextBox
             // 
             this.ciudadTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
@@ -227,34 +281,6 @@
             this.ciudadTextBox.TabIndex = 5;
             this.ciudadTextBox.EditValueChanged += new System.EventHandler(this.ciudadTextBox_EditValueChanged);
             // 
-            // numeroLabel
-            // 
-            numeroLabel.AutoSize = true;
-            numeroLabel.Location = new System.Drawing.Point(9, 27);
-            numeroLabel.Name = "numeroLabel";
-            numeroLabel.Size = new System.Drawing.Size(48, 13);
-            numeroLabel.TabIndex = 23;
-            numeroLabel.Text = "Numero:";
-            // 
-            // codigoPostalLabel
-            // 
-            codigoPostalLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            codigoPostalLabel.AutoSize = true;
-            codigoPostalLabel.Location = new System.Drawing.Point(9, 238);
-            codigoPostalLabel.Name = "codigoPostalLabel";
-            codigoPostalLabel.Size = new System.Drawing.Size(76, 13);
-            codigoPostalLabel.TabIndex = 15;
-            codigoPostalLabel.Text = "Codigo Postal:";
-            // 
-            // nombreLabel
-            // 
-            nombreLabel.AutoSize = true;
-            nombreLabel.Location = new System.Drawing.Point(9, 79);
-            nombreLabel.Name = "nombreLabel";
-            nombreLabel.Size = new System.Drawing.Size(48, 13);
-            nombreLabel.TabIndex = 21;
-            nombreLabel.Text = "Nombre:";
-            // 
             // codigoPostalTextBox
             // 
             this.codigoPostalTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -265,24 +291,6 @@
             this.codigoPostalTextBox.Size = new System.Drawing.Size(66, 20);
             this.codigoPostalTextBox.TabIndex = 6;
             this.codigoPostalTextBox.EditValueChanged += new System.EventHandler(this.codigoPostalTextBox_EditValueChanged);
-            // 
-            // direccionLabel
-            // 
-            direccionLabel.AutoSize = true;
-            direccionLabel.Location = new System.Drawing.Point(9, 131);
-            direccionLabel.Name = "direccionLabel";
-            direccionLabel.Size = new System.Drawing.Size(54, 13);
-            direccionLabel.TabIndex = 17;
-            direccionLabel.Text = "Direccion:";
-            // 
-            // fechaLabel
-            // 
-            fechaLabel.AutoSize = true;
-            fechaLabel.Location = new System.Drawing.Point(9, 54);
-            fechaLabel.Name = "fechaLabel";
-            fechaLabel.Size = new System.Drawing.Size(40, 13);
-            fechaLabel.TabIndex = 19;
-            fechaLabel.Text = "Fecha:";
             // 
             // numeroTextBox
             // 
@@ -330,6 +338,54 @@
             this.tbFecha.TabIndex = 1;
             this.tbFecha.EditValueChanged += new System.EventHandler(this.tbFecha_EditValueChanged);
             // 
+            // bsLineas
+            // 
+            this.bsLineas.DataSource = typeof(Facturas.BizzRules.LineaFactura);
+            // 
+            // textEditUnidadOrganica
+            // 
+            this.textEditUnidadOrganica.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textEditUnidadOrganica.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsFactura, "UnidadOrganica", true, System.Windows.Forms.DataSourceUpdateMode.Never));
+            this.textEditUnidadOrganica.Location = new System.Drawing.Point(399, 238);
+            this.textEditUnidadOrganica.MenuManager = this.ribbon;
+            this.textEditUnidadOrganica.Name = "textEditUnidadOrganica";
+            this.textEditUnidadOrganica.Size = new System.Drawing.Size(406, 20);
+            this.textEditUnidadOrganica.TabIndex = 26;
+            this.textEditUnidadOrganica.EditValueChanged += new System.EventHandler(this.textEditUnidadOrganica_EditValueChanged);
+            // 
+            // textEditUnidadTramitadora
+            // 
+            this.textEditUnidadTramitadora.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textEditUnidadTramitadora.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsFactura, "UnidadTramitadora", true, System.Windows.Forms.DataSourceUpdateMode.Never));
+            this.textEditUnidadTramitadora.Location = new System.Drawing.Point(399, 264);
+            this.textEditUnidadTramitadora.MenuManager = this.ribbon;
+            this.textEditUnidadTramitadora.Name = "textEditUnidadTramitadora";
+            this.textEditUnidadTramitadora.Size = new System.Drawing.Size(406, 20);
+            this.textEditUnidadTramitadora.TabIndex = 27;
+            this.textEditUnidadTramitadora.EditValueChanged += new System.EventHandler(this.textEditUnidadTramitadora_EditValueChanged);
+            // 
+            // label1
+            // 
+            label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            label1.AutoSize = true;
+            label1.Location = new System.Drawing.Point(303, 242);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(90, 13);
+            label1.TabIndex = 28;
+            label1.Text = "Unidad Orgánica:";
+            // 
+            // label2
+            // 
+            label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            label2.AutoSize = true;
+            label2.Location = new System.Drawing.Point(288, 267);
+            label2.Name = "label2";
+            label2.Size = new System.Drawing.Size(105, 13);
+            label2.TabIndex = 29;
+            label2.Text = "Unidad Tramitadora:";
+            // 
             // Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -345,12 +401,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControlContenido)).EndInit();
             this.panelControlContenido.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.bsFactura)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsLineas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupBox1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nombreTextBox.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsFactura)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.telefonoTextBox.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cifTextBox.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ciudadTextBox.Properties)).EndInit();
@@ -359,6 +414,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.direccionTextBox.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbFecha.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbFecha.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsLineas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditUnidadOrganica.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditUnidadTramitadora.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -382,5 +440,7 @@
         private DevExpress.XtraEditors.SpinEdit numeroTextBox;
         private DevExpress.XtraEditors.MemoEdit direccionTextBox;
         private DevExpress.XtraEditors.DateEdit tbFecha;
+        private DevExpress.XtraEditors.TextEdit textEditUnidadTramitadora;
+        private DevExpress.XtraEditors.TextEdit textEditUnidadOrganica;
     }
 }
