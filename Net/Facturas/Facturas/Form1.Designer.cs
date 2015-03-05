@@ -67,6 +67,7 @@ namespace Facturas
             this.toolStripButtonNuevo = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonGuardar = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonGenerar = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.archivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nuevoFacturaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -97,7 +98,6 @@ namespace Facturas
             this.toolStripButtonInsertar = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonEliminar = new System.Windows.Forms.ToolStripButton();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             cantidadLabel = new System.Windows.Forms.Label();
             conceptoLabel = new System.Windows.Forms.Label();
             horasEsperaLabel = new System.Windows.Forms.Label();
@@ -569,6 +569,16 @@ namespace Facturas
             this.toolStripButtonGenerar.Text = "toolStripButton1";
             this.toolStripButtonGenerar.Click += new System.EventHandler(this.ToolStripButtonGenerarClick);
             // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton1.Text = "toolStripButton1";
+            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
+            // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -829,16 +839,6 @@ namespace Facturas
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
-            // 
-            // toolStripButton1
-            // 
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton1.Text = "toolStripButton1";
-            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
             // Form1
             // 
