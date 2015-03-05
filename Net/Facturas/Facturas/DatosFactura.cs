@@ -163,25 +163,42 @@ namespace Facturas
             //report.Watermark.PageRange = "1,3-5";
         }
 
+        public XtraReportFactura CreateReportFactura()
+        {
+            XtraReportFactura xtraReport = new XtraReportFactura
+            {
+                Factura = Factura
+            };
+
+            xtraReport.Parameters["licenciaMunicipal"].Value = Settings.Default.licencia;
+            xtraReport.Parameters["email"].Value = Settings.Default.email;
+            xtraReport.Parameters["Movil"].Value = Settings.Default.movil;
+            xtraReport.Parameters["Nif"].Value = Settings.Default.nif;
+            xtraReport.Parameters["Telefono"].Value = Settings.Default.telefono;
+            xtraReport.Parameters["nombre"].Value = Settings.Default.nombre;
+            xtraReport.Parameters["direccion"].Value = Settings.Default.direccion;
+            xtraReport.Parameters["poblacion"].Value = Settings.Default.poblacionCP;
+
+            if (!string.IsNullOrEmpty(Settings.Default.Iban))
+            {
+                xtraReport.Parameters["poblacion"].Value = string.Format("IBAN: {0}", Settings.Default.Iban);
+            }
+            else
+            {
+                xtraReport.Parameters["poblacion"].Value = string.Format("IBAN: {0}", Settings.Default.ccc);
+            }
+
+            SetTextWatermark(xtraReport);
+
+            return xtraReport;
+        }
+
         #endregion
 
 
         #region Implementacion de Eventos
 
-        #region Botonera
-
-        private void barButtonItemCargarCliente_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            CargarDatosCliente();
-        }
-
-        private void barButtonItemGuardar_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            GuardarDatosCliente();
-        }
-
-        #endregion
-
+       
         #region Cabecera
 
         private void numeroTextBox_EditValueChanged(object sender, EventArgs e)

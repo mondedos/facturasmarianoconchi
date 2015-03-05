@@ -195,7 +195,7 @@ namespace Facturas
         {
             using (Configuracion conf = new Configuracion())
             {
-                conf.ShowDialog();
+                //conf.ShowDialog();
             }
         }
 
