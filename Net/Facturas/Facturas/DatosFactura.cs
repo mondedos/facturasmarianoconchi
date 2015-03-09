@@ -167,7 +167,8 @@ namespace Facturas
         {
             XtraReportFactura xtraReport = new XtraReportFactura
             {
-                Factura = Factura
+                Factura = Factura,
+                RequestParameters = false
             };
 
             xtraReport.Parameters["licenciaMunicipal"].Value = Settings.Default.licencia;

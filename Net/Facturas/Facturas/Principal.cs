@@ -175,9 +175,14 @@ namespace Facturas
             }
             if (Equals(ribbon.SelectedPage, ribbonPageImpresion))
             {
-                _preview.Report = _datosFactura.CreateReportFactura();
+                _preview=new UcPreview
+                {
+                    Report = _datosFactura.CreateReportFactura()
+                };
 
                 CambiarDetalle(_preview);
+
+                ribbon.MergeRibbon(_preview.RibbonControl);
 
                 return;
             }
