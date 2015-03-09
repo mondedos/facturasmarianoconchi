@@ -6,6 +6,7 @@ using System.Data;
 using System.Text;
 using System.Linq;
 using System.Windows.Forms;
+using DevExpress.XtraBars.Ribbon;
 using DevExpress.XtraEditors;
 using DevExpress.XtraReports.UI;
 
@@ -16,6 +17,8 @@ namespace Facturas
         private XtraReport _report;
 
         #region Propiedades
+
+        public RibbonControl RibbonControl { get { return ribbonControl1; } }
 
         public XtraReport Report
         {
