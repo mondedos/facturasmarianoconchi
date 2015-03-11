@@ -53,5 +53,8 @@
     <Setting Name="Iban" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
+    <Setting Name="TextoFirma" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Factura Taxi Mariano</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

@@ -154,7 +154,11 @@ namespace Facturas
         public void SetTextWatermark(XtraReport report)
         {
             // Adjust text watermark settings.
-            report.Watermark.Text = "Factura Taxi Mariano";
+            string textoFirma = Settings.Default.TextoFirma;
+
+            if (string.IsNullOrWhiteSpace(textoFirma)) return;
+
+            report.Watermark.Text = textoFirma;
             report.Watermark.TextDirection = DirectionMode.ForwardDiagonal;
             report.Watermark.Font = new Font(report.Watermark.Font.FontFamily, 40);
             report.Watermark.ForeColor = Color.DodgerBlue;
