@@ -142,11 +142,6 @@ namespace Facturas
             return !dxErrorProvider1.HasErrorsOfType(ErrorType.Critical);
         }
 
-        private void BtnGuardarClick(object sender, EventArgs e)
-        {
-            Guardar();
-        }
-
         public void Guardar()
         {
             if (!EsValido()) return;

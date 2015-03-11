@@ -45,6 +45,8 @@
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.panelControlContenido = new DevExpress.XtraEditors.PanelControl();
             this.transitionManager1 = new DevExpress.Utils.Animation.TransitionManager();
+            this.ribbonPageGroupConfiguracionArchivo = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.barButtonItemGuardarConfiguracion = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControlContenido)).BeginInit();
             this.SuspendLayout();
@@ -58,9 +60,10 @@
             this.barButtonItem2,
             this.barButtonItemGuardarFactura,
             this.barButtonItemCargarCliente,
-            this.barButtonItemGuardar});
+            this.barButtonItemGuardar,
+            this.barButtonItemGuardarConfiguracion});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 6;
+            this.ribbon.MaxItemId = 8;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPageArchivo,
@@ -153,6 +156,8 @@
             // 
             // ribbonPageConfiguracion
             // 
+            this.ribbonPageConfiguracion.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.ribbonPageGroupConfiguracionArchivo});
             this.ribbonPageConfiguracion.Name = "ribbonPageConfiguracion";
             this.ribbonPageConfiguracion.Text = "Configuración";
             // 
@@ -181,6 +186,23 @@
             slideFadeTransition2.Parameters.FramesCount = null;
             transition2.TransitionType = slideFadeTransition2;
             this.transitionManager1.Transitions.Add(transition2);
+            // 
+            // ribbonPageGroupConfiguracionArchivo
+            // 
+            this.ribbonPageGroupConfiguracionArchivo.ItemLinks.Add(this.barButtonItemGuardarConfiguracion);
+            this.ribbonPageGroupConfiguracionArchivo.Name = "ribbonPageGroupConfiguracionArchivo";
+            this.ribbonPageGroupConfiguracionArchivo.ShowCaptionButton = false;
+            this.ribbonPageGroupConfiguracionArchivo.Text = "Archivo";
+            // 
+            // barButtonItemGuardarConfiguracion
+            // 
+            this.barButtonItemGuardarConfiguracion.Caption = "Guardar";
+            this.barButtonItemGuardarConfiguracion.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
+            this.barButtonItemGuardarConfiguracion.Glyph = ((System.Drawing.Image)(resources.GetObject("barButtonItemGuardarConfiguracion.Glyph")));
+            this.barButtonItemGuardarConfiguracion.Id = 6;
+            this.barButtonItemGuardarConfiguracion.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barButtonItemGuardarConfiguracion.LargeGlyph")));
+            this.barButtonItemGuardarConfiguracion.Name = "barButtonItemGuardarConfiguracion";
+            this.barButtonItemGuardarConfiguracion.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemGuardarConfiguracion_ItemClick);
             // 
             // Principal
             // 
@@ -217,5 +239,7 @@
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPageImpresion;
         private DevExpress.Utils.Animation.TransitionManager transitionManager1;
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPageConfiguracion;
+        private DevExpress.XtraBars.BarButtonItem barButtonItemGuardarConfiguracion;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroupConfiguracionArchivo;
     }
 }
