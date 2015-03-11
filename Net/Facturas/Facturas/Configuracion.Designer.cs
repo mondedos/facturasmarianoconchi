@@ -46,7 +46,6 @@
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.btnGuardar = new System.Windows.Forms.Button();
             this.label16 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
@@ -61,6 +60,8 @@
             this.txtNif = new DevExpress.XtraEditors.TextEdit();
             this.txtCCC = new DevExpress.XtraEditors.TextEdit();
             this.gbDatosPersonales = new DevExpress.XtraEditors.GroupControl();
+            this.textEditTExtoFirma = new DevExpress.XtraEditors.TextEdit();
+            this.label18 = new System.Windows.Forms.Label();
             this.textEditIban = new DevExpress.XtraEditors.TextEdit();
             this.label17 = new System.Windows.Forms.Label();
             this.gbDatosEconomicos = new DevExpress.XtraEditors.GroupControl();
@@ -85,6 +86,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtCCC.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gbDatosPersonales)).BeginInit();
             this.gbDatosPersonales.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditTExtoFirma.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditIban.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gbDatosEconomicos)).BeginInit();
             this.gbDatosEconomicos.SuspendLayout();
@@ -254,21 +256,6 @@
             this.label10.TabIndex = 18;
             this.label10.Text = "IVA";
             // 
-            // btnGuardar
-            // 
-            this.btnGuardar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnGuardar.Enabled = false;
-            this.btnGuardar.Image = global::Facturas.FacturasRecursos.save;
-            this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGuardar.Location = new System.Drawing.Point(356, 455);
-            this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(75, 34);
-            this.btnGuardar.TabIndex = 3;
-            this.btnGuardar.Text = "&Guardar";
-            this.btnGuardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnGuardar.UseVisualStyleBackColor = true;
-            this.btnGuardar.Click += new System.EventHandler(this.BtnGuardarClick);
-            // 
             // label16
             // 
             this.label16.AutoSize = true;
@@ -387,6 +374,8 @@
             // gbDatosPersonales
             // 
             this.gbDatosPersonales.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.gbDatosPersonales.Controls.Add(this.textEditTExtoFirma);
+            this.gbDatosPersonales.Controls.Add(this.label18);
             this.gbDatosPersonales.Controls.Add(this.textEditIban);
             this.gbDatosPersonales.Controls.Add(this.label17);
             this.gbDatosPersonales.Controls.Add(this.button1);
@@ -412,9 +401,28 @@
             this.gbDatosPersonales.Controls.Add(this.txtNombre);
             this.gbDatosPersonales.Location = new System.Drawing.Point(12, 12);
             this.gbDatosPersonales.Name = "gbDatosPersonales";
-            this.gbDatosPersonales.Size = new System.Drawing.Size(419, 330);
+            this.gbDatosPersonales.Size = new System.Drawing.Size(419, 351);
             this.gbDatosPersonales.TabIndex = 0;
             this.gbDatosPersonales.Text = "Datos personales";
+            // 
+            // textEditTExtoFirma
+            // 
+            this.textEditTExtoFirma.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsConfiguracion, "TextoFirma", true, System.Windows.Forms.DataSourceUpdateMode.Never));
+            this.textEditTExtoFirma.Location = new System.Drawing.Point(121, 311);
+            this.textEditTExtoFirma.Name = "textEditTExtoFirma";
+            this.textEditTExtoFirma.Properties.MaxLength = 30;
+            this.textEditTExtoFirma.Size = new System.Drawing.Size(285, 20);
+            this.textEditTExtoFirma.TabIndex = 23;
+            this.textEditTExtoFirma.EditValueChanged += new System.EventHandler(this.textEditTExtoFirma_EditValueChanged);
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(52, 314);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(63, 13);
+            this.label18.TabIndex = 24;
+            this.label18.Text = "Testo Firma";
             // 
             // textEditIban
             // 
@@ -444,7 +452,7 @@
             this.gbDatosEconomicos.Controls.Add(this.label12);
             this.gbDatosEconomicos.Controls.Add(this.label10);
             this.gbDatosEconomicos.Controls.Add(this.label11);
-            this.gbDatosEconomicos.Location = new System.Drawing.Point(12, 348);
+            this.gbDatosEconomicos.Location = new System.Drawing.Point(12, 369);
             this.gbDatosEconomicos.Name = "gbDatosEconomicos";
             this.gbDatosEconomicos.Size = new System.Drawing.Size(200, 100);
             this.gbDatosEconomicos.TabIndex = 1;
@@ -507,7 +515,7 @@
             this.groupControl3.Controls.Add(this.label16);
             this.groupControl3.Controls.Add(this.label13);
             this.groupControl3.Controls.Add(this.label14);
-            this.groupControl3.Location = new System.Drawing.Point(219, 349);
+            this.groupControl3.Location = new System.Drawing.Point(219, 370);
             this.groupControl3.Name = "groupControl3";
             this.groupControl3.Size = new System.Drawing.Size(212, 100);
             this.groupControl3.TabIndex = 2;
@@ -576,7 +584,6 @@
             this.Controls.Add(this.groupControl3);
             this.Controls.Add(this.gbDatosEconomicos);
             this.Controls.Add(this.gbDatosPersonales);
-            this.Controls.Add(this.btnGuardar);
             this.MinimumSize = new System.Drawing.Size(451, 498);
             this.Name = "Configuracion";
             this.Size = new System.Drawing.Size(451, 501);
@@ -595,6 +602,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gbDatosPersonales)).EndInit();
             this.gbDatosPersonales.ResumeLayout(false);
             this.gbDatosPersonales.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditTExtoFirma.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditIban.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gbDatosEconomicos)).EndInit();
             this.gbDatosEconomicos.ResumeLayout(false);
@@ -627,7 +635,6 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Button button1;
@@ -658,5 +665,7 @@
         private System.Windows.Forms.BindingSource bsConfiguracion;
         private DevExpress.XtraEditors.TextEdit textEditIban;
         private System.Windows.Forms.Label label17;
+        private DevExpress.XtraEditors.TextEdit textEditTExtoFirma;
+        private System.Windows.Forms.Label label18;
     }
 }

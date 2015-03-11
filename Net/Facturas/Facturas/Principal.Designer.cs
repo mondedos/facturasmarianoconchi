@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Principal));
-            DevExpress.Utils.Animation.Transition transition1 = new DevExpress.Utils.Animation.Transition();
-            DevExpress.Utils.Animation.SlideFadeTransition slideFadeTransition1 = new DevExpress.Utils.Animation.SlideFadeTransition();
+            DevExpress.Utils.Animation.Transition transition2 = new DevExpress.Utils.Animation.Transition();
+            DevExpress.Utils.Animation.SlideFadeTransition slideFadeTransition2 = new DevExpress.Utils.Animation.SlideFadeTransition();
             this.ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.barButtonItemNuevaFactura = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItemGuardarFactura = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItemCargarCliente = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItemGuardar = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPageArchivo = new DevExpress.XtraBars.Ribbon.RibbonPage();
@@ -56,7 +56,7 @@
             this.ribbon.ExpandCollapseItem,
             this.barButtonItemNuevaFactura,
             this.barButtonItem2,
-            this.barButtonItem3,
+            this.barButtonItemGuardarFactura,
             this.barButtonItemCargarCliente,
             this.barButtonItemGuardar});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
@@ -69,6 +69,7 @@
             this.ribbon.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office2013;
             this.ribbon.Size = new System.Drawing.Size(910, 144);
             this.ribbon.StatusBar = this.ribbonStatusBar;
+            this.ribbon.SelectedPageChanging += new DevExpress.XtraBars.Ribbon.RibbonPageChangingEventHandler(this.ribbon_SelectedPageChanging);
             this.ribbon.SelectedPageChanged += new System.EventHandler(this.ribbon_SelectedPageChanged);
             // 
             // barButtonItemNuevaFactura
@@ -91,15 +92,15 @@
             this.barButtonItem2.Name = "barButtonItem2";
             this.barButtonItem2.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem2_ItemClick);
             // 
-            // barButtonItem3
+            // barButtonItemGuardarFactura
             // 
-            this.barButtonItem3.Caption = "Guardar";
-            this.barButtonItem3.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
-            this.barButtonItem3.Glyph = global::Facturas.Properties.Resources._1412779930_Hard_Disk;
-            this.barButtonItem3.Id = 3;
-            this.barButtonItem3.LargeGlyph = global::Facturas.Properties.Resources._1412779928_Hard_Disk;
-            this.barButtonItem3.Name = "barButtonItem3";
-            this.barButtonItem3.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem3_ItemClick);
+            this.barButtonItemGuardarFactura.Caption = "Guardar";
+            this.barButtonItemGuardarFactura.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
+            this.barButtonItemGuardarFactura.Glyph = global::Facturas.Properties.Resources._1412779930_Hard_Disk;
+            this.barButtonItemGuardarFactura.Id = 3;
+            this.barButtonItemGuardarFactura.LargeGlyph = global::Facturas.Properties.Resources._1412779928_Hard_Disk;
+            this.barButtonItemGuardarFactura.Name = "barButtonItemGuardarFactura";
+            this.barButtonItemGuardarFactura.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem3_ItemClick);
             // 
             // barButtonItemCargarCliente
             // 
@@ -133,7 +134,7 @@
             // 
             this.ribbonPageGroupFactura.ItemLinks.Add(this.barButtonItemNuevaFactura);
             this.ribbonPageGroupFactura.ItemLinks.Add(this.barButtonItem2);
-            this.ribbonPageGroupFactura.ItemLinks.Add(this.barButtonItem3);
+            this.ribbonPageGroupFactura.ItemLinks.Add(this.barButtonItemGuardarFactura);
             this.ribbonPageGroupFactura.Name = "ribbonPageGroupFactura";
             this.ribbonPageGroupFactura.ShowCaptionButton = false;
             this.ribbonPageGroupFactura.Text = "Factura";
@@ -174,12 +175,12 @@
             // 
             this.transitionManager1.FrameCount = 500;
             this.transitionManager1.FrameInterval = 5000;
-            transition1.Control = null;
-            transition1.ShowWaitingIndicator = DevExpress.Utils.DefaultBoolean.True;
-            slideFadeTransition1.Parameters.Background = System.Drawing.Color.Empty;
-            slideFadeTransition1.Parameters.FramesCount = null;
-            transition1.TransitionType = slideFadeTransition1;
-            this.transitionManager1.Transitions.Add(transition1);
+            transition2.Control = null;
+            transition2.ShowWaitingIndicator = DevExpress.Utils.DefaultBoolean.True;
+            slideFadeTransition2.Parameters.Background = System.Drawing.Color.Empty;
+            slideFadeTransition2.Parameters.FramesCount = null;
+            transition2.TransitionType = slideFadeTransition2;
+            this.transitionManager1.Transitions.Add(transition2);
             // 
             // Principal
             // 
@@ -209,7 +210,7 @@
         private DevExpress.XtraEditors.PanelControl panelControlContenido;
         private DevExpress.XtraBars.BarButtonItem barButtonItemNuevaFactura;
         private DevExpress.XtraBars.BarButtonItem barButtonItem2;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem3;
+        private DevExpress.XtraBars.BarButtonItem barButtonItemGuardarFactura;
         private DevExpress.XtraBars.BarButtonItem barButtonItemCargarCliente;
         private DevExpress.XtraBars.BarButtonItem barButtonItemGuardar;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroupCliente;

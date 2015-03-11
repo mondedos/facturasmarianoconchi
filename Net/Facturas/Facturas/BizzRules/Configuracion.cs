@@ -23,10 +23,21 @@ namespace Facturas.BizzRules
         private decimal _tablaBorde;
         private int _ultimaFactura;
         private string _iban;
+        private string _textoFirma;
 
         #endregion
 
         #region Propiedades
+
+        public string TextoFirma
+        {
+            get { return _textoFirma; }
+            set
+            {
+                _textoFirma = value;
+                RaisePropertyChanged("TextoFirma");
+            }
+        }
 
         public string Licencia
         {

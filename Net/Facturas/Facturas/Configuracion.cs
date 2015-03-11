@@ -54,41 +54,44 @@ namespace Facturas
         {
             if (_detectarCambios)
             {
-                btnGuardar.Enabled = true;
+                //btnGuardar.Enabled = true;
             }
         }
         private void InicialezeValues()
         {
             //datos personales
+            Settings settings = Settings.Default;
+
             BizzRules.Configuracion configuracion = new BizzRules.Configuracion
                 {
-                    Licencia = Settings.Default.licencia,
-                    Nombre = Settings.Default.nombre,
-                    PoblacionCp = Settings.Default.poblacionCP,
-                    Direccion = Settings.Default.direccion,
-                    Telefono = Settings.Default.telefono,
-                    Movil = Settings.Default.movil,
-                    Email = Settings.Default.email,
-                    Cif = Settings.Default.nif,
-                    Ccc = Settings.Default.ccc,
-                    Iban = Settings.Default.Iban,
-                    Iva = Settings.Default.iva,
-                    EurosKilometros = Settings.Default.eurosXKilometros,
-                    EurosHora = Settings.Default.eurosXHora,
+                    Licencia = settings.licencia,
+                    Nombre = settings.nombre,
+                    PoblacionCp = settings.poblacionCP,
+                    Direccion = settings.direccion,
+                    Telefono = settings.telefono,
+                    Movil = settings.movil,
+                    Email = settings.email,
+                    Cif = settings.nif,
+                    Ccc = settings.ccc,
+                    Iban = settings.Iban,
+                    Iva = settings.iva,
+                    EurosKilometros = settings.eurosXKilometros,
+                    EurosHora = settings.eurosXHora,
 
-                    NilvelLmFondo = Settings.Default.nivelLMFondo,
-                    TablaBorde = Settings.Default.tablaBorde,
-                    UltimaFactura = Settings.Default.ultimaFactura
+                    NilvelLmFondo = settings.nivelLMFondo,
+                    TablaBorde = settings.tablaBorde,
+                    UltimaFactura = settings.ultimaFactura,
+                    TextoFirma = settings.TextoFirma
                 };
 
             configuracion.PropertyChanged += ConfiguracionPropertyChanged;
 
-            if (string.IsNullOrEmpty(Settings.Default.carpetaSalidaPDF))
+            if (string.IsNullOrEmpty(settings.carpetaSalidaPDF))
             {
-                Settings.Default.carpetaSalidaPDF = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
-                Settings.Default.Save();
+                settings.carpetaSalidaPDF = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
+                settings.Save();
             }
-            txtForder.Text = Settings.Default.carpetaSalidaPDF;
+            txtForder.Text = settings.carpetaSalidaPDF;
 
             bsConfiguracion.DataSource = configuracion;
         }
@@ -97,7 +100,7 @@ namespace Facturas
         {
             if (_detectarCambios)
             {
-                btnGuardar.Enabled = true;
+                //btnGuardar.Enabled = true;
             }
         }
 
@@ -107,29 +110,32 @@ namespace Facturas
 
             if (configuracion == null) return;
             //datos personales
-            Settings.Default.licencia = configuracion.Licencia;
-            Settings.Default.nombre = configuracion.Nombre;
-            Settings.Default.poblacionCP = configuracion.PoblacionCp;
-            Settings.Default.direccion = configuracion.Direccion;
-            Settings.Default.telefono = configuracion.Telefono;
-            Settings.Default.movil = configuracion.Movil;
-            Settings.Default.email = configuracion.Email;
-            Settings.Default.nif = configuracion.Cif;
-            Settings.Default.ccc = configuracion.Ccc;
-            Settings.Default.Iban = configuracion.Iban;
-            Settings.Default.carpetaSalidaPDF = txtForder.Text;
+            Settings settings = Settings.Default;
+
+            settings.licencia = configuracion.Licencia;
+            settings.nombre = configuracion.Nombre;
+            settings.poblacionCP = configuracion.PoblacionCp;
+            settings.direccion = configuracion.Direccion;
+            settings.telefono = configuracion.Telefono;
+            settings.movil = configuracion.Movil;
+            settings.email = configuracion.Email;
+            settings.nif = configuracion.Cif;
+            settings.ccc = configuracion.Ccc;
+            settings.Iban = configuracion.Iban;
+            settings.carpetaSalidaPDF = txtForder.Text;
 
             //datos económicos
-            Settings.Default.iva = configuracion.Iva;
-            Settings.Default.eurosXKilometros = configuracion.EurosKilometros;
-            Settings.Default.eurosXHora = configuracion.EurosHora;
+            settings.iva = configuracion.Iva;
+            settings.eurosXKilometros = configuracion.EurosKilometros;
+            settings.eurosXHora = configuracion.EurosHora;
 
-            Settings.Default.nivelLMFondo = configuracion.NilvelLmFondo;
-            Settings.Default.tablaBorde = configuracion.TablaBorde;
+            settings.nivelLMFondo = configuracion.NilvelLmFondo;
+            settings.tablaBorde = configuracion.TablaBorde;
 
-            Settings.Default.ultimaFactura = configuracion.UltimaFactura;
+            settings.ultimaFactura = configuracion.UltimaFactura;
+            settings.TextoFirma = configuracion.TextoFirma;
 
-            Settings.Default.Save();
+            settings.Save();
         }
         private bool EsValido()
         {
@@ -145,7 +151,7 @@ namespace Facturas
         {
             if (!EsValido()) return;
             PrivateGuardar();
-            btnGuardar.Enabled = false;
+            //btnGuardar.Enabled = false;
         }
 
 
@@ -176,7 +182,7 @@ namespace Facturas
 
         private void ConfiguracionFormClosing(object sender, FormClosingEventArgs e)
         {
-            if (!btnGuardar.Enabled) return;
+            //if (!btnGuardar.Enabled) return;
             if (XtraMessageBox.Show(FacturasRecursos.Configuracion_Configuracion_FormClosing_, Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
             {
                 e.Cancel = true;
@@ -445,6 +451,21 @@ namespace Facturas
             if (baseEdit == null || baseEdit.EditValue == null || DBNull.Value.Equals(baseEdit.EditValue)) return;
 
             configuracion.Iban = Convert.ToString(baseEdit.EditValue);
+        }
+
+        private void textEditTExtoFirma_EditValueChanged(object sender, EventArgs e)
+        {
+            BizzRules.Configuracion configuracion = bsConfiguracion.Current as BizzRules.Configuracion;
+
+            if (configuracion == null) return;
+
+            BaseEdit baseEdit = sender as BaseEdit;
+
+            if (baseEdit == null || baseEdit.EditValue == null || DBNull.Value.Equals(baseEdit.EditValue)) return;
+
+            configuracion.TextoFirma = Convert.ToString(baseEdit.EditValue);
+
+
         }
     }
 }
