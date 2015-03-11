@@ -62,6 +62,7 @@
             this.numeroTextBox = new DevExpress.XtraEditors.SpinEdit();
             this.direccionTextBox = new DevExpress.XtraEditors.MemoEdit();
             this.tbFecha = new DevExpress.XtraEditors.DateEdit();
+            this.repositoryItemCalcEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemCalcEdit();
             label2 = new System.Windows.Forms.Label();
             label1 = new System.Windows.Forms.Label();
             cifLabel = new System.Windows.Forms.Label();
@@ -92,7 +93,103 @@
             ((System.ComponentModel.ISupportInitialize)(this.direccionTextBox.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbFecha.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbFecha.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCalcEdit1)).BeginInit();
             this.SuspendLayout();
+            // 
+            // label2
+            // 
+            label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            label2.AutoSize = true;
+            label2.Location = new System.Drawing.Point(288, 267);
+            label2.Name = "label2";
+            label2.Size = new System.Drawing.Size(105, 13);
+            label2.TabIndex = 29;
+            label2.Text = "Unidad Tramitadora:";
+            // 
+            // label1
+            // 
+            label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            label1.AutoSize = true;
+            label1.Location = new System.Drawing.Point(303, 242);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(90, 13);
+            label1.TabIndex = 28;
+            label1.Text = "Unidad Orgánica:";
+            // 
+            // cifLabel
+            // 
+            cifLabel.AutoSize = true;
+            cifLabel.Location = new System.Drawing.Point(9, 105);
+            cifLabel.Name = "cifLabel";
+            cifLabel.Size = new System.Drawing.Size(24, 13);
+            cifLabel.TabIndex = 11;
+            cifLabel.Text = "Cif:";
+            // 
+            // telefonoLabel
+            // 
+            telefonoLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            telefonoLabel.AutoSize = true;
+            telefonoLabel.Location = new System.Drawing.Point(9, 264);
+            telefonoLabel.Name = "telefonoLabel";
+            telefonoLabel.Size = new System.Drawing.Size(53, 13);
+            telefonoLabel.TabIndex = 25;
+            telefonoLabel.Text = "Telefono:";
+            // 
+            // ciudadLabel
+            // 
+            ciudadLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            ciudadLabel.AutoSize = true;
+            ciudadLabel.Location = new System.Drawing.Point(9, 212);
+            ciudadLabel.Name = "ciudadLabel";
+            ciudadLabel.Size = new System.Drawing.Size(44, 13);
+            ciudadLabel.TabIndex = 13;
+            ciudadLabel.Text = "Ciudad:";
+            // 
+            // numeroLabel
+            // 
+            numeroLabel.AutoSize = true;
+            numeroLabel.Location = new System.Drawing.Point(9, 27);
+            numeroLabel.Name = "numeroLabel";
+            numeroLabel.Size = new System.Drawing.Size(48, 13);
+            numeroLabel.TabIndex = 23;
+            numeroLabel.Text = "Numero:";
+            // 
+            // codigoPostalLabel
+            // 
+            codigoPostalLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            codigoPostalLabel.AutoSize = true;
+            codigoPostalLabel.Location = new System.Drawing.Point(9, 238);
+            codigoPostalLabel.Name = "codigoPostalLabel";
+            codigoPostalLabel.Size = new System.Drawing.Size(76, 13);
+            codigoPostalLabel.TabIndex = 15;
+            codigoPostalLabel.Text = "Codigo Postal:";
+            // 
+            // nombreLabel
+            // 
+            nombreLabel.AutoSize = true;
+            nombreLabel.Location = new System.Drawing.Point(9, 79);
+            nombreLabel.Name = "nombreLabel";
+            nombreLabel.Size = new System.Drawing.Size(48, 13);
+            nombreLabel.TabIndex = 21;
+            nombreLabel.Text = "Nombre:";
+            // 
+            // direccionLabel
+            // 
+            direccionLabel.AutoSize = true;
+            direccionLabel.Location = new System.Drawing.Point(9, 131);
+            direccionLabel.Name = "direccionLabel";
+            direccionLabel.Size = new System.Drawing.Size(54, 13);
+            direccionLabel.TabIndex = 17;
+            direccionLabel.Text = "Direccion:";
+            // 
+            // fechaLabel
+            // 
+            fechaLabel.AutoSize = true;
+            fechaLabel.Location = new System.Drawing.Point(9, 54);
+            fechaLabel.Name = "fechaLabel";
+            fechaLabel.Size = new System.Drawing.Size(40, 13);
+            fechaLabel.TabIndex = 19;
+            fechaLabel.Text = "Fecha:";
             // 
             // bsLineas
             // 
@@ -125,7 +222,8 @@
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
             this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.repositoryItemMemoEditConcepto});
+            this.repositoryItemMemoEditConcepto,
+            this.repositoryItemCalcEdit1});
             this.gridControl1.Size = new System.Drawing.Size(882, 215);
             this.gridControl1.TabIndex = 0;
             this.gridControl1.UseEmbeddedNavigator = true;
@@ -192,6 +290,7 @@
             // 
             // colCantidad
             // 
+            this.colCantidad.ColumnEdit = this.repositoryItemCalcEdit1;
             this.colCantidad.DisplayFormat.FormatString = "c2";
             this.colCantidad.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.colCantidad.FieldName = "Cantidad";
@@ -204,6 +303,7 @@
             // 
             // colKilometrosEuros
             // 
+            this.colKilometrosEuros.ColumnEdit = this.repositoryItemCalcEdit1;
             this.colKilometrosEuros.DisplayFormat.FormatString = "c2";
             this.colKilometrosEuros.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.colKilometrosEuros.FieldName = "KilometrosEuros";
@@ -216,6 +316,7 @@
             // 
             // colHorasEuros
             // 
+            this.colHorasEuros.ColumnEdit = this.repositoryItemCalcEdit1;
             this.colHorasEuros.DisplayFormat.FormatString = "c2";
             this.colHorasEuros.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.colHorasEuros.FieldName = "HorasEuros";
@@ -256,26 +357,6 @@
             this.groupBox1.TabIndex = 2;
             this.groupBox1.Text = "Datos del cliente";
             // 
-            // label2
-            // 
-            label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            label2.AutoSize = true;
-            label2.Location = new System.Drawing.Point(288, 267);
-            label2.Name = "label2";
-            label2.Size = new System.Drawing.Size(105, 13);
-            label2.TabIndex = 29;
-            label2.Text = "Unidad Tramitadora:";
-            // 
-            // label1
-            // 
-            label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            label1.AutoSize = true;
-            label1.Location = new System.Drawing.Point(303, 242);
-            label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(90, 13);
-            label1.TabIndex = 28;
-            label1.Text = "Unidad Orgánica:";
-            // 
             // textEditUnidadTramitadora
             // 
             this.textEditUnidadTramitadora.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
@@ -309,15 +390,6 @@
             this.nombreTextBox.TabIndex = 2;
             this.nombreTextBox.EditValueChanged += new System.EventHandler(this.nombreTextBox_EditValueChanged);
             // 
-            // cifLabel
-            // 
-            cifLabel.AutoSize = true;
-            cifLabel.Location = new System.Drawing.Point(9, 105);
-            cifLabel.Name = "cifLabel";
-            cifLabel.Size = new System.Drawing.Size(24, 13);
-            cifLabel.TabIndex = 11;
-            cifLabel.Text = "Cif:";
-            // 
             // telefonoTextBox
             // 
             this.telefonoTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -339,26 +411,6 @@
             this.cifTextBox.TabIndex = 3;
             this.cifTextBox.EditValueChanged += new System.EventHandler(this.cifTextBox_EditValueChanged);
             // 
-            // telefonoLabel
-            // 
-            telefonoLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            telefonoLabel.AutoSize = true;
-            telefonoLabel.Location = new System.Drawing.Point(9, 264);
-            telefonoLabel.Name = "telefonoLabel";
-            telefonoLabel.Size = new System.Drawing.Size(53, 13);
-            telefonoLabel.TabIndex = 25;
-            telefonoLabel.Text = "Telefono:";
-            // 
-            // ciudadLabel
-            // 
-            ciudadLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            ciudadLabel.AutoSize = true;
-            ciudadLabel.Location = new System.Drawing.Point(9, 212);
-            ciudadLabel.Name = "ciudadLabel";
-            ciudadLabel.Size = new System.Drawing.Size(44, 13);
-            ciudadLabel.TabIndex = 13;
-            ciudadLabel.Text = "Ciudad:";
-            // 
             // ciudadTextBox
             // 
             this.ciudadTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
@@ -370,34 +422,6 @@
             this.ciudadTextBox.TabIndex = 5;
             this.ciudadTextBox.EditValueChanged += new System.EventHandler(this.ciudadTextBox_EditValueChanged);
             // 
-            // numeroLabel
-            // 
-            numeroLabel.AutoSize = true;
-            numeroLabel.Location = new System.Drawing.Point(9, 27);
-            numeroLabel.Name = "numeroLabel";
-            numeroLabel.Size = new System.Drawing.Size(48, 13);
-            numeroLabel.TabIndex = 23;
-            numeroLabel.Text = "Numero:";
-            // 
-            // codigoPostalLabel
-            // 
-            codigoPostalLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            codigoPostalLabel.AutoSize = true;
-            codigoPostalLabel.Location = new System.Drawing.Point(9, 238);
-            codigoPostalLabel.Name = "codigoPostalLabel";
-            codigoPostalLabel.Size = new System.Drawing.Size(76, 13);
-            codigoPostalLabel.TabIndex = 15;
-            codigoPostalLabel.Text = "Codigo Postal:";
-            // 
-            // nombreLabel
-            // 
-            nombreLabel.AutoSize = true;
-            nombreLabel.Location = new System.Drawing.Point(9, 79);
-            nombreLabel.Name = "nombreLabel";
-            nombreLabel.Size = new System.Drawing.Size(48, 13);
-            nombreLabel.TabIndex = 21;
-            nombreLabel.Text = "Nombre:";
-            // 
             // codigoPostalTextBox
             // 
             this.codigoPostalTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -408,24 +432,6 @@
             this.codigoPostalTextBox.Size = new System.Drawing.Size(84, 20);
             this.codigoPostalTextBox.TabIndex = 6;
             this.codigoPostalTextBox.EditValueChanged += new System.EventHandler(this.codigoPostalTextBox_EditValueChanged);
-            // 
-            // direccionLabel
-            // 
-            direccionLabel.AutoSize = true;
-            direccionLabel.Location = new System.Drawing.Point(9, 131);
-            direccionLabel.Name = "direccionLabel";
-            direccionLabel.Size = new System.Drawing.Size(54, 13);
-            direccionLabel.TabIndex = 17;
-            direccionLabel.Text = "Direccion:";
-            // 
-            // fechaLabel
-            // 
-            fechaLabel.AutoSize = true;
-            fechaLabel.Location = new System.Drawing.Point(9, 54);
-            fechaLabel.Name = "fechaLabel";
-            fechaLabel.Size = new System.Drawing.Size(40, 13);
-            fechaLabel.TabIndex = 19;
-            fechaLabel.Text = "Fecha:";
             // 
             // numeroTextBox
             // 
@@ -473,6 +479,18 @@
             this.tbFecha.TabIndex = 1;
             this.tbFecha.EditValueChanged += new System.EventHandler(this.tbFecha_EditValueChanged);
             // 
+            // repositoryItemCalcEdit1
+            // 
+            this.repositoryItemCalcEdit1.AutoHeight = false;
+            this.repositoryItemCalcEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryItemCalcEdit1.DisplayFormat.FormatString = "c2";
+            this.repositoryItemCalcEdit1.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.repositoryItemCalcEdit1.EditFormat.FormatString = "c2";
+            this.repositoryItemCalcEdit1.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.repositoryItemCalcEdit1.Mask.EditMask = "c2";
+            this.repositoryItemCalcEdit1.Name = "repositoryItemCalcEdit1";
+            // 
             // DatosFactura
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -502,6 +520,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.direccionTextBox.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbFecha.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbFecha.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCalcEdit1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -531,5 +550,6 @@
         private DevExpress.XtraEditors.SpinEdit numeroTextBox;
         private DevExpress.XtraEditors.MemoEdit direccionTextBox;
         private DevExpress.XtraEditors.DateEdit tbFecha;
+        private DevExpress.XtraEditors.Repository.RepositoryItemCalcEdit repositoryItemCalcEdit1;
     }
 }

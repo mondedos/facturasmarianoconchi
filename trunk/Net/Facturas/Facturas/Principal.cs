@@ -1,21 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.IO;
-using System.Text;
-using System.Linq;
 using System.Windows.Forms;
-using System.Xml.Serialization;
 using DevExpress.XtraBars;
 using DevExpress.XtraEditors;
-using DevExpress.XtraGrid.Views.Grid;
-using DevExpress.XtraPrinting.Drawing;
-using DevExpress.XtraReports.UI;
-using Facturas.BizzRules;
-using Facturas.Properties;
-using Facturas.Report;
 
 namespace Facturas
 {

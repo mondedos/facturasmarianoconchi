@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Xml.Serialization;
+using Facturas.Properties;
 
 namespace Facturas.BizzRules
 {
@@ -154,6 +156,23 @@ namespace Facturas.BizzRules
             }
         }
 
+        #region Metodos
 
+        public void CalcularSubtotales()
+        {
+            decimal total = Lineas.Sum(l => l.Cantidad);
+
+            decimal baseImponible = (total / (1 + Settings.Default.iva)).Redondear();
+
+            decimal impuestos = total - baseImponible;
+            
+            Total = total;
+
+            Iva = impuestos;
+
+            SubTotal = baseImponible;
+        }
+
+        #endregion
     }
 }

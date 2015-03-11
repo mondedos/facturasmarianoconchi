@@ -1,13 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Text;
-using System.Linq;
-using System.Windows.Forms;
-using DevExpress.XtraBars.Ribbon;
-using DevExpress.XtraEditors;
+﻿using DevExpress.XtraBars.Ribbon;
+using DevExpress.XtraPrinting;
 using DevExpress.XtraReports.UI;
 
 namespace Facturas
@@ -27,6 +19,10 @@ namespace Facturas
             {
                 _report = value;
                 documentViewer1.DocumentSource = value;
+
+                documentViewer1.PrintingSystem.SetCommandVisibility(PrintingSystemCommand.Customize, CommandVisibility.None);
+
+                documentViewer1.PrintingSystem.SetCommandVisibility(PrintingSystemCommand.Parameters, CommandVisibility.None);
             }
         }
 
@@ -35,6 +31,8 @@ namespace Facturas
         public UcPreview()
         {
             InitializeComponent();
+
+            
         }
     }
 }
