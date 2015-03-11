@@ -130,8 +130,9 @@
             this.txtForder.Location = new System.Drawing.Point(121, 284);
             this.txtForder.Name = "txtForder";
             this.txtForder.ReadOnly = true;
-            this.txtForder.Size = new System.Drawing.Size(198, 21);
+            this.txtForder.Size = new System.Drawing.Size(204, 21);
             this.txtForder.TabIndex = 9;
+            this.txtForder.TabStop = false;
             this.txtForder.Text = "2106 0950 06 0286145041";
             // 
             // button1
@@ -139,10 +140,10 @@
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.button1.Image = global::Facturas.FacturasRecursos.explorar;
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(325, 282);
+            this.button1.Location = new System.Drawing.Point(331, 282);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 18;
+            this.button1.TabIndex = 10;
             this.button1.Text = "Explorar";
             this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button1.UseVisualStyleBackColor = true;
@@ -399,7 +400,7 @@
             this.gbDatosPersonales.Controls.Add(this.txtPoblacion);
             this.gbDatosPersonales.Controls.Add(this.txtLicencia);
             this.gbDatosPersonales.Controls.Add(this.txtNombre);
-            this.gbDatosPersonales.Location = new System.Drawing.Point(12, 12);
+            this.gbDatosPersonales.Location = new System.Drawing.Point(12, 11);
             this.gbDatosPersonales.Name = "gbDatosPersonales";
             this.gbDatosPersonales.Size = new System.Drawing.Size(419, 351);
             this.gbDatosPersonales.TabIndex = 0;
@@ -412,7 +413,7 @@
             this.textEditTExtoFirma.Name = "textEditTExtoFirma";
             this.textEditTExtoFirma.Properties.MaxLength = 30;
             this.textEditTExtoFirma.Size = new System.Drawing.Size(285, 20);
-            this.textEditTExtoFirma.TabIndex = 23;
+            this.textEditTExtoFirma.TabIndex = 11;
             this.textEditTExtoFirma.EditValueChanged += new System.EventHandler(this.textEditTExtoFirma_EditValueChanged);
             // 
             // label18
@@ -431,7 +432,7 @@
             this.textEditIban.Name = "textEditIban";
             this.textEditIban.Properties.MaxLength = 30;
             this.textEditIban.Size = new System.Drawing.Size(285, 20);
-            this.textEditIban.TabIndex = 21;
+            this.textEditIban.TabIndex = 9;
             this.textEditIban.EditValueChanged += new System.EventHandler(this.TextEditIbanEditValueChanged);
             // 
             // label17
@@ -452,7 +453,7 @@
             this.gbDatosEconomicos.Controls.Add(this.label12);
             this.gbDatosEconomicos.Controls.Add(this.label10);
             this.gbDatosEconomicos.Controls.Add(this.label11);
-            this.gbDatosEconomicos.Location = new System.Drawing.Point(12, 369);
+            this.gbDatosEconomicos.Location = new System.Drawing.Point(12, 368);
             this.gbDatosEconomicos.Name = "gbDatosEconomicos";
             this.gbDatosEconomicos.Size = new System.Drawing.Size(200, 100);
             this.gbDatosEconomicos.TabIndex = 1;
@@ -470,7 +471,7 @@
             this.txtKilometros.Properties.Mask.EditMask = "c";
             this.txtKilometros.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.txtKilometros.Size = new System.Drawing.Size(61, 20);
-            this.txtKilometros.TabIndex = 29;
+            this.txtKilometros.TabIndex = 2;
             this.txtKilometros.EditValueChanged += new System.EventHandler(this.TxtKilometrosEditValueChanged);
             this.txtKilometros.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DecimalesCalculadoraOnKeyPress);
             // 
@@ -486,7 +487,7 @@
             this.txtHorasEspera.Properties.Mask.EditMask = "c";
             this.txtHorasEspera.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.txtHorasEspera.Size = new System.Drawing.Size(61, 20);
-            this.txtHorasEspera.TabIndex = 2;
+            this.txtHorasEspera.TabIndex = 1;
             this.txtHorasEspera.EditValueChanged += new System.EventHandler(this.TxtHorasEsperaEditValueChanged);
             this.txtHorasEspera.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DecimalesCalculadoraOnKeyPress);
             // 
@@ -515,7 +516,7 @@
             this.groupControl3.Controls.Add(this.label16);
             this.groupControl3.Controls.Add(this.label13);
             this.groupControl3.Controls.Add(this.label14);
-            this.groupControl3.Location = new System.Drawing.Point(219, 370);
+            this.groupControl3.Location = new System.Drawing.Point(219, 369);
             this.groupControl3.Name = "groupControl3";
             this.groupControl3.Size = new System.Drawing.Size(212, 100);
             this.groupControl3.TabIndex = 2;
@@ -534,7 +535,7 @@
             this.numericUpDownUltimaFActura.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
             this.numericUpDownUltimaFActura.Size = new System.Drawing.Size(69, 20);
-            this.numericUpDownUltimaFActura.TabIndex = 3;
+            this.numericUpDownUltimaFActura.TabIndex = 2;
             this.numericUpDownUltimaFActura.EditValueChanged += new System.EventHandler(this.NumericUpDownUltimaFActuraEditValueChanged);
             this.numericUpDownUltimaFActura.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DecimalesCalculadoraOnKeyPress);
             // 
@@ -551,7 +552,7 @@
             this.numericUpDownBordeTabla.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
             this.numericUpDownBordeTabla.Size = new System.Drawing.Size(69, 20);
-            this.numericUpDownBordeTabla.TabIndex = 2;
+            this.numericUpDownBordeTabla.TabIndex = 1;
             this.numericUpDownBordeTabla.EditValueChanged += new System.EventHandler(this.NumericUpDownBordeTablaEditValueChanged);
             this.numericUpDownBordeTabla.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DecimalesCalculadoraOnKeyPress);
             // 
@@ -568,7 +569,7 @@
             this.numericUpDownNivelFondo.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
             this.numericUpDownNivelFondo.Size = new System.Drawing.Size(69, 20);
-            this.numericUpDownNivelFondo.TabIndex = 1;
+            this.numericUpDownNivelFondo.TabIndex = 0;
             this.numericUpDownNivelFondo.EditValueChanged += new System.EventHandler(this.NumericUpDownNivelFondoEditValueChanged);
             this.numericUpDownNivelFondo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DecimalesCalculadoraOnKeyPress);
             // 
@@ -586,7 +587,7 @@
             this.Controls.Add(this.gbDatosPersonales);
             this.MinimumSize = new System.Drawing.Size(451, 498);
             this.Name = "Configuracion";
-            this.Size = new System.Drawing.Size(451, 501);
+            this.Size = new System.Drawing.Size(451, 498);
             this.Load += new System.EventHandler(this.ConfiguracionLoad);
             ((System.ComponentModel.ISupportInitialize)(this.txtLicencia.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsConfiguracion)).EndInit();

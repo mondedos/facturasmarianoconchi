@@ -200,6 +200,14 @@ namespace Facturas
             }
         }
 
+        private void barButtonItemGuardarConfiguracion_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            if (Equals(ribbon.SelectedPage, ribbonPageConfiguracion) && Equals(CurrentControl, _configuracion))
+            {
+                _configuracion.Guardar();
+            }
+        }
+
 
 
 
