@@ -1,5 +1,4 @@
 ﻿
-using Facturas.BizzRules;
 namespace Facturas
 {
     partial class Form1

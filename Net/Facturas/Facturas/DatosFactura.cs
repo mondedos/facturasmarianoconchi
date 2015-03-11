@@ -1,14 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
-using System.Data;
 using System.IO;
-using System.Text;
 using System.Linq;
 using System.Windows.Forms;
 using System.Xml.Serialization;
-using DevExpress.XtraBars;
 using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraPrinting.Drawing;
@@ -169,9 +165,16 @@ namespace Facturas
 
         public XtraReportFactura CreateReportFactura()
         {
+            Factura factura = Factura;
+
+            factura.Lineas.Clear();
+            factura.Lineas.AddRange(bsLineas.Cast<LineaFactura>());
+
+            factura.CalcularSubtotales();
+
             XtraReportFactura xtraReport = new XtraReportFactura
             {
-                Factura = Factura,
+                Factura = factura,
                 RequestParameters = false
             };
 

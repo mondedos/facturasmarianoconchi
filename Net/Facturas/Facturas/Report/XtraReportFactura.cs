@@ -1,9 +1,4 @@
-﻿using System;
-using System.Drawing;
-using System.Collections;
-using System.ComponentModel;
-using DevExpress.XtraReports.UI;
-using Facturas.BizzRules;
+﻿using Facturas.BizzRules;
 
 namespace Facturas.Report
 {

@@ -9,9 +9,6 @@
 //------------------------------------------------------------------------------
 
 namespace Facturas {
-    using System;
-    
-    
     /// <summary>
     ///   Clase de recurso con establecimiento inflexible de tipos, para buscar cadenas traducidas, etc.
     /// </summary>

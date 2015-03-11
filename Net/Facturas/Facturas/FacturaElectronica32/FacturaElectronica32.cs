@@ -1,7 +1,5 @@
 ﻿namespace FacturaElectronica32 
 {
-    using System.Xml.Serialization;
-
     public abstract class DoubleFixedDecimalType
     {
         protected double value;

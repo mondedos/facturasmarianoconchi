@@ -1,9 +1,5 @@
-﻿using FacturaElectronica32;
-using Facturas.BizzRules;
+﻿using Facturas.BizzRules;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace FacturaElectronica32
 {
