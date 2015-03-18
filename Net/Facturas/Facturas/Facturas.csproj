@@ -225,6 +225,7 @@
     </EmbeddedResource>
     <None Include="app.config" />
     <None Include="Facturas.snk" />
+    <None Include="Properties\DataSources\Facturas.BizzRules.Cliente.datasource" />
     <None Include="Properties\DataSources\Facturas.BizzRules.Configuracion.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

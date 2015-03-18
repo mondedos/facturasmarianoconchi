@@ -35,6 +35,15 @@ namespace Facturas
             }
         }
 
+        public Cliente Cliente
+        {
+            get { return bsCliente.Current as Cliente; }
+            set
+            {
+                bsCliente.DataSource = value;
+            }
+        }
+
         #endregion
 
         #region Constructores
@@ -78,12 +87,17 @@ namespace Facturas
 
             Util.CopiarPropiedadesTipo(myObject, fact);
 
+            Cliente = myObject;
+
             bsFactura.ResetCurrentItem();
         }
 
         public void GuardarDatosCliente()
         {
-            Cliente myObject;
+            Cliente myObject = Cliente;
+
+            if (myObject == null) return;
+
             XmlSerializer mySerializer;
             StreamWriter myWriter;
             using (SaveFileDialog sabeD = new SaveFileDialog
@@ -96,7 +110,6 @@ namespace Facturas
                 if (sabeD.ShowDialog(this) != DialogResult.OK) return;
                 Factura fact = bsFactura.Current as Factura;
 
-                myObject = new Cliente();
 
                 Util.CopiarPropiedadesTipo(fact, myObject);
 
@@ -109,20 +122,46 @@ namespace Facturas
             myWriter.Close();
         }
 
-        private void Disenyar()
+        public void Disenyar()
         {
             Factura factura = bsFactura.Current as Factura;
 
             if (factura != null)
             {
+                var cliente = Cliente??new Cliente();
+
                 XtraReportFactura xtraReport = new XtraReportFactura
                 {
                     Factura = factura
                 };
+
+                try
+                {
+                    using (var ms = new MemoryStream(cliente.ModeloDocumento))
+                    {
+                        ms.Position = 0;
+
+                        xtraReport.LoadLayout(ms);
+                    }
+                }
+                catch (Exception)
+                {
+                }
+
+               
                 ReportDesignTool dt = new ReportDesignTool(xtraReport);
 
                 // Invoke the Ribbon End-User Designer form modally. 
                 dt.ShowRibbonDesignerDialog();
+
+                using (var ms=new MemoryStream())
+                {
+                    xtraReport.SaveLayout(ms);
+
+                    ms.Position = 0;
+
+                    cliente.ModeloDocumento = ms.ToArray();
+                }
             }
 
         }
@@ -172,11 +211,25 @@ namespace Facturas
 
             factura.CalcularSubtotales();
 
-            XtraReportFactura xtraReport = new XtraReportFactura
+            XtraReportFactura xtraReport = new XtraReportFactura();
+
+            var cliente = Cliente ?? new Cliente();
+            
+            try
             {
-                Factura = factura,
-                RequestParameters = false
-            };
+                using (var ms = new MemoryStream(cliente.ModeloDocumento))
+                {
+                    ms.Position = 0;
+
+                    xtraReport.LoadLayout(ms);
+                }
+            }
+            catch (Exception)
+            {
+            }
+
+            xtraReport.Factura = factura;
+            xtraReport.RequestParameters = false;
 
             xtraReport.Parameters["licenciaMunicipal"].Value = Settings.Default.licencia;
             xtraReport.Parameters["email"].Value = Settings.Default.email;
@@ -206,7 +259,7 @@ namespace Facturas
 
         #region Implementacion de Eventos
 
-       
+
         #region Cabecera
 
         private void numeroTextBox_EditValueChanged(object sender, EventArgs e)

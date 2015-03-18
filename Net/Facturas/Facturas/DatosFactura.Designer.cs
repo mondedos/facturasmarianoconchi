@@ -49,6 +49,7 @@
             this.colKilometros = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colHorasEspera = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colCantidad = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryItemCalcEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemCalcEdit();
             this.colKilometrosEuros = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colHorasEuros = new DevExpress.XtraGrid.Columns.GridColumn();
             this.groupBox1 = new DevExpress.XtraEditors.GroupControl();
@@ -62,7 +63,7 @@
             this.numeroTextBox = new DevExpress.XtraEditors.SpinEdit();
             this.direccionTextBox = new DevExpress.XtraEditors.MemoEdit();
             this.tbFecha = new DevExpress.XtraEditors.DateEdit();
-            this.repositoryItemCalcEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemCalcEdit();
+            this.bsCliente = new System.Windows.Forms.BindingSource(this.components);
             label2 = new System.Windows.Forms.Label();
             label1 = new System.Windows.Forms.Label();
             cifLabel = new System.Windows.Forms.Label();
@@ -80,6 +81,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemMemoEditConcepto)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCalcEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.textEditUnidadTramitadora.Properties)).BeginInit();
@@ -93,7 +95,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.direccionTextBox.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbFecha.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbFecha.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCalcEdit1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsCliente)).BeginInit();
             this.SuspendLayout();
             // 
             // label2
@@ -301,6 +303,18 @@
             this.colCantidad.VisibleIndex = 5;
             this.colCantidad.Width = 195;
             // 
+            // repositoryItemCalcEdit1
+            // 
+            this.repositoryItemCalcEdit1.AutoHeight = false;
+            this.repositoryItemCalcEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryItemCalcEdit1.DisplayFormat.FormatString = "c2";
+            this.repositoryItemCalcEdit1.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.repositoryItemCalcEdit1.EditFormat.FormatString = "c2";
+            this.repositoryItemCalcEdit1.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.repositoryItemCalcEdit1.Mask.EditMask = "c2";
+            this.repositoryItemCalcEdit1.Name = "repositoryItemCalcEdit1";
+            // 
             // colKilometrosEuros
             // 
             this.colKilometrosEuros.ColumnEdit = this.repositoryItemCalcEdit1;
@@ -479,17 +493,9 @@
             this.tbFecha.TabIndex = 1;
             this.tbFecha.EditValueChanged += new System.EventHandler(this.tbFecha_EditValueChanged);
             // 
-            // repositoryItemCalcEdit1
+            // bsCliente
             // 
-            this.repositoryItemCalcEdit1.AutoHeight = false;
-            this.repositoryItemCalcEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.repositoryItemCalcEdit1.DisplayFormat.FormatString = "c2";
-            this.repositoryItemCalcEdit1.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.repositoryItemCalcEdit1.EditFormat.FormatString = "c2";
-            this.repositoryItemCalcEdit1.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.repositoryItemCalcEdit1.Mask.EditMask = "c2";
-            this.repositoryItemCalcEdit1.Name = "repositoryItemCalcEdit1";
+            this.bsCliente.DataSource = typeof(Facturas.BizzRules.Cliente);
             // 
             // DatosFactura
             // 
@@ -506,6 +512,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemMemoEditConcepto)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCalcEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupBox1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -520,7 +527,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.direccionTextBox.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbFecha.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbFecha.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCalcEdit1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsCliente)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -551,5 +558,6 @@
         private DevExpress.XtraEditors.MemoEdit direccionTextBox;
         private DevExpress.XtraEditors.DateEdit tbFecha;
         private DevExpress.XtraEditors.Repository.RepositoryItemCalcEdit repositoryItemCalcEdit1;
+        private System.Windows.Forms.BindingSource bsCliente;
     }
 }
