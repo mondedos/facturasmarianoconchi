@@ -116,7 +116,6 @@
     <Compile Include="BizzRules\IFactura.cs" />
     <Compile Include="BizzRules\ILineaFactura.cs" />
     <Compile Include="BizzRules\LineaFactura.cs" />
-    <Compile Include="BizzRules\PDFGenerador.cs" />
     <Compile Include="BizzRules\PDFSigner.cs" />
     <Compile Include="BizzRules\Util.cs" />
     <Compile Include="Configuracion.cs">
