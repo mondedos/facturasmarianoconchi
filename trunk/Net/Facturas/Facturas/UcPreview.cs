@@ -1,12 +1,20 @@
 ﻿using DevExpress.XtraBars.Ribbon;
 using DevExpress.XtraPrinting;
 using DevExpress.XtraReports.UI;
+using Facturas.Report.Comands;
 
 namespace Facturas
 {
     public partial class UcPreview : DevExpress.XtraEditors.XtraUserControl
     {
+        #region Atributos
+
+        private static ExportPdfCommandHandler _exportPdfCommandHandler=new ExportPdfCommandHandler();
+
         private XtraReport _report;
+
+
+        #endregion
 
         #region Propiedades
 
@@ -20,9 +28,14 @@ namespace Facturas
                 _report = value;
                 documentViewer1.DocumentSource = value;
 
-                documentViewer1.PrintingSystem.SetCommandVisibility(PrintingSystemCommand.Customize, CommandVisibility.None);
+                PrintingSystemBase printingSystemBase = documentViewer1.PrintingSystem;
 
-                documentViewer1.PrintingSystem.SetCommandVisibility(PrintingSystemCommand.Parameters, CommandVisibility.None);
+                printingSystemBase.SetCommandVisibility(PrintingSystemCommand.Customize, CommandVisibility.None);
+
+                printingSystemBase.SetCommandVisibility(PrintingSystemCommand.Parameters, CommandVisibility.None);
+
+                printingSystemBase.RemoveCommandHandler(_exportPdfCommandHandler);
+                printingSystemBase.AddCommandHandler(_exportPdfCommandHandler);
             }
         }
 

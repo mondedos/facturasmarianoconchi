@@ -163,6 +163,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Report\Comands\ExportPdfCommandHandler.cs" />
     <Compile Include="UcLinea.cs">
       <SubType>UserControl</SubType>
     </Compile>
