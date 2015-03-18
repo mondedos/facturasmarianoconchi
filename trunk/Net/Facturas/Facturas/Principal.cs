@@ -35,6 +35,7 @@ namespace Facturas
                 barButtonItemCargarCliente.Enabled = value;
                 barButtonItemGuardar.Enabled = value;
                 barButtonItemGuardarFactura.Enabled = value;
+                barButtonItemDisenyo.Enabled = value;
             }
         }
 
@@ -191,6 +192,14 @@ namespace Facturas
             if (Equals(ribbon.SelectedPage, ribbonPageConfiguracion) && Equals(CurrentControl, _configuracion))
             {
                 _configuracion.Guardar();
+            }
+        }
+
+        private void barButtonItemDisenyo_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            if (Equals(ribbon.SelectedPage, ribbonPageArchivo))
+            {
+                _datosFactura.Disenyar();
             }
         }
 
