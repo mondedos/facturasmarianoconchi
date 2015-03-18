@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
+using System.Text;
 using System.Xml.Serialization;
 using Facturas.Properties;
 
@@ -173,6 +175,37 @@ namespace Facturas.BizzRules
             SubTotal = baseImponible;
         }
 
+
+        /// <summary>
+        /// Método que realiza el cálculo de firma de factura.
+        /// </summary>
+        /// <param name="factura">Factura a firmar</param>
+        /// <returns>cadena de firma</returns>
+        private static string FirmarFactura(IFactura factura)
+        {
+            StringBuilder sb = new StringBuilder(Settings.Default.licencia);
+
+            decimal total = factura.Lineas.Sum(item => item.Cantidad);
+
+            //suma el total a pagar
+
+
+            sb.Append(factura.Numero).Append(Settings.Default.ccc)
+                .Append(total).Append(factura.Nombre).Append(Settings.Default.nif);
+
+            return GetSha1(sb.ToString());
+        }
+
+        internal static string GetSha1(string str)
+        {
+            SHA1 sha1 = SHA1Managed.Create();
+            ASCIIEncoding encoding = new ASCIIEncoding();
+            StringBuilder sb = new StringBuilder();
+            byte[] stream = sha1.ComputeHash(encoding.GetBytes(str));
+            foreach (byte t in stream)
+                sb.AppendFormat("{0:x2}", t);
+            return sb.ToString();
+        }
         #endregion
     }
 }

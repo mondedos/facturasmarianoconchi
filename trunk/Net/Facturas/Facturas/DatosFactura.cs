@@ -204,6 +204,29 @@ namespace Facturas
 
         public XtraReportFactura CreateReportFactura()
         {
+            var xtraReport = CalcularReport();
+
+            using (var ms = new MemoryStream())
+            {
+                xtraReport.ExportToText(ms);
+
+                ms.Position = 0;
+
+                xtraReport = CalcularReport();
+
+                using (var sw = new StreamReader(ms))
+                {
+                    xtraReport.Parameters["firma"].Value = Factura.GetSha1(sw.ReadToEnd());
+                }
+            }
+
+            SetTextWatermark(xtraReport);
+
+            return xtraReport;
+        }
+
+        private XtraReportFactura CalcularReport()
+        {
             Factura factura = Factura;
 
             factura.Lineas.Clear();
@@ -214,7 +237,7 @@ namespace Facturas
             XtraReportFactura xtraReport = new XtraReportFactura();
 
             var cliente = Cliente ?? new Cliente();
-            
+
             try
             {
                 using (var ms = new MemoryStream(cliente.ModeloDocumento))
@@ -242,15 +265,12 @@ namespace Facturas
 
             if (!string.IsNullOrEmpty(Settings.Default.Iban))
             {
-                xtraReport.Parameters["poblacion"].Value = string.Format("IBAN: {0}", Settings.Default.Iban);
+                xtraReport.Parameters["iban"].Value = string.Format("IBAN: {0}", Settings.Default.Iban);
             }
             else
             {
-                xtraReport.Parameters["poblacion"].Value = string.Format("IBAN: {0}", Settings.Default.ccc);
+                xtraReport.Parameters["iban"].Value = string.Format("IBAN: {0}", Settings.Default.ccc);
             }
-
-            SetTextWatermark(xtraReport);
-
             return xtraReport;
         }
 

@@ -228,7 +228,7 @@
             this.Name = "Principal";
             this.Ribbon = this.ribbon;
             this.StatusBar = this.ribbonStatusBar;
-            this.Text = "Principal";
+            this.Text = "Programa Factura Taxi";
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControlContenido)).EndInit();
             this.ResumeLayout(false);

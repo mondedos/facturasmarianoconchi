@@ -79,10 +79,13 @@
             this.xrTableCell8 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell6 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell7 = new DevExpress.XtraReports.UI.XRTableCell();
-            this.bsFactura = new System.Windows.Forms.BindingSource(this.components);
             this.iban = new DevExpress.XtraReports.Parameters.Parameter();
             this.ReportFooter = new DevExpress.XtraReports.UI.ReportFooterBand();
             this.xrLabel17 = new DevExpress.XtraReports.UI.XRLabel();
+            this.firma = new DevExpress.XtraReports.Parameters.Parameter();
+            this.xrLabel28 = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrPageInfo1 = new DevExpress.XtraReports.UI.XRPageInfo();
+            this.bsFactura = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsFactura)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
@@ -205,6 +208,9 @@
             // 
             // BottomMargin
             // 
+            this.BottomMargin.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.xrPageInfo1,
+            this.xrLabel28});
             this.BottomMargin.HeightF = 100F;
             this.BottomMargin.Name = "BottomMargin";
             this.BottomMargin.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100F);
@@ -607,10 +613,6 @@
             this.xrTableCell7.Text = "Cantidad";
             this.xrTableCell7.Weight = 0.40530292374002058D;
             // 
-            // bsFactura
-            // 
-            this.bsFactura.DataSource = typeof(Facturas.BizzRules.Factura);
-            // 
             // iban
             // 
             this.iban.Description = "IBAN";
@@ -620,7 +622,7 @@
             // 
             this.ReportFooter.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
             this.xrLabel17});
-            this.ReportFooter.HeightF = 51.04167F;
+            this.ReportFooter.HeightF = 53.125F;
             this.ReportFooter.Name = "ReportFooter";
             // 
             // xrLabel17
@@ -634,6 +636,36 @@
             this.xrLabel17.SizeF = new System.Drawing.SizeF(403.125F, 23F);
             this.xrLabel17.StylePriority.UseFont = false;
             this.xrLabel17.Text = "xrLabel17";
+            // 
+            // firma
+            // 
+            this.firma.Description = "Firma";
+            this.firma.Name = "firma";
+            this.firma.Visible = false;
+            // 
+            // xrLabel28
+            // 
+            this.xrLabel28.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+            new DevExpress.XtraReports.UI.XRBinding(this.firma, "Text", "")});
+            this.xrLabel28.LocationFloat = new DevExpress.Utils.PointFloat(9.999974F, 10.00001F);
+            this.xrLabel28.Name = "xrLabel28";
+            this.xrLabel28.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabel28.SizeF = new System.Drawing.SizeF(606.9998F, 23F);
+            this.xrLabel28.Text = "xrLabel28";
+            // 
+            // xrPageInfo1
+            // 
+            this.xrPageInfo1.Format = "Página {0} de {1}";
+            this.xrPageInfo1.LocationFloat = new DevExpress.Utils.PointFloat(340.2499F, 44.74996F);
+            this.xrPageInfo1.Name = "xrPageInfo1";
+            this.xrPageInfo1.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrPageInfo1.SizeF = new System.Drawing.SizeF(276.7499F, 23F);
+            this.xrPageInfo1.StylePriority.UseTextAlignment = false;
+            this.xrPageInfo1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
+            // 
+            // bsFactura
+            // 
+            this.bsFactura.DataSource = typeof(Facturas.BizzRules.Factura);
             // 
             // XtraReportFactura
             // 
@@ -657,7 +689,8 @@
             this.nombre,
             this.direccion,
             this.poblacion,
-            this.iban});
+            this.iban,
+            this.firma});
             this.Version = "14.1";
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsFactura)).EndInit();
@@ -721,5 +754,8 @@
         private DevExpress.XtraReports.UI.XRLabel xrLabel27;
         private DevExpress.XtraReports.UI.XRLabel xrLabel26;
         private DevExpress.XtraReports.UI.XRLabel xrLabel25;
+        private DevExpress.XtraReports.Parameters.Parameter firma;
+        private DevExpress.XtraReports.UI.XRLabel xrLabel28;
+        private DevExpress.XtraReports.UI.XRPageInfo xrPageInfo1;
     }
 }
