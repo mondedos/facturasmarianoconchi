@@ -72,7 +72,7 @@ namespace Facturas
         {
             _datosFactura.Enabled = true;
             var factura = _datosFactura.NuevaFactura();
-
+            
             PuedeGenerarReport = true;
         }
 

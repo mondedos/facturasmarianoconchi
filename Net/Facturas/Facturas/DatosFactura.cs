@@ -8,6 +8,7 @@ using System.Xml.Serialization;
 using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraPrinting.Drawing;
+using DevExpress.XtraReports.Parameters;
 using DevExpress.XtraReports.UI;
 using Facturas.BizzRules;
 using Facturas.Properties;
@@ -15,11 +16,9 @@ using Facturas.Report;
 
 namespace Facturas
 {
-    public partial class DatosFactura : DevExpress.XtraEditors.XtraUserControl
+    public partial class DatosFactura : XtraUserControl
     {
         #region Atributos
-
-        private int _current = -1;
 
         #endregion
 
@@ -94,9 +93,7 @@ namespace Facturas
 
         public void GuardarDatosCliente()
         {
-            Cliente myObject = Cliente;
-
-            if (myObject == null) return;
+            Cliente myObject = Cliente ?? new Cliente();
 
             XmlSerializer mySerializer;
             StreamWriter myWriter;
@@ -120,6 +117,8 @@ namespace Facturas
             }
             mySerializer.Serialize(myWriter, myObject);
             myWriter.Close();
+
+            Cliente = myObject;
         }
 
         public void Disenyar()
@@ -128,7 +127,7 @@ namespace Facturas
 
             if (factura != null)
             {
-                var cliente = Cliente??new Cliente();
+                var cliente = Cliente ?? new Cliente();
 
                 XtraReportFactura xtraReport = new XtraReportFactura
                 {
@@ -148,13 +147,13 @@ namespace Facturas
                 {
                 }
 
-               
+
                 ReportDesignTool dt = new ReportDesignTool(xtraReport);
 
                 // Invoke the Ribbon End-User Designer form modally. 
                 dt.ShowRibbonDesignerDialog();
 
-                using (var ms=new MemoryStream())
+                using (var ms = new MemoryStream())
                 {
                     xtraReport.SaveLayout(ms);
 
@@ -171,7 +170,6 @@ namespace Facturas
             bsFactura.EndEdit();
             bsFactura.List.Clear();
             bsFactura.AddNew();
-            _current = -1;
 
             HabilitarGenerar(false);
 
@@ -254,22 +252,24 @@ namespace Facturas
             xtraReport.Factura = factura;
             xtraReport.RequestParameters = false;
 
-            xtraReport.Parameters["licenciaMunicipal"].Value = Settings.Default.licencia;
-            xtraReport.Parameters["email"].Value = Settings.Default.email;
-            xtraReport.Parameters["Movil"].Value = Settings.Default.movil;
-            xtraReport.Parameters["Nif"].Value = Settings.Default.nif;
-            xtraReport.Parameters["Telefono"].Value = Settings.Default.telefono;
-            xtraReport.Parameters["nombre"].Value = Settings.Default.nombre;
-            xtraReport.Parameters["direccion"].Value = Settings.Default.direccion;
-            xtraReport.Parameters["poblacion"].Value = Settings.Default.poblacionCP;
+            ParameterCollection parameters = xtraReport.Parameters;
+
+            parameters["licenciaMunicipal"].Value = Settings.Default.licencia;
+            parameters["email"].Value = Settings.Default.email;
+            parameters["Movil"].Value = Settings.Default.movil;
+            parameters["Nif"].Value = Settings.Default.nif;
+            parameters["Telefono"].Value = Settings.Default.telefono;
+            parameters["nombre"].Value = Settings.Default.nombre;
+            parameters["direccion"].Value = Settings.Default.direccion;
+            parameters["poblacion"].Value = Settings.Default.poblacionCP;
 
             if (!string.IsNullOrEmpty(Settings.Default.Iban))
             {
-                xtraReport.Parameters["iban"].Value = string.Format("IBAN: {0}", Settings.Default.Iban);
+                parameters["iban"].Value = string.Format("IBAN: {0}", Settings.Default.Iban);
             }
             else
             {
-                xtraReport.Parameters["iban"].Value = string.Format("IBAN: {0}", Settings.Default.ccc);
+                parameters["iban"].Value = string.Format("IBAN: {0}", Settings.Default.ccc);
             }
             return xtraReport;
         }
@@ -384,11 +384,24 @@ namespace Facturas
         {
             Factura factura = new Factura();
 
+            var cliente = Cliente;
+
+            if (cliente != null
+                && XtraMessageBox.Show(string.Format("¿Desea conservar los datos del cliente de la factura {0}?", Settings.Default.ultimaFactura)
+                , "Nueva factura", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) == DialogResult.Yes)
+            {
+                Util.CopiarPropiedadesTipo(cliente, factura);
+            }
+
+
             e.NewObject = factura;
 
             factura.Fecha = DateTime.Now;
             factura.Numero = Settings.Default.ultimaFactura + 1;
 
+            Settings.Default.ultimaFactura = factura.Numero;
+
+            Settings.Default.Save();
 
         }
 
