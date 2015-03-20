@@ -39,10 +39,12 @@
             System.Windows.Forms.Label nombreLabel;
             System.Windows.Forms.Label direccionLabel;
             System.Windows.Forms.Label fechaLabel;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DatosFactura));
             this.bsLineas = new System.Windows.Forms.BindingSource(this.components);
             this.bsFactura = new System.Windows.Forms.BindingSource(this.components);
             this.groupControlLineas = new DevExpress.XtraEditors.GroupControl();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
+            this.imageCollectionGrid = new DevExpress.Utils.ImageCollection(this.components);
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colConcepto = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemMemoEditConcepto = new DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit();
@@ -79,6 +81,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControlLineas)).BeginInit();
             this.groupControlLineas.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imageCollectionGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemMemoEditConcepto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCalcEdit1)).BeginInit();
@@ -212,7 +215,7 @@
             this.groupControlLineas.Location = new System.Drawing.Point(12, 300);
             this.groupControlLineas.Name = "groupControlLineas";
             this.groupControlLineas.Size = new System.Drawing.Size(886, 238);
-            this.groupControlLineas.TabIndex = 3;
+            this.groupControlLineas.TabIndex = 1;
             this.groupControlLineas.Text = "Líneas";
             // 
             // gridControl1
@@ -220,6 +223,18 @@
             this.gridControl1.Cursor = System.Windows.Forms.Cursors.Default;
             this.gridControl1.DataSource = this.bsLineas;
             this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridControl1.EmbeddedNavigator.Buttons.Append.ImageIndex = 1;
+            this.gridControl1.EmbeddedNavigator.Buttons.CancelEdit.ImageIndex = 3;
+            this.gridControl1.EmbeddedNavigator.Buttons.Edit.ImageIndex = 2;
+            this.gridControl1.EmbeddedNavigator.Buttons.EndEdit.ImageIndex = 10;
+            this.gridControl1.EmbeddedNavigator.Buttons.First.ImageIndex = 4;
+            this.gridControl1.EmbeddedNavigator.Buttons.ImageList = this.imageCollectionGrid;
+            this.gridControl1.EmbeddedNavigator.Buttons.Last.ImageIndex = 5;
+            this.gridControl1.EmbeddedNavigator.Buttons.Next.ImageIndex = 8;
+            this.gridControl1.EmbeddedNavigator.Buttons.NextPage.ImageIndex = 6;
+            this.gridControl1.EmbeddedNavigator.Buttons.Prev.ImageIndex = 9;
+            this.gridControl1.EmbeddedNavigator.Buttons.PrevPage.ImageIndex = 7;
+            this.gridControl1.EmbeddedNavigator.Buttons.Remove.ImageIndex = 0;
             this.gridControl1.Location = new System.Drawing.Point(2, 21);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
@@ -231,6 +246,32 @@
             this.gridControl1.UseEmbeddedNavigator = true;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
+            // 
+            // imageCollectionGrid
+            // 
+            this.imageCollectionGrid.ImageStream = ((DevExpress.Utils.ImageCollectionStreamer)(resources.GetObject("imageCollectionGrid.ImageStream")));
+            this.imageCollectionGrid.InsertGalleryImage("delete_16x16.png", "images/edit/delete_16x16.png", DevExpress.Images.ImageResourceCache.Default.GetImage("images/edit/delete_16x16.png"), 0);
+            this.imageCollectionGrid.Images.SetKeyName(0, "delete_16x16.png");
+            this.imageCollectionGrid.InsertGalleryImage("add_16x16.png", "images/actions/add_16x16.png", DevExpress.Images.ImageResourceCache.Default.GetImage("images/actions/add_16x16.png"), 1);
+            this.imageCollectionGrid.Images.SetKeyName(1, "add_16x16.png");
+            this.imageCollectionGrid.InsertGalleryImage("edit_16x16.png", "images/edit/edit_16x16.png", DevExpress.Images.ImageResourceCache.Default.GetImage("images/edit/edit_16x16.png"), 2);
+            this.imageCollectionGrid.Images.SetKeyName(2, "edit_16x16.png");
+            this.imageCollectionGrid.InsertGalleryImage("cancel_16x16.png", "images/actions/cancel_16x16.png", DevExpress.Images.ImageResourceCache.Default.GetImage("images/actions/cancel_16x16.png"), 3);
+            this.imageCollectionGrid.Images.SetKeyName(3, "cancel_16x16.png");
+            this.imageCollectionGrid.InsertGalleryImage("doublefirst_16x16.png", "images/arrows/doublefirst_16x16.png", DevExpress.Images.ImageResourceCache.Default.GetImage("images/arrows/doublefirst_16x16.png"), 4);
+            this.imageCollectionGrid.Images.SetKeyName(4, "doublefirst_16x16.png");
+            this.imageCollectionGrid.InsertGalleryImage("doublelast_16x16.png", "images/arrows/doublelast_16x16.png", DevExpress.Images.ImageResourceCache.Default.GetImage("images/arrows/doublelast_16x16.png"), 5);
+            this.imageCollectionGrid.Images.SetKeyName(5, "doublelast_16x16.png");
+            this.imageCollectionGrid.InsertGalleryImage("doublenext_16x16.png", "images/arrows/doublenext_16x16.png", DevExpress.Images.ImageResourceCache.Default.GetImage("images/arrows/doublenext_16x16.png"), 6);
+            this.imageCollectionGrid.Images.SetKeyName(6, "doublenext_16x16.png");
+            this.imageCollectionGrid.InsertGalleryImage("doubleprev_16x16.png", "images/arrows/doubleprev_16x16.png", DevExpress.Images.ImageResourceCache.Default.GetImage("images/arrows/doubleprev_16x16.png"), 7);
+            this.imageCollectionGrid.Images.SetKeyName(7, "doubleprev_16x16.png");
+            this.imageCollectionGrid.InsertGalleryImage("next_16x16.png", "images/arrows/next_16x16.png", DevExpress.Images.ImageResourceCache.Default.GetImage("images/arrows/next_16x16.png"), 8);
+            this.imageCollectionGrid.Images.SetKeyName(8, "next_16x16.png");
+            this.imageCollectionGrid.InsertGalleryImage("prev_16x16.png", "images/arrows/prev_16x16.png", DevExpress.Images.ImageResourceCache.Default.GetImage("images/arrows/prev_16x16.png"), 9);
+            this.imageCollectionGrid.Images.SetKeyName(9, "prev_16x16.png");
+            this.imageCollectionGrid.InsertGalleryImage("apply_16x16.png", "images/actions/apply_16x16.png", DevExpress.Images.ImageResourceCache.Default.GetImage("images/actions/apply_16x16.png"), 10);
+            this.imageCollectionGrid.Images.SetKeyName(10, "apply_16x16.png");
             // 
             // gridView1
             // 
@@ -368,7 +409,7 @@
             this.groupBox1.Location = new System.Drawing.Point(12, 6);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(886, 288);
-            this.groupBox1.TabIndex = 2;
+            this.groupBox1.TabIndex = 0;
             this.groupBox1.Text = "Datos del cliente";
             // 
             // textEditUnidadTramitadora
@@ -510,6 +551,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControlLineas)).EndInit();
             this.groupControlLineas.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imageCollectionGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemMemoEditConcepto)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCalcEdit1)).EndInit();
@@ -559,5 +601,6 @@
         private DevExpress.XtraEditors.DateEdit tbFecha;
         private DevExpress.XtraEditors.Repository.RepositoryItemCalcEdit repositoryItemCalcEdit1;
         private System.Windows.Forms.BindingSource bsCliente;
+        private DevExpress.Utils.ImageCollection imageCollectionGrid;
     }
 }
