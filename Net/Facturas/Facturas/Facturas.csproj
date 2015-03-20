@@ -12,11 +12,11 @@
     <AssemblyName>Facturas</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <ManifestCertificateThumbprint>DF8555BF1AF3295402C4D2E8BD542FA7EE0CDA92</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>B7E76D1CE64F40A389545A9E6D9BE1A7823FC512</ManifestCertificateThumbprint>
     <ManifestKeyFile>Facturas.pfx</ManifestKeyFile>
     <GenerateManifests>true</GenerateManifests>
     <SignManifests>false</SignManifests>
-    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <ApplicationIcon>8234.ico</ApplicationIcon>
     <SignAssembly>false</SignAssembly>
     <AssemblyOriginatorKeyFile>Facturas.snk</AssemblyOriginatorKeyFile>
@@ -26,9 +26,9 @@
     </UpgradeBackupLocation>
     <OldToolsVersion>3.5</OldToolsVersion>
     <TargetFrameworkProfile />
-    <PublishUrl>ftp://ftpusuarios.ono.com/</PublishUrl>
+    <PublishUrl>C:\Users\ricardo.prieto.LTKGRP\Desktop\Deploy\</PublishUrl>
     <Install>true</Install>
-    <InstallFrom>Web</InstallFrom>
+    <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>true</UpdateEnabled>
     <UpdateMode>Foreground</UpdateMode>
     <UpdateInterval>7</UpdateInterval>
@@ -36,9 +36,7 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <InstallUrl>http://webs.ono.com/fatmariano/</InstallUrl>
     <UpdateUrl>http://webs.ono.com/fatmariano/</UpdateUrl>
-    <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
     <ApplicationRevision>1</ApplicationRevision>
     <ApplicationVersion>1.3.0.%2a</ApplicationVersion>
@@ -68,6 +66,7 @@
   <ItemGroup>
     <Reference Include="DevExpress.Charts.v14.1.Core, Version=14.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Data.v14.1, Version=14.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Images.v14.1, Version=14.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Office.v14.1.Core, Version=14.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.PivotGrid.v14.1.Core, Version=14.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Printing.v14.1.Core, Version=14.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
