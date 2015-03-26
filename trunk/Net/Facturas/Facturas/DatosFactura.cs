@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
 using System.IO;
@@ -383,7 +384,7 @@ namespace Facturas
         void bsFactura_AddingNew(object sender, AddingNewEventArgs e)
         {
             Factura factura = new Factura();
-
+            
             var cliente = Cliente;
 
             if (cliente != null
@@ -403,6 +404,7 @@ namespace Facturas
 
             Settings.Default.Save();
 
+            bsLineas.Clear();
         }
 
         #endregion
