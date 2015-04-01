@@ -1,4 +1,6 @@
 ﻿using System.IO;
+using System.Windows.Forms;
+using DevExpress.XtraEditors;
 using DevExpress.XtraPrinting;
 using DevExpress.XtraPrinting.Preview;
 using Facturas.BizzRules;
@@ -28,6 +30,9 @@ namespace Facturas.Report.Comands
 
             if (documentViewer != null)
             {
+                // Set handled to 'true' to prevent the standard exporting procedure from being called.
+                handled = true;
+
                 XtraReportFactura xtraReportFactura = documentViewer.DocumentSource as XtraReportFactura;
 
                 if (xtraReportFactura != null)
@@ -38,11 +43,18 @@ namespace Facturas.Report.Comands
 
                     string nombreFichero = Path.Combine(escritorio, string.Format("Factura-{0}.pdf", factura.Numero));
 
+                    if (File.Exists(nombreFichero)
+                        && XtraMessageBox.Show(string.Format(@"¿Desea sobreescribir el fichero '{0}'?", nombreFichero),
+                        string.Format("Exportar a PDF la factura {0}", factura.Numero),
+                        MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.No)
+                    {
+                        return;
+                    }
+
                     xtraReportFactura.ExportToPdf(nombreFichero);
                 }
             }
-            // Set handled to 'true' to prevent the standard exporting procedure from being called.
-            handled = true;
+           
         }
 
         /// <summary>
